@@ -34,7 +34,7 @@
 # 📂 [파일 관리]
 # 🛠 Rename: 파일/폴더명 변경 또는 이동
 # 🔥 Remove: 파일 삭제
-# 📝 Docs: 문서 수정 (README 등)
+# 📝 Docs: 문서 수정 (README, 탬플릿 파일 등)
 
 # 🔀 [병합]
 # 💫 Merge: Pull Request 병합 (충돌 없음)
