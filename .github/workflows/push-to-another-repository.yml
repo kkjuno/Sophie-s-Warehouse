@@ -22,7 +22,7 @@ jobs:
         with:
           source-directory: 'output'
           destination-github-username: kkjuno
-          destination-repository-name: Final-07-Chillin-Code
+          destination-repository-name: Sophies-Warehouse
           user-email: ${{ secrets.EMAIL_KKJUNO }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: develop
