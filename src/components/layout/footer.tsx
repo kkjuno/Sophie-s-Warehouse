@@ -25,7 +25,7 @@ export default function Footer() {
         <a href="#">불법 사이트 신고 및 제보</a>
       </div>
       <div className={footer_styles.footer__company}>
-        <div className={footer_styles.footer__company_name}><strong>Sophie's Warehouse</strong></div>
+        <div className={footer_styles.footer__company_name}><strong>Sophie&apos;s Warehouse</strong></div>
         <p>
           대표자 김준오 ｜ 사업자등록번호 123-45-6789 <br />
           서울 금천구 가산디지털단지 가산로 1길 78, 10층 <br />
