@@ -1,0 +1,23 @@
+:root {
+  font-family: 'HumanBeomseokNeoVF', sans-serif; /* 글로벌 폰트 설정 */
+  margin: 0;
+  padding: 0;
+/* 커스텀 컬러 변수 */
+  --color-primary: #FDF6E3;
+  --color-secondary: #fafafa;
+  --color-text: #081818;
+  --color-text-pointer: #FF0000;
+  --color-border-light: #B6C5C5;
+  --color-bg-light: #D0D0D0;
+}
+
+
+@font-face {
+  font-family: 'HumanBeomseokNeoVF';
+  src: url('/fonts/variable/Human-BeomseokNeoVF.woff2') format('woff2'),
+       url('/fonts/variable/Human-BeomseokNeoVF.woff') format('woff'),
+       url('/fonts/variable/Human-BeomseokNeoVF.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap; /* 로딩 동작 제어 (권장) */
+}
