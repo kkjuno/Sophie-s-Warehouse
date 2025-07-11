@@ -11,9 +11,8 @@
 .footer__top {
   display: flex;
   gap: 8px;
-  margin-bottom: 14px;
-  font-weight: 700;
-  font-size: 14px;
+  margin-bottom: 20px;
+  font-size: 12px;
 }
 
 .footer__notice {
@@ -23,7 +22,7 @@
 }
 
 .footer__links {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
@@ -46,26 +45,32 @@
 
 .footer__company {
   line-height: 1.6;
-  font-size: 13px;
+  font-size: 12px;
   
 }
 
 .footer__company_name {
   font-weight: 700;
   font-size: 20px;
+  margin-bottom: 3px;
 }
 
+.footer__resource {
+  font-size: 12px;
+  color: var(--color-text);
+  margin-top: 20px;
+}
 
 @media (max-width: 768px) {
   .footer {
     padding: 16px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .footer__top {
     display: flex;
     gap: 4px;
-    font-size: 15;
+    font-size: 15px;
   }
 
   .footer__links {
