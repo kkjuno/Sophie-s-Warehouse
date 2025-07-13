@@ -1,0 +1,42 @@
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-text);
+  padding: 10px 0;
+  z-index: 100;
+  max-width: 375px;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.label {
+  font-size: 10px;
+  color: #939797;
+  font-weight: 600;
+}
+
+@media (min-width: 376px) {
+  .footer {
+    display: none;
+  }
+}

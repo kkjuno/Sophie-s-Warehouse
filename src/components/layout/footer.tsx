@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import footer_styles from '@/styles/components/Footer.module.css';
+import footer_styles from '@/styles/components/footer.module.css';
 
 
 export default function Footer() {
@@ -36,7 +36,6 @@ export default function Footer() {
         <div className={footer_styles.footer__resource}>
           <p>출처: http://www.kbrising.com/product/detail/12345/</p>
         </div>
-     
     </footer>
   );
 }
