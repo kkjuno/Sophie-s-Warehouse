@@ -33,7 +33,7 @@
 }
 
 .footer__links a:hover {
-  color: red
+  color: var(--color-text-pointer)
 }
 
 .divider {
