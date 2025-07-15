@@ -1,11 +1,9 @@
-
 .footer {
   background-color: var(--color-primary);
   padding: 24px;
-  font-family: 'HumanBeomseokNeoVF', sans-serif; /* 기본 폰트 설정 */
+  font-family: 'HumanBeomseokNeoVF', sans-serif;
   color: var(--color-text);
   border-top: 1px solid var(--color-bg-light);
-
 }
 
 .footer__top {
@@ -30,12 +28,12 @@
 }
 
 .footer__links a {
-  text-decoration: none; /* 밑줄 제거 */
+  text-decoration: none; 
   color: inherit; 
 }
 
 .footer__links a:hover {
-  color: red
+  color: var(--color-text-pointer)
 }
 
 .divider {
@@ -61,16 +59,16 @@
   margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 376px) {
   .footer {
     padding: 16px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .footer__top {
     display: flex;
     gap: 4px;
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .footer__links {
@@ -78,10 +76,16 @@
     flex-wrap: wrap;
     gap: 6px;
     font-size: 13px;
+    
   }
 
   .footer__company {
     font-size: 13px;
     line-height: 1.4;
+    display: none;
+  }
+
+  .footer__company_name {
+    display: none;
   }
 }
