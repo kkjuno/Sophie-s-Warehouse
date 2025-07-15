@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import footer_nav_bar_styles from "@/styles/components/footerNavBar.module.css";
-import Image from "next/image"; 
 
 export default function FooterNav() {
   return (
@@ -8,56 +7,31 @@ export default function FooterNav() {
       <nav className={footer_nav_bar_styles.nav}>
         <a href="#" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
-            <Image
-              src="/icons/shopping-cart.svg"
-              alt="장바구니로 이동"
-              width={33}
-              height={33}
-            />
+            <img src="/icons/장바구니 흰색 아이콘.svg" width={33} height={33} alt="장바구니" />
           </div>
           <span className={footer_nav_bar_styles.label}>장바구니</span>
-        </a>  
+        </a>
         <a href="#" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
-           <Image
-              src="/icons/stamp.svg"
-              alt="스템프로 이동"
-              width={33}
-              height={33}
-            />
+            <img src="/icons/스템프 흰색 아이콘.svg" width={33} height={33} alt="스템프" />
           </div>
           <span className={footer_nav_bar_styles.label}>스템프</span>
         </a>
         <a href="#" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
-            <Image
-              src="/icons/home.svg"
-              alt="홈으로 이동"
-              width={33}
-              height={33}
-            />
+            <img src="/icons/홈 흰색 아이콘.svg" width={33} height={33} alt="홈" />
           </div>
           <span className={footer_nav_bar_styles.label}>홈</span>
         </a>
         <a href="#" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
-           <Image
-              src="/icons/mypage.svg"
-              alt="마이페이지로 이동"
-              width={33}
-              height={33}
-            />
+            <img src="/icons/마이페이지 흰색 아이콘.svg" width={33} height={33} alt="마이페이지" />
           </div>
           <span className={footer_nav_bar_styles.label}>마이페이지</span>
         </a>
-         <a href="#" className={footer_nav_bar_styles.navItem}>
+        <a href="#" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
-           <Image
-              src="/icons/recent-page.svg"
-              alt="최근본상품으로 이동"
-              width={33}
-              height={33}
-            />
+            <img src="/icons/최근본상품 흰색 아이콘.svg" width={33} height={33} alt="최근본상품" />
           </div>
           <span className={footer_nav_bar_styles.label}>최근본상품</span>
         </a>
