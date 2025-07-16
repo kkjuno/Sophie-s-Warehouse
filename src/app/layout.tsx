@@ -1,7 +1,8 @@
-import Footer from "@/components/layout/footer";
-import FooterNav from "@/components/layout/footer-nav-bar";
-import "@/styles/globals.css";
-
+import Footer from '@/components/layout/footer';
+import FooterNav from '@/components/layout/footer-nav-bar';
+import React from 'react';
+import '@/styles/globals.css';
+import Button from '@/components/common/button';
 
 export default function RootLayout({
   children,
