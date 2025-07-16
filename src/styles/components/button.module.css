@@ -1,0 +1,303 @@
+/* components/Button/Button.module.css */
+@import url('../reset/modern-reset.css');
+@import url(../globals.css);
+
+/* 가독성을 위한 여백 추가 */
+/* 실제로 사용할때는 주의! */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.button_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 버튼 사이 간격, 필요에 따라 조절 */
+}
+
+/* 웹 드롭다운 버튼 css */
+.dropdown {
+  display: flex;
+  width: 120px;
+  height: 44px;
+  padding: 10px 11.965px 10px 15px;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+  border: 2px solid var(--color-border-light);
+  border-radius: 4px;
+  font-size: 16px;
+  color: #6b7878;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+
+.dropdown_icon {
+  position: absolute;
+  right: 14px;
+  top: 5px;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  transform: rotate(270deg);
+  color: #6b7878;
+}
+
+.dropdown_wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+
+/* 모바일 드롭다운 버튼 css */
+@media (max-width: 375px) {
+  .dropdown {
+    width: 60px;
+    height: 24px;
+    font-size: 10px;
+    padding: 5px;
+    margin-bottom: 2px;
+  }
+
+  .dropdown_icon {
+    width: 2px;
+    height: 6px;
+    right: 14px;
+    top: 10px;
+  }
+}
+
+/* 웹 결제하기 버튼 */
+.payment_button {
+  width: 226px;
+  height: 52px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 0;
+  border: 0px;
+}
+
+/* 모바일 결제하기 버튼 */
+@media (max-width: 375px) {
+  .payment_button {
+    width: 180px;
+    height: 38px;
+    font-size: 16px;
+    padding: 6px 60px;
+  }
+}
+
+/* 웹 장바구니 버튼 */
+.cart_button {
+  width: 310px;
+  height: 52px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 0;
+  border: 2px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 웹 구매하기 버튼 */
+.purchase_button {
+  width: 310px;
+  height: 52px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px 0;
+  border: 0px;
+}
+
+/* 웹 닫기 버튼 */
+.close_button {
+  width: 220px;
+  height: 40px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 4px 0;
+  border: 2px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+}
+
+/* 모바일 닫기 버튼 */
+@media (max-width: 375px) {
+  .close_button {
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    padding: 6px 0;
+  }
+}
+
+/* 웹 바로가기 버튼 */
+.quick_link_button {
+  width: 220px;
+  height: 40px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 4px 0;
+  border: 2px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 모바일 바로가기 버튼 */
+@media (max-width: 375px) {
+  .quick_link_button {
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    padding: 6px 0;
+  }
+}
+
+/* 웹 로그인 버튼 */
+.login_button {
+  width: 450px;
+  height: 60px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 0;
+  border: 0px;
+}
+
+/* 모바일 로그인 버튼 */
+@media (max-width: 375px) {
+  .login_button {
+    width: 180px;
+    height: 38px;
+    font-size: 16px;
+    padding: 8px 0;
+  }
+}
+
+/* 웹 회원가입 버튼 */
+.signup_button {
+  width: 450px;
+  height: 60px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 0;
+  border: 0px;
+}
+
+/* 모바일 회원가입 버튼 */
+@media (max-width: 375px) {
+  .signup_button {
+    width: 180px;
+    height: 38px;
+    font-size: 16px;
+    padding: 8px 0;
+  }
+}
+
+/* 웹 조회 버튼 */
+.inquiry_button {
+  width: 60px;
+  height: 35px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  border: 0px;
+}
+
+/* 모바일 조회 버튼 */
+@media (max-width: 375px) {
+  .inquiry_button {
+    width: 38px;
+    height: 20px;
+    font-size: 12px;
+    padding: 4px 0;
+  }
+}
+/* 웹 배송지 관리 버튼 */
+.place_search_button {
+  width: 106px;
+  height: 38px;
+  background: #ffffff;
+  color: #1b4332;
+  border: 2px solid #1b4332;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 13px 0;
+}
+
+/* 웹 우편번호 검색 버튼 */
+.postcode_search_button {
+  width: 114px;
+  height: 40px;
+  background: #1b4332;
+  color: #ffffff;
+  /* border: 2px solid #1B4332; */
+  font-size: 12px;
+  font-weight: 500;
+  padding: 13px 0;
+  border: 0;
+}
+
+/* 웹 장바구니 가기 버튼 */
+.go_to_cart_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 142px;
+  height: 40px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  border: 2px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 웹 배송지 추가 */
+.add_address_button {
+  width: 100px;
+  height: 30px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 0;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}

@@ -6,6 +6,7 @@
   font-family: 'HumanBeomseokNeoVF', sans-serif;
   color: var(--color-text);
   border-top: 1px solid var(--color-bg-light);
+  padding-left: 80px;
 }
 
 .footer__top {
