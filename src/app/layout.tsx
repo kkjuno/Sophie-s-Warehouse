@@ -3,6 +3,7 @@ import FooterNav from '@/components/layout/footer-nav-bar';
 import React from 'react';
 import '@/styles/globals.css';
 import Button from '@/components/common/button';
+import Header from '@/components/layout/header';
 
 export default function RootLayout({
   children,
@@ -18,5 +19,5 @@ export default function RootLayout({
         <FooterNav />
       </body>
     </html>
-  );
+ );
 }
