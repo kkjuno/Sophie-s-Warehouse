@@ -22,3 +22,7 @@
   font-style: normal;
   font-display: swap; /* 로딩 동작 제어 (권장) */
 }
+
+body{
+  background-color: #FDF6E3;
+}
