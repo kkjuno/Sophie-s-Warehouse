@@ -8,8 +8,8 @@ export default function Button() {
     <div className={styles.container}>
       {/* 드롭다운 섹션 */}
 
-      <div className={styles.dropdownSection}>
-        <div className={styles.dropdownWrapper}>
+      <div className={styles.dropdown_section}>
+        <div className={styles.dropdown_wrapper}>
           <select className={styles.dropdown}>
             <option value="newest">신상품순</option>
             <option value="best-selling">판매인기순</option>
@@ -18,7 +18,7 @@ export default function Button() {
             <option value="most-liked">찜 많은순</option>
             <option value="most-reviewed">리뷰 많은순</option>
           </select>
-          <div className={styles.dropdownIcon}>
+          <div className={styles.dropdown_icon}>
             <svg
               width="6"
               height="12"
@@ -36,29 +36,29 @@ export default function Button() {
       </div>
 
       {/* 일반 버튼들 컨테이너 */}
-      <div className={styles.commonButtonContainer}>
-        <div className={styles.buttonGrid}>
-          <button className={`${styles.paymentButton} `}>결제하기</button>
+      <div className={styles.common_button_container}>
+        <div className={styles.button_grid}>
+          <button className={`${styles.payment_button} `}>결제하기</button>
 
-          <button className={`${styles.cartButton} `}>장바구니</button>
+          <button className={`${styles.cart_button} `}>장바구니</button>
 
-          <button className={`${styles.purchaseButton} `}>구매하기</button>
+          <button className={`${styles.purchase_button} `}>구매하기</button>
 
-          <button className={`${styles.closeButton} `}>닫기</button>
+          <button className={`${styles.close_button} `}>닫기</button>
 
-          <button className={`${styles.quickLinkButton} `}>바로가기</button>
+          <button className={`${styles.quick_link_button} `}>바로가기</button>
 
-          <button className={`${styles.loginButton} `}>로그인</button>
+          <button className={`${styles.login_button} `}>로그인</button>
 
-          <button className={`${styles.signupButton} `}>회원가입</button>
+          <button className={`${styles.signup_button} `}>회원가입</button>
 
-          <button className={`${styles.inquiryButton} `}>조회</button>
+          <button className={`${styles.inquiry_button} `}>조회</button>
 
-          <button className={`${styles.placeSearchButton} `}>배송지 관리</button>
+          <button className={`${styles.place_search_button} `}>배송지 관리</button>
 
-          <button className={`${styles.postcodeSearchButton} `}>우편번호 검색</button>
+          <button className={`${styles.postcode_search_button} `}>우편번호 검색</button>
 
-          <button className={`${styles.goToCartButton} `}>
+          <button className={`${styles.go_to_cart_button} `}>
             <svg
               width="6"
               height="12"
@@ -74,7 +74,7 @@ export default function Button() {
             장바구니 가기
           </button>
 
-          <button className={`${styles.addAddressButton} `}>배송지 추가</button>
+          <button className={`${styles.add_address_button} `}>배송지 추가</button>
         </div>
       </div>
     </div>
