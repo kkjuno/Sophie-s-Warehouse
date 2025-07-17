@@ -1,0 +1,132 @@
+@import url('../reset/modern-reset.css');
+
+/* 모바일 로그인 페이지 */
+@media (max-width: 375px) {
+  .web_login_page {
+    display: none;
+  }
+
+  .mobile_login_page {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 모바일 로그인 페이지 헤더 */
+
+  .mobile_logo {
+    margin: 60px 0 30px 0;
+  }
+
+  .mobile_description {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .mobile_description_point {
+    color: var(--color-text-pointer);
+  }
+
+  /* 모바일 로그인 페이지 박스 */
+  .mobile_form_wrapper {
+    width: 343px;
+    height: 400px;
+    background-color: #f0e9d6;
+    border-radius: 10px;
+    margin: 30px 0 20px 0;
+  }
+
+  /* 모바일 로그인 페이지 뒤로가기와 로그인 제목 */
+  .mobile_login_title_container {
+    display: flex;
+    flex-flow: row wrap;
+    padding-block: 30px;
+  }
+
+  .mobile_back_button {
+    margin-left: 13px;
+    margin-right: 124px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .mobile_login_title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  /* 모바일 로그인 페이지 인풋 */
+  .mobile_form {
+    display: flex;
+    flex-flow: column wrap;
+    padding-inline: 13px;
+  }
+
+  .mobile_label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+
+  .mobile_input {
+    margin-bottom: 15px;
+    height: 30px;
+    border: none;
+  }
+
+  .mobile_option {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .mobile_checkbox_container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mobile_checkbox {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .mobile_checkbox_label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .mobile_forgot_password_link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-pointer);
+    text-decoration: none;
+  }
+
+  /* 모바일 로그인 페이지 버튼 */
+  .mobile_buttons_wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 40px;
+  }
+
+  /* 모바일 로그인 페이지 조항 */
+  .mobile_terms {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
