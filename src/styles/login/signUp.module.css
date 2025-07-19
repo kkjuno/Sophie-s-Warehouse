@@ -1,293 +1,296 @@
 @import url('../reset/modern-reset.css');
 
 /* 모바일 회원가입 페이지 */
-@media (max-width: 375px) {
-  .web_signUp_page {
-    display: none;
-  }
 
-  .mobile_signUp_page {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-  }
+.signUp_page {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
+  width: 100%;
+  height: 100vh;
+}
 
-  /* 모바일 회원가입 페이지 헤더 */
+/* 모바일 회원가입 페이지 헤더 */
+.logo_wrapper {
+  position: relative;
+  width: clamp(150px, 12vw, 173px);
+  height: clamp(60px, 5vw, 82px);
+  margin-bottom: 5vw;
+}
 
-  .mobile_logo {
-    margin: 50px 0 20px 0;
-  }
+.description {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.5rem;
+  text-align: center;
+}
 
-  .mobile_description {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--color-text);
-    line-height: 24px;
-    text-align: center;
-  }
+.description_point {
+  color: var(--color-text-pointer);
+}
 
-  .mobile_description_point {
-    color: var(--color-text-pointer);
-  }
+/* 모바일 회원가입 페이지 박스 */
+.form_wrapper {
+  width: 90vw;
+  height: 55vh;
+  background-color: #f0e9d6;
+  border-radius: 2vw;
+  margin: 6vw 0 4vw 0;
+  padding-inline: 0.8rem;
+}
 
-  /* 모바일 회원가입 페이지 박스 */
-  .mobile_form_wrapper {
-    width: 343px;
-    height: 500px;
-    background-color: #f0e9d6;
-    border-radius: 10px;
-    margin: 20px 0 15px 0;
-  }
+/* 모바일 회원가입 페이지 뒤로가기와 회원가입 제목 */
+.signUp_title_container {
+  display: flex;
+  flex-flow: row wrap;
+  padding-block: 7.2vw;
+}
 
-  /* 모바일 회원가입 페이지 뒤로가기와 회원가입 제목 */
-  .mobile_signUp_title_container {
-    display: flex;
-    flex-flow: row wrap;
-    padding-block: 30px;
-  }
+.back_button {
+  margin-right: 30vw;
+  width: 4.2vw;
+  height: 4.2vw;
+}
 
-  .mobile_back_button {
-    margin-left: 13px;
-    margin-right: 124px;
-    width: 15px;
-    height: 15px;
-  }
+.signUp_title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
 
-  .mobile_signUp_title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-text);
-  }
+/* 모바일 회원가입 페이지 인풋 */
+.form {
+  display: flex;
+  flex-flow: column wrap;
+}
 
-  /* 모바일 회원가입 페이지 인풋 */
-  .mobile_form {
-    display: flex;
-    flex-flow: column wrap;
-    padding-inline: 13px;
-  }
+.label_top {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
-  .mobile_label_top {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
+.input_name_wrapper,
+.input_pn_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+}
 
-  .mobile_input_name_wrapper,
-  .mobile_input_pn_wrapper {
-    display: flex;
-    flex-flow: column wrap;
-  }
+.input_name,
+.input_pn {
+  margin-bottom: 3vw;
+  height: 8vw;
+  width: 38vw;
+  border: none;
+  font-size: 1.25rem;
+}
 
-  .mobile_input_name,
-  .mobile_input_pn {
-    margin-bottom: 10px;
-    height: 30px;
-    width: 140px;
-    border: none;
-    font-size: 20px;
-  }
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 3vw;
+}
 
-  .mobile_label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 10px;
-  }
+.input {
+  margin-bottom: 3vw;
+  height: 8vw;
+  border: none;
+}
 
-  .mobile_input {
-    margin-bottom: 10px;
-    height: 30px;
-    border: none;
-  }
+.checkbox_container {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 3vw;
+  margin-top: 1.5vw;
+}
 
-  .mobile_checkbox_container {
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-    margin-top: 5px;
-  }
+.checkbox_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5vw;
+}
 
-  .mobile_checkbox_wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 6px;
-  }
+.checkbox {
+  margin: 0;
+  width: 5vw;
+  height: 5vw;
+  cursor: pointer;
+}
 
-  .mobile_checkbox {
-    margin: 0;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-  }
+.checkbox_label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
 
-  .mobile_checkbox_label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text);
-    cursor: pointer;
-  }
+/* 모바일 회원가입 페이지 버튼 */
+.buttons_wrapper {
+  display: flex;
+  margin-top: 6vw;
+  justify-content: center;
+}
 
-  /* 모바일 회원가입 페이지 버튼 */
-  .mobile_buttons_wrapper {
-    display: flex;
-    margin-top: 18px;
-    justify-content: center;
-  }
-
-  /* 모바일 회원가입 페이지 조항 */
-  .mobile_terms {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--color-text);
-    text-align: center;
-    line-height: 14px;
-  }
+/* 모바일 회원가입 페이지 조항 */
+.terms {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 0.875rem;
 }
 
 /* 웹 회원가입 페이지 */
-@media (min-width: 376px) {
-  .mobile_signUp_page {
+@media (min-width: 480px) {
+  .signUp_page,
+  .mobile_only_br {
     display: none;
   }
 
-  .web_signUp_page {
+  .signUp_page {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
   }
 
   /* 웹 회원가입 페이지 헤더 */
 
-  .web_logo {
-    margin: 50px 0 35px 0;
+  .logo_wrapper {
+    position: relative;
+    width: clamp(190px, 16vw, 210px);
+    height: clamp(80px, 16vw, 100px);
+    margin-bottom: 1.6vw;
   }
 
-  .web_description {
-    font-size: 20px;
+  .description {
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-text);
-    line-height: 24px;
     text-align: center;
   }
 
-  .web_description_point {
+  .description_point {
     color: var(--color-text-pointer);
   }
 
   /* 웹 회원가입 페이지 박스 */
-  .web_form_wrapper {
-    width: 1024px;
-    height: 940px;
+  .form_wrapper {
+    width: 40vw;
+    height: 66vh;
     background-color: #f0e9d6;
-    border-radius: 10px;
-    margin: 50px 0 30px 0;
+    border-radius: 1vw;
+    margin: 2vw 0 1vw 0;
+    padding-inline: 3rem;
   }
 
   /* 웹 회원가입 페이지 뒤로가기와 회원가입 제목 */
-  .web_signUp_title_container {
+  .signUp_title_container {
     display: flex;
     flex-flow: row wrap;
-    padding-block: 60px;
+    padding-block: 2vw;
   }
 
-  .web_back_button {
-    margin-left: 75px;
-    margin-right: 385px;
-    width: 28px;
-    height: 28px;
+  .back_button {
+    margin-right: 14.2vw;
+    width: 1.2vw;
+    height: 1.2vw;
   }
 
-  .web_signUp_title {
-    font-size: 26px;
+  .signUp_title {
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
   }
 
   /* 웹 회원가입 페이지 인풋 */
-  .web_form {
+  .form {
     display: flex;
     flex-flow: column wrap;
-    padding-inline: 75px;
   }
 
-  .web_label_top {
+  .label_top {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
   }
 
-  .web_input_name_wrapper,
-  .web_input_pn_wrapper {
+  .input_name_wrapper,
+  .input_pn_wrapper {
     display: flex;
     flex-flow: column wrap;
   }
 
-  .web_input_name,
-  .web_input_pn {
-    margin-bottom: 20px;
-    height: 60px;
-    width: 400px;
+  .input_name,
+  .input_pn {
+    margin-bottom: 0.6vw;
+    height: 4vh;
+    width: 16vw;
     border: none;
-    font-size: 20px;
+    font-size: 1rem;
   }
 
-  .web_label {
-    font-size: 20px;
+  .label {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
-    margin-bottom: 15px;
+    margin-bottom: 1vh;
   }
 
-  .web_input {
-    margin-bottom: 20px;
-    font-size: 20px;
-    height: 60px;
+  .input {
+    margin-bottom: 0.6vw;
+    font-size: 1rem;
+    height: 4vh;
     border: none;
   }
 
-  .web_checkbox_container {
+  .checkbox_container {
     display: flex;
     flex-flow: column wrap;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 0.6rem;
+    margin-top: 1vh;
   }
 
-  .web_checkbox_wrapper {
+  .checkbox_wrapper {
     display: flex;
     flex-flow: row wrap;
-    gap: 10px;
+    gap: 0.6rem;
     align-items: center;
   }
 
-  .web_checkbox {
+  .checkbox {
     margin: 0;
-    width: 40px;
-    height: 40px;
+    width: 1vw;
+    height: 1vw;
     cursor: pointer;
   }
 
-  .web_checkbox_label {
-    font-size: 20px;
+  .checkbox_label {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
     cursor: pointer;
   }
 
   /* 웹 회원가입 페이지 버튼 */
-  .web_buttons_wrapper {
+  .buttons_wrapper {
     display: flex;
-    margin-top: 40px;
+    margin-top: 1.6rem;
     justify-content: center;
   }
 
   /* 웹 회원가입 페이지 조항 */
-  .web_terms {
-    font-size: 18px;
+  .terms {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
     text-align: center;
-    line-height: 14px;
+    line-height: 1.4rem;
   }
 }
