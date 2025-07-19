@@ -34,6 +34,7 @@
 
 /* 모바일 회원가입 페이지 박스 */
 .form_wrapper {
+  position: relative;
   width: 90vw;
   height: 55vh;
   background-color: #f0e9d6;
@@ -56,6 +57,8 @@
 }
 
 .signUp_title {
+  position: absolute;
+  left: 42%;
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-text);
@@ -198,12 +201,13 @@
   }
 
   .back_button {
-    margin-right: 14.2vw;
     width: 1.2vw;
     height: 1.2vw;
   }
 
   .signUp_title {
+    position: absolute;
+    left: 45%;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
@@ -229,7 +233,7 @@
 
   .input_name,
   .input_pn {
-    margin-bottom: 0.6vw;
+    margin-bottom: 1.5vh;
     height: 4vh;
     width: 16vw;
     border: none;
@@ -244,7 +248,7 @@
   }
 
   .input {
-    margin-bottom: 0.6vw;
+    margin-bottom: 1.5vh;
     font-size: 1rem;
     height: 4vh;
     border: none;
