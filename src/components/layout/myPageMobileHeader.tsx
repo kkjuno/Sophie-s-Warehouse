@@ -78,7 +78,7 @@ export default function MyPageMobileHeader() {
                     type="button"
                     className={my_page_mobile_header_styles.mobile_search_icon}
                   >
-                    <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+                    <Image src="/icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
                   </button>
                 </div>
               </>
@@ -94,7 +94,7 @@ export default function MyPageMobileHeader() {
                 type="button"
                 className={my_page_mobile_header_styles.mobile_search_icon}
               >
-                <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+                <Image src="/icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
               </button>
 
               {isSearchOpen || (
