@@ -1,0 +1,139 @@
+@media (max-width: 480px) {
+  .white_bg {
+    background-color: #fcfcfc !important; /* !important로 global 값 덮기 */
+    min-height: 100vh;
+  }
+
+  /* 우편번호 찾기 최상단 헤더 */
+  .root_header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #b6c5c5;
+    height: 64px;
+    align-items: center;
+    padding: 0px 1rem;
+  }
+
+  /* 우편번호 찾기 text */
+  .root_header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* 검색 부분 */
+  .search_bar_icon_wrapper {
+    padding: 0px 1rem;
+  }
+
+  .search_bar_wrapper {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 0px 10px 0px 12px;
+    border-radius: 15px;
+  }
+
+  /* 검색 바 */
+  .search_bar_wrapper input {
+    width: 90%;
+    height: 40px;
+    border-radius: 1.3125rem;
+    outline: none;
+    border: none;
+  }
+  /* input 창 placeholder 스타일링 */
+  .search_bar::placeholder {
+    font-size: 0.875rem;
+  }
+  .search_icon_button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: inherit;
+  }
+
+  /* 우편번호 찾기 아래 설명 부분 */
+  .search_area {
+    margin-top: 2.5rem;
+    padding: 0px 1rem;
+  }
+  /* Tip 및 예시 부분 */
+  .explain_zip_code_search_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    border: 1px solid #b6c5c5;
+    height: 18.75rem;
+    padding: 30px 0 0 18px;
+  }
+  /* 예시 Tip 부분 */
+  .example_tip {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  /* TIP text 부분 */
+  .example_tip_title {
+    color: #ac1313;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  /* TIP 아래 설명 부분 */
+  .example_tip_sub_title {
+    font-size: 12px;
+    font-weight: normal;
+    color: #6b7878;
+  }
+  /* 예시 주소 부분 */
+  .example_address {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  /* 예시 주소 title 부분 */
+  .example_title {
+    font-size: 14px;
+    font-weight: medium;
+  }
+  .example_sub_title {
+    font-size: 10px;
+    margin-left: 1rem;
+    color: #6b7878;
+  }
+}
+/* 375px이 되면 input의 placeholder 폰트사이즈 변경 */
+@media (min-width: 375px) {
+  .search_bar::placeholder {
+    font-size: 1rem;
+  }
+  .example_tip_title {
+    font-size: 16px;
+  }
+  .example_tip_sub_title {
+    font-size: 12px;
+  }
+  .example_title {
+    font-size: 16px;
+  }
+  .example_sub_title {
+    font-size: 12px;
+  }
+}
+
+/* 웹뷰부턴 display : none */
+@media (min-width: 481px) {
+  .white_bg {
+    display: none;
+  }
+}

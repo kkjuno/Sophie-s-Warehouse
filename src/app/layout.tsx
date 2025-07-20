@@ -16,7 +16,10 @@ export default function RootLayout({
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
 
-  const isHiddenLayout = pathname.startsWith('/login') || pathname.startsWith('/signup');
+  const isHiddenLayout =
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/signup') ||
+    pathname.startsWith('/zip-code');
   const isMyPage = pathname.startsWith('/myPage'); // 마이페이지 전용 헤더
 
   useEffect(() => {
