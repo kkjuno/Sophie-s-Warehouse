@@ -133,7 +133,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0px 1rem;
-    border-bottom: 1px solid #081818;
+    border-bottom: 1px solid #b6c5c5;
   }
   /* 마이페이지 텍스트 */
   .mobile_my_page_text {
@@ -350,7 +350,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0px 1rem;
-    border-bottom: 1px solid #081818;
+    border-bottom: 1px solid #b6c5c5;
   }
   /* 마이페이지 텍스트 */
   .mobile_my_page_text {
@@ -371,7 +371,7 @@
     padding-left: 12px;
     border-radius: 999px; /* pill style로 둥글게 */
     font-size: 0.875rem;
-    border: 2px solid #6a5f42; /* 눈에 띄는 테두리 */
+    border: 2px solid #6a5f42;
   }
 
   .search_input_wrapper {
