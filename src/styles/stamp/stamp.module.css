@@ -1,0 +1,143 @@
+/* stamp page 루트 */
+.root_section {
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+}
+/* 회원정보 영역 */
+.user_info_section {
+  border: 1px dashed #081818;
+  margin-top: 1.25rem;
+  padding: 0.9375rem 1.3125rem 0.9375rem 0.9375rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+/* 인사와 회원정보 */
+.user_info_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+/* 안녕하세요 text */
+.hello {
+  font-size: 1rem;
+  font-weight: normal;
+}
+/* 회원 이름 */
+.user_name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+/* 현재 스탬프 개수 */
+.now_stamp_count {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+/* 숯검댕이 이미지 */
+.blackbean_image_wrapper {
+  position: absolute;
+  width: 40px;
+  height: 36px;
+  bottom: -10px;
+  left: -10px;
+}
+/* 스탬프 이미지 */
+.stamp_image_wrapper {
+  position: relative;
+  width: clamp(273px, calc(89.6vw - 0.2px), 433px);
+  aspect-ratio: 343 / 515; /* 원본 비율 유지 */
+
+  padding: 0 1rem;
+}
+
+.stamp_link_image_wrapper {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: clamp(8px, 3vw, 16px);
+  flex-wrap: nowrap;
+}
+
+/* 반투명 효과와 text을 위한 position 설정 */
+.stamp_more_image_wrapper,
+.stamp_gacha_image_wrapper {
+  position: relative;
+}
+/* 스탬프 더 모으러 가기 이미지 */
+.stamp_more_image_wrapper img {
+  flex: 1 1 0;
+  width: calc((100vw - 32px - 16px) / 2); /* 이미지가 자연스럽게 커짐 */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+/* 반투명 효과를 위한 overlay */
+.stamp_image_overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  z-index: 1;
+}
+/* 스탬프 가챠 이미지 */
+.stamp_gacha_image_wrapper img {
+  flex: 1 1 0;
+  width: calc((100vw - 32px - 16px) / 2); /* 이미지가 자연스럽게 커짐 */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+/* 이미지 위 텍스트 */
+.stamp_guide_text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.625rem 0.75rem 0.625rem 0.625rem;
+}
+/* 이미지 title text */
+.stamp_guide_text_title {
+  color: #ffffff;
+  font-size: clamp(12px, 3.5vw, 16px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* 이미지 sub title text */
+.stamp_guide_text_sub_title {
+  color: #ffffff;
+  font-size: clamp(8px, 2.5vw, 12px);
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+/* 375px이상부턴 이미지가 너무 작아서 크기, 위치 수정 */
+@media (min-width: 375px) {
+  .blackbean_image_wrapper {
+    width: 50px;
+    height: 45px;
+    bottom: -15px;
+    left: -10px;
+  }
+}
