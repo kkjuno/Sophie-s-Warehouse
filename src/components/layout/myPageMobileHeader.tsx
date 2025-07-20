@@ -52,48 +52,64 @@ export default function MyPageMobileHeader() {
         <div className={my_page_mobile_header_styles.mobile_my_page}>
           <div className={my_page_mobile_header_styles.mobile_my_page_text}>
             {isSearchOpen ? (
-              <div className={my_page_mobile_header_styles.search_input_wrapper}>
-                <input
-                  type="text"
-                  placeholder="검색어를 입력하세요"
-                  className={my_page_mobile_header_styles.search_input}
-                />
-                <button
-                  type="button"
-                  onClick={() => setIsSearchOpen(false)}
-                  className={my_page_mobile_header_styles.close_icon_button}
-                >
-                  <Image
-                    fill
-                    className={my_page_mobile_header_styles.close_icon}
-                    src="/icons/close-icon.svg"
-                    alt="닫기 아이콘"
-                  />
-                </button>
-              </div>
+              <>
+                <div className={my_page_mobile_header_styles.search_bar_search_icon_wrapper}>
+                  <div className={my_page_mobile_header_styles.search_input_wrapper}>
+                    <input
+                      type="text"
+                      placeholder="검색어를 입력하세요"
+                      className={my_page_mobile_header_styles.search_input}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setIsSearchOpen(false)}
+                      className={my_page_mobile_header_styles.close_icon_button}
+                    >
+                      <Image
+                        fill
+                        className={my_page_mobile_header_styles.close_icon}
+                        src="/icons/close-icon.svg"
+                        alt="닫기 아이콘"
+                      />
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => setIsSearchOpen(!isSearchOpen)}
+                    type="button"
+                    className={my_page_mobile_header_styles.mobile_search_icon}
+                  >
+                    <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+                  </button>
+                </div>
+              </>
             ) : (
               <span>마이페이지</span>
             )}
           </div>
 
-          <div className={my_page_mobile_header_styles.my_page_icon_wrapper}>
-            <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              type="button"
-              className={my_page_mobile_header_styles.mobile_search_icon}
-            >
-              <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
-            </button>
-            <Link href="/" className={my_page_mobile_header_styles.mobile_cart_icon_warpper}>
-              <Image
-                src="/icons/mine-shopping-cart-icon.svg"
-                alt="장바구니 아이콘"
-                width={23}
-                height={23}
-              />
-              <span className={my_page_mobile_header_styles.mobile_cart_count}>0</span>
-            </Link>
-          </div>
+          {isSearchOpen || (
+            <div className={my_page_mobile_header_styles.my_page_icon_wrapper}>
+              <button
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                type="button"
+                className={my_page_mobile_header_styles.mobile_search_icon}
+              >
+                <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+              </button>
+
+              {isSearchOpen || (
+                <Link href="/" className={my_page_mobile_header_styles.mobile_cart_icon_warpper}>
+                  <Image
+                    src="/icons/mine-shopping-cart-icon.svg"
+                    alt="장바구니 아이콘"
+                    width={23}
+                    height={23}
+                  />
+                  <span className={my_page_mobile_header_styles.mobile_cart_count}>0</span>
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>
