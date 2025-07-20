@@ -1,9 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import my_page_mobile_header_styles from '@/styles/components/myPageMobileHeader.module.css';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 export default function MyPageMobileHeader() {
+  const pathname = usePathname(); // 경로에 따른 text 변경을 위함
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const pageTitle =
+    pathname === '/myPage'
+      ? '마이페이지'
+      : pathname.startsWith('/myPage/rewards')
+        ? '당첨 내역'
+        : '어디야 여긴';
   return (
     <>
       {/* 375px 모바일 헤더 */}
@@ -78,12 +89,12 @@ export default function MyPageMobileHeader() {
                     type="button"
                     className={my_page_mobile_header_styles.mobile_search_icon}
                   >
-                    <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+                    <Image src="/icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
                   </button>
                 </div>
               </>
             ) : (
-              <span>마이페이지</span>
+              <span>{pageTitle}</span>
             )}
           </div>
 
@@ -94,7 +105,7 @@ export default function MyPageMobileHeader() {
                 type="button"
                 className={my_page_mobile_header_styles.mobile_search_icon}
               >
-                <Image src="./icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
+                <Image src="/icons/검색 아이콘.svg" alt="검색 아이콘" width={18} height={18} />
               </button>
 
               {isSearchOpen || (
