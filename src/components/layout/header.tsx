@@ -65,6 +65,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
+
       {/* 376px 헤더 */}
       <div className={header_styles.header_376px}>
         <div className={header_styles.header_376px_main_bar}>
@@ -149,7 +150,7 @@ export default function Header() {
                     />
                   </svg>
                 </div>
-                <Link href="#">HOME</Link>
+                <Link href="#">HOE</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>
                 <li>
