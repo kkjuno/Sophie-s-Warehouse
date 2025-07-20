@@ -19,12 +19,12 @@ export default function LoginPage() {
             sizes="100%"
           />
         </div>
-        <span className={login_styles.description}>
+        <p className={login_styles.description}>
           &quot;오래된 저택의 문이 열립니다...
           <br className={login_styles.mobile_only_br} />
           <strong className={login_styles.description_point}>&apos;로그인&apos;</strong> 하면 소피의
           물건을 구매 할 수 있어요.&quot;
-        </span>
+        </p>
 
         {/* 로그인 페이지 박스 */}
         <div className={login_styles.form_wrapper}>
@@ -65,7 +65,7 @@ export default function LoginPage() {
                 />
               </defs>
             </svg>
-            <span className={login_styles.login_title}>로그인</span>
+            <h1 className={login_styles.login_title}>로그인</h1>
           </div>
           {/* 로그인 페이지 인풋 */}
           <form className={login_styles.form}>
@@ -97,7 +97,7 @@ export default function LoginPage() {
                 </label>
               </div>
               <Link href="#" className={login_styles.forgot_password_link}>
-                <span>비밀번호를 잊으셨나요?</span>
+                <p>비밀번호를 잊으셨나요?</p>
               </Link>
             </div>
             {/* 로그인 페이지 버튼 */}
@@ -108,11 +108,11 @@ export default function LoginPage() {
           </form>
         </div>
         {/* 로그인 페이지 조항 */}
-        <span className={login_styles.terms}>
+        <p className={login_styles.terms}>
           로그인하면 <strong className={login_styles.description_point}>이용약관</strong> 및
           <strong className={login_styles.description_point}>개인정보처리방침</strong>에 동의하는
           것으로 간주됩니다.
-        </span>
+        </p>
       </div>
     </>
   );

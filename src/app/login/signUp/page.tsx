@@ -18,12 +18,12 @@ export default function signUpPage() {
             sizes="100%"
           />
         </div>
-        <h2 className={signUp_styles.description}>
+        <p className={signUp_styles.description}>
           &quot;아직 문은 잠겨 있어요. 열쇠는
           <br className={signUp_styles.mobile_only_br} />
           <strong className={signUp_styles.description_point}> &apos;회원가입&apos;</strong>에
           있답니다.&quot;
-        </h2>
+        </p>
 
         {/* 회원가입 페이지 박스 */}
         <div className={signUp_styles.form_wrapper}>
@@ -150,12 +150,12 @@ export default function signUpPage() {
           </form>
         </div>
         {/* 회원가입 페이지 조항 */}
-        <span className={signUp_styles.terms}>
+        <p className={signUp_styles.terms}>
           회원가입 시 Sophies warehouse의 <br />
           <strong className={signUp_styles.description_point}>이용약관</strong> 및
           <strong className={signUp_styles.description_point}>개인정보처리방침</strong>에 동의하는
           것으로 간주됩니다.
-        </span>
+        </p>
       </div>
     </>
   );
