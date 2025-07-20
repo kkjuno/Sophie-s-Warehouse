@@ -135,7 +135,20 @@ export default function Header() {
           <nav className={header_styles.web_header_nav_items}>
             <div className={header_styles.web_header_link_nav_wrapper}>
               <div className={header_styles.web_header_home_wrapper}>
-                <div className={header_styles.web_header_background}></div>
+                <div className={header_styles.web_header_background}>
+                  <svg
+                    width="140"
+                    height="55"
+                    viewBox="0 0 140 55"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.7449 10.5671C15.6885 4.28415 21.4982 0 28.0749 0H110.68C117.117 0 122.836 4.107 124.893 10.2065L140 55H0L13.7449 10.5671Z"
+                      fill="#FDF6E3"
+                    />
+                  </svg>
+                </div>
                 <Link href="#">HOME</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>

@@ -2,7 +2,7 @@
 @import url(../globals.css);
 
 /* 모바일 헤더 부분*/
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   /* 376px 헤더 부분 */
   .header_376px {
     display: none;
@@ -30,10 +30,12 @@
     flex-wrap: nowrap;
     height: 40px;
     align-items: center;
+    gap: clamp(44px, 8vw, 96px);
+    border: 1px solid red;
   }
 
   .mobile_logo {
-    margin-left: 16px;
+    margin-left: 1rem;
     flex-shrink: 0;
   }
 
@@ -69,14 +71,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: clamp(16px, 3vw, 28px);
+    padding-right: 1rem;
+    flex-grow: 1;
   }
 
   /* nav movie */
   .mobile_nav_item_movie {
     text-decoration: none;
     color: white;
-    margin-left: 44px;
-    font-size: 14px;
+
+    font-size: 0.875rem;
     font-weight: bold;
   }
 
@@ -84,8 +89,8 @@
   .mobile_nav_item_category {
     text-decoration: none;
     color: white;
-    margin-left: 32px;
-    font-size: 14px;
+
+    font-size: 0.875rem;
     font-weight: bold;
   }
 
@@ -93,8 +98,8 @@
   .mobile_nav_item_new {
     text-decoration: none;
     color: white;
-    margin-left: 34px;
-    font-size: 14px;
+
+    font-size: 0.875rem;
     font-weight: bold;
   }
 
@@ -102,8 +107,8 @@
   .mobile_nav_item_gift {
     text-decoration: none;
     color: white;
-    margin-left: 31px;
-    font-size: 14px;
+
+    font-size: 0.875rem;
     font-weight: bold;
   }
 
@@ -111,13 +116,16 @@
   .mobile_search_area {
     display: flex;
     align-items: center;
-    height: 62px;
+    justify-content: space-between;
+    height: 3.875rem;
     background: #fdf6e3;
+    padding: 0 1rem; /* 내부 패딩으로 여백을 확보 */
+    box-sizing: border-box; /* 패딩 포함해서 width 계산 */
   }
 
   /* 검색창 부분 바 */
   .mobile_search_bar {
-    margin-left: 16px;
+    flex: 1;
     position: relative;
     border: 2px solid #6a5f42;
     border-radius: 32px;
@@ -125,9 +133,11 @@
     background: white;
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 300px;
+    width: 80vw;
+    max-width: 400px;
+    min-width: 0px;
     height: 33px;
+    margin-right: 8px;
   }
 
   /* 검색창 입력 부분 */
@@ -148,7 +158,6 @@
     position: relative;
     width: 36px;
     height: 36px;
-    margin-left: 8px;
     background-color: white;
     border-radius: 50%;
     display: flex;
@@ -173,8 +182,9 @@
     justify-content: center;
   }
 }
+
 /* 376px 헤더 부분 */
-@media (min-width: 376px) {
+@media (min-width: 481px) {
   .mobile_rootHeader {
     display: none;
   }
@@ -359,7 +369,7 @@
     flex-wrap: nowrap;
     padding: 0px;
     padding-left: clamp(21px, 10vw, 80px);
-    padding-right: clamp(21px, 10vw, 80px);
+
     align-items: center;
     gap: 15px;
     justify-content: space-between;
@@ -417,6 +427,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 0.625rem;
+    margin-right: 21px;
   }
 
   /* 최근본상품 아이콘 */
@@ -470,29 +481,76 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    margin-left: 80px;
   }
   /* 로그인,회원가입 */
   .web_header_login_wrapper ul {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: clamp(12px, 3vw, 56px);
+    margin-right: clamp(20px, 3vw, 86px);
+  }
+
+  .web_header_login_wrapper a {
+    color: white;
+    text-decoration: none;
   }
   .web_header_link_nav_wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: 100px;
   }
   /* 헤더 링크 아이템들 */
   .web_header_nav_link_items {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: 60px;
   }
 
+  /* 웹 상단부 부분 */
   .web_header_nav_link_items li > a {
     text-decoration: none;
     color: white;
     font-size: 16px;
     font-weight: bold;
+  }
+  /* home 과 배경 */
+  .web_header_home_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: clamp(3px, 2vw, 30px);
+  }
+  /* Home뒤 배경이미지 */
+  .web_header_background {
+    position: absolute;
+    top: clamp(-7px, 1vw, -9px);
+    left: -50px;
+    z-index: 0;
+    width: 140px;
+    height: 55px;
+  }
+  .web_header_home_wrapper a {
+    position: relative;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+    z-index: 1;
+  }
+  /* 로고, 검색창  및 아이콘들 */
+  .web_header_search_area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  /* 아이콘 영역 */
+  .web_header_icon_wrapper {
+    margin-right: clamp(21px, 4vw, 80px);
   }
 }
