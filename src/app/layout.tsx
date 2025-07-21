@@ -1,23 +1,35 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Footer from '@/components/layout/footer';
 import FooterNav from '@/components/layout/footer-nav-bar';
-import React from 'react';
 import '@/styles/globals.css';
-import Button from '@/components/common/button';
 import Header from '@/components/layout/header';
+import MyPageHeader from '@/components/layout/myPageHeader';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  const isHiddenLayout =
+    pathname.startsWith('/login') ||
+    pathname.startsWith('/signup') ||
+    pathname.startsWith('/zip-code');
+
+  const isMyPage = pathname.startsWith('/myPage'); // 마이페이지 전용 헤더
+
   return (
     <html>
       <body>
-        <Header/>
+        {!isHiddenLayout && !isMyPage && <Header />}
+        {isMyPage && <MyPageHeader />}
         {children}
-        <Footer />
-        <FooterNav />
+        {!isHiddenLayout && <Footer />}
+        {!isHiddenLayout && <FooterNav />}
       </body>
     </html>
- );
+  );
 }
