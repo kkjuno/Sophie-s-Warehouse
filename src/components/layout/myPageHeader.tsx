@@ -152,7 +152,7 @@ export default function MyPageHeader() {
           <div className={my_page_header_styles.header_376px_search_bar}>
             <input type="text" />
             <Image
-              src="./icons/검색 아이콘.svg"
+              src="/icons/검색 아이콘.svg"
               alt="검색 아이콘"
               width={16}
               height={16}
@@ -251,7 +251,7 @@ export default function MyPageHeader() {
               <input type="text" />
               <div className={my_page_header_styles.web_header_search_icon_wrapper}>
                 <Image
-                  src="./icons/검색 아이콘.svg"
+                  src="/icons/검색 아이콘.svg"
                   alt="검색 아이콘"
                   fill
                   className={my_page_header_styles.web_header_search_icon}
