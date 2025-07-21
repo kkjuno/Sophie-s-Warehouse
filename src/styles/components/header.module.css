@@ -20,6 +20,8 @@
     flex-direction: column;
     background: #fcfcfc;
     width: 100%;
+
+    border-bottom: 1px solid #b6c5c5;
   }
 
   /* nav 영역 */
@@ -194,6 +196,8 @@
     gap: 0.9375rem;
     width: 100%;
     height: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b6c5c5;
   }
   /* 500px 헤더 부분 */
   .web_header {
@@ -340,6 +344,8 @@
     flex-direction: column;
     flex-wrap: nowrap;
     gap: clamp(12px, 2vw, 22px);
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b6c5c5;
   }
   /* 메인바부분 */
   .web_header_main_bar {
@@ -474,6 +480,10 @@
   }
   .web_header_main_bar {
     justify-content: space-between;
+  }
+  .web_header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b6c5c5;
   }
   .web_header_nav_items {
     display: flex;

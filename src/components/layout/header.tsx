@@ -150,7 +150,7 @@ export default function Header() {
                     />
                   </svg>
                 </div>
-                <Link href="#">HOE</Link>
+                <Link href="#">HOME</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>
                 <li>
