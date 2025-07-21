@@ -25,12 +25,7 @@ export default function Header() {
               </svg>
             </div>
             <Link href="/">
-              <Image
-                src="/logo/소피의창고 로고.svg"
-                alt="소피의창고 로고"
-                width={65}
-                height={30.74}
-              />
+              <Image src="/logo/sophie-logo.svg" alt="소피의창고 로고" width={65} height={30.74} />
             </Link>
           </div>
           <div className={header_styles.mobile_nav_item}>
@@ -52,7 +47,7 @@ export default function Header() {
           <div className={header_styles.mobile_search_bar}>
             <input type="text" />
             <Image
-              src="./icons/검색 아이콘.svg"
+              src="/icons/search-icon.svg"
               alt="검색 아이콘"
               width={16}
               height={16}
@@ -60,7 +55,7 @@ export default function Header() {
             />
           </div>
           <Link href="/" className={header_styles.mobile_cart_icon_warpper}>
-            <Image src="/icons/장바구니 아이콘.svg" alt="장바구니 아이콘" width={18} height={17} />
+            <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={18} height={17} />
             <span className={header_styles.mobile_cart_count}>0</span>
           </Link>
         </div>
@@ -84,7 +79,7 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <Image src="/logo/소피의창고 로고.svg" alt="소피의창고 로고" fill />
+            <Image src="/logo/sophie-logo.svg" alt="소피의창고 로고" fill />
           </div>
           <button className={header_styles.header_376px_menu_icon_wrapper}>
             <Image src="/icons/white-menu-icon.svg" alt="메뉴 아이콘" fill />
@@ -94,7 +89,7 @@ export default function Header() {
           <div className={header_styles.header_376px_search_bar}>
             <input type="text" />
             <Image
-              src="./icons/검색 아이콘.svg"
+              src="/icons/search-icon.svg"
               alt="검색 아이콘"
               width={16}
               height={16}
@@ -104,28 +99,13 @@ export default function Header() {
 
           <div className={header_styles.header_376px_icon_wrapper}>
             <Link href="/" className={header_styles.header_376px_current_icon_wrapper}>
-              <Image
-                src="/icons/최근본상품 아이콘.svg"
-                alt="최근본상품 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
             </Link>
             <Link href="/" className={header_styles.header_376px_my_page_icon_wrapper}>
-              <Image
-                src="/icons/마이페이지 아이콘.svg"
-                alt="마이페이지 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/mypage-icon.svg" alt="마이페이지 아이콘" width={17} height={17} />
             </Link>
             <Link href="/" className={header_styles.header_376px_cart_icon_wrapper}>
-              <Image
-                src="/icons/장바구니 아이콘.svg"
-                alt="장바구니 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={17} height={17} />
             </Link>
           </div>
         </div>
@@ -186,14 +166,14 @@ export default function Header() {
         <div className={header_styles.web_header_search_area}>
           <div className={header_styles.web_header_logo_search_bar_wrapper}>
             <div className={header_styles.web_header_logo_wrapper}>
-              <Image src="/logo/소피의창고 로고.svg" alt="소피의창고 로고" fill sizes="100%" />
+              <Image src="/logo/sophie-logo.svg" alt="소피의창고 로고" fill sizes="100%" />
             </div>
 
             <div className={header_styles.web_header_search_bar}>
               <input type="text" />
               <div className={header_styles.web_header_search_icon_wrapper}>
                 <Image
-                  src="./icons/검색 아이콘.svg"
+                  src="./icons/search-icon.svg"
                   alt="검색 아이콘"
                   fill
                   className={header_styles.web_header_search_icon}
@@ -204,28 +184,13 @@ export default function Header() {
 
           <div className={header_styles.web_header_icon_wrapper}>
             <Link href="/" className={header_styles.web_header_current_icon_wrapper}>
-              <Image
-                src="/icons/최근본상품 아이콘.svg"
-                alt="최근본상품 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
             </Link>
             <Link href="/" className={header_styles.web_header_my_page_icon_wrapper}>
-              <Image
-                src="/icons/마이페이지 아이콘.svg"
-                alt="마이페이지 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/mypage-icon.svg" alt="마이페이지 아이콘" width={17} height={17} />
             </Link>
             <Link href="/" className={header_styles.web_header_cart_icon_wrapper}>
-              <Image
-                src="/icons/장바구니 아이콘.svg"
-                alt="장바구니 아이콘"
-                width={17}
-                height={17}
-              />
+              <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={17} height={17} />
             </Link>
           </div>
         </div>
