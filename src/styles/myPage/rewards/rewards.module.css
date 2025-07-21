@@ -1,0 +1,195 @@
+.root_header {
+  background: #fcfcfc;
+  min-height: 100vh;
+  height: 100%;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+/* 회원정보 영역 */
+.user_info_section {
+  padding-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1.125rem;
+}
+/* 회원정보 */
+.user_info_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+/* 회원 이름 */
+.user_info {
+  font-size: 1rem;
+  font-weight: bold;
+}
+/* 보유중인 스탬프 및 수령한 상품 */
+.user_result_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 55px;
+  background: rgba(208, 208, 208, 0.2);
+  padding: 10px 0px 8px 16px;
+}
+/* 보유중인 스탬프 */
+.have_stamp,
+.get_gift {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 50%;
+  gap: 0.25rem;
+}
+/* 스탬프 및 수령한 상품 텍스트 */
+.have_stamp_text,
+.get_gift_text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+/* 스탬프 및 수령한 상품 개수 */
+.have_stamp_count,
+.get_gift_count {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 0.9375rem;
+}
+
+/* 당첨내역 조회 영역 */
+.view_lottery_result_section {
+  margin-top: 2.25rem;
+}
+/* 당첨내역 조회  */
+.view_lottery_result_section h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+/* 당첨내역 조회 아래 선 */
+.lottery_main_bottom_line {
+  border: 1px solid #081818;
+}
+
+/* 조회하는 박스 */
+.view_lottery_result {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: 1px solid #b6c5c5;
+  padding: 4px 20px 10px 10px;
+  margin-top: 0.9375rem;
+}
+/* 조회기간 text */
+.view_lottery_result span {
+  font-size: 15px;
+  font-weight: bold;
+}
+/* 조회기간 버튼들 영역 */
+.view_lottery_day_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+/* 조회기간 버튼 */
+.view_lottery_day_wrapper button {
+  outline: none;
+  border: 1px solid #b6c5c5;
+  padding: 10px;
+  padding-top: 5px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+  color: #081818;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+/* 조회기간 날짜 영역 */
+.view_lottery_day_result_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 1.25rem;
+}
+
+/* 조회기간 input 영역 */
+.view_lottery_day_first input,
+.view_lottery_day_second input {
+  width: 74px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* 당첨내역 영역 */
+.lottery_result_section {
+  margin-top: 1.875rem;
+}
+/* 당첨내역 text */
+.lottery_result_section h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+/* 당첨내역 세부사항 영역 */
+.lottery_result_header {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 20.63% 34.67% 15.76% 13.75% 15.18%;
+  width: 100%;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* 헤더 div 박스들 */
+.lottery_result_header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b6c5c5;
+  border-top: 1px solid #081818;
+  padding: 8px;
+  white-space: nowrap;
+}
+/* 반복되는 상품  */
+.lottery_result_row {
+  display: grid;
+  grid-template-columns: 20.63% 34.67% 15.76% 13.75% 15.18%;
+}
+
+/* 반복되는 상품 세부사항 */
+.lottery_result_row > div {
+  font-size: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #b6c5c5;
+}
+/* 제품명이 길면 ...으로 처리 */
+.item_name {
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+/* 375px 일때 폰트사이즈 수정 */
+@media (min-width: 375px) {
+  .view_lottery_day_wrapper button {
+    font-size: 0.75rem;
+
+    width: 50px;
+  }
+}
