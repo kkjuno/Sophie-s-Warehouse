@@ -75,10 +75,15 @@
 .stamp_gacha_image_wrapper {
   position: relative;
 }
+
+.stamp_more_image_wrapper {
+  width: calc((100vw - 32px - 16px) / 2);
+  height: auto;
+}
 /* 스탬프 더 모으러 가기 이미지 */
 .stamp_more_image_wrapper img {
   flex: 1 1 0;
-  width: calc((100vw - 32px - 16px) / 2); /* 이미지가 자연스럽게 커짐 */
+  width: 100%;
   height: auto;
   border-radius: 8px;
   object-fit: cover;
@@ -132,6 +137,11 @@
   justify-content: flex-end;
   white-space: nowrap;
 }
+
+.stamp_image_overlay,
+.stamp_guide_text {
+  pointer-events: none;
+}
 /* 375px이상부턴 이미지가 너무 작아서 크기, 위치 수정 */
 @media (min-width: 375px) {
   .blackbean_image_wrapper {
@@ -140,4 +150,110 @@
     bottom: -15px;
     left: -10px;
   }
+}
+
+/* 토스트 UI */
+.toast_ui_root_header {
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(273px, calc(89.6vw - 0.2px), 433px);
+  aspect-ratio: 330/490;
+
+  background: #fdf6e3;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(2.125rem, 10vw, 3.5rem);
+  padding-top: 1.875rem;
+}
+/* 당첨내역 상단 부 */
+.toast_ui_header_text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+/* 당첨내역 회원 이름 */
+.toast_ui_header_text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ef7800;
+}
+
+/* 당첨 text */
+.toast_ui_lotto_text {
+  color: #ed1b23;
+}
+
+/* 상품 이미지가 나올 영역 */
+.toast_ui_item_wrapper {
+  position: relative;
+  width: 180px;
+  aspect-ratio: 1/1;
+  background: white;
+  border-radius: 50%;
+}
+
+.toast_ui_confetti_wrapper {
+  position: absolute;
+  top: -42%;
+  left: 50%;
+  transform: translateX(-51%);
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+}
+
+.toast_ui_item_info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: clamp(20px, 8vw, 40px);
+}
+/* 상품 정보 영역 */
+.toast_ui_item_section {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.toast_ui_item_title_wrapper,
+.toast_ui_item_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+/* 토스트  UI 하단부 버튼 */
+.toast_ui_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast_ui_footer_text {
+  color: #a6a6a6;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+}
+
+/* 아이템 사진 */
+.toast_ui_lotto_item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 120px;
+  height: 120px;
 }
