@@ -17,7 +17,7 @@ export default function zipCode() {
               className={zip_code_styles.search_bar}
             ></input>
             <button type="button" className={zip_code_styles.search_icon_button}>
-              <Image width={20} height={20} src="/icons/검색 아이콘.svg" alt="검색 아이콘" />
+              <Image width={20} height={20} src="/icons/search-icon.svg" alt="검색 아이콘" />
             </button>
           </div>
         </div>
