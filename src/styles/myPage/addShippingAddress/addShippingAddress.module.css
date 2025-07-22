@@ -55,16 +55,13 @@
   font-size: 0.875rem;
 }
 
-.mobile_add_shipping_address_page_section {
-}
-
 .mobile_add_shipping_address_divider {
   height: 1px;
   background-color: #949494;
   margin: 0.75rem 0 0.625rem 0;
 }
 
-.mobile_add_shipping_address_wrapper {
+.mobile_add_shipping_address_page_section {
   display: flex;
   flex-flow: column nowrap;
 }

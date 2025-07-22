@@ -29,36 +29,31 @@ export default function addShippingAddressPage() {
         </button>
 
         <h2 className={addShippingAddress_styles.mobile_add_shipping_address_page_count}>총 1건</h2>
+        <hr className={addShippingAddress_styles.mobile_add_shipping_address_divider} />
         <section className={addShippingAddress_styles.mobile_add_shipping_address_page_section}>
-          <hr className={addShippingAddress_styles.mobile_add_shipping_address_divider} />
-          <div className={addShippingAddress_styles.mobile_add_shipping_address_wrapper}>
-            <div className={addShippingAddress_styles.mobile_add_shipping_address_page_container}>
-              <div className={addShippingAddress_styles.mobile_add_shipping_address_page}>
-                <p className={addShippingAddress_styles.mobile_add_shipping_address_tit}>집</p>
-                <button
-                  className={addShippingAddress_styles.mobile_default_shipping_address_button}
-                >
-                  기본 배송지
-                </button>
-              </div>
-              <div className={addShippingAddress_styles.mobile_button_wrapper}>
-                <button className={addShippingAddress_styles.mobile_edit_button}>수정</button>
-                <hr className={addShippingAddress_styles.mobile_button_divider} />
-                <button className={addShippingAddress_styles.mobile_delete_button}>삭제</button>
-              </div>
+          <div className={addShippingAddress_styles.mobile_add_shipping_address_page_container}>
+            <div className={addShippingAddress_styles.mobile_add_shipping_address_page}>
+              <p className={addShippingAddress_styles.mobile_add_shipping_address_tit}>집</p>
+              <button className={addShippingAddress_styles.mobile_default_shipping_address_button}>
+                기본 배송지
+              </button>
             </div>
-            <div className={addShippingAddress_styles.mobile_default_shipping_address_info}>
-              <p className={addShippingAddress_styles.mobile_default_shipping_address_name}>
-                김준오
-              </p>
-              <p className={addShippingAddress_styles.mobile_default_shipping_address_number}>
-                [00000]-----
-              </p>
-              <p className={addShippingAddress_styles.mobile_default_shipping_address_phone}>
-                010-1234-5678
-              </p>
+            <div className={addShippingAddress_styles.mobile_button_wrapper}>
+              <button className={addShippingAddress_styles.mobile_edit_button}>수정</button>
+              <hr className={addShippingAddress_styles.mobile_button_divider} />
+              <button className={addShippingAddress_styles.mobile_delete_button}>삭제</button>
             </div>
           </div>
+          <div className={addShippingAddress_styles.mobile_default_shipping_address_info}>
+            <p className={addShippingAddress_styles.mobile_default_shipping_address_name}>김준오</p>
+            <p className={addShippingAddress_styles.mobile_default_shipping_address_number}>
+              [00000]-----
+            </p>
+            <p className={addShippingAddress_styles.mobile_default_shipping_address_phone}>
+              010-1234-5678
+            </p>
+          </div>
+
           <hr className={addShippingAddress_styles.mobile_add_shipping_address_divider} />
         </section>
       </div>
