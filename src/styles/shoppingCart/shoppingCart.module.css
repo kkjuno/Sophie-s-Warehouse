@@ -1,0 +1,528 @@
+@media (max-width: 375px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 장바구니 최상단 부모 */
+  .mobile_shopping_cart_root_header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 100%;
+    height: 100%;
+    background: #fcfcfc;
+    padding: 0 1rem;
+    padding-top: 1.25rem;
+  }
+
+  /* 장바구니 최상단 영역 */
+  .mobile_shopping_cart_root_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* SHOPPING BAG text */
+  .mobile_shopping_cart_header_text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  /* 전체 선택 영역 */
+  .mobile_all_check_area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 14px;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  /* 추가될 상품 영역 */
+  .mobile_shopping_cart_new_items_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    margin-top: 1.625rem;
+  }
+
+  /* 새로운 상품이 추가되면 입힐 스타일링 */
+  .mobile_shopping_cart_item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: 100%;
+  }
+  /* 이미지 스타일링 */
+  .mobile_shopping_cart_item_image_wrapper {
+    width: 5rem;
+    height: 5rem;
+    aspect-ratio: 1/1;
+    position: relative;
+    flex-shrink: 0;
+  }
+  /* 상품 상세정보 영역 */
+  .mobile_shopping_cart_item_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  /* 상품명과 닫기 버튼 */
+  .mobile_shopping_cart_item_name_close_button_wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* 상품명 */
+  .mobile_shopping_cart_item_name_close_button_wrapper > span {
+    font-weight: 600;
+    color: black;
+    font-size: 14px;
+  }
+
+  /* 닫기 아이콘 */
+  .mobile_shopping_cart_close_icon_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    aspect-ratio: 1/1;
+    border: 1px solid #b6c5c5;
+    outline: none;
+    background: none;
+    padding: 0px;
+  }
+
+  /* 색상 및 사이즈 영역*/
+  .mobile_shopping_cart_color_size_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+  }
+
+  /* 색상과 사이즈 */
+  .mobile_shopping_cart_item_color,
+  .mobile_shopping_cart_item_size {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  /* 색상 사이즈 text */
+  .mobile_shopping_cart_item_title {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: #6b7878;
+  }
+  /* 상품의 색상 및 사이즈 */
+  .mobile_shopping_cart_item_color,
+  .mobile_shopping_cart_item_size {
+    color: black;
+    font-size: 0.625rem;
+    font-weight: 600;
+  }
+
+  /* 상품 수량 버튼 및 가격 */
+  .mobile_shopping_cart_item_count_price_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  .mobile_shopping_cart_item_count_price_wrapper span {
+    font-size: 14px;
+  }
+  /* 버튼 영역 */
+  .mobile_shopping_cart_item_count_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  /* 버튼 스타일링 */
+  .mobile_shopping_cart_item_count_wrapper button {
+    width: 14px;
+    height: 14px;
+    outline: none;
+    border: 1px solid #b6c5c5;
+    background: white;
+    font-size: 14px;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile_shopping_cart_item_count_wrapper div {
+    width: 22px;
+    height: 14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b6c5c5;
+  }
+  .mobile_shopping_cart_item_count_wrapper div > span {
+    color: black;
+    font-weight: bold;
+    font-size: 0.625rem;
+  }
+  /* 구매내역 영역 */
+  .mobile_shopping_cart_recipe_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 3.125rem;
+  }
+
+  /* SUMMARY text  */
+  .mobile_shopping_cart_recipe_text_wrapper span {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  /* 구매내역 text */
+  .mobile_shopping_cart_recipe_buy_wrapper {
+    color: #6b7878;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  /* 상품명, 상품가격 영역 */
+  .mobile_shopping_cart_recipe_new_item_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    padding-top: 20px;
+    border-top: 1px solid #b6c5c5;
+    margin-top: 10px;
+  }
+
+  /* 상품명, 상품가격 title 영역 */
+  .mobile_shopping_cart_recipe_item_title_wrapper,
+  .mobile_shopping_cart_recipe_item_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+
+  /* 상품명, 상품가격 text */
+  .mobile_shopping_cart_recipe_item_title_wrapper span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7878;
+  }
+  /* 상품의 상품명과 가격 text */
+  .mobile_shopping_cart_recipe_item_info_wrapper span {
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  /* 간격을 위한 상품 가격 선정 */
+  .mobile_shopping_cart_recipe_item_info_wrapper span:last-child {
+    margin-left: auto;
+  }
+  /* 총 가격 영역 */
+  .mobile_shopping_cart_recipe_total_price_wrapper {
+    margin-top: 3.125rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .mobile_shopping_cart_recipe_total_price_wrapper span {
+    color: black;
+    font-size: 20;
+    font-weight: 600;
+  }
+  /* 결제하기 버튼 */
+  .mobile_shopping_cart_buy_button_wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.875rem;
+    margin-bottom: 4.375rem;
+  }
+}
+
+/* 375px ~ 480px */
+@media (min-width: 375px) {
+  /* 장바구니 최상단 부모 */
+  .mobile_shopping_cart_root_header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 100%;
+    height: 100%;
+    background: #fcfcfc;
+    padding: 0 1rem;
+    padding-top: 1.25rem;
+  }
+
+  /* 장바구니 최상단 영역 */
+  .mobile_shopping_cart_root_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* SHOPPING BAG text */
+  .mobile_shopping_cart_header_text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  /* 전체 선택 영역 */
+  .mobile_all_check_area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  /* 추가될 상품 영역 */
+  .mobile_shopping_cart_new_items_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    margin-top: 26px;
+  }
+
+  /* 새로운 상품이 추가되면 입힐 스타일링 */
+  .mobile_shopping_cart_item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: 100%;
+  }
+  /* 이미지 스타일링 */
+  .mobile_shopping_cart_item_image_wrapper {
+    width: 120px;
+    height: 120px;
+    aspect-ratio: 1/1;
+    position: relative;
+    flex-shrink: 0;
+  }
+  /* 상품 상세정보 영역 */
+  .mobile_shopping_cart_item_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  /* 상품명과 닫기 버튼 */
+  .mobile_shopping_cart_item_name_close_button_wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* 상품명 */
+  .mobile_shopping_cart_item_name_close_button_wrapper > span {
+    font-weight: 600;
+    color: black;
+    font-size: 1rem;
+  }
+
+  /* 닫기 아이콘 */
+  .mobile_shopping_cart_close_icon_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    aspect-ratio: 1/1;
+    border: 1px solid #b6c5c5;
+    outline: none;
+    background: none;
+    padding: 0px;
+  }
+
+  /* 색상 및 사이즈 영역*/
+  .mobile_shopping_cart_color_size_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  /* 색상과 사이즈 */
+  .mobile_shopping_cart_item_color,
+  .mobile_shopping_cart_item_size {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+
+  /* 색상 사이즈 text */
+  .mobile_shopping_cart_item_title {
+    font-size: 12;
+    font-weight: 600;
+    color: #6b7878;
+  }
+  /* 상품의 색상 및 사이즈 */
+  .mobile_shopping_cart_item_color,
+  .mobile_shopping_cart_item_size {
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* 상품 수량 버튼 및 가격 */
+  .mobile_shopping_cart_item_count_price_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  /* 버튼 영역 */
+  .mobile_shopping_cart_item_count_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .mobile_shopping_cart_item_count_price_wrapper span {
+    font-size: 14px;
+  }
+  /* 버튼 스타일링 */
+  .mobile_shopping_cart_item_count_wrapper button {
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 1px solid #b6c5c5;
+    background: white;
+    font-size: 16px;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile_shopping_cart_item_count_wrapper div {
+    width: 28px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b6c5c5;
+  }
+  .mobile_shopping_cart_item_count_wrapper div > span {
+    color: black;
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+  /* 구매내역 영역 */
+  .mobile_shopping_cart_recipe_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 3.125rem;
+  }
+
+  /* SUMMARY text  */
+  .mobile_shopping_cart_recipe_text_wrapper span {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  /* 구매내역 text */
+  .mobile_shopping_cart_recipe_buy_wrapper {
+    color: #6b7878;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  /* 상품명, 상품가격 영역 */
+  .mobile_shopping_cart_recipe_new_item_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    padding-top: 20px;
+    border-top: 1px solid #b6c5c5;
+    margin-top: 10px;
+  }
+
+  /* 상품명, 상품가격 title 영역 */
+  .mobile_shopping_cart_recipe_item_title_wrapper,
+  .mobile_shopping_cart_recipe_item_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+
+  /* 상품명, 상품가격 text */
+  .mobile_shopping_cart_recipe_item_title_wrapper span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7878;
+  }
+  /* 상품의 상품명과 가격 text */
+  .mobile_shopping_cart_recipe_item_info_wrapper span {
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  /* 간격을 위한 상품 가격 선정 */
+  .mobile_shopping_cart_recipe_item_info_wrapper span:last-child {
+    margin-left: auto;
+  }
+  /* 총 가격 영역 */
+  .mobile_shopping_cart_recipe_total_price_wrapper {
+    margin-top: 3.125rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .mobile_shopping_cart_recipe_total_price_wrapper span {
+    color: black;
+    font-size: 20;
+    font-weight: 600;
+  }
+  /* 결제하기 버튼 */
+  .mobile_shopping_cart_buy_button_wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.875rem;
+    margin-bottom: 4.375rem;
+  }
+}
