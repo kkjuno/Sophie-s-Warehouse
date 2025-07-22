@@ -87,6 +87,12 @@ export default function orderDeliveryPage() {
           </div>
         </div>
         <hr className={orderDelivery_styles.mobile_order_delivery_divider} />
+
+        <ul className={orderDelivery_styles.mobile_order_delivery_view_list_wrapper}>
+          <li className={orderDelivery_styles.mobile_order_delivery_view_list}>
+            조회내역이 없습니다.
+          </li>
+        </ul>
       </div>
 
       {/* 웹 주문/배송조회 페이지 */}
