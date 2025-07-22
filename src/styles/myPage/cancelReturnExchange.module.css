@@ -1,6 +1,6 @@
 @import url('../reset/modern-reset.css');
 
-/* 모바일 주문/배송조회 페이지 */
+/* 모바일 취소/반품/교환 페이지 */
 /* 모바일 상단 네비 */
 .web_order_delivery {
   display: none;
@@ -108,7 +108,7 @@
   color: #000;
 }
 
-/* 웹 주문/배송조회 페이지  */
+/* 웹 취소/반품/교환 페이지  */
 @media (min-width: 480px) {
   .mobile_order_delivery_nav,
   .mobile_order_delivery_page {
@@ -312,7 +312,7 @@
     color: #6b7878;
   }
 
-  /* 웹 주문 배송 조회 */
+  /* 웹 취소/반품/교환 조회 */
   .web_order_delivery_period_wrapper {
     display: flex;
     flex-flow: column nowrap;
