@@ -1,3 +1,5 @@
+@import url('../reset/modern-reset.css');
+
 /* 모바일 주문/배송조회 페이지 */
 /* 모바일 상단 네비 */
 .web_order_delivery {
@@ -91,6 +93,19 @@
   background-color: rgba(208, 208, 208, 0.2);
   border: none;
   margin: 0;
+}
+
+.mobile_order_delivery_view_list_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 3rem 1rem 0 1rem;
+}
+
+.mobile_order_delivery_view_list {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
 }
 
 /* 웹 주문/배송조회 페이지  */
