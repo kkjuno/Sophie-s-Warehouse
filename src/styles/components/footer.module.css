@@ -1,7 +1,7 @@
 @import url('../reset/modern-reset.css');
 
 .footer {
-  background-color: var(--color-primary);
+  background-color: white;
   padding: 24px;
   font-family: 'HumanBeomseokNeoVF', sans-serif;
   color: var(--color-text);
@@ -61,7 +61,7 @@
   margin-top: 20px;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 480px) {
   .footer {
     padding: 16px;
     font-size: 10px;
