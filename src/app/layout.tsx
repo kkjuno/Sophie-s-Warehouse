@@ -1,11 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Footer from '@/components/layout/footer';
-import FooterNav from '@/components/layout/footer-nav-bar';
+import FooterNav from '@/components/layout/footerNavBar';
 import '@/styles/globals.css';
 import Header from '@/components/layout/header';
 import MyPageHeader from '@/components/layout/myPageHeader';
+import MainFooter from '@/components/layout/mainFooter';
 
 export default function RootLayout({
   children,
@@ -27,7 +27,7 @@ export default function RootLayout({
         {!isHiddenLayout && !isMyPage && <Header />}
         {isMyPage && <MyPageHeader />}
         {children}
-        {!isHiddenLayout && <Footer />}
+        {!isHiddenLayout && <MainFooter />}
         {!isHiddenLayout && <FooterNav />}
       </body>
     </html>
