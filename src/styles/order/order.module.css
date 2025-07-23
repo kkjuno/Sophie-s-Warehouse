@@ -1,0 +1,865 @@
+/* 주문하기 페이지 최상단 root */
+.mobile_order_root_header {
+  padding: 0px 16px;
+
+  background: #fcfcfc;
+  padding-top: 16px;
+}
+/* 최상단 header */
+.mobile_order_header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 뒤로가기 버튼 */
+.mobile_order_header_back_icon_wrapper {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  aspect-ratio: 1/1;
+  border: none;
+  background: inherit;
+}
+/* 주문/결제 text */
+.mobile_order_header_text {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* 주문상품, 총 1건 text */
+.mobile_order_item_header {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
+}
+/* 주문상품, 총 1건 text */
+.mobile_order_item_header span {
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 화살표 아이콘 */
+.mobile_order_arrow_icon_wrapper {
+  position: relative;
+  width: 1.125rem;
+  height: 1.125rem;
+  aspect-ratio: 1/1;
+  border: none;
+  outline: none;
+  background: inherit;
+}
+/* 총1건, 화살표 아이콘 영역 */
+.mobile_order_total_arrow_icon_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+/* 장바구니 영역 */
+.mobile_order_item_basket_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 12px 12px 10px 12px;
+  border: 0.0625rem solid #b6c5c5;
+  border-radius: 15px;
+  margin-top: 18px;
+}
+
+/* 장바구니 text 및 화살표 아이콘 */
+.mobile_order_item_basket_header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+/* 장바구니 옆 화살표 아이콘 */
+.mobile_order_basket_arrow_icon_wrapper {
+  position: relative;
+  width: 0.75rem;
+  height: auto;
+  aspect-ratio: 13/8;
+  outline: none;
+  border: none;
+  background: inherit;
+  transform: rotate(90deg);
+}
+
+/* 상품이 추가될 영역 */
+.mobile_order_item_list {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
+/* 추가된 상품의 영역 */
+.mobile_order_item_area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+/* 이미지와 상품명 */
+.mobile_order_item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+}
+/* 상품명 */
+.mobile_order_item span {
+  font-size: 12px;
+  font-weight: 400;
+}
+/* 상품 이미지 */
+.mobile_order_item_image_wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+/* 장바구니 총 개수 */
+.mobile_order_basket_item_count_wrapper {
+  width: 100%;
+  height: 31px;
+  background-color: rgba(217, 217, 217, 0.3);
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+  margin-top: 26px;
+}
+/* 장바구니 총 개수 text */
+.mobile_order_basket_item_count {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* 상품금액 */
+.mobile_order_basket_item_price_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+/* 상품금액 text */
+.mobile_order_basket_item_price_wrapper span {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* 최종 영수증 영역 */
+.mobile_order_final_recipe_section {
+  border: 0.0625rem solid black;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 16px;
+  padding: 8px 8px 0.75rem 8px;
+}
+
+/* 최종 영수증 상단부 영역 */
+.mobile_order_final_recipe_top_section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+/* 최종 영수증 총xxx text 영역 */
+.mobile_order_fianl_recipe_total_title,
+.mobile_order_fianl_recipe_item_info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+/* 상품 가격 및 갯수 오른쪽 끝 공간에 붙이기 */
+.mobile_order_fianl_recipe_item_info {
+  align-items: flex-end;
+}
+/* 글자 스타일링 */
+.mobile_order_fianl_recipe_total_title span,
+.mobile_order_fianl_recipe_item_info span {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+/* 최종 영수증 중간선 스타일링 */
+.mobile_order_final_recipe_line {
+  padding: 0;
+  width: 100%;
+  height: 0.0625rem;
+  border: none;
+  background-color: black;
+}
+/* 최종 영수증 하단부 영역 */
+.mobile_order_final_recipe_bottom_section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+/* 최종 영수증 하단 레이아웃 */
+.mobile_order_final_recipe_bottom_total_title,
+.mobile_order_final_recipe_bottom_item_info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+/* 최종 영수증 하단부 오른쪽 끝 붙이기 */
+.mobile_order_final_recipe_bottom_item_info {
+  align-items: flex-end;
+}
+/* 최종 영수증 하단부 font 스타일링 */
+.mobile_order_final_recipe_bottom_total_title span,
+.mobile_order_final_recipe_bottom_item_info span {
+  font-size: 12px;
+  font-weight: 400;
+}
+/* 총 상품금액 금액 text */
+.mobile_order_final_recipe_bottom_item_total_price {
+  color: #ac1313;
+}
+
+/* 장바구니 가기 버튼 영역  */
+.mobile_order_go_shopping_cart_button_wrapper {
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* 장바구니 가기 버튼 */
+.mobile_order_go_shopping_cart_button {
+  width: 100%;
+  border: 0.0625rem solid #1b4332;
+  border-radius: 3.125rem;
+  outline: none;
+  height: 2.5rem;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+/* 장바구니 버튼 text */
+.mobile_order_go_shopping_cart_button span {
+  color: #1b4332;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 주문자 정보 form 영역 fieldset 초기화 */
+.mobile_order_orderer_info_section fieldset {
+  padding: 0rem;
+  margin: 0rem;
+  border: none;
+  outline: none;
+  margin-top: 50px;
+}
+/* 주문자 정보 */
+.mobile_order_orderer_info {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* 빨간색 * (필수요소) */
+.required_star {
+  color: red;
+}
+
+/* 주문자 정보 영역 */
+.mobile_order_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  border-top: 0.0625rem solid black;
+}
+/* 입력 영역 */
+.mobile_order_orderer_info_row_layout {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.0625rem solid #b6c5c5;
+}
+.mobile_order_orderer_info_row_layout label {
+  background: rgba(208, 208, 208, 0.3);
+}
+.mobile_order_orderer_info_row_layout input {
+  flex: 1;
+  height: 30px;
+  padding: 10px;
+  margin-left: 0.625rem;
+}
+
+/* 주문하시는분, 휴대폰 번호 */
+.mobile_order_text_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.125rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0.625rem;
+  width: 6.25rem;
+  height: 3.125rem;
+  border-right: 0.0625rem solid #b6c5c5;
+}
+/* 주문하시는분, 휴대폰 번호 text */
+.mobile_order_text_wrapper span {
+  font-size: 0.75rem;
+}
+
+/* 이메일 부분 root */
+.mobile_order_orderer_info_row_email_layout {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.0625rem solid #b6c5c5;
+  height: 5.5rem;
+}
+.mobile_order_orderer_info_row_email_layout label {
+  background: rgba(208, 208, 208, 0.3);
+}
+/* 이메일 부분 input */
+.mobile_order_orderer_info_row_email_layout input {
+  padding: 0.625rem;
+}
+/* 이메일 부분 text */
+.mobile_order_email_text_wrapper span {
+  font-size: 12px;
+}
+
+.mobile_order_email_text_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+  width: 100px;
+  height: 88px;
+  border-right: 1px solid #b6c5c5;
+}
+
+/* 이메일 부분 input , select 영역 */
+.mobile_order_email_input_select_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 0.625rem;
+  gap: 0.5rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  flex: 1;
+}
+/*  이메일 부분 input, select */
+.mobile_order_email_input_select_wrapper input,
+.mobile_order_email_input_select_wrapper select {
+  width: 100%;
+  height: 1.875rem;
+}
+/* 구매내역 설명 영역 */
+.mobile_order_explain_section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin-top: 20px;
+  border: 0.0625rem solid #b6c5c5;
+  border-radius: 15px;
+  padding: 1rem 0rem 1rem 0.625rem;
+}
+/* 구매내역 설명 영역 text */
+.mobile_order_explain_section span {
+  color: #6b7878;
+  font-size: 0.75rem;
+}
+
+/* 배송정보 영역 */
+.mobile_order_post_info_section {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+}
+/* 배송정보 아래 선 */
+.mobile_order_post_info_header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid black;
+}
+/* 배송정보 text */
+.mobile_order_post_info_header span {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+}
+/* 배송정보 하단 라디오 버튼 */
+.mobile_order_post_info_radio_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+/* 배송정보 하단 라디오 버튼 text들 */
+.mobile_order_post_info_default_address_wrapper > span,
+.mobile_order_post_info_user_input_rapper > span,
+.mobile_order_post_info_post_adresss_list_wrapper > span {
+  font-size: 12px;
+  color: black;
+  font-weight: 400;
+}
+
+/* 배송정보 하단 라디오 버튼 layout */
+.mobile_order_post_info_default_address_wrapper,
+.mobile_order_post_info_user_input_rapper,
+.mobile_order_post_info_post_adresss_list_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  align-items: center;
+}
+/* 배송정보 사용자 입력 공간 */
+.mobile_order_post_info_write_section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: none;
+  border-top: 0.0625rem solid #b6c5c5;
+  padding: 0rem;
+}
+/* 입력 영역 */
+.mobile_order_post_info_row_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-bottom: 0.0625rem solid #b6c5c5;
+  align-items: center;
+  width: 100%;
+}
+/* required가 있는 text */
+.mobile_order_post_info_row_layout_required_text {
+  font-size: 12px;
+  width: 110px;
+  height: 50px;
+  border-right: 0.0625rem solid #b6c5c5;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 0.625rem;
+  gap: 4px;
+  background: rgba(208, 208, 208, 0.3);
+}
+/* required가 없는 text */
+.mobile_order_post_info_row_layout_text {
+  width: 110px;
+  height: 50px;
+  border-right: 0.0625rem solid #b6c5c5;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 20px;
+  flex-shrink: 0;
+  background: rgba(208, 208, 208, 0.3);
+}
+
+/* 입력 영역 */
+.mobile_order_post_info_row_layout label {
+  padding-left: 10px;
+  flex: 1;
+}
+
+/* input 영역 */
+.mobile_order_post_info_row_layout label > input {
+  width: 100%;
+  height: 1.875rem;
+  max-width: 100%;
+  font-size: 0.75rem;
+  padding-left: 0.625rem;
+}
+
+/* 배송정보 주소 영역 */
+.post_address {
+  height: 178px;
+  flex-shrink: 0;
+}
+
+/* 배송정보 주소 input 영역 */
+.mobile_order_post_info_post_address_input_section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 10px;
+  gap: 10px;
+}
+.mobile_order_post_info_post_address_input_section label {
+  flex: 1;
+  padding-left: 0;
+}
+.mobile_order_post_info_post_address_input_section label > input {
+  width: 100%;
+  height: 1.875rem;
+  padding: 0.625rem;
+  font-size: 0.75rem;
+}
+
+/* 우편 번호 검색 버튼 */
+.post_info_post_address_button {
+  width: 100%;
+  height: 2.5rem;
+  background: #1b4332;
+  color: #ffffff;
+  /* border: .125rem solid #1B4332; */
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.8125rem 0;
+  border: 0;
+}
+.mobile_order_post_info_post_address_input_section label > input:disabled {
+  background: rgba(208, 208, 208, 0.4);
+}
+
+/* 남기실 말씀 */
+.mobile_order_post_info_orderer_tell {
+  height: 82px;
+}
+/* 남기실 말씀  input 영역 */
+.mobile_order_post_info_ordder_sound_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 0.625rem;
+  gap: 0.5rem;
+}
+/* 남기실 말씀 span */
+.mobile_order_post_info_ordder_sound_wrapper span {
+  font-size: 10px;
+}
+/* 남기실 말씀 input padding-left 값 초기화 */
+.mobile_order_post_info_ordder_sound_wrapper label {
+  padding-left: 0rem;
+}
+
+/* 배송지 추가버튼 영역 */
+.mobile_order_post_info_footer_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+/* 배송지 추가 체크박스 영역 */
+.mobile_order_post_info_check_box_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+/*  체크박스 영역 */
+.mobile_order_post_info_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* 체크박스 영역 text */
+.mobile_order_post_info_button_wrapper span {
+  font-size: 0.75rem;
+}
+
+/* 결제 정보 영역 */
+.mobile_order_pay_info_section {
+  margin-top: 3.125rem;
+}
+/* 결제 정보 text */
+.mobile_order_pay_info_section span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* 결제 정보 박스 부분 */
+.mobile_order_pay_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border-top: 1px solid black;
+  margin-top: 8px;
+}
+/* 결제 정보 박스 부분 layout */
+.mobile_order_pay_info_row_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #b6c5c5;
+}
+/* 결제 정보 박스 부분 title */
+.mobile_order_pay_info_title {
+  width: 6.875rem;
+  height: 50px;
+  border-right: 0.0625rem solid #b6c5c5;
+  flex-shrink: 0;
+  background: rgba(208, 208, 208, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 결제 정보 박스 부분 title text */
+.mobile_order_pay_info_title span {
+  font-size: 0.75rem;
+}
+/* 결제 정보 상품 정보 부분 text 영역*/
+.mobile_order_pay_info_total_item_info,
+.mobile_order_pay_info_total_item_price {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 1rem;
+}
+/* 결제 정보 상품 정보 부분 text */
+.mobile_order_pay_info_total_item_info span,
+.mobile_order_pay_info_total_item_price span {
+  font-size: 0.75rem;
+  color: black;
+}
+.mobile_order_pay_info_total_item_price span {
+  color: #ac1313;
+  font-weight: bold;
+}
+
+/* 최종 결제 금액 왼쪽 border */
+.mobile_order_pay_info_total_price {
+  border-left: 0.0625rem solid #b6c5c5;
+}
+/* 할인 금액 text 부분 */
+.mobile_pay_info_total_sale_info {
+  gap: 0.25rem;
+}
+/* 최종 할인 text 부분 */
+.mobile_order_pay_info_total_item_info .mobile_order_pay_info_total_sale_info {
+  color: #6b7878;
+}
+
+/* 결제 수단 영역 */
+.mobile_order_pay_item_section {
+  margin-top: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1.125rem;
+}
+/* 결제수단 text */
+.mobile_order_pay_item_section span {
+  font-size: 1rem;
+}
+/* 결제 수단 box */
+.mobile_order_pay_item_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-top: 1px solid #b6c5c5;
+  border-bottom: 1px solid #b6c5c5;
+}
+/* 일반결제 text */
+.mobile_order_pay_item_title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 6.8125rem;
+  height: 144px;
+  align-items: center;
+  background: rgba(208, 208, 208, 0.3);
+  padding-left: 14px;
+}
+.mobile_order_pay_item_title span {
+  font-size: 0.75rem;
+}
+
+/* 결제 수단 radio 버튼 */
+.mobile_order_pay_item_radio_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-left: 0.5rem;
+  gap: 0.5rem;
+  justify-content: center;
+}
+/* 결제수단 radio layout */
+.mobile_order_pay_credit_card,
+.mobile_order_pay_account_transfer,
+.mobile_order_pay_account_transfer_escorw,
+.mobile_order_pay_virtual_account_escrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.625rem;
+}
+/* 결제수단 radio 버튼 옆 text 스타일링 */
+.mobile_order_pay_credit_card span,
+.mobile_order_pay_account_transfer span,
+.mobile_order_pay_account_transfer_escorw span,
+.mobile_order_pay_virtual_account_escrow span {
+  font-size: 0.75rem;
+}
+/* 최종 결제 금액 영역 */
+.mobile_order_total_price_section {
+  margin-top: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+/* 최종 결제 금액 헤더 text*/
+.mobile_order_total_price_header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  height: 43px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid #b6c5c5;
+}
+/* 최종 결제 금액 text */
+.mobile_order_total_price_header span {
+  font-weight: 700;
+}
+/* 최종 결제 총 금액 text*/
+.mobile_order_total_price_header .mobile_order_total_price {
+  font-weight: 800;
+  color: #ac1313;
+}
+
+/* 최종결제금액 체크박스 영역 */
+.mobile_order_total_price_checkbox_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding-top: 0.875rem;
+  padding-bottom: 1.75rem;
+}
+/* 체크박스 layout */
+.mobile_order_check_box_row_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+/* 이용약관 버튼 */
+.mobile_order_check_box_row_layout button {
+  outline: none;
+  border: none;
+  background: inherit;
+  transform: rotate(90deg);
+  position: relative;
+  width: 1.125rem;
+  height: 1.125rem;
+  padding: 0px;
+  margin: 0px;
+}
+.mobile_order_total_price_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+
+/* 필수 text */
+.mobile_order_check_require {
+  color: #ac1313;
+}
+/* 장바구니, 결제하기 버튼 영역 */
+.mobile_order_total_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+/* 장바구니 버튼 */
+.mobile_order_cart_button {
+  width: 50%;
+  height: 38px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+/* 결제하기 버튼 */
+.mobile_order_pay_button {
+  width: 50%;
+  height: 38px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+/* 최하단 footer 설명영역 */
+.mobile_order_footer_section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 1.625rem;
+  border: 1px solid #b6c5c5;
+  border-radius: 0.9375rem;
+  padding-left: 0.625rem;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 6.25rem;
+  margin-bottom: 1.875rem;
+}
+/* 최하단  footer 설명영역 text */
+.mobile_order_footer_section span {
+  color: #6b7878;
+  font-size: 12px;
+}
+.mobile_order_footer_section span > strong {
+  color: black;
+}
