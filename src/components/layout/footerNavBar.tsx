@@ -1,3 +1,5 @@
+// 'use client';
+
 import '@/styles/globals.css';
 import footer_nav_bar_styles from '@/styles/components/footerNavBar.module.css';
 import Link from 'next/link';
@@ -30,7 +32,7 @@ export default function FooterNav() {
           </div>
           <span className={footer_nav_bar_styles.label}>마이페이지</span>
         </Link>
-        <Link href="#" className={footer_nav_bar_styles.navItem}>
+        <Link href="/mobileRecentProductPage" className={footer_nav_bar_styles.navItem}>
           <div className={footer_nav_bar_styles.icon}>
             <img src="/icons/recent-white-icon.svg" width={33} height={33} alt="최근본상품" />
           </div>
