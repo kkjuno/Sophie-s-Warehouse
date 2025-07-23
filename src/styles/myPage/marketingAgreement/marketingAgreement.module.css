@@ -1,0 +1,53 @@
+/* 마케팅 수신 동의 */
+.mobile_root_header {
+  padding: 2.25rem 1rem 0 1rem;
+  background: white;
+  min-height: 100vh;
+}
+/* 마케팅 수신 동의 text */
+.mobile_root_header h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+/* 모바일 체크박스 */
+.mobile_check_box_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* 모바일 체크박스 레이아웃 */
+.mobile_check_box_row_layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.375rem;
+}
+.mobile_check_box_row_layout span {
+  font-size: 14px;
+  font-weight: 400;
+}
+/* 버튼 영역 */
+.mobile_store_button_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: center;
+  margin-top: 3.125rem;
+}
+/* 저장 버튼 */
+.moblie_store_button {
+  width: 60%;
+  height: 30px;
+  background: #1b4332;
+  border: 1px solid #1b4332;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
