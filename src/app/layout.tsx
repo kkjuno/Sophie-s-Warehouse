@@ -20,10 +20,13 @@ export default function RootLayout({
     pathname.startsWith('/signup') ||
     pathname.startsWith('/zip-code') ||
     pathname.startsWith('/myPage/authCheck') ||
-    pathname.startsWith('/myPage/marketingAgreement');
+    pathname.startsWith('/myPage/marketingAgreement') ||
+    pathname.startsWith('/myPage/accountDelete');
   // mypage에서 헤더 필요 없는 부분에 || pathname.startsWith("경로명") 하면 헤더출력 X
   const hideMyPageHeader =
-    pathname.startsWith('/myPage/authCheck') || pathname.startsWith('/myPage/marketingAgreement');
+    pathname.startsWith('/myPage/authCheck') ||
+    pathname.startsWith('/myPage/marketingAgreement') ||
+    pathname.startsWith('/myPage/accountDelete');
   const isMyPage = pathname.startsWith('/myPage'); // 마이페이지 전용 헤더
 
   return (
