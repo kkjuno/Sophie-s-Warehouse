@@ -13,19 +13,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-
+  // pathname이 null 일경우 예외처리
+  if (!pathname) return null;
   const isHiddenLayout =
     pathname.startsWith('/login') ||
     pathname.startsWith('/signup') ||
-    pathname.startsWith('/zip-code');
-
+    pathname.startsWith('/zip-code') ||
+    pathname.startsWith('/myPage/authCheck');
+  // mypage에서 헤더 필요 없는 부분에 || pathname.startsWith("경로명") 하면 헤더출력 X
+  const hideMyPageHeader = pathname.startsWith('/myPage/authCheck');
   const isMyPage = pathname.startsWith('/myPage'); // 마이페이지 전용 헤더
 
   return (
     <html>
       <body>
         {!isHiddenLayout && !isMyPage && <Header />}
-        {isMyPage && <MyPageHeader />}
+        {isMyPage && !hideMyPageHeader && <MyPageHeader />}
         {children}
         {!isHiddenLayout && <MainFooter />}
         {!isHiddenLayout && <FooterNav />}
