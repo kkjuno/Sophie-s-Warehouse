@@ -20,20 +20,16 @@ export default function StampPage() {
           </div>
           <span className={stamp_page_styles.now_stamp_count}>현재 스탬프 개수 : 8개</span>
           <div className={stamp_page_styles.blackbean_image_wrapper}>
-            <Image
-              src="/images/stamp-images/stamp-blackbean-image.svg"
-              fill
-              alt="숯검댕이 이미지"
-            />
+            <Image src="/images/stampImages/stamp-blackbean-image.svg" fill alt="숯검댕이 이미지" />
           </div>
         </div>
         <div className={stamp_page_styles.stamp_image_wrapper}>
-          <Image fill src="/images/stamp-images/stamp-image.svg" alt="스탬프 이미지" />
+          <Image fill src="/images/stampImages/stamp-image.svg" alt="스탬프 이미지" />
         </div>
         <div className={stamp_page_styles.stamp_link_image_wrapper}>
           <div className={stamp_page_styles.stamp_more_image_wrapper}>
             <Image
-              src="/images/stamp-images/stamp-more-image.svg"
+              src="/images/stampImages/stamp-more-image.svg"
               fill
               alt="스탬프 더 모으기 이미지"
             />
@@ -56,7 +52,7 @@ export default function StampPage() {
             className={stamp_page_styles.stamp_gacha_image_wrapper}
           >
             <Image
-              src="/images/stamp-images/stamp-gacha-image.svg"
+              src="/images/stampImages/stamp-gacha-image.svg"
               width={166}
               height={124}
               alt="스탬프 가챠 이미지"
@@ -86,7 +82,7 @@ export default function StampPage() {
             </div>
             <div className={stamp_page_styles.toast_ui_item_wrapper}>
               <div className={stamp_page_styles.toast_ui_confetti_wrapper}>
-                <Image src="/images/stamp-images/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+                <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
               </div>
               <div className={stamp_page_styles.toast_ui_lotto_item}></div>
             </div>
