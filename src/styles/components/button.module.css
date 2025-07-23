@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 70px;
 }
 
 .button_grid {
@@ -56,7 +57,7 @@
 }
 
 /* 모바일 드롭다운 버튼 css */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .dropdown {
     width: 60px;
     height: 24px;
@@ -87,7 +88,7 @@
 }
 
 /* 모바일 결제하기 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .payment_button {
     width: 180px;
     height: 38px;
@@ -141,7 +142,7 @@
 }
 
 /* 모바일 닫기 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .close_button {
     width: 130px;
     height: 30px;
@@ -166,7 +167,7 @@
 }
 
 /* 모바일 바로가기 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .quick_link_button {
     width: 130px;
     height: 30px;
@@ -189,7 +190,7 @@
 }
 
 /* 모바일 로그인 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .login_button {
     width: 180px;
     height: 38px;
@@ -212,7 +213,7 @@
 }
 
 /* 모바일 회원가입 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .signup_button {
     width: 180px;
     height: 38px;
@@ -235,7 +236,7 @@
 }
 
 /* 모바일 조회 버튼 */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .inquiry_button {
     width: 38px;
     height: 20px;
@@ -300,4 +301,144 @@
   border: 0;
   cursor: pointer;
   outline: none;
+}
+
+/* 웹 광고글귀 바로가기 버튼 */
+.hero_button {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 7 19 5 29;
+  font-size: 18px;
+  border-radius: 16px;
+  width: 130px;
+}
+
+/* 모바일 광고글귀 바로가기 버튼 */
+@media (max-width: 481px) {
+  .hero_button {
+    border-radius: 12px;
+    width: 60px;
+    min-width: 60px;
+    padding: 2 10;
+    font-size: 0.625rem;
+  }
+}
+
+/* 수량 추가 버튼 - 실제 사용시 div로 묶어서 사용 */
+.calc_minus_button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #b6c5c5;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text);
+
+  @media (max-width: 481px) {
+    width: 21px;
+    height: 20px;
+  }
+}
+
+.calc_plus_button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #b6c5c5;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text);
+
+  @media (max-width: 481px) {
+    width: 21px;
+    height: 20px;
+  }
+}
+
+.calc_number_button {
+  width: 36px;
+  height: 28px;
+  border: 1px solid #b6c5c5;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text);
+
+  @media (max-width: 481px) {
+    width: 28px;
+    height: 20px;
+    font-size: 12px;
+  }
+}
+
+/* 웹 찜리스트 장바구니 버튼 */
+.like_list_go_to_cart_button {
+  width: 77px;
+  height: 30px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 9 18 6 18;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 웹 찜리스트 삭제하기 버튼 */
+.like_list_delete_button {
+  width: 77px;
+  height: 30px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7 16 4 16;
+  border: 2px solid #1b4332;
+}
+
+/* 웹 마이페이지 조회 버튼 */
+.my_page_inquiry_button {
+  width: 47px;
+  height: 26px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7 13 5 13;
+  border: 0px;
+}
+
+/* 모바일 등금혜택 버튼 */
+.tier_benefit_button {
+  background: none;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5 8 10 15;
+  font-size: 12px;
+  border-radius: 16px;
+  border: 1px solid black;
+  width: 75px;
+  height: 25px;
 }

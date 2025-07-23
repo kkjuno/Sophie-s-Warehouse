@@ -75,6 +75,44 @@ export default function Button() {
           </button>
 
           <button className={`${styles.add_address_button} `}>배송지 추가</button>
+
+          <button className={`${styles.hero_button} `}>바로가기&gt;</button>
+
+          {/* 장바구니, 상세페이지 - 수량 추가 버튼(웹,모바일) */}
+          <button className={`${styles.calc_plus_button}`}>
+            <svg
+              width="15"
+              height="1"
+              viewBox="0 0 14 1"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0.5 1V0H13.5V1H0.5Z" fill="black" />
+            </svg>
+          </button>
+          <button className={`${styles.calc_number_button}`}>1</button>
+          <button className={`${styles.calc_minus_button}`}>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 14 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.292969 7V6H6.29297V0H7.29297V6H13.293V7H7.29297V13H6.29297V7H0.292969Z"
+                fill="black"
+              />
+            </svg>
+          </button>
+
+          <button className={`${styles.like_list_go_to_cart_button}`}>장바구니</button>
+
+          <button className={`${styles.like_list_delete_button}`}>삭제하기</button>
+
+          <button className={`${styles.my_page_inquiry_button} `}>조회</button>
+
+          <button className={`${styles.tier_benefit_button}`}>등급혜택 &gt;</button>
         </div>
       </div>
     </div>
