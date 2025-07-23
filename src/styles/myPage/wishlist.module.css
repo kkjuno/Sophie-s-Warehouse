@@ -29,18 +29,156 @@
 }
 
 /* 모바일 찜리스트 부분 */
-.mobile_wishlist_page {
+.mobile_wishlist_page_wrapper {
   display: flex;
   flex-flow: column wrap;
   background-color: #ffffff;
   width: 100%;
   height: 100vh;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.mobile_checkbox_container {
+  display: flex;
+  flex-flow: row wrap;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #949494;
+  align-items: center;
+  padding-block: 0.625rem;
+  gap: 0.9375rem;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.mobile_checkbox_label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #949494;
+}
+
+.mobile_wishlist_list_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-block: 1rem;
+  border-bottom: 1px solid #949494;
+  position: relative;
+}
+
+.mobile_wishlist_list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.9375rem;
+}
+
+.mobile_wishlist_img_wrapper {
+  position: relative;
+  width: 4.375rem;
+  height: 5.625rem;
+  border: #000 solid 0.0625rem;
+}
+
+.mobile_wishlist_list_item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.mobile_wishlist_list_item_name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.mobile_wishlist_list_text_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.625rem;
+}
+
+.mobile_wishlist_list_point_text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #949494;
+}
+
+.mobile_wishlist_list_text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.mobile_wishlist_list_price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.mobile_shoping_cart_icon_wrapper {
+  display: flex;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: #000 solid 1px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile_shoping_cart_icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* 선택상품 삭제 버튼 */
+.mobile_delete_selected_items_button {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  height: 2.1875rem;
+  text-align: center;
+  border: #1b4332 1px solid;
+  border-radius: 50px;
+  margin-top: 1.25rem;
+  color: #1b4332;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* 페이지 이동 버튼 */
+.mobile_pagination_button_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 1.25rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mobile_pagination_count_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #000;
+  border-radius: 0.1875rem;
+}
+
+.mobile_pagination_count {
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 700;
 }
 
 /* 웹 찜리스트 페이지  */
 @media (min-width: 480px) {
   .mobile_wishlist_nav,
-  .mobile_wishlist_page {
+  .mobile_wishlist_page_wrapper {
     display: none;
   }
 
@@ -245,13 +383,13 @@
   .web_wishlist_view_wrapper {
     display: flex;
     flex-flow: column nowrap;
-    gap: 1.5vh;
   }
 
   .web_wishlist_view_tit {
     font-size: clamp(0.875rem, 1.5vw, 1.125rem);
     font-weight: 700;
     color: #081818;
+    margin-bottom: 0.9375rem;
   }
 
   .web_wishlist_view_divider {
@@ -269,29 +407,62 @@
     justify-content: center;
     border-top: 1px solid #000;
     border-bottom: 1px solid #b6c5c5;
-    padding-inline: (1.5rem, 3vw, 3rem);
+    padding-inline: clamp(0.5rem, 1vw, 3rem);
   }
 
   .web_wishlist_view_label {
     position: relative;
-    width: 20%;
+    width: 16%;
     padding-block: 1rem;
-    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-size: clamp(0.8rem, 1.5vw, 1.125rem);
     font-weight: 700;
     color: #081818;
     text-align: center;
   }
   .web_wishlist_view_label:nth-child(1) {
-    width: 24%;
+    width: 5%;
   }
   .web_wishlist_view_label:nth-child(2) {
+    width: 42%;
+  }
+  .web_wishlist_view_label:nth-child(3) {
     width: 22%;
   }
-  .web_wishlist_view_label:nth-child(5) {
-    width: 14%;
+
+  .web_wishlist_view_list_wrapper {
+    display: flex;
+    flex-flow: column nowrap;
   }
 
-  .web_wishlist_view_label:not(:nth-child(5))::after {
+  .web_wishlist_view_list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    border-bottom: 1px solid #b6c5c5;
+    padding-inline: clamp(0.5rem, 1vw, 3rem);
+  }
+
+  .web_wishlist_view_list_label {
+    position: relative;
+    width: 16%;
+    padding-block: 1rem;
+    font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+    font-weight: 700;
+    color: #081818;
+    text-align: center;
+  }
+  .web_wishlist_view_list_label:nth-child(1) {
+    width: 5%;
+  }
+  .web_wishlist_view_list_label:nth-child(2) {
+    width: 42%;
+  }
+  .web_wishlist_view_list_label:nth-child(3) {
+    width: 22%;
+  }
+
+  .web_wishlist_view_list_label:not(:nth-child(5))::after {
     content: '';
     position: absolute;
     top: 0;
@@ -301,26 +472,48 @@
     background-color: #b6c5c5;
   }
 
-  .web_wishlist_view_list_wrapper {
+  .web_wishlist_view_list_container {
     display: flex;
-    flex-flow: column nowrap;
-    padding-inline: 3rem;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    gap: 1.8667vw;
+    padding-inline: clamp(0.5rem, 1vw, 1rem);
   }
 
-  .web_wishlist_view_list {
-    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  .web_wishlist_view_list_img_wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+
+  .web_wishlist_view_list_label_tit {
+    &:before {
+      content: '[';
+    }
+    &:after {
+      content: ']';
+    }
+  }
+
+  .web_wishlist_view_list_button_wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    padding-inline-start: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .web_wishlist_view_list_button {
+    width: clamp(3.2rem, 5vw, 4.8125rem);
+    height: 1.875rem;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
     font-weight: 700;
     color: #081818;
   }
 
-  .web_wishlist_view_list_divider {
-    width: 100%;
-    height: 1px;
-    background-color: #b6c5c5;
-    border: none;
-    margin: 0;
+  .web_wishlist_view_list_check {
+    width: 1.25rem;
+    height: 1.25rem;
+    content: '';
   }
 }
