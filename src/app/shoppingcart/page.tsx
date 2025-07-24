@@ -10,6 +10,7 @@ export default function ShoppingCart() {
 
   return (
     <>
+      {/* 모바일 뷰 */}
       <div className={shopping_cart_styles.mobile_shopping_cart_root_header}>
         <div className={shopping_cart_styles.mobile_shopping_cart_root_section}>
           <h2 className={shopping_cart_styles.mobile_shopping_cart_header_text}>SHOPPING BAG</h2>
@@ -177,6 +178,264 @@ export default function ShoppingCart() {
           </div>
           <div className={shopping_cart_styles.mobile_shopping_cart_buy_button_wrapper}>
             <button className={`${styles.payment_button} `}>결제하기</button>
+          </div>
+        </div>
+      </div>
+      {/* 웹 뷰  */}
+      <div className={shopping_cart_styles.web_shopping_cart_root_header}>
+        <div className={shopping_cart_styles.web_shopping_cart_section}>
+          <h2>SHOPPING BAG</h2>
+          <div className={shopping_cart_styles.web_side_bar_layout}>
+            {/* 상품들이 추가되는 공간 */}
+            <div className={shopping_cart_styles.web_item_list_section}>
+              {/* 상품 */}
+              <div className={shopping_cart_styles.web_price_item}>
+                <div className={shopping_cart_styles.web_price_item_image_wrapper}></div>
+                <div className={shopping_cart_styles.web_price_item_info}>
+                  <div className={shopping_cart_styles.web_price_item_top_section}>
+                    {/* 상품명 */}
+                    <div className={shopping_cart_styles.web_price_item_name}>
+                      <span>토토로 등신대</span>
+                      <div className={shopping_cart_styles.web_price_cancel_icon_wrapper}>
+                        <Image src="/icons/close-icon.svg" fill alt="닫기 아이콘" />
+                      </div>
+                    </div>
+                    {/* 색상 , 사이즈 */}
+                    <div className={shopping_cart_styles.web_price_item_color_size_info}>
+                      <div className={shopping_cart_styles.web_price_item_color_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_color_title}>
+                          색상 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_item_color}>베이지</span>
+                      </div>
+                      <div className={shopping_cart_styles.web_price_item_size_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_size_title}>
+                          사이즈 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_size_color}>소형</span>
+                      </div>
+                    </div>
+                    <div className={shopping_cart_styles.web_price_item_wrapper}></div>
+                  </div>
+                  <div className={shopping_cart_styles.web_price_item_bottom_section}>
+                    {/* 수량 버튼 */}
+                    <div className={shopping_cart_styles.web_price_item_count_button_wrapper}>
+                      <button type="button">-</button>
+                      <div className={shopping_cart_styles.web_show_item_count}>1</div>
+                      <button type="button">+</button>
+                    </div>
+                    {/* 상품가격 */}
+                    <span className={shopping_cart_styles.web_item_price}>46,000 원</span>
+                  </div>
+                </div>
+              </div>
+              {/* 상품 */}
+              <div className={shopping_cart_styles.web_price_item}>
+                <div className={shopping_cart_styles.web_price_item_image_wrapper}></div>
+                <div className={shopping_cart_styles.web_price_item_info}>
+                  <div className={shopping_cart_styles.web_price_item_top_section}>
+                    {/* 상품명 */}
+                    <div className={shopping_cart_styles.web_price_item_name}>
+                      <span>토토로 등신대</span>
+                      <div className={shopping_cart_styles.web_price_cancel_icon_wrapper}>
+                        <Image src="/icons/close-icon.svg" fill alt="닫기 아이콘" />
+                      </div>
+                    </div>
+                    {/* 색상 , 사이즈 */}
+                    <div className={shopping_cart_styles.web_price_item_color_size_info}>
+                      <div className={shopping_cart_styles.web_price_item_color_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_color_title}>
+                          색상 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_item_color}>베이지</span>
+                      </div>
+                      <div className={shopping_cart_styles.web_price_item_size_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_size_title}>
+                          사이즈 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_size_color}>소형</span>
+                      </div>
+                    </div>
+                    <div className={shopping_cart_styles.web_price_item_wrapper}></div>
+                  </div>
+                  <div className={shopping_cart_styles.web_price_item_bottom_section}>
+                    {/* 수량 버튼 */}
+                    <div className={shopping_cart_styles.web_price_item_count_button_wrapper}>
+                      <button type="button">-</button>
+                      <div className={shopping_cart_styles.web_show_item_count}>1</div>
+                      <button type="button">+</button>
+                    </div>
+                    {/* 상품가격 */}
+                    <span className={shopping_cart_styles.web_item_price}>46,000 원</span>
+                  </div>
+                </div>
+              </div>
+              {/* 상품 */}
+              <div className={shopping_cart_styles.web_price_item}>
+                <div className={shopping_cart_styles.web_price_item_image_wrapper}></div>
+                <div className={shopping_cart_styles.web_price_item_info}>
+                  <div className={shopping_cart_styles.web_price_item_top_section}>
+                    {/* 상품명 */}
+                    <div className={shopping_cart_styles.web_price_item_name}>
+                      <span>토토로 등신대</span>
+                      <div className={shopping_cart_styles.web_price_cancel_icon_wrapper}>
+                        <Image src="/icons/close-icon.svg" fill alt="닫기 아이콘" />
+                      </div>
+                    </div>
+                    {/* 색상 , 사이즈 */}
+                    <div className={shopping_cart_styles.web_price_item_color_size_info}>
+                      <div className={shopping_cart_styles.web_price_item_color_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_color_title}>
+                          색상 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_item_color}>베이지</span>
+                      </div>
+                      <div className={shopping_cart_styles.web_price_item_size_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_size_title}>
+                          사이즈 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_size_color}>소형</span>
+                      </div>
+                    </div>
+                    <div className={shopping_cart_styles.web_price_item_wrapper}></div>
+                  </div>
+                  <div className={shopping_cart_styles.web_price_item_bottom_section}>
+                    {/* 수량 버튼 */}
+                    <div className={shopping_cart_styles.web_price_item_count_button_wrapper}>
+                      <button type="button">-</button>
+                      <div className={shopping_cart_styles.web_show_item_count}>1</div>
+                      <button type="button">+</button>
+                    </div>
+                    {/* 상품가격 */}
+                    <span className={shopping_cart_styles.web_item_price}>46,000 원</span>
+                  </div>
+                </div>
+              </div>
+              {/* 상품 */}
+              <div className={shopping_cart_styles.web_price_item}>
+                <div className={shopping_cart_styles.web_price_item_image_wrapper}></div>
+                <div className={shopping_cart_styles.web_price_item_info}>
+                  <div className={shopping_cart_styles.web_price_item_top_section}>
+                    {/* 상품명 */}
+                    <div className={shopping_cart_styles.web_price_item_name}>
+                      <span>토토로 등신대</span>
+                      <div className={shopping_cart_styles.web_price_cancel_icon_wrapper}>
+                        <Image src="/icons/close-icon.svg" fill alt="닫기 아이콘" />
+                      </div>
+                    </div>
+                    {/* 색상 , 사이즈 */}
+                    <div className={shopping_cart_styles.web_price_item_color_size_info}>
+                      <div className={shopping_cart_styles.web_price_item_color_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_color_title}>
+                          색상 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_item_color}>베이지</span>
+                      </div>
+                      <div className={shopping_cart_styles.web_price_item_size_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_size_title}>
+                          사이즈 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_size_color}>소형</span>
+                      </div>
+                    </div>
+                    <div className={shopping_cart_styles.web_price_item_wrapper}></div>
+                  </div>
+                  <div className={shopping_cart_styles.web_price_item_bottom_section}>
+                    {/* 수량 버튼 */}
+                    <div className={shopping_cart_styles.web_price_item_count_button_wrapper}>
+                      <button type="button">-</button>
+                      <div className={shopping_cart_styles.web_show_item_count}>1</div>
+                      <button type="button">+</button>
+                    </div>
+                    {/* 상품가격 */}
+                    <span className={shopping_cart_styles.web_item_price}>46,000 원</span>
+                  </div>
+                </div>
+              </div>
+              {/* 상품 */}
+              <div className={shopping_cart_styles.web_price_item}>
+                <div className={shopping_cart_styles.web_price_item_image_wrapper}></div>
+                <div className={shopping_cart_styles.web_price_item_info}>
+                  <div className={shopping_cart_styles.web_price_item_top_section}>
+                    {/* 상품명 */}
+                    <div className={shopping_cart_styles.web_price_item_name}>
+                      <span>토토로 등신대</span>
+                      <div className={shopping_cart_styles.web_price_cancel_icon_wrapper}>
+                        <Image src="/icons/close-icon.svg" fill alt="닫기 아이콘" />
+                      </div>
+                    </div>
+                    {/* 색상 , 사이즈 */}
+                    <div className={shopping_cart_styles.web_price_item_color_size_info}>
+                      <div className={shopping_cart_styles.web_price_item_color_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_color_title}>
+                          색상 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_item_color}>베이지</span>
+                      </div>
+                      <div className={shopping_cart_styles.web_price_item_size_wrapper}>
+                        <span className={shopping_cart_styles.web_price_item_size_title}>
+                          사이즈 :
+                        </span>
+                        <span className={shopping_cart_styles.web_price_size_color}>소형</span>
+                      </div>
+                    </div>
+                    <div className={shopping_cart_styles.web_price_item_wrapper}></div>
+                  </div>
+                  <div className={shopping_cart_styles.web_price_item_bottom_section}>
+                    {/* 수량 버튼 */}
+                    <div className={shopping_cart_styles.web_price_item_count_button_wrapper}>
+                      <button type="button">-</button>
+                      <div className={shopping_cart_styles.web_show_item_count}>1</div>
+                      <button type="button">+</button>
+                    </div>
+                    {/* 상품가격 */}
+                    <span className={shopping_cart_styles.web_item_price}>46,000 원</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* 영수증 */}
+            <div className={shopping_cart_styles.web_summary}>
+              <div className={shopping_cart_styles.web_shopping_cart_recipe_section}>
+                <div className={shopping_cart_styles.web_shopping_cart_recipe_text_wrapper}>
+                  <span>SUMMARY</span>
+                </div>
+                <div className={shopping_cart_styles.web_shopping_cart_recipe_buy_wrapper}>
+                  <span>구매내역</span>
+                </div>
+                {/* 장바구니 아이템이 추가되면 이 영역에 추가됨 */}
+                <div className={shopping_cart_styles.web_shopping_cart_recipe_new_item_wrapper}>
+                  <div className={shopping_cart_styles.web_shopping_cart_recipe_item_title_wrapper}>
+                    <span>상품명</span>
+                    <span>상품 가격</span>
+                  </div>
+                  {/* 추후 기능 추가시 item 이름과 가격 기입 부분 */}
+                  <div className={shopping_cart_styles.web_shopping_cart_recipe_item_info_wrapper}>
+                    <span>토토로 등신대</span>
+                    <span>46,000 원</span>
+                  </div>
+                </div>
+                {/* 장바구니 아이템이 추가되면 이 영역에 추가됨 */}
+                <div className={shopping_cart_styles.web_shopping_cart_recipe_new_item_wrapper}>
+                  <div className={shopping_cart_styles.web_shopping_cart_recipe_item_title_wrapper}>
+                    <span>상품명</span>
+                    <span>상품 가격</span>
+                  </div>
+                  {/* 추후 기능 추가시 item 이름과 가격 기입 부분 */}
+                  <div className={shopping_cart_styles.web_shopping_cart_recipe_item_info_wrapper}>
+                    <span>토토로 등신대</span>
+                    <span>46,000 원</span>
+                  </div>
+                </div>
+                <div className={shopping_cart_styles.web_shopping_cart_recipe_total_price_wrapper}>
+                  <span>총 가격</span>
+                  <span>46,000 원</span>
+                </div>
+                <div className={shopping_cart_styles.web_shopping_cart_buy_button_wrapper}>
+                  <button className={`${styles.payment_button} `}>결제하기</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
