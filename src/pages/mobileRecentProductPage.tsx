@@ -8,11 +8,10 @@ interface Product {
   price: number;
   image: string;
   category: string;
-  isLiked: boolean;
   viewedAt: Date;
 }
 
-const RecentProductsPage: React.FC = () => {
+const mobileRecentProductsPage: React.FC = () => {
   // 샘플 데이터 - 실제로는 API에서 받아올 데이터
   const sampleProducts: Product[] = [
     {
@@ -21,7 +20,7 @@ const RecentProductsPage: React.FC = () => {
       price: 9000,
       image: '/images/products/kiki/kiki-magnet.svg',
       category: '마녀배달부 키키',
-      isLiked: true,
+
       viewedAt: new Date('2025-01-25T10:30:00'),
     },
     {
@@ -30,7 +29,7 @@ const RecentProductsPage: React.FC = () => {
       price: 46000,
       image: '/images/products/totoro/totoro-mini-figure.svg',
       category: '이웃집 토토로',
-      isLiked: false,
+
       viewedAt: new Date('2025-01-23T09:15:00'),
     },
     {
@@ -39,7 +38,7 @@ const RecentProductsPage: React.FC = () => {
       price: 308000,
       image: '/images/products/howl/howl-diorama.svg',
       category: '하울의 움직이는 성',
-      isLiked: true,
+
       viewedAt: new Date('2025-01-22T14:20:00'),
     },
     {
@@ -48,7 +47,7 @@ const RecentProductsPage: React.FC = () => {
       price: 308000,
       image: '/images/products/howl/howl-diorama.svg',
       category: '하울의 움직이는 성',
-      isLiked: true,
+
       viewedAt: new Date('2025-01-22T14:20:00'),
     },
     {
@@ -57,7 +56,7 @@ const RecentProductsPage: React.FC = () => {
       price: 308000,
       image: '/images/products/howl/howl-diorama.svg',
       category: '하울의 움직이는 성',
-      isLiked: true,
+
       viewedAt: new Date('2025-01-22T14:20:00'),
     },
     {
@@ -66,7 +65,7 @@ const RecentProductsPage: React.FC = () => {
       price: 308000,
       image: '/images/products/howl/howl-diorama.svg',
       category: '하울의 움직이는 성',
-      isLiked: false,
+
       viewedAt: new Date('2025-01-24T14:20:00'),
     },
     {
@@ -75,7 +74,6 @@ const RecentProductsPage: React.FC = () => {
       price: 308000,
       image: '/images/products/howl/howl-diorama.svg',
       category: '하울의 움직이는 성',
-      isLiked: true,
       viewedAt: new Date('2025-01-19T14:20:00'),
     },
   ];
@@ -94,15 +92,6 @@ const RecentProductsPage: React.FC = () => {
   // 상품 삭제 함수
   const removeProduct = (productId: number) => {
     setRecentProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
-  };
-
-  // 찜 토글 함수
-  const toggleLike = (productId: number) => {
-    setRecentProducts((prevProducts) =>
-      prevProducts.map((product) =>
-        product.id === productId ? { ...product, isLiked: !product.isLiked } : product,
-      ),
-    );
   };
 
   const handleClose = () => {
@@ -167,48 +156,6 @@ const RecentProductsPage: React.FC = () => {
                   <div className={styles.brandName}>{product.category}</div>
                   <div className={styles.productName}>{product.name}</div>
                   <div className={styles.productPrice}>{product.price.toLocaleString()}원</div>
-
-                  {/* 찜 버튼 */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleLike(product.id);
-                    }}
-                    className={styles.likeButton}
-                  >
-                    <span className={styles.heartIcon}>
-                      {product.isLiked ? (
-                        // 꽉찬 하트 아이콘
-                        <svg
-                          width="14"
-                          height="12"
-                          viewBox="0 0 18 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M9 16L7.695 14.849C3.06 10.7771 0 8.08283 0 4.79564C0 2.10136 2.178 0 4.95 0C6.516 0 8.019 0.706267 9 1.81362C9.981 0.706267 11.484 0 13.05 0C15.822 0 18 2.10136 18 4.79564C18 8.08283 14.94 10.7771 10.305 14.849L9 16Z"
-                            fill="red"
-                          />
-                        </svg>
-                      ) : (
-                        // 빈 하트 아이콘
-                        <svg
-                          width="14"
-                          height="12"
-                          viewBox="0 0 19 17"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.24 8.25002C1.84461 7.85725 1.53134 7.38971 1.31845 6.87466C1.10556 6.3596 0.997308 5.80733 1 5.25002C1 4.12285 1.44777 3.04184 2.2448 2.24481C3.04183 1.44778 4.12283 1.00002 5.25 1.00002C6.83 1.00002 8.21 1.86002 8.94 3.14002H10.06C10.4311 2.48908 10.9681 1.94811 11.6163 1.57219C12.2645 1.19628 13.0007 0.998856 13.75 1.00002C14.8772 1.00002 15.9582 1.44778 16.7552 2.24481C17.5522 3.04184 18 4.12285 18 5.25002C18 6.42002 17.5 7.50002 16.76 8.25002L9.5 15.5L2.24 8.25002ZM17.46 8.96002C18.41 8.00002 19 6.70002 19 5.25002C19 3.85763 18.4469 2.52227 17.4623 1.53771C16.4777 0.553141 15.1424 1.8052e-05 13.75 1.8052e-05C12 1.8052e-05 10.45 0.850018 9.5 2.17002C9.0151 1.49652 8.37661 0.948336 7.63748 0.570946C6.89835 0.193557 6.0799 -0.00216431 5.25 1.8052e-05C3.85761 1.8052e-05 2.52226 0.553141 1.53769 1.53771C0.553123 2.52227 0 3.85763 0 5.25002C0 6.70002 0.59 8.00002 1.54 8.96002L9.5 16.92L17.46 8.96002Z"
-                            fill="black"
-                          />
-                        </svg>
-                      )}
-                    </span>
-                    <span className={styles.likeText}>찜</span>
-                  </button>
                 </div>
                 {/* 삭제 버튼 (X 버튼) */}
                 <button
@@ -246,4 +193,4 @@ const RecentProductsPage: React.FC = () => {
   );
 };
 
-export default RecentProductsPage;
+export default mobileRecentProductsPage;
