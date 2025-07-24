@@ -139,3 +139,33 @@
     max-width: 37.5rem;
   }
 }
+
+/* 뷰포트에 따른 양옆 간격 */
+@media (min-width: 480px) {
+  .web_root_header {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .web_root_header {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .web_main_page_section {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .web_root_header {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1440px) {
+  .web_root_header {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
