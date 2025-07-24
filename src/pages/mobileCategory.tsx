@@ -1,4 +1,4 @@
-import styles from './category.module.css';
+import styles from './mobileCategory.module.css';
 import Header from '@/components/layout/header';
 
 interface Product {
