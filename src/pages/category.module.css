@@ -1,0 +1,158 @@
+@import url(../styles/reset/modern-reset.css);
+@import url(../styles/globals.css);
+
+.container {
+  max-width: 480px;
+  min-width: 375px;
+  margin: 0 auto;
+  background: #fcfcfc;
+  min-height: 100vh;
+}
+
+.header_left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.filter_icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter_text {
+  font-size: 12px;
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  padding-block: 21px;
+  padding-inline: 16px;
+}
+
+.header_center {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sort_select,
+.count_select {
+  padding: 2px;
+  padding-block: 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 10px;
+  background: #fff;
+  max-width: 60px;
+  max-height: 24px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.view_toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* 상품 목록 - 그리드 뷰 */
+.product_list {
+  position: relative;
+  display: flex;
+  padding: 16px;
+  padding-top: 0px;
+}
+
+.grid_view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 23px;
+  justify-items: center;
+  align-items: start;
+}
+
+.grid_view .product_item {
+  background: #fff;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.grid_view .product_image {
+  width: 100%;
+  height: 160px;
+  border: 1px solid #b6c5c5;
+  border-radius: 8px;
+}
+
+.grid_view .product_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.grid_view .product_info {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.grid_view .product_name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid_view .product_price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+}
+
+.grid_view .product_meta {
+  font-size: 10px;
+  color: #6b7878;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.grid_view .product_actions {
+  display: flex;
+  gap: 5px;
+}
+
+/* 공통 버튼 */
+.like_button,
+.cart_button {
+  background: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #b6c5c5;
+  border-radius: 50%;
+  padding: 5 6 5 4;
+  cursor: pointer;
+  font-size: 12px;
+}
