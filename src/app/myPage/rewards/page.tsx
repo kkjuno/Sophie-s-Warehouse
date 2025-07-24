@@ -1,8 +1,10 @@
 'use client';
 import rewards_page_styles from '@/styles/myPage/rewards/rewards.module.css';
 import styles from '@/styles/components/button.module.css'; // 버튼 컴포넌트 css
+import cancelReturnExchange_styles from '@/styles/myPage/cancelReturnExchange.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Rewards() {
   const [startDate, setStartDate] = useState(getToday());
@@ -38,31 +40,32 @@ export default function Rewards() {
 
   return (
     <>
-      <div className={rewards_page_styles.root_header}>
-        <div className={rewards_page_styles.user_info_section}>
-          <div className={rewards_page_styles.user_info_wrapper}>
+      {/* 모바일 뷰 */}
+      <div className={rewards_page_styles.mobile_root_header}>
+        <div className={rewards_page_styles.mobile_user_info_section}>
+          <div className={rewards_page_styles.mobile_user_info_wrapper}>
             <Image src="/images/sprout-image.svg" width={45} height={35} alt="새싹 이미지" />
-            <span className={rewards_page_styles.user_info}>
-              <span className={rewards_page_styles.user_name}>김진섭</span>님의 당첨내역
+            <span className={rewards_page_styles.mobile_user_info}>
+              <span className={rewards_page_styles.mobile_user_name}>김진섭</span>님의 당첨내역
             </span>
           </div>
-          <div className={rewards_page_styles.user_result_wrapper}>
-            <div className={rewards_page_styles.have_stamp}>
-              <span className={rewards_page_styles.have_stamp_text}>보유중인 스탬프</span>
-              <span className={rewards_page_styles.have_stamp_count}>0개</span>
+          <div className={rewards_page_styles.mobile_user_result_wrapper}>
+            <div className={rewards_page_styles.mobile_have_stamp}>
+              <span className={rewards_page_styles.mobile_have_stamp_text}>보유중인 스탬프</span>
+              <span className={rewards_page_styles.mobile_have_stamp_count}>0개</span>
             </div>
-            <div className={rewards_page_styles.get_gift}>
-              <span className={rewards_page_styles.get_gift_text}>수령한 상품</span>
-              <span className={rewards_page_styles.get_gift_count}>0개</span>
+            <div className={rewards_page_styles.mobile_get_gift}>
+              <span className={rewards_page_styles.mobile_get_gift_text}>수령한 상품</span>
+              <span className={rewards_page_styles.mobile_get_gift_count}>0개</span>
             </div>
           </div>
         </div>
-        <div className={rewards_page_styles.view_lottery_result_section}>
+        <div className={rewards_page_styles.mobile_view_lottery_result_section}>
           <h2>당첨 내역 조회</h2>
-          <hr className={rewards_page_styles.lottery_main_bottom_line} />
-          <div className={rewards_page_styles.view_lottery_result}>
+          <hr className={rewards_page_styles.mobile_lottery_main_bottom_line} />
+          <div className={rewards_page_styles.mobile_view_lottery_result}>
             <span>조회기간</span>
-            <div className={rewards_page_styles.view_lottery_day_wrapper}>
+            <div className={rewards_page_styles.mobile_view_lottery_day_wrapper}>
               <button
                 type="button"
                 onClick={() => {
@@ -90,15 +93,15 @@ export default function Rewards() {
               </button>
             </div>
 
-            <div className={rewards_page_styles.view_lottery_day_result_wrapper}>
-              <div className={rewards_page_styles.view_lottery_day_first}>
+            <div className={rewards_page_styles.mobile_view_lottery_day_result_wrapper}>
+              <div className={rewards_page_styles.mobile_view_lottery_day_first}>
                 <input
                   type="text"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
                 />
               </div>
-              <div className={rewards_page_styles.view_lottery_day_second}>
+              <div className={rewards_page_styles.mobile_view_lottery_day_second}>
                 <input type="text" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
               </div>
               <button type="button" className={styles.inquiry_button}>
@@ -107,9 +110,9 @@ export default function Rewards() {
             </div>
           </div>
         </div>
-        <div className={rewards_page_styles.lottery_result_section}>
+        <div className={rewards_page_styles.mobile_lottery_result_section}>
           <h2>당첨 내역</h2>
-          <div className={rewards_page_styles.lottery_result_header}>
+          <div className={rewards_page_styles.mobile_lottery_result_header}>
             <div>날짜/당첨번호</div>
             <div>상품명/옵션</div>
             <div>상품금액</div>
@@ -118,14 +121,194 @@ export default function Rewards() {
           </div>
 
           {/* 반복 렌더링되는 부분 */}
-          <div className={rewards_page_styles.lottery_result_row}>
+          <div className={rewards_page_styles.mobile_lottery_result_row}>
             <div>2025/07/10</div>
-            <div className={rewards_page_styles.item_name}>
+            <div className={rewards_page_styles.mobile_item_name}>
               [제로] 치히로의 행방불명의 흰여고(...)
             </div>
             <div>16,000원</div>
             <div>주문완료</div>
             <div>2025/07/10</div>
+          </div>
+        </div>
+      </div>
+      {/* 웹뷰 */}
+      <div className={rewards_page_styles.web_root_header}>
+        {/* 상단 경로 */}
+        <div className={rewards_page_styles.web_root_path}>
+          HOME &gt; 마이페이지 &gt; 혜택관리 &gt;{' '}
+          <span className={rewards_page_styles.web_recent_path}>당첨내역</span>
+        </div>
+        {/* 메인 페이지 */}
+        <div className={rewards_page_styles.web_main_page_section}>
+          {/* 왼쪽 사이드 메뉴 */}
+          <aside className={cancelReturnExchange_styles.web_order_delivery_aside}>
+            <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider_top} />
+            <h1 className={cancelReturnExchange_styles.web_order_delivery_list}>마이페이지</h1>
+            <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>쇼핑 정보</h2>
+            <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
+              <li>
+                <Link href="#">주문/배송 조회</Link>
+              </li>
+              <li>
+                <Link href="#">취소/반품/교환 내역</Link>
+              </li>
+              <li>
+                <Link href="#">찜 리스트</Link>
+              </li>
+            </ul>
+            <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider} />
+            <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>혜택 관리</h2>
+            <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
+              <li>
+                <Link href="#">스탬프</Link>
+              </li>
+              <li>
+                <Link href="#">당첨 내역</Link>
+              </li>
+            </ul>
+            <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider} />
+            <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>회원 정보</h2>
+            <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
+              <li>
+                <Link href="#">회원 정보 수정</Link>
+              </li>
+              <li>
+                <Link href="#">마케팅 수신 동의</Link>
+              </li>
+              <li>
+                <Link href="#">회원 탈퇴</Link>
+              </li>
+              <li>
+                <Link href="#">배송지 관리</Link>
+              </li>
+            </ul>
+          </aside>
+          <div className={rewards_page_styles.web_main_page_wrapper}>
+            <div className={rewards_page_styles.web_user_info_section}>
+              <div className={rewards_page_styles.web_user_result_wrapper}>
+                <div className={rewards_page_styles.web_user_info}>
+                  <div>
+                    <span className={rewards_page_styles.web_user_name}>김진섭</span>
+                    <span>님의</span>
+                  </div>
+                  <button type="button" className={rewards_page_styles.web_class_rewards}>
+                    등급혜택 &gt;
+                  </button>
+                </div>
+                <div className={rewards_page_styles.web_have_stamp}>
+                  <span className={rewards_page_styles.web_have_stamp_text}>보유중인 스탬프</span>
+                  <span className={rewards_page_styles.web_have_stamp_count}>0개</span>
+                </div>
+                <div className={rewards_page_styles.web_get_gift}>
+                  <span className={rewards_page_styles.web_get_gift_text}>수령한 상품</span>
+                  <span className={rewards_page_styles.web_get_gift_count}>0개</span>
+                </div>
+              </div>
+            </div>
+            <div className={rewards_page_styles.web_view_lottery_result_section}>
+              <h2>당첨 내역 조회</h2>
+              <hr className={rewards_page_styles.web_lottery_main_bottom_line} />
+              <div className={rewards_page_styles.web_view_lottery_result}>
+                <span>조회기간</span>
+                <div className={rewards_page_styles.web_view_lottery_day_wrapper}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const today = getToday();
+                      setStartDate(today);
+                      setEndDate(today);
+                    }}
+                  >
+                    오늘
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEndDate(getNewDate(startDate, { day: 7 }))}
+                  >
+                    7일
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEndDate(getNewDate(startDate, { day: 15 }))}
+                  >
+                    15일
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEndDate(getNewDate(startDate, { month: 1 }))}
+                  >
+                    1개월
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEndDate(getNewDate(startDate, { month: 3 }))}
+                  >
+                    3개월
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEndDate(getNewDate(startDate, { year: 1 }))}
+                  >
+                    1년
+                  </button>
+                </div>
+
+                <div className={rewards_page_styles.web_view_lottery_day_result_wrapper}>
+                  <div className={rewards_page_styles.web_view_lottery_day_first}>
+                    <input
+                      type="text"
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
+                    />
+                  </div>
+                  <div className={rewards_page_styles.web_view_lottery_day_second}>
+                    <input
+                      type="text"
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className={`${styles.inquiry_button} ${rewards_page_styles.view_rewards_button}`}
+                  >
+                    조회
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={rewards_page_styles.web_lottery_result_section}>
+              <h2>당첨 내역</h2>
+              <div className={rewards_page_styles.web_lottery_result_header}>
+                <div>날짜/당첨번호</div>
+                <div>상품명/옵션</div>
+                <div>상품금액</div>
+                <div>진행상태</div>
+                <div>주문날짜</div>
+              </div>
+
+              {/* 반복 렌더링되는 부분 */}
+              <div className={rewards_page_styles.web_lottery_result_row}>
+                <div>2025/07/10</div>
+                <div className={rewards_page_styles.web_item_name}>
+                  [제로] 치히로의 행방불명의 흰여고(...)
+                </div>
+                <div>16,000원</div>
+                <div>주문완료</div>
+                <div>2025/07/10</div>
+              </div>
+              {/* 반복 렌더링되는 부분 */}
+              <div className={rewards_page_styles.web_lottery_result_row}>
+                <div>2025/07/10</div>
+                <div className={rewards_page_styles.web_item_name}>
+                  [제로] 치히로의 행방불명의 흰여고(...)
+                </div>
+                <div>16,000원</div>
+                <div>주문완료</div>
+                <div>2025/07/10</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

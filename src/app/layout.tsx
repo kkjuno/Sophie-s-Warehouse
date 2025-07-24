@@ -16,7 +16,7 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const [isWebView, setIsWebView] = useState<boolean>(false);
-
+  const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       console.log(window.innerWidth);
@@ -24,6 +24,7 @@ export default function RootLayout({
     };
 
     handleResize(); // 최초 체크
+    setIsMounted(true);
     window.addEventListener('resize', handleResize); // 창 크기 변화 감지
 
     return () => {
@@ -41,16 +42,17 @@ export default function RootLayout({
     pathname.startsWith('/myPage/accountDelete');
   // mypage에서 헤더 필요 없는 부분에 || pathname.startsWith("경로명") 하면 헤더출력 X
   const hideMyPageHeader =
-    pathname.startsWith('/myPage/authCheck') ||
-    (pathname.startsWith('/myPage/marketingAgreement') && !isWebView) ||
-    pathname.startsWith('/myPage/accountDelete');
+    isMounted &&
+    (pathname.startsWith('/myPage/authCheck') ||
+      (pathname.startsWith('/myPage/marketingAgreement') && !isWebView) ||
+      pathname.startsWith('/myPage/accountDelete'));
   const isMyPage = pathname.startsWith('/myPage'); // 마이페이지 전용 헤더
 
   return (
     <html>
       <body>
         {!isHiddenLayout && !isMyPage && <Header />}
-        {isMyPage && !hideMyPageHeader && isWebView && <MyPageHeader />}
+        {isMyPage && !hideMyPageHeader && <MyPageHeader />}
         {children}
         {!isHiddenLayout && <MainFooter />}
         {!isHiddenLayout && <FooterNav />}
