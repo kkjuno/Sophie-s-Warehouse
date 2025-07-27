@@ -1,0 +1,142 @@
+@import url(../globals.css);
+@import url(../reset/modern-reset.css);
+
+.container,
+.container * {
+  text-decoration: none;
+}
+
+/* 대문 이미지 */
+.hero_image {
+  position: relative;
+  width: auto;
+  max-height: 20%;
+  border-bottom: 26px solid black;
+
+  @media (max-width: 900px) {
+    border-bottom: 4px solid black;
+  }
+}
+
+.hero_image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero_content {
+  position: absolute;
+  top: clamp(10%, 15vh, 25%);
+  left: clamp(5%, 8vw, 15%);
+  z-index: 2;
+  text-align: left;
+  color: white;
+  width: clamp(200px, 35vw, 400px);
+}
+
+.hero_title {
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.4;
+}
+
+.hero_button {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* 375px 미만 (최소값 고정) */
+@media (max-width: 374px) {
+  .hero_title {
+    margin-bottom: 4px;
+  }
+
+  .hero_button {
+    padding: 2px 12px;
+    font-size: 8px;
+    border-radius: 12px;
+    min-width: 40px;
+  }
+}
+
+/* 375px ~ 500px (최소값 구간) */
+@media (min-width: 375px) and (max-width: 500px) {
+  .hero_title {
+    margin-bottom: 6px;
+  }
+
+  .hero_button {
+    padding: 2px 12px;
+    font-size: 0.625rem;
+    border-radius: 12px;
+    min-width: 60px;
+  }
+
+  .hero_title {
+    font-size: 16px;
+  }
+}
+
+/* 500px ~ 900px (중간값으로 스케일링) */
+@media (min-width: 501px) and (max-width: 900px) {
+  .hero_title {
+    margin-bottom: 10px;
+  }
+
+  .hero_button {
+    padding: 4px 16px;
+    font-size: 14px;
+    border-radius: 14px;
+    min-width: 80px;
+  }
+
+  .hero_title {
+    font-size: 20px;
+  }
+}
+
+/* 900px ~ 1440px (중간값에서 최대값으로 스케일링) */
+@media (min-width: 901px) and (max-width: 1439px) {
+  .hero_title {
+    margin-bottom: 12px;
+  }
+
+  .hero_button {
+    padding: 6px 30px;
+    font-size: 18px;
+    border-radius: 16px;
+    min-width: 130px;
+  }
+
+  .hero_title {
+    font-size: 30px;
+  }
+}
+
+/* 1440px 이상 (최대값 고정) */
+@media (min-width: 1440px) {
+  .hero_title {
+    margin-bottom: 16px;
+  }
+
+  .hero_button {
+    padding: 8px 44px;
+    font-size: 20px;
+    border-radius: 18px;
+    min-width: 160px;
+  }
+
+  .hero_title {
+    font-size: 40px;
+  }
+}
