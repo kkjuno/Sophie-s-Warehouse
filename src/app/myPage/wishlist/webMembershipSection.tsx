@@ -1,3 +1,5 @@
+'use client';
+
 import wishlist_styles from '@/styles/myPage/wishlist.module.css';
 import styles from '@/styles/components/button.module.css';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import wishlist_styles from '@/styles/myPage/wishlist.module.css';
 
