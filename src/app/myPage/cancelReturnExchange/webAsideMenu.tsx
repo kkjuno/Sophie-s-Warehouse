@@ -2,15 +2,15 @@
 'use client';
 
 import Link from 'next/link';
-import styles from '@/styles/myPage/cancelReturnExchange.module.css';
+import cancelReturnExchange_styles from '@/styles/myPage/cancelReturnExchange.module.css';
 
 export default function WebAsideMenu() {
   return (
-    <aside className={styles.web_order_delivery_aside}>
-      <hr className={styles.web_order_delivery_aside_divider_top} />
-      <h1 className={styles.web_order_delivery_list}>마이페이지</h1>
-      <h2 className={styles.web_order_delivery_list_tit}>쇼핑 정보</h2>
-      <ul className={styles.web_order_delivery_list_text}>
+    <aside className={cancelReturnExchange_styles.web_order_delivery_aside}>
+      <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider_top} />
+      <h1 className={cancelReturnExchange_styles.web_order_delivery_list}>마이페이지</h1>
+      <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>쇼핑 정보</h2>
+      <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
         <li>
           <Link href="#">주문/배송 조회</Link>
         </li>
@@ -21,9 +21,9 @@ export default function WebAsideMenu() {
           <Link href="#">찜 리스트</Link>
         </li>
       </ul>
-      <hr className={styles.web_order_delivery_aside_divider} />
-      <h2 className={styles.web_order_delivery_list_tit}>혜택 관리</h2>
-      <ul className={styles.web_order_delivery_list_text}>
+      <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider} />
+      <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>혜택 관리</h2>
+      <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
         <li>
           <Link href="#">스탬프</Link>
         </li>
@@ -31,9 +31,9 @@ export default function WebAsideMenu() {
           <Link href="#">당첨 내역</Link>
         </li>
       </ul>
-      <hr className={styles.web_order_delivery_aside_divider} />
-      <h2 className={styles.web_order_delivery_list_tit}>회원 정보</h2>
-      <ul className={styles.web_order_delivery_list_text}>
+      <hr className={cancelReturnExchange_styles.web_order_delivery_aside_divider} />
+      <h2 className={cancelReturnExchange_styles.web_order_delivery_list_tit}>회원 정보</h2>
+      <ul className={cancelReturnExchange_styles.web_order_delivery_list_text}>
         <li>
           <Link href="#">회원 정보 수정</Link>
         </li>

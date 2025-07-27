@@ -8,7 +8,6 @@ export default function MobilePeriodSearch() {
     <div className={orderDelivery_styles.mobile_order_delivery}>
       <div className={orderDelivery_styles.mobile_order_delivery_container_lg}>
         <button className={orderDelivery_styles.mobile_order_delivery_arrow_button}>
-          {/* SVG 그대로 유지 */}
           <svg
             width="8"
             height="5"

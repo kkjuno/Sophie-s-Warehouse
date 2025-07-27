@@ -1,29 +1,40 @@
 'use client';
 
-import styles from '@/styles/myPage/cancelReturnExchange.module.css';
-import buttonStyles from '@/styles/components/button.module.css';
+import cancelReturnExchange_styles from '@/styles/myPage/cancelReturnExchange.module.css';
+import styles from '@/styles/components/button.module.css';
 
 export default function WebPeriodSearch() {
   return (
-    <section className={styles.web_order_delivery_period_wrapper}>
-      <h2 className={styles.web_order_delivery_period_tit}>취소/반품/교환 내역</h2>
-      <div className={styles.web_order_delivery_period_container}>
-        <div className={styles.web_order_delivery_period_box_sm_container}>
-          <p className={styles.web_order_delivery_period_text}>조회기간</p>
-          <div className={styles.web_order_delivery_period_box_sm_wrapper}>
+    <section className={cancelReturnExchange_styles.web_order_delivery_period_wrapper}>
+      <h2 className={cancelReturnExchange_styles.web_order_delivery_period_tit}>
+        취소/반품/교환 내역
+      </h2>
+      <div className={cancelReturnExchange_styles.web_order_delivery_period_container}>
+        <div className={cancelReturnExchange_styles.web_order_delivery_period_box_sm_container}>
+          <p className={cancelReturnExchange_styles.web_order_delivery_period_text}>조회기간</p>
+          <div className={cancelReturnExchange_styles.web_order_delivery_period_box_sm_wrapper}>
             {['오늘', '7일', '15일', '1개월', '3개월', '1년'].map((label) => (
-              <button key={label} className={styles.web_order_delivery_period_box_sm}>
-                <p className={styles.web_order_delivery_period_text}>{label}</p>
+              <button
+                key={label}
+                className={cancelReturnExchange_styles.web_order_delivery_period_box_sm}
+              >
+                <p className={cancelReturnExchange_styles.web_order_delivery_period_text}>
+                  {label}
+                </p>
               </button>
             ))}
           </div>
         </div>
 
-        <div className={styles.web_order_delivery_period_box_lg_container}>
-          <div className={styles.web_order_delivery_period_box_lg_wrapper}>
-            <div className={styles.web_order_delivery_period_box_lg}>
-              <p className={styles.web_order_delivery_period_text_calendar}>2025-07-01</p>
-              <button className={styles.web_order_delivery_period_calendar_button}>
+        <div className={cancelReturnExchange_styles.web_order_delivery_period_box_lg_container}>
+          <div className={cancelReturnExchange_styles.web_order_delivery_period_box_lg_wrapper}>
+            <div className={cancelReturnExchange_styles.web_order_delivery_period_box_lg}>
+              <p className={cancelReturnExchange_styles.web_order_delivery_period_text_calendar}>
+                2025-07-01
+              </p>
+              <button
+                className={cancelReturnExchange_styles.web_order_delivery_period_calendar_button}
+              >
                 <svg
                   width="18"
                   height="18"
@@ -41,10 +52,16 @@ export default function WebPeriodSearch() {
                 </svg>
               </button>
             </div>
-            <span className={styles.web_order_delivery_period_text_point}>~</span>
-            <div className={styles.web_order_delivery_period_box_lg}>
-              <p className={styles.web_order_delivery_period_text_calendar}>2025-07-21</p>
-              <button className={styles.web_order_delivery_period_calendar_button}>
+            <span className={cancelReturnExchange_styles.web_order_delivery_period_text_point}>
+              ~
+            </span>
+            <div className={cancelReturnExchange_styles.web_order_delivery_period_box_lg}>
+              <p className={cancelReturnExchange_styles.web_order_delivery_period_text_calendar}>
+                2025-07-21
+              </p>
+              <button
+                className={cancelReturnExchange_styles.web_order_delivery_period_calendar_button}
+              >
                 <svg
                   width="18"
                   height="18"
@@ -63,7 +80,7 @@ export default function WebPeriodSearch() {
               </button>
             </div>
           </div>
-          <button className={buttonStyles.inquiry_button}>조회</button>
+          <button className={`${styles.inquiry_button} `}>조회</button>
         </div>
       </div>
     </section>
