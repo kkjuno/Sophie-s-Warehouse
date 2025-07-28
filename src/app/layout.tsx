@@ -19,7 +19,6 @@ export default function RootLayout({
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      console.log(window.innerWidth);
       setIsWebView(window.innerWidth >= 480); // 웹뷰 기준
     };
 
