@@ -46,7 +46,7 @@ export const initData = async (clientId, nextSeq) => {
     product: [
       {
         _id: await nextSeq('product'),
-        seller_id: 18,
+        seller_id: 2,
         price: 28000,
         show: true,
         active: true,
@@ -74,7 +74,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 17,
+        seller_id: 2,
         price: 8500,
         show: true,
         active: true,
@@ -102,7 +102,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 16,
+        seller_id: 2,
         price: 280000,
         show: true,
         active: true,
@@ -130,7 +130,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 15,
+        seller_id: 2,
         price: 44800,
         show: true,
         active: true,
@@ -158,7 +158,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 14,
+        seller_id: 2,
         price: 17000,
         show: true,
         active: true,
@@ -186,7 +186,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 13,
+        seller_id: 2,
         price: 44800,
         show: true,
         active: true,
@@ -214,7 +214,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 12,
+        seller_id: 2,
         price: 67000,
         show: true,
         active: true,
@@ -242,7 +242,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 11,
+        seller_id: 2,
         price: 128000,
         show: true,
         active: true,
@@ -270,7 +270,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 10,
+        seller_id: 2,
         price: 54500,
         show: true,
         active: true,
@@ -298,7 +298,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 9,
+        seller_id: 2,
         price: 22500,
         show: true,
         active: true,
@@ -326,7 +326,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 8,
+        seller_id: 2,
         price: 18000,
         show: true,
         active: true,
@@ -354,7 +354,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 7,
+        seller_id: 2,
         price: 47600,
         show: true,
         active: true,
@@ -382,7 +382,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 6,
+        seller_id: 2,
         price: 67000,
         show: true,
         active: true,
@@ -410,7 +410,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 5,
+        seller_id: 2,
         price: 32000,
         show: true,
         active: true,
@@ -438,7 +438,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 4,
+        seller_id: 2,
         price: 35000,
         show: true,
         active: true,
@@ -466,7 +466,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq('product'),
-        seller_id: 3,
+        seller_id: 2,
         price: 23800,
         show: true,
         active: true,
