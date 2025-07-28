@@ -1,0 +1,81 @@
+@import url(../../reset/modern-reset.css);
+@import url(../../globals.css);
+
+.product_item {
+  background: #fff;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.product_image {
+  width: 100%;
+  height: 160px;
+  border: 1px solid #b6c5c5;
+  border-radius: 8px;
+}
+
+.product_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.product_info {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.product_name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+.product_price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+}
+
+.product_meta {
+  font-size: 10px;
+  color: #6b7878;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.product_actions {
+  display: flex;
+  gap: 5px;
+}
+
+.like_button,
+.cart_button {
+  background: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #b6c5c5;
+  border-radius: 50%;
+  padding: 5 6 5 4;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.like_button.liked {
+  background: #fff1f1;
+  border-color: #ff4757;
+}
+
+.cart_button.in_cart {
+  background: #f0fffe;
+  border-color: #00a085;
+}
