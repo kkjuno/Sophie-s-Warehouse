@@ -192,9 +192,7 @@ export default function Rewards() {
                     <span className={rewards_page_styles.web_user_name}>김진섭</span>
                     <span>님의</span>
                   </div>
-                  <button type="button" className={rewards_page_styles.web_class_rewards}>
-                    등급혜택 &gt;
-                  </button>
+                  <span className={rewards_page_styles.web_class_rewards}>혜택관리</span>
                 </div>
                 <div className={rewards_page_styles.web_have_stamp}>
                   <span className={rewards_page_styles.web_have_stamp_text}>보유중인 스탬프</span>
