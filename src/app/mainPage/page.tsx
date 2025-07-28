@@ -258,7 +258,7 @@ export default async function MainPage() {
               8월 빅세일 <br />
               인기 상품 ~50% 할인!
             </h2>
-            <Link href="/sale" className={styles.hero_button}>
+            <Link href="#" className={styles.hero_button}>
               바로가기 &gt;
             </Link>
           </div>

@@ -1,93 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import styles from './mobileRecentProductPage.module.css';
+'use client';
+import { useState } from 'react';
+import styles from '@/styles/recentPage/mobile/recentProduct.module.css';
 
-// 이것도 추후에 API 연동할때 수정하면 될듯합니다.
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  viewedAt: Date;
+import { Product } from '@/types/Product';
+
+interface MobileRecentProductsProps {
+  initialProducts: Product[];
 }
 
-const mobileRecentProductsPage: React.FC = () => {
-  // 샘플 데이터 - 실제로는 API에서 받아올 데이터
-  const sampleProducts: Product[] = [
-    {
-      id: 1,
-      name: '[마녀배달부 키키] 마그넷',
-      price: 9000,
-      image: '/images/products/kiki/kiki-magnet.svg',
-      category: '마녀배달부 키키',
-
-      viewedAt: new Date('2025-01-25T10:30:00'),
-    },
-    {
-      id: 2,
-      name: '[이웃집 토토로] 소토토로 미니피규어',
-      price: 46000,
-      image: '/images/products/totoro/totoro-mini-figure.svg',
-      category: '이웃집 토토로',
-
-      viewedAt: new Date('2025-01-23T09:15:00'),
-    },
-    {
-      id: 3,
-      name: '[하울의 움직이는 성] 라이트업 디오라마',
-      price: 308000,
-      image: '/images/products/howl/howl-diorama.svg',
-      category: '하울의 움직이는 성',
-
-      viewedAt: new Date('2025-01-22T14:20:00'),
-    },
-    {
-      id: 4,
-      name: '[하울의 움직이는 성] 라이트업 디오라마',
-      price: 308000,
-      image: '/images/products/howl/howl-diorama.svg',
-      category: '하울의 움직이는 성',
-
-      viewedAt: new Date('2025-01-22T14:20:00'),
-    },
-    {
-      id: 5,
-      name: '[하울의 움직이는 성] 5라이트업 디오라마',
-      price: 308000,
-      image: '/images/products/howl/howl-diorama.svg',
-      category: '하울의 움직이는 성',
-
-      viewedAt: new Date('2025-01-22T14:20:00'),
-    },
-    {
-      id: 6,
-      name: '[하울의 움직이는 성] 6라이트업 디오라마',
-      price: 308000,
-      image: '/images/products/howl/howl-diorama.svg',
-      category: '하울의 움직이는 성',
-
-      viewedAt: new Date('2025-01-24T14:20:00'),
-    },
-    {
-      id: 7,
-      name: '[하울의 움직이는 성] 7라이트업 디오라마',
-      price: 308000,
-      image: '/images/products/howl/howl-diorama.svg',
-      category: '하울의 움직이는 성',
-      viewedAt: new Date('2025-01-19T14:20:00'),
-    },
-  ];
-
-  const [recentProducts, setRecentProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    // 최신순으로 정렬하고 최대 5개까지만 표시
-    const sortedProducts = sampleProducts
-      .sort((a, b) => b.viewedAt.getTime() - a.viewedAt.getTime())
-      .slice(0, 5);
-
-    setRecentProducts(sortedProducts);
-  }, []);
+const MobileRecentProducts = ({ initialProducts }: MobileRecentProductsProps) => {
+  const [recentProducts, setRecentProducts] = useState<Product[]>(initialProducts);
 
   // 상품 삭제 함수
   const removeProduct = (productId: number) => {
@@ -193,4 +115,4 @@ const mobileRecentProductsPage: React.FC = () => {
   );
 };
 
-export default mobileRecentProductsPage;
+export default MobileRecentProducts;

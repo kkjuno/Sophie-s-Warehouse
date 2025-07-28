@@ -32,7 +32,7 @@ export default function Header() {
             <Link className={header_styles.mobile_nav_item_movie} href="#">
               MOVIE
             </Link>
-            <Link className={header_styles.mobile_nav_item_category} href="/category">
+            <Link className={header_styles.mobile_nav_item_category} href="/categoryPage/mobile">
               CATEGORY
             </Link>
             <Link className={header_styles.mobile_nav_item_new} href="#">
@@ -99,7 +99,7 @@ export default function Header() {
 
           <div className={header_styles.header_376px_icon_wrapper}>
             <Link
-              href="/mobileRecentProductPage"
+              href="/recentPage/mobile"
               className={header_styles.header_376px_current_icon_wrapper}
             >
               <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
@@ -140,7 +140,7 @@ export default function Header() {
                   <Link href="#">MOVIE</Link>
                 </li>
                 <li>
-                  <Link href="/category">CATEGORY</Link>
+                  <Link href="/categoryPage/web">CATEGORY</Link>
                 </li>
                 <li>
                   <Link href="#">NEW</Link>
@@ -186,10 +186,7 @@ export default function Header() {
           </div>
 
           <div className={header_styles.web_header_icon_wrapper}>
-            <Link
-              href="/mobileRecentProductPage"
-              className={header_styles.web_header_current_icon_wrapper}
-            >
+            <Link href="/recentPage/web" className={header_styles.web_header_current_icon_wrapper}>
               <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
             </Link>
             <Link href="/" className={header_styles.web_header_my_page_icon_wrapper}>

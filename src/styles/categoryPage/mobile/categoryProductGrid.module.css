@@ -1,0 +1,17 @@
+@import url(../../reset/modern-reset.css);
+@import url(../../globals.css);
+
+.product_list {
+  position: relative;
+  display: flex;
+  padding: 16px;
+  padding-top: 0px;
+}
+
+.grid_view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 23px;
+  justify-items: center;
+  align-items: start;
+}
