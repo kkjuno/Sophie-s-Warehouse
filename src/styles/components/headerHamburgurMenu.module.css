@@ -1,0 +1,54 @@
+.menuButton {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+/* 영역 밖을 누르면 창 안보이도록 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+}
+/* 로그인, 회원가입 */
+.menuPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #fffbe8;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+/* 로그인, 회원가입 text */
+.menuItem {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+}
+/* 오른쪽에서 자연스럽게 나오도록 */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@media (min-width: 768px) {
+  .menuWrapper {
+    display: none;
+  }
+}

@@ -563,3 +563,8 @@
     margin-right: clamp(21px, 4vw, 80px);
   }
 }
+@media (min-width: 768px) {
+  .header_376px_menu_icon_wrapper {
+    display: none;
+  }
+}
