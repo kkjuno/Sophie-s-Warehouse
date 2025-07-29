@@ -5,8 +5,7 @@ import cancelReturnExchange_styles from '@/styles/myPage/cancelReturnExchange.mo
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
-
-import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
+import wishlist_styles from '@/styles/myPage/wishlist.module.css';
 
 export default function Rewards() {
   const [startDate, setStartDate] = useState(getToday());
@@ -187,27 +186,21 @@ export default function Rewards() {
             </ul>
           </aside>
           <div className={rewards_page_styles.web_main_page_wrapper}>
-            <section className={orderDelivery_styles.web_order_delivery_membership_wrapper}>
-              <div className={orderDelivery_styles.web_order_delivery_membership}>
-                <p className={orderDelivery_styles.web_order_delivery_membership_name}>
-                  장유하님의
-                </p>
-                <button className={styles.inquiry_button}>조회</button>
+            <section className={wishlist_styles.web_wishlist_membership_wrapper}>
+              <div className={wishlist_styles.web_wishlist_membership}>
+                <p className={wishlist_styles.web_wishlist_membership_name}>장유하님의</p>
+                <div className={rewards_page_styles.benefit_text}>혜택관리</div>
               </div>
-              <hr className={orderDelivery_styles.web_order_delivery_membership_divider} />
-              <div className={orderDelivery_styles.web_order_delivery_stamp}>
-                <p className={orderDelivery_styles.web_order_delivery_label}>스탬프</p>
-                <p className={orderDelivery_styles.web_order_delivery_count}>0 개</p>
+              <hr className={wishlist_styles.web_wishlist_membership_divider} />
+              <div className={wishlist_styles.web_wishlist_stamp}>
+                <p className={wishlist_styles.web_wishlist_label}>스탬프</p>
+                <p className={wishlist_styles.web_wishlist_count}>0 개</p>
               </div>
-              <hr className={orderDelivery_styles.web_order_delivery_membership_divider} />
-              <div className={orderDelivery_styles.web_order_delivery_membership_point}>
-                <p className={orderDelivery_styles.web_order_delivery_membership_label}>
-                  통합 멤버십 포인트
-                </p>
-                <p className={orderDelivery_styles.web_order_delivery_membership_point_count}>
-                  1,000 p
-                </p>
-                <p className={orderDelivery_styles.web_order_delivery_membership_point_info}>
+              <hr className={wishlist_styles.web_wishlist_membership_divider} />
+              <div className={wishlist_styles.web_wishlist_membership_point}>
+                <p className={wishlist_styles.web_wishlist_membership_label}>통합 멤버십 포인트</p>
+                <p className={wishlist_styles.web_wishlist_membership_point_count}>1,000 p</p>
+                <p className={wishlist_styles.web_wishlist_membership_point_info}>
                   상품 구매 후 구매 확정 시 직접 반영 됩니다.
                 </p>
               </div>
