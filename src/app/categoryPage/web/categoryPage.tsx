@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import styles from '@/styles/categoryPage/web/categoryPage.module.css';
 import MainFooter from '@/components/layout/mainFooter';
-import { Product, Filter } from '@/types/Product';
+import { Product, Filter } from '@/types/product';
 
 const sampleProducts: Product[] = Array(12).fill({
   id: 1,
