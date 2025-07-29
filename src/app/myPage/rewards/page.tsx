@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
+import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
+
 export default function Rewards() {
   const [startDate, setStartDate] = useState(getToday());
   const [endDate, setEndDate] = useState(getToday());
@@ -185,25 +187,32 @@ export default function Rewards() {
             </ul>
           </aside>
           <div className={rewards_page_styles.web_main_page_wrapper}>
-            <div className={rewards_page_styles.web_user_info_section}>
-              <div className={rewards_page_styles.web_user_result_wrapper}>
-                <div className={rewards_page_styles.web_user_info}>
-                  <div>
-                    <span className={rewards_page_styles.web_user_name}>김진섭</span>
-                    <span>님의</span>
-                  </div>
-                  <span className={rewards_page_styles.web_class_rewards}>혜택관리</span>
-                </div>
-                <div className={rewards_page_styles.web_have_stamp}>
-                  <span className={rewards_page_styles.web_have_stamp_text}>보유중인 스탬프</span>
-                  <span className={rewards_page_styles.web_have_stamp_count}>0개</span>
-                </div>
-                <div className={rewards_page_styles.web_get_gift}>
-                  <span className={rewards_page_styles.web_get_gift_text}>수령한 상품</span>
-                  <span className={rewards_page_styles.web_get_gift_count}>0개</span>
-                </div>
+            <section className={orderDelivery_styles.web_order_delivery_membership_wrapper}>
+              <div className={orderDelivery_styles.web_order_delivery_membership}>
+                <p className={orderDelivery_styles.web_order_delivery_membership_name}>
+                  장유하님의
+                </p>
+                <button className={styles.inquiry_button}>조회</button>
               </div>
-            </div>
+              <hr className={orderDelivery_styles.web_order_delivery_membership_divider} />
+              <div className={orderDelivery_styles.web_order_delivery_stamp}>
+                <p className={orderDelivery_styles.web_order_delivery_label}>스탬프</p>
+                <p className={orderDelivery_styles.web_order_delivery_count}>0 개</p>
+              </div>
+              <hr className={orderDelivery_styles.web_order_delivery_membership_divider} />
+              <div className={orderDelivery_styles.web_order_delivery_membership_point}>
+                <p className={orderDelivery_styles.web_order_delivery_membership_label}>
+                  통합 멤버십 포인트
+                </p>
+                <p className={orderDelivery_styles.web_order_delivery_membership_point_count}>
+                  1,000 p
+                </p>
+                <p className={orderDelivery_styles.web_order_delivery_membership_point_info}>
+                  상품 구매 후 구매 확정 시 직접 반영 됩니다.
+                </p>
+              </div>
+            </section>
+
             <div className={rewards_page_styles.web_view_lottery_result_section}>
               <h2>당첨 내역 조회</h2>
               <hr className={rewards_page_styles.web_lottery_main_bottom_line} />
