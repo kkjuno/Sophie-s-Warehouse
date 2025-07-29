@@ -446,6 +446,8 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 1.5vh;
+    border-bottom: #b6c5c5 1px solid;
+    height: auto;
   }
 
   .web_order_delivery_view_tit {
@@ -469,7 +471,7 @@
     justify-content: center;
     border-top: 1px solid #000;
     border-bottom: 1px solid #b6c5c5;
-    padding-inline: (1.5rem, 3vw, 3rem);
+    padding-inline: clamp(1.5rem, 3vw, 3rem);
   }
 
   .web_order_delivery_view_label {
@@ -504,7 +506,6 @@
   .web_order_delivery_view_list_wrapper {
     display: flex;
     flex-flow: column nowrap;
-    padding-inline: 3rem;
     justify-content: center;
     align-items: center;
     height: 10vh;
@@ -522,5 +523,44 @@
     background-color: #b6c5c5;
     border: none;
     margin: 0;
+  }
+
+  .web_order_delivery_view_data_list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    border-bottom: 1px solid #b6c5c5;
+    padding-inline: clamp(1.5rem, 3vw, 3rem);
+    width: 100%;
+  }
+
+  .web_order_delivery_view_data_label {
+    position: relative;
+    width: 20%;
+    padding-block: 1rem;
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 700;
+    color: #081818;
+    text-align: center;
+  }
+  .web_order_delivery_view_data_label:nth-child(1) {
+    width: 24%;
+  }
+  .web_order_delivery_view_data_label:nth-child(2) {
+    width: 22%;
+  }
+  .web_order_delivery_view_data_label:nth-child(5) {
+    width: 14%;
+  }
+
+  .web_order_delivery_view_data_label:not(:nth-child(5))::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #b6c5c5;
   }
 }
