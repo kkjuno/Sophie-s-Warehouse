@@ -1,6 +1,9 @@
-import { ApiResPromise } from '../types/apiType';
+'use server';
+
+import { ApiRes, ApiResPromise } from '../types/apiType';
 import { Product } from '../types/productType';
 
+// 페이지 네이션 되는 버전
 export async function productFetch(): ApiResPromise<Product[]> {
   const server = process.env.NEXT_PUBLIC_BASE_URL;
   const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
@@ -12,11 +15,7 @@ export async function productFetch(): ApiResPromise<Product[]> {
       'client-Id': clientId as string,
     },
   });
-  const resJson = await res.json();
+  const resJson: ApiRes<Product[]> = await res.json();
   console.log('API 응답:', resJson); // 응답 내용 확인
-  if (resJson.ok === 0) {
-    // 수정된 부분: ok가 0인 경우 에러 발생
-    throw new Error('상품목록 조회 실패');
-  }
-  return resJson.item;
+  return resJson;
 }
