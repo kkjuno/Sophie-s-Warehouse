@@ -1,6 +1,3 @@
-@import url(../reset/modern-reset.css);
-@import url(../globals.css);
-
 /* 모바일 헤더 부분*/
 @media (max-width: 480px) {
   /* 376px 헤더 부분 */
