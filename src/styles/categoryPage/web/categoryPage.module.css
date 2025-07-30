@@ -30,6 +30,16 @@
   border: 1px solid #b6c5c5;
 }
 
+.highlight_card > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product_card > a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .tab_buttons {
   display: flex;
   gap: 10px;
