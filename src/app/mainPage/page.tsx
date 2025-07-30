@@ -4,7 +4,7 @@ import ProductSection from '@/app/mainPage/sections/productSection';
 import EventSection from '@/app/mainPage/sections/eventSection';
 import ReviewSection from '@/app/mainPage/sections/reviewSection';
 import styles from '../../styles/mainPage/mainPage.module.css';
-import { ProductItem, CategoryType } from '@/types/Index';
+import { ProductItem, CategoryType } from '@/types';
 
 // API 함수들 (나중에 실제 API로 교체)
 async function getProducts(): Promise<ProductItem[]> {

@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../../styles/mainPage/sections/productSection.module.css';
-import { CategoryType, ProductSectionProps } from '@/types/Index';
+import { CategoryType, ProductSectionProps } from '@/types';
 
 interface CategoryWithHero {
   name: CategoryType;

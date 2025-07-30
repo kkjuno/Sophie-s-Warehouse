@@ -1,9 +1,31 @@
+'use client';
 import header_styles from '@/styles/components/header.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import useUserStore from '@/zustand/userStore';
 import HeaderHamburgurMenu from './headerHamburgerMenu';
 
 export default function Header() {
+  const [isClient, setIsClient] = useState(false);
+
+  // 클라이언트 사이드에서만 실행
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Zustand에서 user 상태 및 resetUser 액션 가져오기
+  const user = useUserStore((state) => state.user);
+  const resetUser = useUserStore((state) => state.resetUser);
+
+  // 로그아웃 함수 정의
+  const handleLogout = () => {
+    resetUser(); // Zustand 상태 초기화
+    alert('로그아웃 되었습니다!');
+  };
+
+  console.log('유저', user);
+
   return (
     <>
       {/* 375px 모바일 헤더 */}
@@ -152,12 +174,22 @@ export default function Header() {
             </div>
             <div className={header_styles.web_header_login_wrapper}>
               <ul>
-                <li>
-                  <Link href="/login">로그인</Link>
-                </li>
-                <li>
-                  <Link href="/login/signUp">회원가입</Link>
-                </li>
+                {isClient && user ? (
+                  <li>
+                    <button onClick={handleLogout} className={header_styles.menuItem}>
+                      로그아웃
+                    </button>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link href="/login">로그인</Link>
+                    </li>
+                    <li>
+                      <Link href="/login/signUp">회원가입</Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </nav>
