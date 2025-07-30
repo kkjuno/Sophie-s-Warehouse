@@ -22,3 +22,5 @@ export interface Filter {
   emptyIcon: string;
   filledIcon: string;
 }
+
+console.log('.');
