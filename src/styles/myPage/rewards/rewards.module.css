@@ -445,6 +445,10 @@
   .web_lottery_result_row {
     padding-top: 0.5rem;
   }
+  .benefit_text {
+    font-weight: bold;
+    font-size: 1.125rem;
+  }
 }
 
 /* 뷰포트에 따른 양옆 간격 */

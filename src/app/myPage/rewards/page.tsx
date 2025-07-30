@@ -5,6 +5,7 @@ import cancelReturnExchange_styles from '@/styles/myPage/cancelReturnExchange.mo
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
+import wishlist_styles from '@/styles/myPage/wishlist.module.css';
 
 export default function Rewards() {
   const [startDate, setStartDate] = useState(getToday());
@@ -185,25 +186,26 @@ export default function Rewards() {
             </ul>
           </aside>
           <div className={rewards_page_styles.web_main_page_wrapper}>
-            <div className={rewards_page_styles.web_user_info_section}>
-              <div className={rewards_page_styles.web_user_result_wrapper}>
-                <div className={rewards_page_styles.web_user_info}>
-                  <div>
-                    <span className={rewards_page_styles.web_user_name}>김진섭</span>
-                    <span>님의</span>
-                  </div>
-                  <span className={rewards_page_styles.web_class_rewards}>혜택관리</span>
-                </div>
-                <div className={rewards_page_styles.web_have_stamp}>
-                  <span className={rewards_page_styles.web_have_stamp_text}>보유중인 스탬프</span>
-                  <span className={rewards_page_styles.web_have_stamp_count}>0개</span>
-                </div>
-                <div className={rewards_page_styles.web_get_gift}>
-                  <span className={rewards_page_styles.web_get_gift_text}>수령한 상품</span>
-                  <span className={rewards_page_styles.web_get_gift_count}>0개</span>
-                </div>
+            <section className={wishlist_styles.web_wishlist_membership_wrapper}>
+              <div className={wishlist_styles.web_wishlist_membership}>
+                <p className={wishlist_styles.web_wishlist_membership_name}>장유하님의</p>
+                <div className={rewards_page_styles.benefit_text}>혜택관리</div>
               </div>
-            </div>
+              <hr className={wishlist_styles.web_wishlist_membership_divider} />
+              <div className={wishlist_styles.web_wishlist_stamp}>
+                <p className={wishlist_styles.web_wishlist_label}>스탬프</p>
+                <p className={wishlist_styles.web_wishlist_count}>0 개</p>
+              </div>
+              <hr className={wishlist_styles.web_wishlist_membership_divider} />
+              <div className={wishlist_styles.web_wishlist_membership_point}>
+                <p className={wishlist_styles.web_wishlist_membership_label}>통합 멤버십 포인트</p>
+                <p className={wishlist_styles.web_wishlist_membership_point_count}>1,000 p</p>
+                <p className={wishlist_styles.web_wishlist_membership_point_info}>
+                  상품 구매 후 구매 확정 시 직접 반영 됩니다.
+                </p>
+              </div>
+            </section>
+
             <div className={rewards_page_styles.web_view_lottery_result_section}>
               <h2>당첨 내역 조회</h2>
               <hr className={rewards_page_styles.web_lottery_main_bottom_line} />
