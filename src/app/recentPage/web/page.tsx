@@ -1,6 +1,6 @@
 import WebRecentProducts from '@/app/recentPage/web/product';
 import { Product } from '@/types/product';
-
+console.log('.');
 const getRecentProducts = (): Product[] => {
   // 실제로는 API 호출로 대체될 데이터
   return [
