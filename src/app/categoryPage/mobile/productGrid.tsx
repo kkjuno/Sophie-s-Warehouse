@@ -1,6 +1,6 @@
 import ProductCard from './productCard';
 import styles from '@/styles/categoryPage/mobile/categoryProductGrid.module.css';
-import { ProductCardProps, Product, ProductGridProps } from '@/types/product';
+import { ProductCardProps, Product, ProductGridProps } from '@/types/Product';
 
 export default function ProductGrid({ products }: ProductGridProps) {
   return (

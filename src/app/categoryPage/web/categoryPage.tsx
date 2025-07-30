@@ -1,47 +1,238 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/categoryPage/web/categoryPage.module.css';
-import MainFooter from '@/components/layout/mainFooter';
-import { Product, Filter } from '@/types/product';
+import { productFetch } from '@/app/fetch/product';
+import { Product } from '@/app/types/productType';
+import Link from 'next/link';
 
-const sampleProducts: Product[] = Array(12).fill({
-  id: 1,
-  name: '[마녀배달부 키키] 마그넷',
-  price: 9000,
-  image: '/images/products/kiki/kiki-magnet.svg',
-  category: '인테리어',
-  likes: 4,
-  comments: 3,
-});
-
-const categories = [
-  'ㆍ랜덤',
-  'ㆍ인테리어',
-  'ㆍToy & Hobby',
-  'ㆍ소품',
-  'ㆍ문구',
-  'ㆍ패션',
-  'ㆍ퍼즐',
-  'ㆍ리빙',
-  'ㆍ라이브러리',
-  'ㆍ시즌상품',
-];
-
-const priceRanges = ['~3만원', '3만원~5만원', '5만원~10만원', '10만원~30만원', '30만원~'];
+interface Filter {
+  name: string;
+  emptyIcon: string;
+  filledIcon: string;
+}
 
 const filters: Filter[] = [
   { name: '전체', emptyIcon: '/icons/all-empty.svg', filledIcon: '/icons/all-filled.svg' },
-  {
-    name: '예약/판매',
-    emptyIcon: '/icons/reserve-empty.svg',
-    filledIcon: '/icons/reserve-filled.svg',
-  },
-  { name: '특가상품', emptyIcon: '/icons/sale-empty.svg', filledIcon: '/icons/sale-filled.svg' },
+];
+
+const priceRanges = [
+  { label: '~3만원', min: 0, max: 30000 },
+  { label: '3만원~5만원', min: 30000, max: 50000 },
+  { label: '5만원~10만원', min: 50000, max: 100000 },
+  { label: '10만원~30만원', min: 100000, max: 300000 },
+  { label: '30만원~', min: 300000, max: Infinity },
 ];
 
 export default function CategoryPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // 필터 상태
   const [activeFilter, setActiveFilter] = useState('전체');
+  const [selectedCategory, setSelectedCategory] = useState<string>('전체');
+  const [selectedMovie, setSelectedMovie] = useState<string>('전체');
+  const [selectedPriceRange, setSelectedPriceRange] = useState<string>('');
+  const [minPrice, setMinPrice] = useState<number>(0);
+  const [maxPrice, setMaxPrice] = useState<number>(999900);
+  const [sortBy, setSortBy] = useState<string>('신상품순');
+  const [itemsPerPage, setItemsPerPage] = useState<number>(20);
+
+  // 동적 카테고리 및 영화 목록
+  const [categories, setCategories] = useState<string[]>([]);
+  const [movies, setMovies] = useState<string[]>([]);
+
+  // 페이지네이션
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // 신상품/베스트 탭
+  const [highlightTab, setHighlightTab] = useState('신상품');
+
+  // 하이라이트 박스 스크롤 관련 상태
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // 마우스 이벤트 핸들러들
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+    // 드래그 중 텍스트 선택 방지
+    e.preventDefault();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // 드래그 감도
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    e.stopPropagation(); // 추가!
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += e.deltaY;
+    }
+  };
+
+  // 전역 마우스 이벤트 리스너 추가 (드래그 중에 마우스가 컨테이너 밖으로 나가도 처리)
+  useEffect(() => {
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (!isDragging || !scrollRef.current) return;
+      const x = e.pageX - scrollRef.current.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      scrollRef.current.scrollLeft = scrollLeft - walk;
+    };
+
+    const handleGlobalMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      document.addEventListener('mousemove', handleGlobalMouseMove);
+      document.addEventListener('mouseup', handleGlobalMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, [isDragging, startX, scrollLeft]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await productFetch();
+
+        if (data.ok === 0) {
+          throw new Error(data.message || '상품 조회 실패');
+        }
+
+        const fetchedProducts = data.item || [];
+        setProducts(fetchedProducts);
+
+        // 카테고리 추출 (중복 제거)
+        const allCategories = fetchedProducts
+          .flatMap((product: Product) => product.extra?.category || [])
+          .filter((category): category is string => !!category);
+        const uniqueCategories = [...new Set(allCategories)];
+        setCategories(uniqueCategories);
+
+        // 영화 추출 (중복 제거)
+        const allMovies = fetchedProducts
+          .map((product: Product) => product.extra?.movie)
+          .filter((movie): movie is string => !!movie);
+        const uniqueMovies = [...new Set(allMovies)];
+        setMovies(uniqueMovies);
+      } catch (err) {
+        console.error('Error:', err);
+        setError(err instanceof Error ? err.message : '알 수 없는 오류');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // 필터링 로직
+  useEffect(() => {
+    let filtered = [...products];
+
+    // 카테고리 필터
+    if (selectedCategory !== '전체') {
+      filtered = filtered.filter((product) => product.extra?.category?.includes(selectedCategory));
+    }
+
+    // 영화 필터
+    if (selectedMovie !== '전체') {
+      filtered = filtered.filter((product) => product.extra?.movie === selectedMovie);
+    }
+
+    // 가격 필터
+    filtered = filtered.filter((product) => product.price >= minPrice && product.price <= maxPrice);
+
+    // 정렬
+    switch (sortBy) {
+      case '신상품순':
+        filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        break;
+      case '인기순':
+        filtered.sort((a, b) => (b.extra?.likes || 0) - (a.extra?.likes || 0));
+        break;
+      case '낮은가격순':
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+      case '높은가격순':
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+    }
+
+    setFilteredProducts(filtered);
+    setCurrentPage(1); // 필터 변경 시 첫 페이지로
+  }, [products, selectedCategory, selectedMovie, minPrice, maxPrice, activeFilter, sortBy]);
+
+  // 하이라이트 상품 가져오기
+  const getHighlightProducts = () => {
+    if (highlightTab === '신상품') {
+      return products.filter((product) => product.extra?.isNew).slice(0, 5);
+    } else {
+      return products.filter((product) => product.extra?.isBest).slice(0, 5);
+    }
+  };
+
+  // 페이지네이션 계산
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+
+  // 초기화 함수
+  const handleReset = () => {
+    setSelectedCategory('전체');
+    setSelectedMovie('전체');
+    setSelectedPriceRange('');
+    setMinPrice(0);
+    setMaxPrice(999900);
+    setActiveFilter('전체');
+    setSortBy('신상품순');
+    setCurrentPage(1);
+  };
+
+  // 가격 범위 선택
+  const handlePriceRangeSelect = (range: (typeof priceRanges)[0]) => {
+    setMinPrice(range.min);
+    setMaxPrice(range.max === Infinity ? 999900 : range.max);
+    setSelectedPriceRange(range.label);
+  };
+
+  // 페이지 변경
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  if (loading) {
+    console.log('로딩 중');
+  }
+
+  if (error) {
+    console.log('에러 발생');
+  }
 
   return (
     <div className={styles.container}>
@@ -52,7 +243,7 @@ export default function CategoryPage() {
         <span>CATEGORY</span>
         <span>&gt;</span>
         <span>
-          <b>전체</b>
+          <b>{selectedCategory}</b>
         </span>
       </div>
 
@@ -61,14 +252,25 @@ export default function CategoryPage() {
         <div className={styles.sidebar}>
           <div className={styles.category_section}>
             <h3 className={styles.section_title}>카테고리</h3>
-            <span className={styles.section_list_all}>
+            <span
+              className={`${styles.section_list_all} ${selectedCategory === '전체' ? styles.active : ''}`}
+              onClick={() => setSelectedCategory('전체')}
+              style={{ cursor: 'pointer' }}
+            >
               <b>전체</b>
             </span>
             <ul className={styles.category_list}>
-              {categories.map((category, index) => (
-                <li key={index} className={styles.category_item}>
-                  <a href="#" className={styles.category_link}>
-                    {category}
+              {categories.map((category) => (
+                <li key={category} className={styles.category_item}>
+                  <a
+                    href="#"
+                    className={`${styles.category_link} ${selectedCategory === category ? styles.active : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectedCategory(category);
+                    }}
+                  >
+                    ㆍ{category}
                   </a>
                 </li>
               ))}
@@ -78,31 +280,74 @@ export default function CategoryPage() {
           <div className={styles.filter_section}>
             <h3 className={styles.section_title}>MOVIE</h3>
             <div className={styles.movie_content}>
-              <p>ㆍ하울의 움직이는 성</p>
-              <p>ㆍ이웃집 토토로</p>
-              <p>ㆍ마녀배달부 키키</p>
+              <p
+                onClick={() => setSelectedMovie('전체')}
+                style={{
+                  cursor: 'pointer',
+                  fontWeight: selectedMovie === '전체' ? 'bold' : 'normal',
+                }}
+              >
+                ㆍ전체
+              </p>
+              {movies.map((movie) => (
+                <p
+                  key={movie}
+                  onClick={() => setSelectedMovie(movie)}
+                  style={{
+                    cursor: 'pointer',
+                    fontWeight: selectedMovie === movie ? 'bold' : 'normal',
+                  }}
+                >
+                  ㆍ{movie}
+                </p>
+              ))}
             </div>
           </div>
+
           <div className={styles.price_section}>
             <h3 className={styles.section_title}>가격</h3>
             <div className={styles.price_filter}>
               <div className={styles.price_buttons}>
-                {priceRanges.map((range, index) => (
-                  <button key={index} className={styles.price_button}>
-                    {range}
+                {priceRanges.map((range) => (
+                  <button
+                    key={range.label}
+                    className={`${styles.price_button} ${selectedPriceRange === range.label ? styles.active : ''}`}
+                    onClick={() => handlePriceRangeSelect(range)}
+                  >
+                    {range.label}
                   </button>
                 ))}
               </div>
 
               {/* 가격 슬라이더 */}
               <div className={styles.price_slider}>
-                <input type="range" min={0} max={999900} step={1000} />
-                <input type="range" min={0} max={999900} step={1000} />
+                <input
+                  type="range"
+                  min={0}
+                  max={999900}
+                  step={1000}
+                  value={minPrice}
+                  onChange={(e) => setMinPrice(Number(e.target.value))}
+                />
+                <input
+                  type="range"
+                  min={0}
+                  max={999900}
+                  step={1000}
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(Number(e.target.value))}
+                />
               </div>
 
               {/* 금액 입력 + 검색 */}
               <div className={styles.price_input_wrapper}>
-                <input type="text" placeholder="0~999,900 원" className={styles.price_input} />
+                <input
+                  type="text"
+                  placeholder={`${minPrice.toLocaleString()}~${maxPrice.toLocaleString()} 원`}
+                  className={styles.price_input}
+                  value={`${minPrice.toLocaleString()}~${maxPrice.toLocaleString()} 원`}
+                  readOnly
+                />
                 <button className={styles.search_btn}>
                   <svg
                     width="20"
@@ -122,37 +367,66 @@ export default function CategoryPage() {
               </div>
 
               {/* 초기화 버튼 */}
-              <button className={styles.reset_btn}>초기화</button>
+              <button className={styles.reset_btn} onClick={handleReset}>
+                초기화
+              </button>
             </div>
           </div>
         </div>
 
         {/* 상품 목록 */}
         <div className={styles.product_area}>
-          {/* 신상품/베스트 박스 */}
           <div className={styles.highlight_box}>
             <div className={styles.tab_buttons}>
-              <button className={styles.active}>신상품</button>
-              <button>베스트</button>
+              <button
+                className={highlightTab === '신상품' ? styles.active : ''}
+                onClick={() => setHighlightTab('신상품')}
+              >
+                신상품
+              </button>
+              <button
+                className={highlightTab === '베스트' ? styles.active : ''}
+                onClick={() => setHighlightTab('베스트')}
+              >
+                베스트
+              </button>
             </div>
-            <div className={styles.highlight_products}>
-              {sampleProducts.slice(0, 5).map((product, index) => (
-                <div key={index} className={styles.highlight_card}>
-                  <img src={product.image} alt={product.name} />
-                  <h4>{product.name}</h4>
-                  <p>{product.price.toLocaleString()}원</p>
-                  <p>
-                    평점 {product.likes} /리뷰{product.comments}
-                  </p>
+
+            <div
+              className={styles.highlight_products}
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+              onWheel={handleWheel}
+              style={{
+                cursor: isDragging ? 'grabbing' : 'grab',
+                userSelect: 'none', // 드래그 중 텍스트 선택 방지
+              }}
+            >
+              {getHighlightProducts().map((product) => (
+                <div key={product._id} className={styles.highlight_card}>
+                  <Link href={`/products/${product._id}`} key={product._id}>
+                    {product.mainImages?.[0]?.path && (
+                      <img src={`/${product.mainImages[0].path}`} alt={product.name} />
+                    )}
+                    <h4>{product.name}</h4>
+                    <p>{product.price?.toLocaleString()}원</p>
+                    <p>
+                      평점 {product.extra?.rating || 0} / 리뷰 {product.extra?.reviewCount || 0}
+                    </p>
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
+
           {/* 상단 필터 바 */}
           <div className={styles.product_filter_bar}>
             <div className={styles.filter_left}>
               <span className={styles.filter_count}>
-                <b>2,187</b>개의 상품이 있습니다
+                <b>{filteredProducts.length.toLocaleString()}</b>개의 상품이 있습니다
               </span>
             </div>
             <div className={styles.filter_buttons}>
@@ -184,37 +458,56 @@ export default function CategoryPage() {
 
               {/* 오른쪽: 드롭다운 박스들 */}
               <div className={styles.header_center}>
-                <select className={styles.sort_select}>
-                  <option>신상품순</option>
-                  <option>인기순</option>
-                  <option>낮은가격순</option>
-                  <option>높은가격순</option>
+                <select
+                  className={styles.sort_select}
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                >
+                  <option value="신상품순">신상품순</option>
+                  <option value="인기순">인기순</option>
+                  <option value="낮은가격순">낮은가격순</option>
+                  <option value="높은가격순">높은가격순</option>
                 </select>
-                <select className={styles.count_select}>
-                  <option>20개씩</option>
-                  <option>40개씩</option>
-                  <option>60개씩</option>
+                <select
+                  className={styles.count_select}
+                  value={itemsPerPage}
+                  onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                >
+                  <option value={20}>20개씩</option>
+                  <option value={40}>40개씩</option>
+                  <option value={60}>60개씩</option>
                 </select>
               </div>
             </div>
           </div>
+
           <div className={styles.product_grid}>
-            {sampleProducts.map((product, index) => (
-              <div key={index} className={styles.product_card}>
-                <div className={styles.product_image}>
-                  <img src={product.image} alt={product.name} />
-                </div>
-                <h4 className={styles.product_name}>{product.name}</h4>
-                <p className={styles.product_price}>{product.price.toLocaleString()}원</p>
-                <p className={styles.product_actions}>
-                  평점 {product.likes} /리뷰{product.comments}
-                </p>
+            {currentProducts.map((product) => (
+              <div key={product._id} className={styles.product_card}>
+                <Link href={`/products/${product._id}`} key={product._id}>
+                  <div className={styles.product_image}>
+                    {product.mainImages?.[0]?.path && (
+                      <img src={`/${product.mainImages[0].path}`} alt={product.name} />
+                    )}
+                  </div>
+                  <h4 className={styles.product_name}>{product.name}</h4>
+                  <p className={styles.product_price}>{product.price?.toLocaleString()}원</p>
+                  <p className={styles.product_actions}>
+                    평점 {product.extra?.rating || 0} /리뷰{product.extra?.reviewCount || 0}
+                  </p>
+                </Link>
               </div>
             ))}
           </div>
+
+          {/* 페이지네이션 */}
           <div className={styles.pagination}>
             {/* 첫 페이지로 */}
-            <button className={styles.page_btn}>
+            <button
+              className={styles.page_btn}
+              onClick={() => handlePageChange(1)}
+              disabled={currentPage === 1}
+            >
               <span>
                 <svg
                   width="6"
@@ -244,7 +537,11 @@ export default function CategoryPage() {
             </button>
 
             {/* 이전 페이지 */}
-            <button className={styles.page_btn}>
+            <button
+              className={styles.page_btn}
+              onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+            >
               <span>
                 <svg
                   width="6"
@@ -262,14 +559,25 @@ export default function CategoryPage() {
             </button>
 
             {/* 페이지 번호들 */}
-            <button className={`${styles.page_number} ${styles.active}`}>1</button>
-            <button className={styles.page_number}>2</button>
-            <button className={styles.page_number}>3</button>
-            <button className={styles.page_number}>4</button>
-            <button className={styles.page_number}>5</button>
+            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+              const pageNum = Math.max(1, Math.min(totalPages - 4, currentPage - 2)) + i;
+              return (
+                <button
+                  key={pageNum}
+                  className={`${styles.page_number} ${currentPage === pageNum ? styles.active : ''}`}
+                  onClick={() => handlePageChange(pageNum)}
+                >
+                  {pageNum}
+                </button>
+              );
+            })}
 
             {/* 다음 페이지 */}
-            <button className={styles.page_btn}>
+            <button
+              className={styles.page_btn}
+              onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage === totalPages}
+            >
               <span>
                 <svg
                   width="6"
@@ -288,7 +596,11 @@ export default function CategoryPage() {
             </button>
 
             {/* 마지막 페이지로 */}
-            <button className={styles.page_btn}>
+            <button
+              className={styles.page_btn}
+              onClick={() => handlePageChange(totalPages)}
+              disabled={currentPage === totalPages}
+            >
               <span>
                 <svg
                   width="6"
@@ -321,8 +633,6 @@ export default function CategoryPage() {
           </div>
         </div>
       </div>
-
-      <MainFooter />
     </div>
   );
 }
