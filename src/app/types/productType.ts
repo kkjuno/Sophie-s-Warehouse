@@ -20,6 +20,9 @@ export interface Product {
     category: string[];
     sort: number;
     movie: string;
+    rating: number;
+    reviewCount: number;
+    likes: number;
   };
   seller: {
     _id: number;

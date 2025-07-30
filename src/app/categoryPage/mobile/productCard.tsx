@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ProductCardProps } from '@/types/product';
+import { ProductCardProps } from '@/types/Product';
 import styles from '@/styles/categoryPage/mobile/categoryProductCard.module.css';
 
 export default function ProductCard({ product }: ProductCardProps) {
