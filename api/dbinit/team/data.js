@@ -60,16 +60,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '소피퍼즐.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '문구', 'Toy&Hobby'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 3,
+          reviewCount: 165,
+          likes: 309,
         },
       },
       {
@@ -88,8 +90,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '점착메모지.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -98,6 +99,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', 'Toy&Hobby'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 4,
+          reviewCount: 127,
+          likes: 168,
         },
       },
       {
@@ -116,8 +120,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '하울(움직이는하울의성).jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -126,6 +129,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '시즌상품'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 5,
+          reviewCount: 89,
+          likes: 79,
         },
       },
       {
@@ -144,8 +150,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '양모냄비받침.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -154,6 +159,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '키친'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 4,
+          reviewCount: 256,
+          likes: 94,
         },
       },
       {
@@ -172,8 +180,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '보온보냉런치백.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -182,6 +189,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '패션'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 3,
+          reviewCount: 78,
+          likes: 180,
         },
       },
       {
@@ -200,8 +210,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '투명숄더백.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -210,6 +219,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '패션'],
           sort: 4,
           movie: '하울의 움직이는 성',
+          rating: 4,
+          reviewCount: 342,
+          likes: 59,
         },
       },
       {
@@ -228,8 +240,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '쿠션.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -238,6 +249,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '패션', '리빙'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 5,
+          reviewCount: 512,
+          likes: 125,
         },
       },
       {
@@ -256,8 +270,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '디오라마소품케이스.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -266,6 +279,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '리빙'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 4,
+          reviewCount: 231,
+          likes: 28,
         },
       },
       {
@@ -284,8 +300,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '한송이꽃병.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -294,6 +309,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '패션', '리빙', '키친'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 3,
+          reviewCount: 156,
+          likes: 163,
         },
       },
       {
@@ -312,16 +330,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '연하장스탬프.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '문구', 'Toy&Hobby'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 4,
+          reviewCount: 87,
+          likes: 154,
         },
       },
       {
@@ -340,16 +360,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '토토로행진_토트백.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '문구', '패션'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 5,
+          reviewCount: 432,
+          likes: 210,
         },
       },
       {
@@ -368,8 +390,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '투명숄더백.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -378,6 +399,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '문구', '패션'],
           sort: 4,
           movie: '이웃집 토토로',
+          rating: 4,
+          reviewCount: 289,
+          likes: 135,
         },
       },
       {
@@ -396,16 +420,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '지지쿠션.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '인테리어', '리빙'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 5,
+          reviewCount: 178,
+          likes: 106,
         },
       },
       {
@@ -424,8 +450,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '스냅타울.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -434,6 +459,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '인테리어', '리빙'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 3,
+          reviewCount: 64,
+          likes: 235,
         },
       },
       {
@@ -452,8 +480,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '배스타울.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -462,6 +489,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '인테리어', '리빙'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 4,
+          reviewCount: 92,
+          likes: 25,
         },
       },
       {
@@ -480,16 +510,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '스냅타울.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '인테리어'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 2,
+          reviewCount: 45,
+          likes: 255,
         },
       },
       {
@@ -508,8 +540,7 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '소품케이스.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
@@ -518,6 +549,9 @@ export const initData = async (clientId, nextSeq) => {
           category: ['소품', '인테리어', '문구'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 4,
+          reviewCount: 321,
+          likes: 229,
         },
       },
       {
@@ -536,16 +570,18 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '다오라마 모래시계.jpg',
           },
         ],
-        content: `
-          `,
+        content: ``,
         createdAt: getTime(-38, -60 * 60 * 6),
         updatedAt: getTime(-33, -60 * 55),
         extra: {
-          isNew: false,
+          isNew: true,
           isBest: true,
           category: ['소품', '인테리어', '리빙'],
           sort: 4,
           movie: '마녀배달부 키키',
+          rating: 5,
+          reviewCount: 412,
+          likes: 339,
         },
       },
     ],
