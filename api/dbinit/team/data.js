@@ -1,0 +1,603 @@
+import dayjs from 'dayjs';
+
+function getTime(day = 0, second = 0) {
+  return dayjs().add(day, 'days').add(second, 'seconds').format('YYYY.MM.DD HH:mm:ss');
+}
+
+export const initData = async (clientId, nextSeq) => {
+  return {
+    // 회원
+    user: [
+      {
+        _id: await nextSeq('user'),
+        email: 'admin@market.com',
+        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+        name: '무지',
+        phone: '01011112222',
+        address: '서울시 강남구 역삼동 123',
+        type: 'admin',
+        loginType: 'email',
+        image: `files/${clientId}/user-muzi.png`,
+        createdAt: getTime(-100, -60 * 60 * 3),
+        updatedAt: getTime(-100, -60 * 60 * 3),
+        extra: {
+          birthday: '03-23',
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 's1@market.com',
+        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+        name: '네오',
+        phone: '01022223333',
+        address: '서울시 강남구 삼성동 4561',
+        type: 'seller',
+        loginType: 'email',
+        image: `files/${clientId}/user-neo.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          birthday: '11-23',
+        },
+      },
+    ],
+
+    // 상품
+    product: [
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 28000,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성] PT-333 (소피)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4970381518875_500_1.jpg`,
+            name: '소피퍼즐.jpg',
+            originalname: '소피퍼즐.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', 'Toy&Hobby'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 8500,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성]점착메모지(하울의움직이는성)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4549743942247_600_01.jpg`,
+            name: '점착메모지.jpg',
+            originalname: '점착메모지.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', 'Toy&Hobby'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 280000,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성]하울(움직이는하울의성)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593476626_600_02.jpg`,
+            name: '하울(움직이는하울의성).jpg',
+            originalname: '하울(움직이는하울의성).jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '시즌상품'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 44800,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성]양모냄비받침(캘시퍼)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593468362_600_01.jpg`,
+            name: '양모냄비받침.jpg',
+            originalname: '양모냄비받침.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '키친'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 17000,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성]보온보냉 런치백(캘시퍼 시리즈)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4973307631443_500_1.jpg`,
+            name: '보온보냉런치백.jpg',
+            originalname: '보온보냉런치백.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 44800,
+        show: true,
+        active: true,
+        name: '[하울의 움직이는 성] 투명숄더백(캘시퍼)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4970381700737_600.jpg`,
+            name: '투명숄더백.jpg',
+            originalname: '투명숄더백.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션'],
+          sort: 4,
+          movie: '하울의 움직이는 성',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 67000,
+        show: true,
+        active: true,
+        name: '[이웃집 토토로] 쿠션(토토로 통나무)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4992272943610_600.jpg`,
+            name: '쿠션.jpg',
+            originalname: '쿠션.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션', '리빙'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 128000,
+        show: true,
+        active: true,
+        name: '[이웃집토토로] 디오라마 소품케이스(토토로 그루터기)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593500888_600_02.jpg`,
+            name: '디오라마소품케이스.jpg',
+            originalname: '디오라마소품케이스.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '리빙'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 54500,
+        show: true,
+        active: true,
+        name: '[이웃집 토토로]한송이꽃병(짧은 휴식)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593478095_600_02.jpg`,
+            name: '한송이꽃병.jpg',
+            originalname: '한송이꽃병.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션', '리빙', '키친'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 22500,
+        show: true,
+        active: true,
+        name: '[이웃집 토토로] 연하장 스탬프(새해 복 많이 받으세요)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4977524193753_600.jpg`,
+            name: '연하장스탬프.jpg',
+            originalname: '연하장스탬프.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', 'Toy&Hobby'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 18000,
+        show: true,
+        active: true,
+        name: '[이웃집 토토로]토토로행진(캔버스 토트백)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4973307658631_600_01.jpg`,
+            name: '토토로행진_토트백.jpg',
+            originalname: '토토로행진_토트백.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 47600,
+        show: true,
+        active: true,
+        name: '[이웃집 토토로] 투명숄더백(대토토로)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4970381700690_600.jpg`,
+            name: '투명숄더백.jpg',
+            originalname: '투명숄더백.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '문구', '패션'],
+          sort: 4,
+          movie: '이웃집 토토로',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 67000,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 쿠션(지지 초콜릿케익)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4992272943627_600.jpg`,
+            name: '지지쿠션.jpg',
+            originalname: '지지쿠션.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어', '리빙'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 32000,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 스냅타올(지지 상큼한 베리 80cm)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4992272920376_600.jpg`,
+            name: '스냅타울.jpg',
+            originalname: '스냅타울.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어', '리빙'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 35000,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 배스타올(지지와 리리)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4992272886061_600.jpg`,
+            name: '배스타울.jpg',
+            originalname: '배스타울.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어', '리빙'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 23800,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 스냅타올(지지 아이들 60cm)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4992272795745_600.jpg`,
+            name: '스냅타울.jpg',
+            originalname: '스냅타울.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        price: 117000,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 디오라마 소품케이스(지지 꽃스테인드글라스)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593500895_600_02.jpg`,
+            name: '소품케이스.jpg',
+            originalname: '소품케이스.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어', '문구'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 1,
+        price: 123000,
+        show: true,
+        active: true,
+        name: '[마녀배달부 키키] 디오라마 모래시계(코키리의 실험실)',
+        quantity: 200,
+        buyQuantity: 198,
+        mainImages: [
+          {
+            path: `files/${clientId}/4990593499212_600.jpg`,
+            name: '다오라마 모래시계.jpg',
+            originalname: '다오라마 모래시계.jpg',
+          },
+        ],
+        content: `
+          `,
+        createdAt: getTime(-38, -60 * 60 * 6),
+        updatedAt: getTime(-33, -60 * 55),
+        extra: {
+          isNew: false,
+          isBest: true,
+          category: ['소품', '인테리어', '리빙'],
+          sort: 4,
+          movie: '마녀배달부 키키',
+        },
+      },
+    ],
+
+    // 주문
+    order: [],
+
+    // 후기
+    review: [],
+
+    // 장바구니
+    cart: [],
+
+    // 즐겨찾기/북마크
+    bookmark: [],
+
+    // QnA, 공지사항 등의 게시판
+    post: [
+      {
+        _id: await nextSeq('post'),
+        type: 'community',
+        views: 23,
+        user: {
+          _id: 2,
+          name: '네오',
+          image: `files/${clientId}/user-neo.png`,
+        },
+        title: '회원 가입했어요.',
+        content: '잘 부탁드려요.',
+        createdAt: getTime(-1, -60 * 60 * 14),
+        updatedAt: getTime(-1, -60 * 60 * 2),
+      },
+      {
+        _id: await nextSeq('post'),
+        type: 'community',
+        views: 23,
+        user: {
+          _id: 3,
+          name: '김진섭',
+          image: `files/${clientId}/user-neo.png`,
+        },
+        title: '회원 가입했어요.',
+        content: '잘 부탁드려요.',
+        createdAt: getTime(-1, -60 * 60 * 14),
+        updatedAt: getTime(-1, -60 * 60 * 2),
+      },
+    ],
+
+    // 코드
+    code: [],
+
+    // 설정
+    config: [],
+  };
+};

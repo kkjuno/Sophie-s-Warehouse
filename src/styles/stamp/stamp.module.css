@@ -1,0 +1,818 @@
+@media (max-width: 480px) {
+  /* stamp page 루트 */
+  .mobile_root_section {
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0 1rem;
+    min-height: 100vh;
+  }
+  .web_side_section,
+  .web_root_section,
+  .web_side_toast_ui_root_header {
+    display: none;
+  }
+  /* 회원정보 영역 */
+  .mobile_user_info_section {
+    border: 1px dashed #081818;
+    margin-top: 1.25rem;
+    padding: 0.9375rem 1.3125rem 0.9375rem 0.9375rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+  /* 인사와 회원정보 */
+  .mobile_user_info_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  /* 안녕하세요 text */
+  .mobile_hello {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  /* 회원 이름 */
+  .mobile_user_name {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  /* 현재 스탬프 개수 */
+  .mobile_now_stamp_count {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+  /* 숯검댕이 이미지 */
+  .mobile_blackbean_image_wrapper {
+    position: absolute;
+    width: 40px;
+    height: 36px;
+    bottom: -10px;
+    left: -10px;
+  }
+  /* 스탬프 이미지 */
+  .mobile_stamp_image_wrapper {
+    position: relative;
+    width: clamp(273px, calc(89.6vw - 0.2px), 433px);
+    aspect-ratio: 343 / 515; /* 원본 비율 유지 */
+    margin-top: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  .mobile_stamp_link_image_wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: clamp(8px, 3vw, 16px);
+    flex-wrap: nowrap;
+  }
+
+  /* 반투명 효과와 text을 위한 position 설정 */
+  .mobile_stamp_more_image_wrapper,
+  .mobile_stamp_gacha_image_wrapper {
+    position: relative;
+  }
+
+  .mobile_stamp_more_image_wrapper {
+    width: calc((100vw - 32px - 16px) / 2);
+    height: auto;
+  }
+  /* 스탬프 더 모으러 가기 이미지 */
+  .mobile_stamp_more_image_wrapper img {
+    flex: 1 1 0;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  /* 반투명 효과를 위한 overlay */
+  .mobile_stamp_image_overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    z-index: 1;
+  }
+  /* 스탬프 가챠 이미지 */
+  .mobile_stamp_gacha_image_wrapper img {
+    flex: 1 1 0;
+    width: calc((100vw - 32px - 16px) / 2); /* 이미지가 자연스럽게 커짐 */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  /* 이미지 위 텍스트 */
+  .mobile_stamp_guide_text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.625rem 0.75rem 0.625rem 0.625rem;
+  }
+  /* 이미지 title text */
+  .mobile_stamp_guide_text_title {
+    color: #ffffff;
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  /* 이미지 sub title text */
+  .mobile_stamp_guide_text_sub_title {
+    color: #ffffff;
+    font-size: clamp(8px, 2.5vw, 12px);
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+
+  .mobile_stamp_image_overlay,
+  .smobile_tamp_guide_text {
+    pointer-events: none;
+  }
+
+  /* 토스트 UI */
+  .mobile_toast_ui_root_header {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(273px, calc(89.6vw - 0.2px), 433px);
+    aspect-ratio: 330/490;
+
+    background: #fdf6e3;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(2.125rem, 10vw, 3.5rem);
+    padding-top: 1.875rem;
+  }
+  /* 당첨내역 상단 부 */
+  .mobile_toast_ui_header_text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  /* 당첨내역 회원 이름 */
+  .mobile_toast_ui_header_text h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ef7800;
+  }
+
+  /* 당첨 text */
+  .mobile_toast_ui_lotto_text {
+    color: #ed1b23;
+  }
+
+  /* 상품 이미지가 나올 영역 */
+  .mobile_toast_ui_item_wrapper {
+    position: relative;
+    width: 180px;
+    aspect-ratio: 1/1;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .mobile_toast_ui_confetti_wrapper {
+    position: absolute;
+    top: -42%;
+    left: 50%;
+    transform: translateX(-51%);
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+  }
+
+  .mobile_toast_ui_item_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: clamp(20px, 8vw, 40px);
+  }
+  /* 상품 정보 영역 */
+  .mobile_toast_ui_item_section {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .mobile_toast_ui_item_title_wrapper,
+  .mobile_toast_ui_item_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  /* 토스트  UI 하단부 버튼 */
+  .mobile_toast_ui_button_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile_toast_ui_footer_text {
+    color: #a6a6a6;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+  }
+
+  /* 아이템 사진 */
+  .mobile_toast_ui_lotto_item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* 375px이상부턴 이미지가 너무 작아서 크기, 위치 수정 */
+@media (min-width: 375px) {
+  .mobile_blackbean_image_wrapper {
+    width: 50px;
+    height: 45px;
+    bottom: -15px;
+    left: -10px;
+  }
+}
+/* 웹뷰 */
+@media (min-width: 481px) {
+  .mobile_root_section,
+  .web_side_section,
+  .web_side_toast_ui_root_header {
+    display: none;
+  }
+  /* 웹뷰 최상단 root */
+  .web_root_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: #fcfcfc;
+    min-height: 100vh;
+    position: relative;
+  }
+  /* 웹 뷰 상단 경로 */
+  .web_path_wrapper {
+    padding: 1.875rem 0 1.875rem 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #6b7878;
+  }
+  /* 메인페이지 영역 */
+  .web_main_page_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+  .web_main_page,
+  .web_main_view_section {
+    flex: 1;
+  }
+  .web_main_page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1.875rem;
+  }
+
+  /* 스탬프 text */
+  .web_path_wrapper span {
+    color: black;
+  }
+  /* 스탬프 이미지 영역 */
+  .web_stamp_image_wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 610/915;
+    max-width: 38.125rem;
+    margin-top: 1.25rem;
+  }
+
+  /* 상단부 회원정보 */
+  .web_user_info_wrapper {
+    display: Flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+    max-width: 38.125rem;
+    gap: 1.25rem;
+    border: 1px dashed black;
+    padding: 1rem;
+    position: relative;
+  }
+  .web_user_top_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 1.25rem;
+  }
+  .web_bottom_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0.375rem;
+    font-size: 1rem;
+  }
+  /* 숯검댕이 */
+  .web_blackbean_Image_wrapper {
+    position: absolute;
+    bottom: -8px;
+    left: -10px;
+    width: 2.8125rem;
+    height: 2.8125rem;
+  }
+  /* 하단 링크 */
+  .web_stamp_link_image_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    max-width: 38.125rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.875rem;
+    gap: 1.25rem;
+  }
+  .web_stamp_more_image_wrapper,
+  .web_stamp_gacha_image_wrapper {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 4/3;
+    width: 100%;
+  }
+
+  .web_stamp_image_overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  /* 이미지 위 텍스트 */
+  .web_stamp_guide_text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 1.125rem 1rem 1rem;
+  }
+  /* 이미지 title text */
+  .web_stamp_guide_text_title {
+    color: #ffffff;
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  /* 이미지 sub title text */
+  .web_stamp_guide_text_sub_title {
+    color: #ffffff;
+    font-size: clamp(8px, 2.5vw, 12px);
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+
+  /* 토스트 UI */
+  .web_toast_ui_root_header {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 510px;
+    aspect-ratio: 510/754;
+    background: #fdf6e3;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(2.125rem, 10vw, 3.5rem);
+    padding-top: 1.875rem;
+  }
+  /* 당첨내역 상단 부 */
+  .web_toast_ui_header_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  /* 당첨내역 회원 이름 */
+  .web_toast_ui_header_text h2,
+  .web_toast_ui_root_header .web_toast_ui_user_name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ef7800;
+  }
+  .web_toast_ui_header_text span {
+    font-size: 1.125rem;
+  }
+
+  /* 당첨 text */
+  .web_toast_ui_lotto_text {
+    color: #ed1b23;
+  }
+
+  /* 상품 이미지가 나올 영역 */
+  .web_toast_ui_item_wrapper {
+    position: relative;
+    width: 22.5rem;
+    aspect-ratio: 1/1;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .web_toast_ui_confetti_wrapper {
+    position: absolute;
+    top: -34%;
+    left: 50%;
+    transform: translateX(-51%);
+    width: 500px;
+    height: 360px;
+    pointer-events: none;
+  }
+
+  .web_toast_ui_item_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: clamp(20px, 8vw, 40px);
+  }
+  /* 상품 정보 영역 */
+  .web_toast_ui_item_section {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .web_toast_ui_item_title_wrapper,
+  .web_toast_ui_item_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  .web_toast_ui_item_title_wrapper span,
+  .web_toast_ui_item_info_wrapper span {
+    font-size: 1.125rem;
+  }
+  /* 토스트  UI 하단부 버튼 */
+  .web_toast_ui_button_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .web_toast_ui_footer_text {
+    color: #a6a6a6;
+    font-size: 14x;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    padding-bottom: 1.875rem;
+  }
+
+  /* 아이템 사진 */
+  .web_toast_ui_lotto_item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    width: 228px;
+    height: 228px;
+  }
+}
+/* 뷰포트 1350부터는 회원정보와 버튼들 사이드바에 */
+@media (min-width: 1350px) {
+  .web_user_info_wrapper,
+  .web_stamp_link_image_wrapper,
+  .web_toast_ui_root_header {
+    display: none;
+  }
+  /* 사이드바 */
+  .web_side_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  /* 회원정보 */
+  .web_side_user_info_wrapper {
+    width: 21.875rem;
+    height: 25rem;
+    border: 1px dashed black;
+    margin-top: 1.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.875rem;
+    align-items: center;
+    padding: 1.875rem 2.5rem 0 2.125rem;
+  }
+  .web_side_user_top_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+  }
+
+  .web_side_bottom_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+  }
+  .web_side_user_name_section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  /* 이미지 영역 */
+  .web_side_blackbean_Image_wrapper {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 7.5rem;
+    height: 4.8125rem;
+    background: white;
+  }
+
+  /* 하단 링크 */
+  .web_side_stamp_link_image_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+    max-width: 38.125rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.875rem;
+    gap: 1.25rem;
+  }
+  .web_side_stamp_more_image_wrapper,
+  .web_side_stamp_gacha_image_wrapper {
+    position: relative;
+    flex: 1;
+    width: 21.875rem;
+  }
+  .web_side_stamp_more_image_wrapper {
+    max-height: 16.3125rem;
+  }
+  .web_side_stamp_gacha_image_wrapper {
+    max-height: 11.75rem;
+  }
+
+  .web_side_stamp_image_overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  /* 이미지 위 텍스트 */
+  .web_side_stamp_guide_text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 1.125rem 1rem 1rem;
+  }
+  /* 이미지 title text */
+  .web_side_stamp_guide_text_title {
+    color: #ffffff;
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  /* 이미지 sub title text */
+  .web_side_stamp_guide_text_sub_title {
+    color: #ffffff;
+    font-size: clamp(8px, 2.5vw, 12px);
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+  .web_side_stamp_more_image_wrapper {
+    aspect-ratio: 350 / 260; /* 16.3125rem = 260px */
+  }
+  .web_side_stamp_gacha_image_wrapper {
+    aspect-ratio: 350 / 188; /* 11.75rem = 188px */
+  }
+  .web_side_user_name {
+    font-weight: bold;
+  }
+
+  /* 토스트 UI */
+  .web_side_toast_ui_root_header {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 510px;
+    aspect-ratio: 510/754;
+    background: #fdf6e3;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(2.125rem, 10vw, 3.5rem);
+    padding-top: 1.875rem;
+  }
+  /* 당첨내역 상단 부 */
+  .web_side_toast_ui_header_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  /* 당첨내역 회원 이름 */
+  .web_side_toast_ui_header_text h2,
+  .web_side_toast_ui_root_header .web_side_toast_ui_user_name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ef7800;
+  }
+  .web_side_toast_ui_header_text span {
+    font-size: 1.125rem;
+  }
+
+  /* 당첨 text */
+  .web_side_toast_ui_lotto_text {
+    color: #ed1b23;
+  }
+
+  /* 상품 이미지가 나올 영역 */
+  .web_side_toast_ui_item_wrapper {
+    position: relative;
+    width: 22.5rem;
+    aspect-ratio: 1/1;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .web_side_toast_ui_confetti_wrapper {
+    position: absolute;
+    top: -34%;
+    left: 50%;
+    transform: translateX(-51%);
+    width: 500px;
+    height: 360px;
+    pointer-events: none;
+  }
+
+  .web_side_toast_ui_item_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: clamp(20px, 8vw, 40px);
+  }
+  /* 상품 정보 영역 */
+  .web_side_toast_ui_item_section {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .web_side_toast_ui_item_title_wrapper,
+  .web_side_toast_ui_item_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+  .web_side_toast_ui_item_title_wrapper span,
+  .web_side_toast_ui_item_info_wrapper span {
+    font-size: 1.125rem;
+  }
+  /* 토스트  UI 하단부 버튼 */
+  .web_side_toast_ui_button_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .web_side_toast_ui_footer_text {
+    color: #a6a6a6;
+    font-size: 14x;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    padding-bottom: 1.875rem;
+  }
+
+  /* 아이템 사진 */
+  .web_side_toast_ui_lotto_item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    width: 228px;
+    height: 228px;
+  }
+}
+/* 뷰포트에 따른 양옆 간격 */
+@media (min-width: 480px) {
+  .web_root_section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .web_root_section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .web_main_page_section {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .web_root_section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .web_main_page_section {
+    gap: 80px;
+  }
+}
+@media (min-width: 1440px) {
+  .web_root_section {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .web_main_page_section {
+    gap: 110px;
+  }
+}

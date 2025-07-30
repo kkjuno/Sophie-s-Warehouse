@@ -1,0 +1,254 @@
+@import url(../../reset/modern-reset.css);
+@import url(../../globals.css);
+
+.recent_products_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.recent_products_wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  min-width: 0;
+  margin: 0 auto;
+  background-color: #fcfcfc;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* 헤더 */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 15px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  padding-right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.close_button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7878;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  margin-block: auto;
+  padding: 0;
+}
+
+.close_button:hover {
+  color: #333;
+}
+
+/* 컨텐츠 영역 */
+.content {
+  padding: 0;
+}
+
+/* 빈 상태 */
+.empty_state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 상품 리스트 */
+.product_list {
+  padding: 0;
+}
+
+.product_item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 10px;
+  padding-right: 20px;
+  gap: 12px;
+  position: relative;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_item:nth-child(even) {
+  padding: 0px 10px;
+  padding-right: 20px;
+}
+
+.product_item_border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 상품 이미지 */
+.product_image {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #fff;
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border: 0.5px solid var(--color-border-light);
+  padding: 4px;
+}
+
+.product_image_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.image_placeholder {
+  font-size: 12px;
+  color: #6b7878;
+  text-align: center;
+}
+
+/* 상품 정보 */
+.product_info {
+  flex: 1;
+  cursor: pointer;
+  padding-block: 13px;
+  padding-left: 10px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.brand_name {
+  font-size: 9px;
+  color: #6b7878;
+  margin-bottom: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.product_name {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product_price {
+  font-size: 13px;
+  color: var(--color-text);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* 찜 버튼 */
+.like_button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 12px;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.like_text {
+  font-size: 12px;
+  color: #6b7878;
+  font-weight: 700;
+}
+
+/* 삭제 버튼 */
+.remove_button {
+  background: none;
+  border: none;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.remove_button:hover {
+  color: var(--color-text);
+}
+
+/* 웹 스타일 (481px 이상) */
+@media (min-width: 481px) {
+  .recent_products_wrapper::before {
+    display: block;
+  }
+
+  .container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 400px;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    animation: slide_in_right 0.3s ease-out;
+  }
+
+  .content {
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+  }
+}
+
+@keyframes slide_in_right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

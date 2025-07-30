@@ -1,0 +1,70 @@
+@import url('../../reset/modern-reset.css');
+
+/* 모바일 배송정책 안내 페이지 */
+.shipping_policy_page_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+}
+
+.shipping_policy_page {
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1px #000 solid;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shipping_policy_page_tit {
+  margin: 1.25rem 1rem 1.25rem 1rem;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.close_button {
+  all: unset;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.shipping_policy_notice_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 1.25rem;
+}
+
+.shipping_policy_notice {
+  display: flex;
+  flex-flow: column wrap;
+  border-bottom: 1px #b6c5c5 solid;
+  padding-block-end: 1.25rem;
+  gap: 0.5rem;
+}
+
+.shipping_policy_notice_text {
+  color: #000;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-inline: 1rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.shipping_policy_notice_text::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 1rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.shipping_policy_notice_text:nth-child(4)::before {
+  content: '✽';
+  display: inline-block;
+  text-align: center;
+}

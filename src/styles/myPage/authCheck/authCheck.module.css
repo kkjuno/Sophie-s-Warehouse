@@ -1,0 +1,112 @@
+/* authCheck 페이지 최상단 root */
+.mobile_root_header {
+  background: #fcfcfc;
+  min-height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+/* authCheck 페이지 최상단 text */
+.mobile_header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.625rem;
+}
+
+/* 회원정보수정 text */
+.mobile_header h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+/* 회원정보 수정 하단 text */
+.mobile_header span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 0.8;
+}
+/* 아이디, 비밀번호 입력 영역 */
+.mobile_id_password_typing_wrapper {
+  border: 1px solid #b6c5c5;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.375rem;
+  margin-top: 1.875rem;
+  width: 100%;
+}
+/* 아이디, 비밀번호 간격 수정 */
+.mobile_id_wrapper,
+.mobile_password_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.mobile_id_wrapper span,
+.mobile_password_wrapper span {
+  width: 30%;
+}
+.mobile_id_wrapper label,
+.mobile_password_wrapper label {
+  flex: 1;
+}
+.mobile_id_wrapper input,
+.mobile_password_wrapper input {
+  width: 100%;
+}
+/* 버튼영역 */
+.mobile_auth_check_button_wrapper {
+  margin-top: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 닫기 버튼 */
+.mobile_auth_check_close_button {
+  flex: 1;
+  height: 30px;
+  border-radius: 45px;
+  background: #ffffff;
+  color: #1b4332;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #1b4332;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/* 인증하기 버튼 */
+.mobile_auth_check_porve_button {
+  flex: 1;
+  height: 30px;
+  border-radius: 45px;
+  background: #1b4332;
+  color: #1b4332;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #1b4332;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

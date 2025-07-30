@@ -1,0 +1,297 @@
+@media (max-width: 480px) {
+  .web_hite_bg,
+  .web_close_icon_wrapper {
+    display: none;
+  }
+  .mobile_white_bg {
+    background-color: #fcfcfc !important; /* !important로 global 값 덮기 */
+    min-height: 100vh;
+  }
+
+  /* 우편번호 찾기 최상단 헤더 */
+  .mobile_root_header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #b6c5c5;
+    height: 64px;
+    align-items: center;
+    padding: 0px 1rem;
+  }
+
+  /* 우편번호 찾기 text */
+  .mobile_root_header span {
+    font-size: 20px;
+    font-weight: bold;
+    color:;
+  }
+
+  /* 검색 부분 */
+  .mobile_search_bar_icon_wrapper {
+    padding: 0px 1rem;
+  }
+
+  .mobile_search_bar_wrapper {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 0px 10px 0px 12px;
+    border-radius: 15px;
+  }
+
+  /* 검색 바 */
+  .mobile_search_bar_wrapper input {
+    width: 90%;
+    height: 40px;
+    border-radius: 1.3125rem;
+    outline: none;
+    border: none;
+  }
+  /* input 창 placeholder 스타일링 */
+  .mobile_search_bar::placeholder {
+    font-size: 0.875rem;
+  }
+  .mobile_search_icon_button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: inherit;
+  }
+
+  /* 우편번호 찾기 아래 설명 부분 */
+  .mobile_search_area {
+    margin-top: 2.5rem;
+    padding: 0px 1rem;
+  }
+  /* Tip 및 예시 부분 */
+  .mobile_explain_zip_code_search_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    border: 1px solid #b6c5c5;
+    height: 18.75rem;
+    padding: 30px 0 0 18px;
+  }
+  /* 예시 Tip 부분 */
+  .mobile_example_tip {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  /* TIP text 부분 */
+  .mobile_example_tip_title {
+    color: #ac1313;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  /* TIP 아래 설명 부분 */
+  .mobile_example_tip_sub_title {
+    font-size: 12px;
+    font-weight: normal;
+    color: #6b7878;
+  }
+  /* 예시 주소 부분 */
+  .mobile_example_address {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  /* 예시 주소 title 부분 */
+  .mobile_example_title {
+    font-size: 14px;
+    font-weight: medium;
+  }
+  .mobile_example_sub_title {
+    font-size: 10px;
+    margin-left: 1rem;
+    color: #6b7878;
+  }
+}
+/* 375px이 되면 input의 placeholder 폰트사이즈 변경 */
+@media (min-width: 375px) {
+  .mobile_search_bar::placeholder {
+    font-size: 1rem;
+  }
+  .mobile_example_tip_title {
+    font-size: 16px;
+  }
+  .mobile_example_tip_sub_title {
+    font-size: 12px;
+  }
+  .mobile_example_title {
+    font-size: 16px;
+  }
+  .mobile_example_sub_title {
+    font-size: 12px;
+  }
+}
+
+/* 웹뷰 */
+@media (min-width: 481px) {
+  .mobile_white_bg {
+    display: none;
+  }
+
+  .web_white_bg {
+    display: felx;
+    background: #fcfcfc;
+    min-height: 100vh;
+    padding: 0 16px;
+  }
+
+  /* 우편번호 찾기 최상단 헤더 */
+  .web_root_header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #b6c5c5;
+    height: 64px;
+    align-items: center;
+  }
+
+  /* 우편번호 찾기 text */
+  .web_root_header span {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* 검색 부분 */
+  .web_search_bar_icon_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    margin-top: 18px;
+  }
+  .web_close_icon_wrapper {
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  .web_search_bar_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 1px solid #b6c5c5;
+    justify-content: space-between;
+    padding: 0px 10px 0px 12px;
+  }
+
+  /* 검색 바 */
+  .web_search_bar_wrapper input {
+    width: 90%;
+    height: 50px;
+
+    outline: none;
+    border: none;
+  }
+  /* input 창 placeholder 스타일링 */
+  .web_search_bar::placeholder {
+    font-size: 1rem;
+  }
+  .web_search_icon_button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: #1b4332;
+    width: 10rem;
+    height: 3.125rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+
+  /* 우편번호 찾기 아래 설명 부분 */
+  .web_search_area {
+    margin-top: 2.5rem;
+  }
+  /* Tip 및 예시 부분 */
+  .web_explain_zip_code_search_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+    border: 1px solid #b6c5c5;
+
+    padding: 35px 0 30px 30px;
+  }
+  /* 예시 Tip 부분 */
+  .web_example_tip {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  /* TIP text 부분 */
+  .web_example_tip_title {
+    color: #ac1313;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  /* TIP 아래 설명 부분 */
+  .web_example_tip_sub_title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #6b7878;
+  }
+  /* 예시 주소 부분 */
+  .web_example_address {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  /* 예시 주소 title 부분 */
+  .web_example_title {
+    font-size: 16px;
+    font-weight: medium;
+  }
+  .web_example_sub_title {
+    font-size: 14px;
+    margin-left: 1rem;
+    color: #6b7878;
+  }
+}
+
+/* 뷰포트에 따른 양옆 간격 */
+@media (min-width: 480px) {
+  .web_white_bg {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .web_white_bg {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .web_white_bg {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1440px) {
+  .web_white_bg {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}

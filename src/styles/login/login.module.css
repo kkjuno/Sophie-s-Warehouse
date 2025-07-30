@@ -1,0 +1,290 @@
+@import url('../reset/modern-reset.css');
+
+/* 모바일 로그인 페이지 */
+
+.login_page {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
+  width: 100%;
+  height: 100vh;
+}
+
+/* 모바일 로그인 페이지 헤더 */
+
+.logo_wrapper {
+  position: relative;
+  width: clamp(150px, 12vw, 173px);
+  height: clamp(60px, 5vw, 82px);
+  margin-bottom: 3vh;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #081818;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.description_point {
+  color: #ac1313;
+}
+
+/* 모바일 로그인 페이지 박스 */
+.form_wrapper {
+  position: relative;
+  width: 90vw;
+  height: 45vh;
+  background-color: #f0e9d6;
+  border-radius: 2vw;
+  margin: 6vw 0 4vw 0;
+  padding-inline: 0.8rem;
+}
+
+/* 모바일 로그인 페이지 뒤로가기와 로그인 제목 */
+.login_title_container {
+  display: flex;
+  flex-flow: row wrap;
+  padding-block: 3.5vh;
+}
+
+.back_button {
+  width: 4.2vw;
+  height: 2vh;
+}
+
+.login_title {
+  position: absolute;
+  left: 42%;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #081818;
+}
+
+/* 모바일 로그인 페이지 인풋 */
+.form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #081818;
+  margin-bottom: 1.5vh;
+}
+
+.input {
+  margin-bottom: 2vh;
+  height: 4vh;
+  border: none;
+}
+
+.option {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.checkbox {
+  margin: 0;
+  width: 5vw;
+  height: 5vw;
+  cursor: pointer;
+}
+
+.checkbox_label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #081818;
+  cursor: pointer;
+}
+
+.forgot_password_link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ac1313;
+  text-decoration: none;
+}
+
+/* 모바일 로그인 페이지 버튼 */
+.buttons_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6vw;
+  margin-top: 3vh;
+}
+
+/* 모바일 로그인 페이지 조항 */
+.terms {
+  font-size: 10px;
+  font-weight: 600;
+  color: #081818;
+}
+
+/* 웹 로그인 페이지 */
+@media (min-width: 480px) {
+  .login_page,
+  .mobile_only_br {
+    display: none;
+  }
+
+  .login_page {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* 웹 로그인 페이지 헤더 */
+
+  .logo_wrapper {
+    position: relative;
+    width: clamp(190px, 16vw, 210px);
+    height: clamp(80px, 16vw, 100px);
+    margin-bottom: 3vh;
+  }
+
+  .description {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+    color: #081818;
+    text-align: center;
+  }
+
+  .description_point {
+    color: #ac1313;
+  }
+
+  /* 웹 로그인 페이지 박스 */
+  .form_wrapper {
+    position: relative;
+    width: 70%;
+    height: 63vh;
+    background-color: #f0e9d6;
+    border-radius: 0.6vw;
+    margin: 4vh 0 3vh 0;
+    padding-inline: 1rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 1.5rem;
+      width: 50%;
+    }
+
+    @media (min-width: 1024px) {
+      padding-inline: 2rem;
+      width: 40%;
+    }
+
+    @media (min-width: 1440px) {
+      padding-inline: 3.2rem;
+    }
+  }
+
+  /* 웹 로그인 페이지 뒤로가기와 로그인 제목 */
+  .login_title_container {
+    display: flex;
+    flex-flow: row wrap;
+    padding-block: 5vh;
+  }
+
+  .back_button {
+    width: clamp(1.125rem, 1.5vw, 1.375rem);
+    height: clamp(1.125rem, 1.5vw, 1.375rem);
+  }
+
+  .login_title {
+    position: absolute;
+    left: 45%;
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    font-weight: 700;
+    color: #081818;
+  }
+
+  /* 웹 로그인 페이지 인풋 */
+  .form {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .label {
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 600;
+    color: #081818;
+    margin-bottom: 1.5vh;
+  }
+
+  .input {
+    margin-bottom: 2vh;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    height: 5vh;
+    border: none;
+    width: 98%;
+  }
+
+  .option {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 98%;
+  }
+
+  .checkbox_container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1vh;
+  }
+
+  .checkbox {
+    margin: 0;
+    width: 1vw;
+    height: 1vw;
+    cursor: pointer;
+  }
+
+  .checkbox_label {
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 600;
+    color: #081818;
+    cursor: pointer;
+  }
+
+  .forgot_password_link {
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 600;
+    color: #ac1313;
+    text-decoration: none;
+    margin-top: 1vh;
+  }
+
+  /* 웹 로그인 페이지 버튼 */
+  .buttons_wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2vh;
+    margin-top: 5vh;
+  }
+
+  /* 웹 로그인 페이지 조항 */
+  .terms {
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    font-weight: 600;
+    color: #081818;
+  }
+}
