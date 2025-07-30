@@ -255,13 +255,12 @@
     font-weight: bold;
   }
   .web_class_rewards {
-    width: 4.6875rem;
+    min-width: 4.6875rem;
     height: 1.5625rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
     border-radius: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: bold;
   }
   /* 보유중인 스탬프 및 수령한 상품 */
   .web_user_result_wrapper {
@@ -445,6 +444,10 @@
   }
   .web_lottery_result_row {
     padding-top: 0.5rem;
+  }
+  .benefit_text {
+    font-weight: bold;
+    font-size: 1.125rem;
   }
 }
 

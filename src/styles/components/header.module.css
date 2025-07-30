@@ -505,6 +505,13 @@
     color: white;
     text-decoration: none;
   }
+
+  .menuItem {
+    all: unset;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
   .web_header_link_nav_wrapper {
     display: flex;
     flex-direction: row;
@@ -561,5 +568,10 @@
   /* 아이콘 영역 */
   .web_header_icon_wrapper {
     margin-right: clamp(21px, 4vw, 80px);
+  }
+}
+@media (min-width: 768px) {
+  .header_376px_menu_icon_wrapper {
+    display: none;
   }
 }

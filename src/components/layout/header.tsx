@@ -1,8 +1,31 @@
+'use client';
 import header_styles from '@/styles/components/header.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import useUserStore from '@/zustand/userStore';
+import HeaderHamburgurMenu from './headerHamburgerMenu';
 
 export default function Header() {
+  const [isClient, setIsClient] = useState(false);
+
+  // 클라이언트 사이드에서만 실행
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Zustand에서 user 상태 및 resetUser 액션 가져오기
+  const user = useUserStore((state) => state.user);
+  const resetUser = useUserStore((state) => state.resetUser);
+
+  // 로그아웃 함수 정의
+  const handleLogout = () => {
+    resetUser(); // Zustand 상태 초기화
+    alert('로그아웃 되었습니다!');
+  };
+
+  console.log('유저', user);
+
   return (
     <>
       {/* 375px 모바일 헤더 */}
@@ -29,16 +52,16 @@ export default function Header() {
             </Link>
           </div>
           <div className={header_styles.mobile_nav_item}>
-            <Link className={header_styles.mobile_nav_item_movie} href="#">
+            <Link className={header_styles.mobile_nav_item_movie} href="/categoryPage/mobile">
               MOVIE
             </Link>
             <Link className={header_styles.mobile_nav_item_category} href="/categoryPage/mobile">
               CATEGORY
             </Link>
-            <Link className={header_styles.mobile_nav_item_new} href="#">
+            <Link className={header_styles.mobile_nav_item_new} href="/categoryPage/mobile">
               NEW
             </Link>
-            <Link className={header_styles.mobile_nav_item_gift} href="#">
+            <Link className={header_styles.mobile_nav_item_gift} href="/categoryPage/mobile">
               GIFT
             </Link>
           </div>
@@ -54,7 +77,7 @@ export default function Header() {
               className={header_styles.mobile_searchIcon}
             />
           </div>
-          <Link href="/" className={header_styles.mobile_cart_icon_warpper}>
+          <Link href="/shoppingcart" className={header_styles.mobile_cart_icon_warpper}>
             <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={18} height={17} />
             <span className={header_styles.mobile_cart_count}>0</span>
           </Link>
@@ -64,7 +87,7 @@ export default function Header() {
       {/* 376px 헤더 */}
       <div className={header_styles.header_376px}>
         <div className={header_styles.header_376px_main_bar}>
-          <div className={header_styles.header_376px_logo_wrapper}>
+          <Link href="/" className={header_styles.header_376px_logo_wrapper}>
             <div className={header_styles.header_376px_logo_background}>
               <svg
                 width="106"
@@ -80,10 +103,8 @@ export default function Header() {
               </svg>
             </div>
             <Image src="/logo/sophie-logo.svg" alt="소피의창고 로고" fill />
-          </div>
-          <button className={header_styles.header_376px_menu_icon_wrapper}>
-            <Image src="/icons/white-menu-icon.svg" alt="메뉴 아이콘" fill />
-          </button>
+          </Link>
+          <HeaderHamburgurMenu />
         </div>
         <div className={header_styles.haeder_376px_search_area}>
           <div className={header_styles.header_376px_search_bar}>
@@ -104,15 +125,16 @@ export default function Header() {
             >
               <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
             </Link>
-            <Link href="/" className={header_styles.header_376px_my_page_icon_wrapper}>
+            <Link href="/myPage" className={header_styles.header_376px_my_page_icon_wrapper}>
               <Image src="/icons/mypage-icon.svg" alt="마이페이지 아이콘" width={17} height={17} />
             </Link>
-            <Link href="/" className={header_styles.header_376px_cart_icon_wrapper}>
+            <Link href="/shoppingcart" className={header_styles.header_376px_cart_icon_wrapper}>
               <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={17} height={17} />
             </Link>
           </div>
         </div>
       </div>
+
       {/* web 헤더  500px ~*/}
       <div className={header_styles.web_header}>
         <div className={header_styles.web_header_main_bar}>
@@ -133,50 +155,57 @@ export default function Header() {
                     />
                   </svg>
                 </div>
-                <Link href="#">HOME</Link>
+                <Link href="/">HOME</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>
                 <li>
-                  <Link href="#">MOVIE</Link>
+                  <Link href="/categoryPage/web">MOVIE</Link>
                 </li>
                 <li>
                   <Link href="/categoryPage/web">CATEGORY</Link>
                 </li>
                 <li>
-                  <Link href="#">NEW</Link>
+                  <Link href="/categoryPage/web">NEW</Link>
                 </li>
                 <li>
-                  <Link href="#">GIFT</Link>
+                  <Link href="/categoryPage/web">GIFT</Link>
                 </li>
               </ul>
             </div>
             <div className={header_styles.web_header_login_wrapper}>
               <ul>
-                <li>
-                  <Link href="#">로그인</Link>
-                </li>
-                <li>
-                  <Link href="#">회원가입</Link>
-                </li>
+                {isClient && user ? (
+                  <li>
+                    <button onClick={handleLogout} className={header_styles.menuItem}>
+                      로그아웃
+                    </button>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link href="/login">로그인</Link>
+                    </li>
+                    <li>
+                      <Link href="/login/signUp">회원가입</Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </nav>
-
-          <button className={header_styles.web_header_menu_icon_wrapper}>
-            <Image src="/icons/white-menu-icon.svg" alt="메뉴 아이콘" fill />
-          </button>
+          <HeaderHamburgurMenu />
         </div>
         <div className={header_styles.web_header_search_area}>
           <div className={header_styles.web_header_logo_search_bar_wrapper}>
-            <div className={header_styles.web_header_logo_wrapper}>
+            <Link href="/" className={header_styles.web_header_logo_wrapper}>
               <Image src="/logo/sophie-logo.svg" alt="소피의창고 로고" fill sizes="100%" />
-            </div>
+            </Link>
 
             <div className={header_styles.web_header_search_bar}>
               <input type="text" />
               <div className={header_styles.web_header_search_icon_wrapper}>
                 <Image
-                  src="./icons/search-icon.svg"
+                  src="/icons/search-icon.svg"
                   alt="검색 아이콘"
                   fill
                   className={header_styles.web_header_search_icon}
@@ -189,10 +218,10 @@ export default function Header() {
             <Link href="/recentPage/web" className={header_styles.web_header_current_icon_wrapper}>
               <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
             </Link>
-            <Link href="/" className={header_styles.web_header_my_page_icon_wrapper}>
+            <Link href="/myPage" className={header_styles.web_header_my_page_icon_wrapper}>
               <Image src="/icons/mypage-icon.svg" alt="마이페이지 아이콘" width={17} height={17} />
             </Link>
-            <Link href="/" className={header_styles.web_header_cart_icon_wrapper}>
+            <Link href="/shoppingCart" className={header_styles.web_header_cart_icon_wrapper}>
               <Image src="/icons/cart-icon.svg" alt="장바구니 아이콘" width={17} height={17} />
             </Link>
           </div>

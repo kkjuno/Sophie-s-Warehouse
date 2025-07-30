@@ -475,7 +475,7 @@ export const initData = async (clientId, nextSeq) => {
         buyQuantity: 198,
         mainImages: [
           {
-            path: `files/${clientId}/499227295745_600.jpg`,
+            path: `files/${clientId}/4992272795745_600.jpg`,
             name: '스냅타울.jpg',
             originalname: '스냅타울.jpg',
           },
@@ -503,7 +503,7 @@ export const initData = async (clientId, nextSeq) => {
         buyQuantity: 198,
         mainImages: [
           {
-            path: `files/${clientId}/4990593500895_600.jpg`,
+            path: `files/${clientId}/4990593500895_600_02.jpg`,
             name: '소품케이스.jpg',
             originalname: '소품케이스.jpg',
           },
