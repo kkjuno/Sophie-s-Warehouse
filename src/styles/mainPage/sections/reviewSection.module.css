@@ -16,6 +16,10 @@
   }
 }
 
+.review_link {
+  text-decoration: none;
+}
+
 .review_scroll_container {
   display: flex;
   width: 100%;

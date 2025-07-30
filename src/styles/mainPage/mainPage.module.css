@@ -1,7 +1,6 @@
 @import url(../globals.css);
 
-.container,
-.container * {
+.container {
   text-decoration: none;
 }
 

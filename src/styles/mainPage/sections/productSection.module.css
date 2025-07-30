@@ -55,11 +55,16 @@
   scrollbar-width: thin;
   scrollbar-color: #081818 #b6c5c5;
   -webkit-overflow-scrolling: touch;
+  text-decoration: none;
 
   @media (min-width: 900px) {
     padding-bottom: 50px;
     gap: 30px;
   }
+}
+
+.product_link {
+  text-decoration: none;
 }
 
 @media (max-width: 900px) {

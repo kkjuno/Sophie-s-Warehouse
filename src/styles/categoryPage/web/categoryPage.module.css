@@ -1,12 +1,3 @@
-@import url(../../reset/modern-reset.css);
-@import url(../../globals.css);
-
-.container,
-.container * {
-  text-decoration: none;
-  color: inherit;
-}
-
 /* 반응형 - flex 기반 단순화 */
 .main_content {
   width: 100%;
@@ -16,6 +7,8 @@
   padding: 0 80px 20px 80px;
   gap: 30px;
   box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* 최상단 Breadcrumb */
@@ -104,6 +97,16 @@
   flex: 0 0 180px;
   background: #fcfcfc;
   min-width: 180px;
+}
+
+.highlight_card > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product_card > a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .highlight_card img {
