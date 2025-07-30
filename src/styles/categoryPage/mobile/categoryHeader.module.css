@@ -1,6 +1,3 @@
-@import url(../../reset/modern-reset.css);
-@import url(../../globals.css);
-
 .header {
   display: flex;
   flex-direction: row;

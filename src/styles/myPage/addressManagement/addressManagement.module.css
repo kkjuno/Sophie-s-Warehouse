@@ -1,5 +1,3 @@
-@import url('../../reset/modern-reset.css');
-
 .address_management_page_wrapper {
   display: flex;
   flex-flow: column wrap;

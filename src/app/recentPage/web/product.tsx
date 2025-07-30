@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from '@/styles/recentPage/web/recentProduct.module.css';
 import { Product } from '@/types/product';
+console.log('.');
 
 interface WebRecentProductsProps {
   initialProducts: Product[];
