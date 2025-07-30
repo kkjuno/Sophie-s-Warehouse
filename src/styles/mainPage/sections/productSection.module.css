@@ -64,6 +64,10 @@
   }
 }
 
+.product_link {
+  text-decoration: none;
+}
+
 @media (max-width: 900px) {
   .product_row_scroll {
     margin-left: 0;
