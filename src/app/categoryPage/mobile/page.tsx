@@ -1,6 +1,6 @@
 import CategoryHeader from '@/app/categoryPage/mobile/header';
 import ProductGrid from '@/app/categoryPage/mobile/productGrid';
-import { Product } from '@/types/Product';
+import { Product } from '@/types/product';
 import styles from '@/styles/categoryPage/mobile/categoryPage.module.css';
 
 export default function CategoryPage() {
