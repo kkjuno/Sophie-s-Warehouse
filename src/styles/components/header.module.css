@@ -505,6 +505,13 @@
     color: white;
     text-decoration: none;
   }
+
+  .menuItem {
+    all: unset;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
   .web_header_link_nav_wrapper {
     display: flex;
     flex-direction: row;
