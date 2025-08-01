@@ -9,59 +9,67 @@ import { Product } from '../types/productType';
 interface StampMobileToastProps {
   onClose: () => void;
 }
+
 export default function StampMobileToast({ onClose }: StampMobileToastProps) {
-  const [product, setProduct] = useState<Product | null>(null);
-  const [runGatcha, setRunGatcha] = useState(false);
+  const [rollingProducts, setRollingProducts] = useState<Product[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isRolling, setIsRolling] = useState(true);
+  const [winner, setWinner] = useState<Product | null>(null);
 
   useEffect(() => {
-    if (runGatcha) return;
+    async function startGatcha() {
+      const res = await productFetch();
+      if (res.ok && res.item.length > 0) {
+        const shuffled = res.item.sort(() => 0.5 - Math.random());
+        const previewItems = shuffled.slice(0, 10);
+        setRollingProducts(previewItems);
 
-    async function fetchAndPickRandomProduct() {
-      try {
-        const res = await productFetch();
-        if (res.ok && res.item.length > 0) {
-          const randomIndex = Math.floor(Math.random() * res.item.length);
-          setProduct(res.item[randomIndex]);
-          setRunGatcha(true);
-        }
-      } catch (error) {
-        console.error('상품 불러오기 실패:', error);
+        let index = 0;
+        const interval = setInterval(() => {
+          setCurrentIndex(index);
+          index++;
+
+          if (index >= previewItems.length) {
+            clearInterval(interval);
+            setWinner(previewItems[previewItems.length - 1]);
+            setIsRolling(false);
+          }
+        }, 250);
       }
     }
 
-    fetchAndPickRandomProduct();
-  }, [runGatcha]);
+    startGatcha();
+  }, []);
 
-  if (!product) {
-    return <div className={stamp_page_styles.mobile_toast_ui_root_header}>로딩 중...</div>;
-  }
+  const currentProduct = rollingProducts[currentIndex];
 
-  console.log('랜덤 가챠', product);
-  const mainImagePath = product?.mainImages[0].path;
   return (
-    <>
-      {/* 모바일 */}
-      <div className={stamp_page_styles.mobile_toast_ui_root_header}>
-        <div className={stamp_page_styles.mobile_toast_ui_header_text}>
-          <h2>
-            <span className={stamp_page_styles.mobile_toast_ui_user_name}>김진섭</span>님
-            축하합니다!
-          </h2>
-          <span>
-            당신은 아래 상품에{' '}
-            <span className={stamp_page_styles.mobile_toast_ui_lotto_text}>당첨</span>
-            되셨습니다!
-          </span>
-        </div>
-        <div className={stamp_page_styles.mobile_toast_ui_item_wrapper}>
-          <div className={stamp_page_styles.mobile_toast_ui_confetti_wrapper}>
-            <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
-          </div>
-          <div className={stamp_page_styles.mobile_toast_ui_lotto_item}>
-            <Image src={`/${mainImagePath}`} fill alt="당첨상품 이미지" />
-          </div>
-        </div>
+    <div className={stamp_page_styles.mobile_toast_ui_root_header}>
+      <div className={stamp_page_styles.mobile_toast_ui_header_text}>
+        <h2>
+          <span className={stamp_page_styles.mobile_toast_ui_user_name}>김진섭</span>님 축하합니다!
+        </h2>
+        <span>
+          당신은 아래 상품에{' '}
+          <span className={stamp_page_styles.mobile_toast_ui_lotto_text}>당첨</span> 되셨습니다!
+        </span>
+      </div>
 
+      <div className={stamp_page_styles.mobile_toast_ui_item_wrapper}>
+        <div className={stamp_page_styles.mobile_toast_ui_confetti_wrapper}>
+          <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+        </div>
+        <div className={stamp_page_styles.mobile_toast_ui_lotto_item}>
+          <Image
+            src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}
+            fill
+            alt="상품 이미지"
+            sizes="140px"
+          />
+        </div>
+      </div>
+
+      {!isRolling && winner && (
         <div className={stamp_page_styles.mobile_toast_ui_item_info}>
           <div className={stamp_page_styles.mobile_toast_ui_item_section}>
             <div className={stamp_page_styles.mobile_toast_ui_item_title_wrapper}>
@@ -69,28 +77,23 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
               <span className={stamp_page_styles.mobile_toast_ui_item_brand}>브랜드</span>
             </div>
             <div className={stamp_page_styles.mobile_toast_ui_item_info_wrapper}>
-              <span className={stamp_page_styles.mobile_toast_ui_item_name}>{product.name}</span>
+              <span className={stamp_page_styles.mobile_toast_ui_item_name}>{winner.name}</span>
               <span className={stamp_page_styles.mobile_toast_ui_item_brand_name}>
-                {product.extra.movie}
+                {winner.extra.movie}
               </span>
             </div>
           </div>
           <div className={stamp_page_styles.mobile_toast_ui_button_wrapper}>
-            <button
-              className={`${styles.close_button} `}
-              onClick={() => {
-                onClose();
-              }}
-            >
+            <button className={styles.close_button} onClick={onClose}>
               닫기
             </button>
-            <button className={`${styles.quick_link_button} `}>바로가기</button>
+            <button className={styles.quick_link_button}>바로가기</button>
           </div>
           <div className={stamp_page_styles.mobile_toast_ui_footer_text}>
             <span>상품은 마이페이지 &gt; 혜택관리 &gt; 당첨내역에서 확인하세요!</span>
           </div>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }

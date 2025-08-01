@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import stamp_page_styles from '@/styles/stamp/stamp.module.css';
+import useUserStore from '@/zustand/userStore';
 
 export default function StampWebMainContent({ onClick }: { onClick: () => void }) {
+  const user = useUserStore((state) => state.user);
+
   return (
     <div className={stamp_page_styles.web_main_page}>
       <div className={stamp_page_styles.web_main_view_section}>
@@ -9,13 +12,13 @@ export default function StampWebMainContent({ onClick }: { onClick: () => void }
           <div className={stamp_page_styles.web_user_top_wrapper}>
             <span>안녕하세요</span>
             <div className={stamp_page_styles.web_user_name}>
-              <span>김진섭</span>
+              <span>{user?.name ?? '회원'}</span>
               <span>님</span>
             </div>
           </div>
           <div className={stamp_page_styles.web_bottom_wrapper}>
             <span>현재 스탬프 개수 :</span>
-            <span>8개</span>
+            <span>{user?.extra?.stamp ?? 0}개</span>
           </div>
           <div className={stamp_page_styles.web_blackbean_Image_wrapper}>
             <Image src="/images/stampImages/stamp-blackbean-image.svg" fill alt="숯검댕이 이미지" />

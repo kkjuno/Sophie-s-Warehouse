@@ -1,20 +1,23 @@
 import Image from 'next/image';
 import stamp_page_styles from '@/styles/stamp/stamp.module.css';
+import useUserStore from '@/zustand/userStore';
 
 export default function StampWebSideContent({ onClick }: { onClick: () => void }) {
+  const user = useUserStore((state) => state.user);
+
   return (
     <div className={stamp_page_styles.web_side_section}>
       <div className={stamp_page_styles.web_side_user_info_wrapper}>
         <div className={stamp_page_styles.web_side_user_top_wrapper}>
           <span>안녕하세요</span>
           <div className={stamp_page_styles.web_side_user_name_section}>
-            <span className={stamp_page_styles.web_side_user_name}>김진섭</span>
+            <span className={stamp_page_styles.web_side_user_name}>{user?.name ?? '회원'}</span>
             <span>회원님</span>
           </div>
         </div>
         <div className={stamp_page_styles.web_side_bottom_wrapper}>
           <span>현재 스탬프 개수 :</span>
-          <span>8개</span>
+          <span>{user?.extra?.stamp ?? 0}개</span>
         </div>
         <div className={stamp_page_styles.web_side_blackbean_Image_wrapper}>
           <Image
