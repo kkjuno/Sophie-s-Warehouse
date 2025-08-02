@@ -72,6 +72,12 @@
   transform: rotate(180deg);
 }
 
+.mobile_dropdown_arrow_text {
+  font-size: 0.875rem;
+  color: #6b7878;
+  margin-right: 0.5rem;
+}
+
 .mobile_dropdown_menu {
   position: absolute;
   top: 100%;
@@ -119,7 +125,7 @@
 
 .mobile_order_delivery_container_sm {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 38%;
   height: 4vh;
@@ -149,13 +155,16 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 3rem 1rem 0 1rem;
+  padding: 1.5rem 1.2rem 0 1.2rem;
+  flex: 1;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
 }
 
 .mobile_order_delivery_view_list {
   font-size: 0.875rem;
   font-weight: 700;
   color: #000;
+  margin-top: 2rem;
 }
 
 .mobile_date_container {
@@ -181,6 +190,54 @@
   opacity: 0;
   cursor: pointer;
   z-index: 1;
+}
+
+.mobile_date_display {
+  font-size: 0.875rem;
+  color: #081818;
+  margin-left: 1rem;
+}
+
+/* 모바일 주문 목록 관련 스타일 */
+
+.mobile_order_data_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-block-end: 1rem;
+  padding-block-end: 1rem;
+  border-bottom: #949494 1px solid;
+}
+
+/* 개별 주문 아이템 스타일 */
+.mobile_order_data_row {
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: rgba(208, 208, 208, 1) 1px solid;
+  padding-block: 0.5rem;
+}
+
+.mobile_order_data_row:last-child {
+  border-bottom: none;
+}
+
+.mobile_order_label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.mobile_order_value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #081818;
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 웹 주문/배송조회 페이지  */
@@ -253,12 +310,12 @@
   .web_order_delivery_aside {
     display: flex;
     flex-flow: column nowrap;
-    width: 10.625rem;
+    width: 10%;
     gap: 2vh;
   }
 
   .web_order_delivery_aside_divider_top {
-    width: 10.625rem;
+    width: 100%;
     height: 1.5px;
     background-color: #000;
     border: none;
@@ -266,13 +323,13 @@
   }
 
   .web_order_delivery_list {
-    font-size: 1.125rem;
+    font-size: clamp(0.625rem, 1.5vw, 1.125rem);
     font-weight: 700;
     color: #081818;
   }
 
   .web_order_delivery_list_tit {
-    font-size: 1.125rem;
+    font-size: clamp(0.625rem, 1.5vw, 1.125rem);
     font-weight: 700;
     color: #081818;
   }
@@ -281,19 +338,19 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 1vh;
-  }
-
-  .web_order_delivery_list_text li::before {
-    content: '•';
-    color: #6b7878;
-    margin-right: 0.2rem;
+    min-width: 0;
   }
 
   .web_order_delivery_list_text a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.625rem, 1.5vw, 1rem);
     font-weight: 700;
     color: #6b7878;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .web_order_delivery_list_text a:hover {
@@ -368,9 +425,10 @@
 
   .web_order_delivery_membership_point {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     margin-left: 4vw;
     gap: 1vh;
+    width: 40%;
   }
 
   .web_order_delivery_membership_label {
@@ -618,7 +676,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-inline: 1rem;
+    padding-inline: clamp(0.75rem, 1.5vw, 1rem);
   }
 
   .web_order_delivery_view_data_label:nth-child(2) {

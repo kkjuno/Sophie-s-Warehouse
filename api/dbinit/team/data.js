@@ -587,7 +587,287 @@ export const initData = async (clientId, nextSeq) => {
     ],
 
     // 주문
-    order: [],
+    order: [
+      // 오늘
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 1,
+            seller_id: 2,
+            name: '[하울의 움직이는 성] PT-333 (소피)',
+            price: 28000,
+            quantity: 1,
+            image: {
+              path: `files/${clientId}/4970381518875_500_1.jpg`,
+              name: '소피퍼즐.jpg',
+            },
+            option: '1000피스',
+          },
+        ],
+        cost: {
+          products: 28000,
+          shippingFees: 3000,
+          total: 31000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS010', // 주문접수
+        createdAt: getTime(0, -60 * 60 * 2),
+        updatedAt: getTime(0, -60 * 60 * 1),
+      },
+
+      // 3일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 7,
+            seller_id: 2,
+            name: '[이웃집 토토로] 쿠션(토토로 통나무)',
+            price: 67000,
+            quantity: 2,
+            image: {
+              path: `files/${clientId}/4992272943610_600.jpg`,
+              name: '쿠션.jpg',
+            },
+            option: '대형(50x50cm)',
+          },
+        ],
+        cost: {
+          products: 134000,
+          shippingFees: 0,
+          total: 134000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS030', // 배송중
+        createdAt: getTime(-3, -60 * 60 * 15),
+        updatedAt: getTime(-2, -60 * 60 * 12),
+      },
+
+      // 5일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 2,
+            seller_id: 2,
+            name: '[하울의 움직이는 성]점착메모지(하울의움직이는성)',
+            price: 8500,
+            quantity: 3,
+            image: {
+              path: `files/${clientId}/4549743942247_600_01.jpg`,
+              name: '점착메모지.jpg',
+            },
+            option: '5개 세트',
+          },
+        ],
+        cost: {
+          products: 25500,
+          shippingFees: 3000,
+          total: 28500,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS040', // 배송완료
+        createdAt: getTime(-5, -60 * 60 * 8),
+        updatedAt: getTime(-4, -60 * 60 * 5),
+      },
+
+      // 10일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 13,
+            seller_id: 2,
+            name: '[마녀배달부 키키] 쿠션(지지 초콜릿케익)',
+            price: 67000,
+            quantity: 1,
+            image: {
+              path: `files/${clientId}/4992272943627_600.jpg`,
+              name: '지지쿠션.jpg',
+            },
+            option: '50x50cm',
+          },
+        ],
+        cost: {
+          products: 67000,
+          shippingFees: 3000,
+          total: 70000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS040', // 배송완료
+        createdAt: getTime(-10, -60 * 60 * 14),
+        updatedAt: getTime(-8, -60 * 60 * 16),
+      },
+
+      // 12일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 3,
+            seller_id: 2,
+            name: '[하울의 움직이는 성]하울(움직이는하울의성)',
+            price: 280000,
+            quantity: 1,
+            image: {
+              path: `files/${clientId}/4990593476626_600_02.jpg`,
+              name: '하울(움직이는하울의성).jpg',
+            },
+            option: '한정판',
+          },
+        ],
+        cost: {
+          products: 280000,
+          shippingFees: 0,
+          total: 280000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS020', // 상품준비중
+        createdAt: getTime(-12, -60 * 60 * 2),
+        updatedAt: getTime(-12, -60 * 60 * 1),
+      },
+
+      // 20일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 5,
+            seller_id: 2,
+            name: '[하울의 움직이는 성]보온보냉 런치백(캘시퍼 시리즈)',
+            price: 17000,
+            quantity: 2,
+            image: {
+              path: `files/${clientId}/4973307631443_500_1.jpg`,
+              name: '보온보냉런치백.jpg',
+            },
+            option: '블랙',
+          },
+        ],
+        cost: {
+          products: 34000,
+          shippingFees: 3000,
+          total: 37000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS040', // 배송완료
+        createdAt: getTime(-20, -60 * 60 * 11),
+        updatedAt: getTime(-18, -60 * 60 * 9),
+      },
+
+      // 60일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 8,
+            seller_id: 2,
+            name: '[이웃집토토로] 디오라마 소품케이스(토토로 그루터기)',
+            price: 128000,
+            quantity: 1,
+            image: {
+              path: `files/${clientId}/4990593500888_600_02.jpg`,
+              name: '디오라마소품케이스.jpg',
+            },
+            option: 'LED 조명 포함',
+          },
+        ],
+        cost: {
+          products: 128000,
+          shippingFees: 0,
+          total: 128000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS040', // 배송완료
+        createdAt: getTime(-60, -60 * 60 * 13),
+        updatedAt: getTime(-58, -60 * 60 * 15),
+      },
+
+      // 200일 전
+      {
+        _id: await nextSeq('order'),
+        type: 'order',
+        user_id: 1,
+        products: [
+          {
+            _id: 18,
+            seller_id: 1,
+            name: '[마녀배달부 키키] 디오라마 모래시계(코키리의 실험실)',
+            price: 123000,
+            quantity: 1,
+            image: {
+              path: `files/${clientId}/4990593499212_600.jpg`,
+              name: '다오라마 모래시계.jpg',
+            },
+            option: '한정판',
+          },
+        ],
+        cost: {
+          products: 123000,
+          shippingFees: 0,
+          total: 123000,
+        },
+        address: {
+          name: '무지',
+          phone: '01011112222',
+          address: '서울시 강남구 역삼동 123',
+          zipCode: '06234',
+        },
+        state: 'OS040', // 배송완료
+        createdAt: getTime(-200, -60 * 60 * 6),
+        updatedAt: getTime(-198, -60 * 60 * 10),
+      },
+    ],
 
     // 후기
     review: [],
