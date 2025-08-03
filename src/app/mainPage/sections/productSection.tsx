@@ -229,9 +229,10 @@ export default function ProductSection(): JSX.Element {
                 >
                   {categoryProducts.map((product) => (
                     <Link
-                      className={styles.Link}
+
                       href={`/products/${product._id}`}
                       key={product._id}
+                      className={styles.product_link}
                     >
                       <div className={styles.product_card}>
                         <div className={styles.product_image}>

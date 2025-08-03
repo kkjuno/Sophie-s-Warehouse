@@ -22,6 +22,7 @@ export const initData = async (clientId, nextSeq) => {
         updatedAt: getTime(-100, -60 * 60 * 3),
         extra: {
           birthday: '03-23',
+          stamp: 0,
         },
       },
       {
@@ -38,6 +39,7 @@ export const initData = async (clientId, nextSeq) => {
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
           birthday: '11-23',
+          stamp: 0,
         },
       },
     ],

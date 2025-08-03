@@ -102,7 +102,7 @@ export default function ReviewSection({ reviews }: ReviewSectionProps) {
         <div className={styles.review_row}>
           {reviews.map((review) => (
             <div key={review.id} className={styles.review_card}>
-              <Link href={`/reviews/${review.id}`}>
+              <Link href={`/reviews/${review.id}`} className={styles.review_link}>
                 <div className={styles.review_main_image}>
                   <Image
                     src={review.image}

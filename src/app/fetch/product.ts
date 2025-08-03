@@ -1,5 +1,3 @@
-'use server';
-
 import { ApiRes, ApiResPromise } from '../types/apiType';
 import { Product } from '../types/productType';
 

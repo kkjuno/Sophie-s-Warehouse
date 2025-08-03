@@ -1,6 +1,9 @@
 import stamp_page_styles from '@/styles/stamp/stamp.module.css';
-import StampMobileUserInfo from './stampMobileUserInfo';
-import StampMobileBoard from './stampMobileBoard';
+import StampMobileUserInfo from '@/app/stamp/stampMobileUserInfo';
+import StampMobileBoard from '@/app/stamp/stampMobileBoard';
+import StampWebView from '@/app/stamp/stampWebView';
+
+
 
 export default function StampPage() {
   return (
@@ -11,9 +14,14 @@ export default function StampPage() {
         <div className={stamp_page_styles.mobile_user_info_section}>
           <StampMobileUserInfo />
         </div>
-        {/* 스탬프 판 */}
+
         <StampMobileBoard />
       </div>
+
+      {/* 웹뷰 영역 */}
+      <StampWebView />
+
+     
     </>
   );
 }

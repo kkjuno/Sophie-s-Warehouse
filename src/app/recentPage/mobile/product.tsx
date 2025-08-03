@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import styles from '@/styles/recentPage/mobile/recentProduct.module.css';
 
-import { Product } from '@/types/Product';
+import { Product } from '@/types/product';
 
 interface MobileRecentProductsProps {
   initialProducts: Product[];
