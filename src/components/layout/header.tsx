@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import useUserStore from '@/zustand/userStore';
 import HeaderHamburgurMenu from './headerHamburgerMenu';
+import { useRecentModal } from '@/zustand/useRecentModal';
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
+  const { open } = useRecentModal(); // ★ 모달 열기 함수 가져오기
 
   // 클라이언트 사이드에서만 실행
   useEffect(() => {
@@ -215,9 +217,9 @@ export default function Header() {
           </div>
 
           <div className={header_styles.web_header_icon_wrapper}>
-            <Link href="/recentPage/web" className={header_styles.web_header_current_icon_wrapper}>
+            <button onClick={open} className={header_styles.web_header_current_icon_wrapper}>
               <Image src="/icons/recent-icon.svg" alt="최근본상품 아이콘" width={17} height={17} />
-            </Link>
+            </button>
             <Link href="/myPage" className={header_styles.web_header_my_page_icon_wrapper}>
               <Image src="/icons/mypage-icon.svg" alt="마이페이지 아이콘" width={17} height={17} />
             </Link>

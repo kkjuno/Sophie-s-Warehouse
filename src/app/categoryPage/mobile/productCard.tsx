@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Product } from '@/app/types/productType';
 import styles from '@/styles/categoryPage/mobile/categoryProductCard.module.css';
+import { addRecentProduct } from '@/utils/recentProduct';
 import Image from 'next/image';
+
 
 interface ProductCardProps {
   product: Product;
