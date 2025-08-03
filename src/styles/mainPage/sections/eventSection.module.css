@@ -33,6 +33,7 @@
   padding: 13px;
   max-width: clamp(55%, 65vw, 65%);
   aspect-ratio: 790 / 200;
+  z-index: 3;
 }
 
 .sub_event_popup {

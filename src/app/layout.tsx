@@ -7,6 +7,7 @@ import Header from '@/components/layout/header';
 import MyPageHeader from '@/components/layout/myPageHeader';
 import MainFooter from '@/components/layout/mainFooter';
 import { useEffect, useState } from 'react';
+import RecentModal from '@/app/recentPage/web/recentModal';
 
 export default function RootLayout({
   children,
@@ -53,6 +54,7 @@ export default function RootLayout({
         {!isHiddenLayout && !isMyPage && <Header />}
         {isMyPage && !hideMyPageHeader && <MyPageHeader />}
         {children}
+        <RecentModal />
         {!isHiddenLayout && <MainFooter />}
         {!isHiddenLayout && <FooterNav />}
       </body>
