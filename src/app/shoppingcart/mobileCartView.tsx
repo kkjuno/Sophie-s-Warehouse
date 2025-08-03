@@ -31,14 +31,14 @@ export default function MobileCartView() {
         </div>
       </div>
       <div className={shopping_cart_styles.mobile_shopping_cart_new_items_section}>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <CartItem
-            key={index}
+            key={item.id}
+            id={item.id}
             imageSrc={item.imageSrc}
             name={item.name}
             color={item.color}
             size={item.size}
-            price={`${item.price}원`}
           />
         ))}
       </div>
