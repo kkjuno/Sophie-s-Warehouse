@@ -1,0 +1,16 @@
+meta {
+  name: post test
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://fesp-api.koyeb.app/market/posts/2
+  body: json
+  auth: inherit
+}
+
+headers {
+  client-id: febc13-final07-emjf
+  ~Content-Type: application/json
+}
