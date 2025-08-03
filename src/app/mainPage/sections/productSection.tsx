@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { productFetch } from '@/app/fetch/product';
 import { Product } from '@/app/types/productType';
 import styles from '../../../styles/mainPage/sections/productSection.module.css';
+import { addRecentProduct } from '@/utils/recentProduct';
 
 // Hero 이미지 매핑 함수
 const getHeroImage = (movieName: string): string => {
@@ -14,7 +15,6 @@ const getHeroImage = (movieName: string): string => {
     '이웃집 토토로': '/images/mainPage/totoro-hero.svg',
     '하울의 움직이는 성': '/images/mainPage/howls-hero.svg',
   };
-
   return heroImages[movieName] || '/images/mainPage/default-hero.svg';
 };
 
@@ -125,7 +125,6 @@ export default function ProductSection(): JSX.Element {
   // 마우스 진입 시 전역 휠 이벤트 리스너 추가
   const handleMouseEnter = (category: string) => {
     const preventScroll = (e: WheelEvent) => {
-      // 상품 스크롤 영역 내에서만 동작하도록 체크
       const container = scrollRefs.current.get(category);
       if (container && container.contains(e.target as Node)) {
         e.preventDefault();
@@ -150,22 +149,16 @@ export default function ProductSection(): JSX.Element {
     console.log(`Category clicked: ${category}`);
   };
 
-  // 로딩 상태
   if (loading) {
     console.log('ProductSection: 로딩 중...');
-    // return <div className={styles.loading}>로딩 중...</div>;
   }
 
-  // 에러 상태
   if (error) {
     console.log('ProductSection 에러 발생:', error);
-    // return <div className={styles.error}>에러 발생: {error}</div>;
   }
 
-  // 데이터가 없을 경우
   if (products.length === 0) {
     console.log('ProductSection: 상품 데이터가 없습니다');
-    // return <div className={styles.empty}>상품이 없습니다</div>;
   }
 
   return (
@@ -190,8 +183,6 @@ export default function ProductSection(): JSX.Element {
       <div className={styles.product_rows}>
         {categories.map((category) => {
           const categoryProducts = getRowProducts(category);
-
-          // 해당 카테고리에 상품이 없으면 렌더링하지 않음
           if (categoryProducts.length === 0) return null;
 
           return (
@@ -233,7 +224,10 @@ export default function ProductSection(): JSX.Element {
                       key={product._id}
                       className={styles.product_link}
                     >
-                      <div className={styles.product_card}>
+                      <div
+                        className={styles.product_card}
+                        onClick={() => addRecentProduct(product._id)} // 클릭 시 최근 본 상품 저장
+                      >
                         <div className={styles.product_image}>
                           {product.mainImages?.[0]?.path && (
                             <Image
