@@ -10,6 +10,7 @@ interface StampMobileToastProps {
   onClose: () => void;
 }
 
+
 export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   const [rollingProducts, setRollingProducts] = useState<Product[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,6 +71,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
       </div>
 
       {!isRolling && winner && (
+
         <div className={stamp_page_styles.mobile_toast_ui_item_info}>
           <div className={stamp_page_styles.mobile_toast_ui_item_section}>
             <div className={stamp_page_styles.mobile_toast_ui_item_title_wrapper}>
@@ -77,23 +79,29 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
               <span className={stamp_page_styles.mobile_toast_ui_item_brand}>브랜드</span>
             </div>
             <div className={stamp_page_styles.mobile_toast_ui_item_info_wrapper}>
+
               <span className={stamp_page_styles.mobile_toast_ui_item_name}>{winner.name}</span>
               <span className={stamp_page_styles.mobile_toast_ui_item_brand_name}>
                 {winner.extra.movie}
+
               </span>
             </div>
           </div>
           <div className={stamp_page_styles.mobile_toast_ui_button_wrapper}>
+
             <button className={styles.close_button} onClick={onClose}>
               닫기
             </button>
             <button className={styles.quick_link_button}>바로가기</button>
+
           </div>
           <div className={stamp_page_styles.mobile_toast_ui_footer_text}>
             <span>상품은 마이페이지 &gt; 혜택관리 &gt; 당첨내역에서 확인하세요!</span>
           </div>
         </div>
+
       )}
     </div>
+
   );
 }
