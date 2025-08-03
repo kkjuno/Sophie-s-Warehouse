@@ -2,8 +2,7 @@ import MobileNavigation from './mobileNavigation';
 import MobilePeriodSearch from './mobilePeriodSearch';
 import WebAsideMenu from './webAsideMenu';
 import WebMembershipSection from './webMembershipSection';
-import WebPeriodSearch from './webPeriodSearch';
-import WebOrderList from './webOrderList';
+import WebOrderDeliveryView from './webOrderDeliveryView';
 import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
 
 export default function OrderDeliveryPage() {
@@ -13,12 +12,6 @@ export default function OrderDeliveryPage() {
       <MobileNavigation />
       <div className={orderDelivery_styles.mobile_order_delivery_page}>
         <MobilePeriodSearch />
-        <hr className={orderDelivery_styles.mobile_order_delivery_divider} />
-        <ul className={orderDelivery_styles.mobile_order_delivery_view_list_wrapper}>
-          <li className={orderDelivery_styles.mobile_order_delivery_view_list}>
-            조회내역이 없습니다.
-          </li>
-        </ul>
       </div>
 
       {/* 웹 주문/배송조회 페이지 */}
@@ -40,8 +33,7 @@ export default function OrderDeliveryPage() {
           <WebAsideMenu />
           <div className={orderDelivery_styles.web_order_delivery_sections}>
             <WebMembershipSection />
-            <WebPeriodSearch />
-            <WebOrderList />
+            <WebOrderDeliveryView />
           </div>
         </div>
       </div>
