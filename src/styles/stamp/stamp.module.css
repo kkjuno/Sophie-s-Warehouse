@@ -204,6 +204,7 @@
     width: 200px;
     height: 200px;
     pointer-events: none;
+    z-index: 10;
   }
 
   .mobile_toast_ui_item_info {
@@ -251,9 +252,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
+    overflow-x: hidden;
+    border-radius: 50%;
+    z-index: 5;
   }
 }
 
@@ -474,6 +477,7 @@
     width: 500px;
     height: 360px;
     pointer-events: none;
+    z-index: 10;
   }
 
   .web_toast_ui_item_info {
@@ -526,9 +530,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
-    width: 228px;
-    height: 228px;
+
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+    border-radius: 50%;
+    z-index: 5;
   }
 }
 /* 뷰포트 1350부터는 회원정보와 버튼들 사이드바에 */
@@ -724,6 +731,7 @@
     width: 500px;
     height: 360px;
     pointer-events: none;
+    z-index: 10;
   }
 
   .web_side_toast_ui_item_info {
@@ -776,9 +784,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
-    width: 228px;
-    height: 228px;
+
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+    border-radius: 50%;
   }
 }
 /* 뷰포트에 따른 양옆 간격 */

@@ -217,7 +217,8 @@
   .mobile_shopping_cart_recipe_item_title_wrapper,
   .mobile_shopping_cart_recipe_item_info_wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     flex-wrap: nowrap;
     gap: 16px;
   }
@@ -234,10 +235,7 @@
     font-size: 14px;
     font-weight: 600;
   }
-  /* 간격을 위한 상품 가격 선정 */
-  .mobile_shopping_cart_recipe_item_info_wrapper span:last-child {
-    margin-left: auto;
-  }
+
   /* 총 가격 영역 */
   .mobile_shopping_cart_recipe_total_price_wrapper {
     margin-top: 50px;
@@ -260,7 +258,33 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 1.875rem;
+  }
+  .mobile_shopping_cart_recipe_item_row_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .mobile_shopping_cart_recipe_item_title_wrapper,
+  .mobile_shopping_cart_recipe_item_info_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .mobile_shopping_cart_recipe_item_title_wrapper span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7878;
+  }
+
+  .mobile_shopping_cart_recipe_item_info_wrapper span {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
 
@@ -316,6 +340,8 @@
     flex-wrap: nowrap;
     gap: 16px;
     width: 100%;
+
+    max-width: 702px;
   }
   /* 이미지 스타일링 */
   .mobile_shopping_cart_item_image_wrapper {
@@ -522,6 +548,47 @@
     margin-top: 30px;
     margin-bottom: 70px;
   }
+  .mobile_shopping_cart_recipe_item_row_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .mobile_shopping_cart_recipe_item_label_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+  }
+  .web_shopping_cart_recipe_item_row_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .web_shopping_cart_recipe_item_title_wrapper,
+  .web_shopping_cart_recipe_item_info_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .web_shopping_cart_recipe_item_title_wrapper span {
+    font-size: 1.125rem;
+    color: #6b7878;
+    font-weight: 600;
+  }
+
+  .web_shopping_cart_recipe_item_info_wrapper span {
+    font-size: 1.125rem;
+    color: black;
+    font-weight: 700;
+  }
 }
 
 @media (min-width: 30.0625rem) {
@@ -562,7 +629,7 @@
     gap: 1.25rem;
     width: 100%;
     max-width: 702px;
-    padding-right: 30px;
+
     padding-bottom: 2.5rem;
   }
   /* 아이템 */
@@ -672,8 +739,7 @@
   .web_summary {
     margin-top: 50px;
     width: 100%;
-    max-width: 702px;
-    padding-right: 30px;
+    max-width: 732px;
   }
 
   .web_shopping_cart_recipe_text_wrapper {
@@ -685,26 +751,29 @@
   /* 구매내역 */
   .web_shopping_cart_recipe_buy_wrapper {
     font-size: 22px;
-
+    max-width: 732px;
     padding-bottom: 16px;
     border-bottom: 0.0625rem solid #6b7878;
     margin-bottom: 16px;
+    margin-right: 30px;
   }
 
   .web_shopping_cart_recipe_new_item_wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     max-width: 702px;
     border-bottom: 0.0625rem solid #b6c5c5;
     padding-bottom: 16px;
     margin-top: 1.25rem;
+    margin-right: 30px;
+    gap: 1rem;
   }
   .web_shopping_cart_recipe_item_title_wrapper,
   .web_shopping_cart_recipe_item_info_wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     gap: 1rem;
   }
@@ -716,8 +785,12 @@
     font-size: 1.25rem;
   }
   .web_shopping_cart_recipe_item_info_wrapper {
-    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-weight: bold;
+    width: 100%;
   }
   /* 최종가격 */
   .web_shopping_cart_recipe_total_price_wrapper {
@@ -728,6 +801,8 @@
     margin-top: 1.875rem;
     font-size: 1.5rem;
     font-weight: bold;
+    max-width: 732px;
+    padding-right: 30px;
   }
   .web_shopping_cart_buy_button_wrapper {
     display: Flex;
@@ -736,6 +811,28 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 30;
+
+    .web_shopping_cart_recipe_item_row_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+  }
+  .web_shopping_cart_recipe_item_label_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+  }
+  .item_title {
+    color: #6b7878;
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 @media (min-width: 90rem) {
@@ -759,6 +856,7 @@
   .web_shopping_cart_recipe_text_wrapper {
     margin-bottom: 30px;
     height: auto;
+    padding-right: 30px;
   }
   .web_shopping_cart_recipe_buy_wrapper {
     font-size: 1rem;
@@ -767,6 +865,10 @@
     margin: 0;
     padding: 0;
     color: #c0c0c0;
+    margin-right: 30px;
+
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #6b7878;
   }
   .web_shopping_cart_recipe_item_title_wrapper span {
     font-size: 16px;
@@ -777,10 +879,11 @@
     color: black;
   }
   .web_shopping_cart_recipe_new_item_wrapper {
-    border-top: 1px solid #6b7878;
     padding-top: 1.875rem;
     border-bottom: none;
     margin: 0;
+    padding-right: 1.875rem;
+    gap: 1.125rem;
   }
   .web_shopping_cart_recipe_total_price_wrapper {
     margin-bottom: 3.125rem;
@@ -789,4 +892,39 @@
     font-size: 1.25rem;
     font-weight: 700;
   }
+  .web_shopping_cart_buy_button_wrapper {
+    margin-right: 1.875rem;
+  }
+}
+
+/* 뷰포트에 따른 아이템 list padding -right 수정값 */
+@media (min-width: 481px) {
+  .mobile_shopping_cart_item {
+    padding-right: 30px;
+  }
+}
+@media (min-width: 940px) {
+  .mobile_shopping_cart_item {
+    padding-right: 0px;
+  }
+}
+
+/* 좌측: 라벨 영역 */
+.label_column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #6b7878;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* 우측: 값 영역 */
+.value_column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
 }

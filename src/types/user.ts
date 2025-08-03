@@ -14,6 +14,9 @@ export interface User {
   };
   createdAt?: string; // 생성일
   updatedAt?: string; // 수정일
+  extra?: {
+    stamp: number;
+  };
 }
 
 // Zustand에서 관리할 상태의 타입 정의
