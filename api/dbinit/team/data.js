@@ -587,10 +587,12 @@ export const initData = async (clientId, nextSeq) => {
     ],
 
     // 주문
+    // 주문
     order: [
       // 오늘
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -626,6 +628,7 @@ export const initData = async (clientId, nextSeq) => {
       // 3일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-3, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -661,6 +664,7 @@ export const initData = async (clientId, nextSeq) => {
       // 5일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-5, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -696,6 +700,7 @@ export const initData = async (clientId, nextSeq) => {
       // 10일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-10, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -731,6 +736,7 @@ export const initData = async (clientId, nextSeq) => {
       // 12일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-12, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -766,6 +772,7 @@ export const initData = async (clientId, nextSeq) => {
       // 20일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-20, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -801,6 +808,7 @@ export const initData = async (clientId, nextSeq) => {
       // 60일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-60, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [
@@ -836,6 +844,7 @@ export const initData = async (clientId, nextSeq) => {
       // 200일 전
       {
         _id: await nextSeq('order'),
+        orderNumber: `ORD-${dayjs().add(-200, 'days').format('YYYYMMDD')}-${(await nextSeq('order')).toString().padStart(3, '0')}`,
         type: 'order',
         user_id: 1,
         products: [

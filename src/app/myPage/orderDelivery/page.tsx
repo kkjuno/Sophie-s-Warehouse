@@ -2,8 +2,7 @@ import MobileNavigation from './mobileNavigation';
 import MobilePeriodSearch from './mobilePeriodSearch';
 import WebAsideMenu from './webAsideMenu';
 import WebMembershipSection from './webMembershipSection';
-import WebPeriodSearch from './webPeriodSearch';
-import WebOrderList from './webOrderList';
+import WebOrderDeliveryView from './webOrderDeliveryView';
 import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
 
 export default function OrderDeliveryPage() {
@@ -34,8 +33,7 @@ export default function OrderDeliveryPage() {
           <WebAsideMenu />
           <div className={orderDelivery_styles.web_order_delivery_sections}>
             <WebMembershipSection />
-            <WebPeriodSearch />
-            <WebOrderList />
+            <WebOrderDeliveryView />
           </div>
         </div>
       </div>
