@@ -6,6 +6,7 @@ import { getRecentProducts, removeRecentProduct } from '@/utils/recentProduct';
 import styles from '@/styles/recentPage/mobile/recentProduct.module.css';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // 모바일 환경에서 최근 본 상품을 표시하는 컴포넌트
 export default function MobileRecentProducts() {
@@ -105,7 +106,7 @@ export default function MobileRecentProducts() {
               {/* 개별 상품 아이템 */}
               <div key={product._id} className={styles.product_item}>
                 {/* 상품 이미지 */}
-                <img
+                <Image
                   src={`/${product.mainImages?.[0]?.path || 'default-product-image.png'}`}
                   alt={product.name}
                   className={styles.product_image}
