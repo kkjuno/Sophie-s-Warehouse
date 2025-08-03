@@ -1,8 +1,17 @@
+'use client';
+
 import styles from '@/styles/components/button.module.css';
 import shopping_cart_styles from '@/styles/shoppingCart/shoppingCart.module.css';
+import { useCartStore } from '@/zustand/userCartStore';
 
-export default function Summary({ viewType }: { viewType: 'mobile' | 'web' }) {
+interface SummaryProps {
+  viewType: 'mobile' | 'web';
+}
+
+export default function Summary({ viewType }: SummaryProps) {
   const isMobile = viewType === 'mobile';
+  const items = useCartStore((state) => state.items);
+  const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div
@@ -21,6 +30,7 @@ export default function Summary({ viewType }: { viewType: 'mobile' | 'web' }) {
       >
         <span>SUMMARY</span>
       </div>
+
       <div
         className={
           isMobile
@@ -30,6 +40,7 @@ export default function Summary({ viewType }: { viewType: 'mobile' | 'web' }) {
       >
         <span>구매내역</span>
       </div>
+
       <div
         className={
           isMobile
@@ -37,27 +48,42 @@ export default function Summary({ viewType }: { viewType: 'mobile' | 'web' }) {
             : shopping_cart_styles.web_shopping_cart_recipe_new_item_wrapper
         }
       >
-        <div
-          className={
-            isMobile
-              ? shopping_cart_styles.mobile_shopping_cart_recipe_item_title_wrapper
-              : shopping_cart_styles.web_shopping_cart_recipe_item_title_wrapper
-          }
-        >
-          <span>상품명</span>
-          <span>상품 가격</span>
-        </div>
-        <div
-          className={
-            isMobile
-              ? shopping_cart_styles.mobile_shopping_cart_recipe_item_info_wrapper
-              : shopping_cart_styles.web_shopping_cart_recipe_item_info_wrapper
-          }
-        >
-          <span>토토로 등신대</span>
-          <span>46,000 원</span>
-        </div>
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className={
+              isMobile
+                ? shopping_cart_styles.mobile_shopping_cart_recipe_item_row_wrapper
+                : shopping_cart_styles.web_shopping_cart_recipe_item_row_wrapper
+            }
+          >
+            {/* 상품명 줄 */}
+            <div
+              className={
+                isMobile
+                  ? shopping_cart_styles.mobile_shopping_cart_recipe_item_label_row
+                  : shopping_cart_styles.web_shopping_cart_recipe_item_label_row
+              }
+            >
+              <span className={shopping_cart_styles.item_title}>상품명</span>
+              <span>{item.name}</span>
+            </div>
+
+            {/* 상품 가격 줄 */}
+            <div
+              className={
+                isMobile
+                  ? shopping_cart_styles.mobile_shopping_cart_recipe_item_label_row
+                  : shopping_cart_styles.web_shopping_cart_recipe_item_label_row
+              }
+            >
+              <span className={shopping_cart_styles.item_title}>상품 가격</span>
+              <span>{(item.price * item.quantity).toLocaleString()} 원</span>
+            </div>
+          </div>
+        ))}
       </div>
+
       <div
         className={
           isMobile
@@ -66,8 +92,9 @@ export default function Summary({ viewType }: { viewType: 'mobile' | 'web' }) {
         }
       >
         <span>총 가격</span>
-        <span>46,000 원</span>
+        <span>{totalPrice.toLocaleString()} 원</span>
       </div>
+
       <div
         className={
           isMobile

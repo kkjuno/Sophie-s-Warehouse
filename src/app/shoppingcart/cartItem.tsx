@@ -1,65 +1,41 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import shopping_cart_styles from '@/styles/shoppingCart/shoppingCart.module.css';
+import { useCartStore } from '@/zustand/userCartStore';
 
 interface CartItemProps {
+  id: string;
   imageSrc: string;
   name: string;
   color: string;
   size: string;
-  price: string;
-  onPriceChange?: (delta: number) => void;
 }
 
-export default function CartItem({
-  imageSrc,
-  name,
-  color,
-  size,
-  price,
-  onPriceChange,
-}: CartItemProps) {
-  const [count, setCount] = useState(1);
-  const [visible, setVisible] = useState(true);
-  // 문자열의 가격을 숫자로 변경
-  const numericPrice = parseInt(price.replace(/[^0-9]/g, ''), 10) || 0;
+export default function CartItem({ id, imageSrc, name, color, size }: CartItemProps) {
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+  const removeItem = useCartStore((state) => state.removeItem);
+  const item = useCartStore((state) => state.items.find((i) => i.id === id));
 
-  useEffect(() => {
-    // 처음 마운트될 때 가격 추가
-    onPriceChange?.(numericPrice);
-    return () => {
-      // 언마운트 시 가격 제거
-      onPriceChange?.(-numericPrice * count);
-    };
-  }, []);
-  // 0이 되면 상품이 보이지 않
-  const decreaseCount = () => {
-    const newCount = count - 1;
-    if (newCount <= 0) {
-      onPriceChange?.(-numericPrice * count);
-      setVisible(false);
+  if (!item) return null;
+
+  const { quantity, price } = item;
+
+  const handleDecrease = () => {
+    if (quantity <= 1) {
+      removeItem(id);
     } else {
-      setCount(newCount);
-      onPriceChange?.(-numericPrice);
+      updateQuantity(id, -1);
     }
   };
-  // 증가 함수
-  const increaseCount = () => {
-    setCount((prev) => {
-      const newCount = prev + 1;
-      onPriceChange?.(numericPrice);
-      return newCount;
-    });
+
+  const handleIncrease = () => {
+    updateQuantity(id, 1);
   };
 
   const handleRemove = () => {
-    onPriceChange?.(-numericPrice * count);
-    setVisible(false);
+    removeItem(id);
   };
-
-  if (!visible) return null;
 
   return (
     <div className={shopping_cart_styles.mobile_shopping_cart_item}>
@@ -89,17 +65,17 @@ export default function CartItem({
         </div>
         <div className={shopping_cart_styles.mobile_shopping_cart_item_count_price_wrapper}>
           <div className={shopping_cart_styles.mobile_shopping_cart_item_count_wrapper}>
-            <button type="button" onClick={decreaseCount}>
+            <button type="button" onClick={handleDecrease}>
               -
             </button>
             <div>
-              <span>{count}</span>
+              <span>{quantity}</span>
             </div>
-            <button type="button" onClick={increaseCount}>
+            <button type="button" onClick={handleIncrease}>
               +
             </button>
           </div>
-          <span>{(numericPrice * count).toLocaleString()}원</span>
+          <span>{(price * quantity).toLocaleString()}원</span>
         </div>
       </div>
     </div>

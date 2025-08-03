@@ -1,9 +1,13 @@
+'use client';
 import CartItem from '@/app/shoppingcart/cartItem';
 import Summary from '@/app/shoppingcart/summary';
 import shopping_cart_styles from '@/styles/shoppingCart/shoppingCart.module.css';
 import check_box_styles from '@/styles/components/check-box.module.css';
+import { useCartStore } from '@/zustand/userCartStore';
 
 export default function MobileCartView() {
+  const items = useCartStore((state) => state.items);
+
   return (
     <div className={shopping_cart_styles.mobile_shopping_cart_root_header}>
       <div className={shopping_cart_styles.mobile_shopping_cart_root_section}>
@@ -27,13 +31,16 @@ export default function MobileCartView() {
         </div>
       </div>
       <div className={shopping_cart_styles.mobile_shopping_cart_new_items_section}>
-        <CartItem
-          imageSrc="/images/shopping-cart-test-image/totoro-image.svg"
-          name="토토로 등신대"
-          color="베이지"
-          size="소형"
-          price="46,000원"
-        />
+        {items.map((item, index) => (
+          <CartItem
+            key={index}
+            imageSrc={item.imageSrc}
+            name={item.name}
+            color={item.color}
+            size={item.size}
+            price={`${item.price}원`}
+          />
+        ))}
       </div>
       <Summary viewType="mobile" />
     </div>
