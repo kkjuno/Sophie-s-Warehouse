@@ -2,7 +2,7 @@
 import stamp_page_styles from '@/styles/stamp/stamp.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
-import StampMobileToast from './stampMobileToast';
+import StampMobileToast from '@/app/myPage/stamp/stampMobileToast';
 
 export default function StampMobileBoard() {
   const [openToast, SetopenToast] = useState(false);
