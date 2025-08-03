@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ProductCardProps } from '@/types/product';
 import styles from '@/styles/categoryPage/mobile/categoryProductCard.module.css';
+import { addRecentProduct } from '@/utils/recentProduct';
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [isLiked, setIsLiked] = useState(false);

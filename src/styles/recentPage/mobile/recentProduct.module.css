@@ -24,6 +24,11 @@
   z-index: 100;
 }
 
+.product_link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .title {
   font-size: 16px;
   font-weight: 600;
@@ -31,7 +36,7 @@
   margin: 0;
 }
 
-.closeButton {
+.close_button {
   background: none;
   border: none;
   font-size: 24px;
@@ -43,7 +48,7 @@
   padding: 0;
 }
 
-.closeButton:hover {
+.close_button:hover {
   color: #333;
 }
 
@@ -53,7 +58,7 @@
 }
 
 /* 빈 상태 */
-.emptyState {
+.empty_state {
   text-align: center;
   padding: 80px 20px;
   color: var(--color-text);
@@ -62,11 +67,11 @@
 }
 
 /* 상품 리스트 */
-.productList {
+.product_list {
   padding: 0;
 }
 
-.productItem {
+.product_item {
   display: flex;
   align-items: flex-start;
   padding: 15px 10px;
@@ -78,19 +83,13 @@
   justify-content: center;
 }
 
-.productItem:nth-child(even) {
+.product_item:nth-child(even) {
   padding: 0px 10px;
   padding-right: 20px;
 }
 
-.productItemBorder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* 상품 이미지 */
-.productImage {
+.product_image {
   flex-shrink: 0;
   width: 100px;
   height: 100px;
@@ -105,22 +104,8 @@
   padding: 4px;
 }
 
-.productImageImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  background: #f5f5f5;
-}
-
-.imagePlaceholder {
-  font-size: 12px;
-  color: #6b7878;
-  text-align: center;
-}
-
 /* 상품 정보 */
-.productInfo {
+.product_info {
   flex: 1;
   cursor: pointer;
   padding-block: 13px;
@@ -129,8 +114,8 @@
   overflow: hidden;
 }
 
-.brandName {
-  font-size: 9px;
+.brand_name {
+  font-size: 10px;
   color: #6b7878;
   margin-bottom: 4px;
   font-weight: 600;
@@ -140,7 +125,7 @@
   width: 100%;
 }
 
-.productName {
+.product_name {
   font-size: 14px;
   color: #333;
   font-weight: 500;
@@ -150,35 +135,37 @@
   text-overflow: ellipsis;
 }
 
-.productPrice {
+.product_price {
   font-size: 13px;
   color: var(--color-text);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
+.product_actions {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 10px;
+}
+
 /* 찜 버튼 */
-.likeButton {
+.like_button,
+.cart_button {
   background: none;
   border: none;
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 0;
+  padding: 0;
   cursor: pointer;
   font-size: 12px;
   color: #999;
   transition: color 0.2s ease;
 }
 
-.likeText {
-  font-size: 12px;
-  color: #6b7878;
-  font-weight: 700;
-}
-
 /* 삭제 버튼 */
-.removeButton {
+.remove_button {
   background: none;
   border: none;
   width: 16px;
@@ -190,6 +177,6 @@
   padding: 0;
 }
 
-.removeButton:hover {
+.remove_button:hover {
   color: var(--color-text);
 }

@@ -5,6 +5,7 @@ import styles from '@/styles/categoryPage/web/categoryPage.module.css';
 import { productFetch } from '@/app/fetch/product';
 import { Product } from '@/app/types/productType';
 import Link from 'next/link';
+import { addRecentProduct } from '@/utils/recentProduct';
 
 interface Filter {
   name: string;
@@ -406,7 +407,11 @@ export default function CategoryPage() {
               }}
             >
               {getHighlightProducts().map((product) => (
-                <div key={product._id} className={styles.highlight_card}>
+                <div
+                  key={product._id}
+                  className={styles.highlight_card}
+                  onClick={() => addRecentProduct(product._id)}
+                >
                   <Link href={`/products/${product._id}`} key={product._id}>
                     {product.mainImages?.[0]?.path && (
                       <img src={`/${product.mainImages[0].path}`} alt={product.name} />
@@ -483,7 +488,11 @@ export default function CategoryPage() {
 
           <div className={styles.product_grid}>
             {currentProducts.map((product) => (
-              <div key={product._id} className={styles.product_card}>
+              <div
+                key={product._id}
+                className={styles.product_card}
+                onClick={() => addRecentProduct(product._id)}
+              >
                 <Link href={`/products/${product._id}`} key={product._id}>
                   <div className={styles.product_image}>
                     {product.mainImages?.[0]?.path && (
