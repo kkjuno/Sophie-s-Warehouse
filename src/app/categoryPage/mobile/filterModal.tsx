@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from '@/styles/categoryPage/mobile/categoryFiterModal.module.css';
 
 interface FilterModalProps {
@@ -46,6 +46,12 @@ export default function FilterModal({
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
+  // 모달 닫기 (애니메이션 포함)
+  const handleClose = useCallback(() => {
+    setIsVisible(false);
+    setTimeout(onClose, 300); // 애니메이션 완료 후 실제 닫기
+  }, []);
+
   // 모달 애니메이션을 위한 효과
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 10);
@@ -64,19 +70,13 @@ export default function FilterModal({
       document.removeEventListener('keydown', handleEscKey);
       document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [handleClose]);
 
   // 가격 범위 선택
   const handlePriceRangeSelect = (range: (typeof priceRanges)[0]) => {
     setTempMinPrice(range.min);
     setTempMaxPrice(range.max);
     setSelectedPriceRange(range.label);
-  };
-
-  // 모달 닫기 (애니메이션 포함)
-  const handleClose = () => {
-    setIsVisible(false);
-    setTimeout(onClose, 300); // 애니메이션 완료 후 실제 닫기
   };
 
   // 필터 적용

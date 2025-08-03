@@ -6,6 +6,7 @@ import { Product } from '@/app/types/productType';
 import { productFetch } from '@/app/fetch/product';
 import { getRecentProducts, removeRecentProduct } from '@/utils/recentProduct';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const WebRecentProducts = () => {
   const [recentProducts, setRecentProducts] = useState<Product[]>([]);
@@ -81,7 +82,7 @@ const WebRecentProducts = () => {
                   className={`${styles.product_item}`}
                 >
                   <div className={styles.product_image}>
-                    <img
+                    <Image
                       src={`/${product.mainImages?.[0]?.path || 'default-product-image.png'}`}
                       alt={product.name}
                       className={styles.product_image_img}

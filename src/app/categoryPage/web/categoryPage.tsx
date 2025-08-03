@@ -10,7 +10,6 @@ import { addRecentProduct } from '@/utils/recentProduct';
 
 import Image from 'next/image';
 
-
 interface Filter {
   name: string;
   emptyIcon: string;
@@ -418,7 +417,12 @@ export default function CategoryPage() {
                 >
                   <Link href={`/products/${product._id}`} key={product._id}>
                     {product.mainImages?.[0]?.path && (
-                      <Image src={`/${product.mainImages[0].path}`} alt={product.name} />
+                      <Image
+                        src={`/${product.mainImages[0].path}`}
+                        alt={product.name}
+                        width={180}
+                        height={180}
+                      />
                     )}
                     <h4>{product.name}</h4>
                     <p>{product.price?.toLocaleString()}원</p>
@@ -500,7 +504,12 @@ export default function CategoryPage() {
                 <Link href={`/products/${product._id}`} key={product._id}>
                   <div className={styles.product_image}>
                     {product.mainImages?.[0]?.path && (
-                      <Image src={`/${product.mainImages[0].path}`} alt={product.name} />
+                      <Image
+                        src={`/${product.mainImages[0].path}`}
+                        alt={product.name}
+                        width={180}
+                        height={180}
+                      />
                     )}
                   </div>
                   <h4 className={styles.product_name}>{product.name}</h4>

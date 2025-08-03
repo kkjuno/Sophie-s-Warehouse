@@ -7,7 +7,6 @@ import styles from '@/styles/categoryPage/mobile/categoryProductCard.module.css'
 import { addRecentProduct } from '@/utils/recentProduct';
 import Image from 'next/image';
 
-
 interface ProductCardProps {
   product: Product;
   viewMode?: 'grid' | 'list';
@@ -32,6 +31,7 @@ export default function ProductCard({ product, viewMode = 'grid' }: ProductCardP
   return (
     <div
       className={`${styles.product_item} ${viewMode === 'list' ? styles.list_layout : styles.grid_layout}`}
+      onClick={() => addRecentProduct(product._id)}
     >
       <Link href={`/products/${product._id}`}>
         <div className={styles.product_image}>
