@@ -617,7 +617,7 @@
 
   .web_detail_nav_divider {
     width: 100%;
-    margin: 0.625rem 0 6.25rem 0;
+    margin: 0.625rem 0 1.875rem 0;
   }
 
   /* 웹 상품정보 */
@@ -947,4 +947,100 @@
     font-weight: 700;
     color: #000;
   }
+}
+
+.mobile_detail_dropdown {
+  width: 100%;
+  margin-top: 1rem;
+  border-bottom: 1px solid #b6c5c5;
+}
+
+.mobile_detail_dropdown_summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.9375rem 0;
+  position: relative;
+  color: #6b7878;
+}
+
+.mobile_detail_dropdown_summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile_detail_dropdown_icon {
+  transition: transform 0.3s ease;
+  width: 11px;
+  height: 7px;
+}
+
+.mobile_detail_dropdown[open] .mobile_detail_dropdown_icon {
+  transform: rotate(180deg);
+}
+
+.mobile_detail_dropdown_content {
+  padding: 1rem 0;
+  animation: fadeIn 0.3s ease;
+  font-size: clamp(0.75rem, 3.5vw, 1rem);
+  color: #000;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile_detail_product_info_button_wrapper {
+  display: none;
+}
+
+/* 웹 버전 드롭다운 스타일 */
+.web_detail_dropdown {
+  width: 100%;
+  margin-top: 1rem;
+  border-bottom: 1px solid #b6c5c5;
+}
+
+.web_detail_dropdown_summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 1.25rem 0;
+  padding-bottom: 30px;
+  position: relative;
+  color: #6b7878;
+  font-weight: 600;
+}
+
+.web_detail_dropdown_summary::-webkit-details-marker {
+  display: none;
+}
+
+.web_detail_dropdown_icon {
+  transition: transform 0.3s ease;
+  width: 11px;
+  height: 7px;
+}
+
+.web_detail_dropdown[open] .web_detail_dropdown_icon {
+  transform: rotate(180deg);
+}
+
+.web_detail_dropdown_content {
+  padding: 1rem 0 2rem;
+  animation: fadeIn 0.3s ease;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  color: #000;
+  line-height: 1.8;
 }
