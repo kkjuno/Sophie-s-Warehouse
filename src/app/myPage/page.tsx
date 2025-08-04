@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import myPage_styles from '@/styles/myPage/myPage.module.css';
+import Link from 'next/link';
 
 export default function myPage() {
   return (
@@ -30,20 +31,20 @@ export default function myPage() {
 
           {/* 스탬프, 포인트 */}
           <dl className={myPage_styles.benefit_list}>
-            <div className={myPage_styles.benefit_container}>
+            <Link className={myPage_styles.benefit_container} href="/myPage/stamp">
               <div className={myPage_styles.benefit_wrapper}>
                 <dt className={myPage_styles.benefit_title}>스탬프</dt>
                 <dd className={myPage_styles.benefit_value}>0개</dd>
               </div>
               <span className={myPage_styles.benefit_arrow}>&gt;</span>
-            </div>
-            <div className={myPage_styles.benefit_container}>
+            </Link>
+            <Link className={myPage_styles.benefit_container} href="/myPage/rewards">
               <div className={myPage_styles.benefit_wrapper}>
-                <dt className={myPage_styles.benefit_title}>포인트</dt>
-                <dd className={myPage_styles.benefit_value}>0점</dd>
+                <dt className={myPage_styles.benefit_title}>당첨내역</dt>
+                <dd className={myPage_styles.benefit_value}>0건</dd>
               </div>
               <span className={myPage_styles.benefit_arrow}>&gt;</span>
-            </div>
+            </Link>
           </dl>
         </section>
 
@@ -104,24 +105,16 @@ export default function myPage() {
           <h2 className={myPage_styles.my_page_list_title}>쇼핑정보</h2>
           <hr className={myPage_styles.my_page_list_title_divider} />
 
-          <div className={myPage_styles.shopping_info_wrapper}>
+          <Link className={myPage_styles.shopping_info_wrapper} href="/myPage/orderDelivery">
             <p className={myPage_styles.my_page_label}>주문/배송 조회</p>
-            <span className={myPage_styles.my_page_count}>
-              <span className={myPage_styles.count_point_color}>0</span>건 &gt;
-            </span>
-          </div>
-          <hr className={myPage_styles.my_page_divider} />
-
-          <div className={myPage_styles.shopping_info_wrapper}>
-            <p className={myPage_styles.my_page_label}>취소/반품 교환 내역</p>
             <span className={myPage_styles.my_page_arrow}>&gt;</span>
-          </div>
+          </Link>
           <hr className={myPage_styles.my_page_divider} />
 
-          <div className={myPage_styles.shopping_info_wrapper}>
+          <Link className={myPage_styles.shopping_info_wrapper} href="/myPage/wishlist">
             <p className={myPage_styles.my_page_label}>찜리스트</p>
             <span className={myPage_styles.my_page_arrow}>&gt;</span>
-          </div>
+          </Link>
           <hr className={myPage_styles.shopping_info_divider} />
         </section>
 
@@ -130,20 +123,16 @@ export default function myPage() {
           <h2 className={myPage_styles.my_page_list_title}>혜택관리</h2>
           <hr className={myPage_styles.my_page_list_title_divider} />
 
-          <div className={myPage_styles.count_point_wrapper}>
+          <Link className={myPage_styles.count_point_wrapper} href="/myPage/stamp">
             <p className={myPage_styles.my_page_label}>스탬프</p>
-            <span className={myPage_styles.my_page_count}>
-              <span className={myPage_styles.count_point_color}>0</span>개 &gt;
-            </span>
-          </div>
+            <span className={myPage_styles.my_page_arrow}>&gt;</span>
+          </Link>
           <hr className={myPage_styles.my_page_divider} />
 
-          <div className={myPage_styles.count_point_wrapper}>
+          <Link className={myPage_styles.count_point_wrapper} href="/myPage/rewards">
             <p className={myPage_styles.my_page_label}>당첨내역</p>
-            <span className={myPage_styles.my_page_count}>
-              <span className={myPage_styles.count_point_color}>0</span>개 &gt;
-            </span>
-          </div>
+            <span className={myPage_styles.my_page_arrow}>&gt;</span>
+          </Link>
           <hr className={myPage_styles.my_page_divider} />
         </section>
 
