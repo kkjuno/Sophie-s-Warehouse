@@ -258,6 +258,18 @@
     border-radius: 50%;
     z-index: 5;
   }
+  @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.stamp_animate {
+  animation: fadeIn 0.8s ease-out;
+}
 }
 
 /* 375px이상부턴 이미지가 너무 작아서 크기, 위치 수정 */

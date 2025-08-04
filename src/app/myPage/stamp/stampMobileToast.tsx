@@ -15,7 +15,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRolling, setIsRolling] = useState(true);
   const [winner, setWinner] = useState<Product | null>(null);
-
+// 스탬프 가챠 애니메이션
   useEffect(() => {
     async function startGatcha() {
       const res = await productFetch();
@@ -42,7 +42,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   }, []);
 
   const currentProduct = rollingProducts[currentIndex];
-
+  const imagePath = (isRolling ? currentProduct : winner)?.mainImages?.[0]?.path;
   return (
     <div className={stamp_page_styles.mobile_toast_ui_root_header}>
       <div className={stamp_page_styles.mobile_toast_ui_header_text}>
@@ -50,7 +50,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
           <span className={stamp_page_styles.mobile_toast_ui_user_name}>김진섭</span>님 축하합니다!
         </h2>
         <span>
-          당신은 아래 상품에{' '}
+          당신은 아래 상품에
           <span className={stamp_page_styles.mobile_toast_ui_lotto_text}>당첨</span> 되셨습니다!
         </span>
       </div>
@@ -60,12 +60,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
           <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
         </div>
         <div className={stamp_page_styles.mobile_toast_ui_lotto_item}>
-          <Image
-            src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}
-            fill
-            alt="상품 이미지"
-            sizes="140px"
-          />
+          {imagePath && <Image src={`/${imagePath}`} fill alt="상품 이미지" sizes="140px" />}
         </div>
       </div>
 
