@@ -117,11 +117,12 @@ export default function WebPayInfo() {
       const orderData = generateOrderData();
 
       // API로 주문 데이터 전송
-      const response = await fetch('/api/orders', {
+      const response = await fetch('https://fesp-api.koyeb.app/market/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${user.token.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
         },
         body: JSON.stringify(orderData),
       });

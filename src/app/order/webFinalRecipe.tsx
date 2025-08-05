@@ -105,11 +105,12 @@ export default function WebFinalRecipe() {
       const orderData = generateOrderData();
 
       // API로 주문 데이터 전송
-      const response = await fetch('/api/orders', {
+      const response = await fetch('https://fesp-api.koyeb.app/market/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${user.token.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
         },
         body: JSON.stringify(orderData),
       });
@@ -156,7 +157,7 @@ export default function WebFinalRecipe() {
           console.error('스탬프 업데이트 중 에러:', err);
         }
         // 주문 조회 페이지로 이동
-        router.push('/mypage/order-delivery');
+        router.push('/myPage/orderDelivery');
       } else {
         throw new Error(result.message || '주문 처리에 실패했습니다.');
       }
