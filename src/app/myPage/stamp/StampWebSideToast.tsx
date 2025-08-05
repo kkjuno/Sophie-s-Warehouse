@@ -49,6 +49,7 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
     startGatcha();
   }, [stampCount]);
 
+  const newStampCount = stampCount - 8;
   // 닫기 버튼 누르면 유저 스탬프 0으로 초기화
   const handleClose = async () => {
     if (!user || !user.token?.accessToken) return;
@@ -61,12 +62,12 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
           Authorization: `Bearer ${user.token.accessToken}`,
           'Client-Id': 'febc13-final07-emjf',
         },
-        body: JSON.stringify({ extra: { stamp: 0 } }),
+        body: JSON.stringify({ extra: { stamp: newStampCount } }),
       });
 
       if (res.ok) {
         // 클라이언트 상태도 초기화
-        setUser({ ...user, extra: { ...user.extra, stamp: 0 } });
+        setUser({ ...user, extra: { ...user.extra, stamp: newStampCount } });
       }
     } catch (err) {
       console.error('스탬프 초기화 실패:', err);
@@ -93,9 +94,11 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
       </div>
 
       <div className={stamp_page_styles.web_side_toast_ui_item_wrapper}>
-        <div className={stamp_page_styles.web_side_toast_ui_confetti_wrapper}>
-          <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
-        </div>
+        {!isRolling && winner && (
+          <div className={stamp_page_styles.web_side_toast_ui_confetti_wrapper}>
+            <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+          </div>
+        )}
         <div className={stamp_page_styles.web_side_toast_ui_lotto_item}>
           <Image
             src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}

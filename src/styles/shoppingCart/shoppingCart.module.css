@@ -300,7 +300,11 @@
     padding: 0 16px;
     padding-top: 20px;
   }
-
+  .empty_cart_text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f08080;
+  }
   /* 장바구니 최상단 영역 */
   .mobile_shopping_cart_root_section {
     display: flex;
@@ -594,6 +598,11 @@
 @media (min-width: 30.0625rem) {
   .mobile_shopping_cart_root_header {
     display: none;
+  }
+  .empty_cart_text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #f08080;
   }
   .web_shopping_cart_root_header {
     display: flex;

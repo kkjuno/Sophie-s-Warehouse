@@ -56,9 +56,11 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
       </div>
 
       <div className={stamp_page_styles.web_toast_ui_item_wrapper}>
-        <div className={stamp_page_styles.web_toast_ui_confetti_wrapper}>
-          <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
-        </div>
+        {!isRolling && winner && (
+          <div className={stamp_page_styles.web_toast_ui_confetti_wrapper}>
+            <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+          </div>
+        )}
         <div className={stamp_page_styles.web_toast_ui_lotto_item}>
           <Image
             src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}
