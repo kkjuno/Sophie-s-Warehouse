@@ -8,8 +8,14 @@ import StampMobileToast from './stampMobileToast';
 import Link from 'next/link';
 
 const STAMP_IMAGES = [
-  'firstStamp.svg', 'secondStamp.svg', 'thirdStamp.svg', 'fourthStamp.svg',
-  'fifthStamp.svg', 'sixthStamp.svg', 'seventhStamp.svg', 'eighthStamp.svg',
+  'firstStamp.svg',
+  'secondStamp.svg',
+  'thirdStamp.svg',
+  'fourthStamp.svg',
+  'fifthStamp.svg',
+  'sixthStamp.svg',
+  'seventhStamp.svg',
+  'eighthStamp.svg',
 ];
 
 const STAMP_POSITIONS = [
@@ -30,8 +36,6 @@ export default function StampMobileBoard() {
   const stampCount = user?.extra?.stamp ?? 0;
   const [animateIndex, setAnimateIndex] = useState<number | null>(null);
   const [openToast, setOpenToast] = useState(false);
-
-  const isAdmin = user?.type === 'admin';
   const safeCount = Math.min(stampCount, STAMP_IMAGES.length);
 
   // 애니메이션 도장 설정
@@ -42,37 +46,13 @@ export default function StampMobileBoard() {
       localStorage?.setItem('prevStampCount', String(stampCount));
     }
   }, [stampCount]);
-
-  // 스탬프 +1 (관리자 전용)
-  const handleIncreaseStamp = async () => {
-    if (!user || !isAdmin || stampCount >= 8) return;
-    const newCount = stampCount + 1;
-
-    try {
-      const res = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${user.token?.accessToken}`,
-          'Client-Id': 'febc13-final07-emjf',
-        },
-        body: JSON.stringify({ extra: { stamp: newCount } }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        setUser({ ...user, extra: { ...user.extra, stamp: newCount } });
-      } else {
-        console.error('스탬프 증가 실패', data?.message);
-      }
-    } catch (err) {
-      console.error('요청 오류', err);
-    }
-  };
-
+  const newStampCount = stampCount - 8;
   // 가챠 실행 제어
   const handleGacha = async () => {
-    if (!user) return;
+    if (!user) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
 
     if (stampCount < 8) {
       alert('스탬프 8개를 모두 모아야 가챠를 할 수 있습니다!');
@@ -87,7 +67,7 @@ export default function StampMobileBoard() {
           Authorization: `Bearer ${user.token?.accessToken}`,
           'Client-Id': 'febc13-final07-emjf',
         },
-        body: JSON.stringify({ extra: { stamp: 0 } }),
+        body: JSON.stringify({ extra: { stamp: newStampCount } }),
       });
 
       const data = await res.json();
@@ -105,13 +85,6 @@ export default function StampMobileBoard() {
 
   return (
     <>
-      {/* 관리자 전용 스탬프 +1 버튼 */}
-      {isAdmin && stampCount < 8 && (
-        <button onClick={handleIncreaseStamp} className={stampStyles.admin_button}>
-          관리자의 권능
-        </button>
-      )}
-
       {/* 스탬프 보드 */}
       <div className={stampStyles.mobile_stamp_image_wrapper} style={{ position: 'relative' }}>
         <Image src="/images/stampImages/stamp-image.svg" alt="스탬프 보드 배경" fill />
@@ -129,11 +102,7 @@ export default function StampMobileBoard() {
             }}
             className={i === animateIndex ? stampStyles.stamp_animate : ''}
           >
-            <Image
-              src={`/images/stampImages/stamp/${img}`}
-              alt={`스탬프 ${i + 1}`}
-              fill
-            />
+            <Image src={`/images/stampImages/stamp/${img}`} alt={`스탬프 ${i + 1}`} fill />
           </div>
         ))}
       </div>
@@ -142,11 +111,7 @@ export default function StampMobileBoard() {
       <div className={stampStyles.mobile_stamp_link_image_wrapper}>
         {/* 스탬프 모으기 영역 */}
         <Link href="/" className={stampStyles.mobile_stamp_more_image_wrapper}>
-          <Image
-            src="/images/stampImages/stamp-more-image.svg"
-            alt="스탬프 더 모으기"
-            fill
-          />
+          <Image src="/images/stampImages/stamp-more-image.svg" alt="스탬프 더 모으기" fill />
           <div className={stampStyles.mobile_stamp_image_overlay}></div>
           <div className={stampStyles.mobile_stamp_guide_text}>
             <span className={stampStyles.mobile_stamp_guide_text_title}>
