@@ -1,15 +1,18 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { Product } from '@/app/types/productType';
 import Image from 'next/image';
-import Link from 'next/link';
 import detail_styles from '@/styles/detailPage/detailPage.module.css';
+import ProductDetailCalc from '@/app/products/[id]/prouctDetailCalc';
 
 interface MobileProductDetailContentProps {
   product: Product;
 }
 
 export default function MobileProductDetailContent({ product }: MobileProductDetailContentProps) {
+  const router = useRouter();
+
   return (
     <>
       {/* 모바일 상세 페이지 */}
@@ -23,36 +26,41 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
           />
         )}
 
-        <Link href="#">
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className={detail_styles.mobile_back_button_wrapper}
+          style={{ background: 'none', border: 'none', padding: 0 }}
+        >
           {/* 뒤로가기 SVG */}
           <svg
-            className={detail_styles.mobile_back_button}
             width="15"
-            height="15"
-            viewBox="0 0 15 15"
+            height="16"
+            viewBox="0 0 15 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            xlinkHref="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            className={detail_styles.mobile_back_button}
           >
             <rect
               x="15"
-              y="15"
+              y="15.6523"
               width="15"
               height="15"
-              transform="rotate(180 15 15)"
-              fill="url(#pattern0_311_1505)"
+              transform="rotate(180 15 15.6523)"
+              fill="url(#pattern0_315_1191)"
             />
             <defs>
               <pattern
-                id="pattern0_311_1505"
+                id="pattern0_315_1191"
                 patternContentUnits="objectBoundingBox"
                 width="1"
                 height="1"
               >
-                <use xlinkHref="#image0_311_1505" transform="scale(0.00195312)" />
+                <use xlinkHref="#image0_315_1191" transform="scale(0.00195312)" />
               </pattern>
               <image
-                id="image0_311_1505"
+                id="image0_315_1191"
                 width="512"
                 height="512"
                 preserveAspectRatio="none"
@@ -60,7 +68,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
               />
             </defs>
           </svg>
-        </Link>
+        </button>
       </div>
 
       {/* 나머지 UI (상품명, 가격, 배송정책, 상세내용 등) */}
@@ -97,6 +105,19 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
             </button>
           </div>
         </section>
+        <div className={detail_styles.mobile_detail_quantity_wrapper}>
+          <p className={detail_styles.mobile_detail_quantity_tit}>{product.name}</p>
+          <div className={detail_styles.mobile_detail_quantity_button_wrapper}>
+            <ProductDetailCalc product={product} />
+            <p className={detail_styles.mobile_detail_shipping_policy_price}>
+              {product.price?.toLocaleString()}원
+            </p>
+          </div>
+        </div>
+        <div className={detail_styles.mobile_detail_shopping_cart_button_wrapper}>
+          <button className={detail_styles.mobile_detail_shopping_cart_button}>장바구니</button>
+          <button className={detail_styles.mobile_detail_shopping_buy_button}>구매하기</button>
+        </div>
 
         {/* 모바일 상품정보 */}
         <details className={detail_styles.mobile_detail_dropdown}>

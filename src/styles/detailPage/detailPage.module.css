@@ -26,6 +26,7 @@
   background-color: #ffffff;
   width: 100%;
   padding-inline: 1rem;
+  margin-bottom: 70px;
 }
 
 .mobile_detail_page_tit {
@@ -1043,4 +1044,77 @@
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   color: #000;
   line-height: 1.8;
+}
+
+.mobile_back_button_wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile_detail_shopping_cart_button_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-block: 10px;
+}
+
+.mobile_detail_shopping_cart_button {
+  all: unset;
+  cursor: pointer;
+  width: clamp(10rem, 20vw, 24rem);
+  height: clamp(1.5rem, 20vw, 2.5rem);
+  border: #1b4332 1px solid;
+  color: #1b4332;
+  text-align: center;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  border-radius: 50px;
+}
+
+.mobile_detail_shopping_buy_button {
+  all: unset;
+  cursor: pointer;
+  width: clamp(10.125rem, 20vw, 24.125rem);
+  height: clamp(1.5rem, 20vw, 2.5rem);
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  background-color: #1b4332;
+  border-radius: 50px;
+}
+
+.mobile_detail_quantity_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1.5625rem 1.25rem 1.5625rem 1.25rem;
+  background-color: #d0d0d033;
+  border-radius: 0.4375rem;
+  gap: 15px;
+}
+
+.mobile_detail_quantity_tit {
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 700;
+  color: #000;
+}
+
+.mobile_detail_quantity_button_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mobile_detail_quantity_button {
+  display: flex;
+  flex-flow: row nowrap; /* 가로 배치 */
+  align-items: center;
+  gap: 5px; /* 버튼 간 간격 */
+}
+
+.mobile_detail_shipping_policy_price {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  color: #000;
 }
