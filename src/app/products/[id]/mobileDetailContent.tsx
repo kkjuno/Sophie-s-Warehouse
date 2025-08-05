@@ -5,6 +5,8 @@ import { Product } from '@/app/types/productType';
 import Image from 'next/image';
 import detail_styles from '@/styles/detailPage/detailPage.module.css';
 import ProductDetailCalc from '@/app/products/[id]/prouctDetailCalc';
+import { useCartStore } from '@/zustand/userCartStore';
+import { useCallback, useState } from 'react';
 
 interface MobileProductDetailContentProps {
   product: Product;
@@ -12,7 +14,29 @@ interface MobileProductDetailContentProps {
 
 export default function MobileProductDetailContent({ product }: MobileProductDetailContentProps) {
   const router = useRouter();
+  const [quantity, setQuantity] = useState(1);
 
+  const handleIncrease = useCallback(() => {
+    setQuantity((prev) => Math.min(prev + 1, 99));
+  }, []);
+
+  const handleDecrease = useCallback(() => {
+    setQuantity((prev) => Math.max(prev - 1, 1));
+  }, []);
+
+  const addItemToCart = () => {
+    useCartStore.getState().addItem({
+      id: product._id.toString(), // 고유한 문자열 ID
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+      color: '베이지',
+      size: '대형',
+      imageSrc: `/${product.mainImages[0].path}`,
+    });
+
+    alert('장바구니에 담겼습니다!');
+  };
   return (
     <>
       {/* 모바일 상세 페이지 */}
@@ -108,14 +132,23 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
         <div className={detail_styles.mobile_detail_quantity_wrapper}>
           <p className={detail_styles.mobile_detail_quantity_tit}>{product.name}</p>
           <div className={detail_styles.mobile_detail_quantity_button_wrapper}>
-            <ProductDetailCalc product={product} />
+            <ProductDetailCalc
+              quantity={quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
             <p className={detail_styles.mobile_detail_shipping_policy_price}>
               {product.price?.toLocaleString()}원
             </p>
           </div>
         </div>
         <div className={detail_styles.mobile_detail_shopping_cart_button_wrapper}>
-          <button className={detail_styles.mobile_detail_shopping_cart_button}>장바구니</button>
+          <button
+            className={detail_styles.mobile_detail_shopping_cart_button}
+            onClick={addItemToCart}
+          >
+            장바구니
+          </button>
           <button className={detail_styles.mobile_detail_shopping_buy_button}>구매하기</button>
         </div>
 
