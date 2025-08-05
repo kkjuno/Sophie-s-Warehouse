@@ -21,7 +21,7 @@ export default function StampWebView() {
 
       <div className={stamp_page_styles.web_main_page_section}>
         <WebAsideMenu />
-        <StampWebMainContent onClick={showToast} />
+        <StampWebMainContent />
         <StampWebSideContent onClick={showToast} />
         {toast && (
           <>
