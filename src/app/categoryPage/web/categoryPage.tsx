@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '@/styles/categoryPage/web/categoryPage.module.css';
 import { productFetch } from '@/app/fetch/product';
 import { Product } from '@/app/types/productType';
