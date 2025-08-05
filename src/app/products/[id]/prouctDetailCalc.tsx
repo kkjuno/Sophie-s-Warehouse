@@ -21,7 +21,9 @@ export default function ProductDetailCalc({}: ProductDetailContentProps) {
   }, []);
 
   return (
-    <div className={detail_styles.web_detail_quantity_button}>
+    <div
+      className={`${detail_styles.web_detail_quantity_button} ${detail_styles.mobile_detail_quantity_button}`}
+    >
       <button className={styles.calc_minus_button} onClick={handleDecrease} aria-label="수량 감소">
         <svg
           width="15"
