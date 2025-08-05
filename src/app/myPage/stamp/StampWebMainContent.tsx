@@ -33,7 +33,7 @@ export default function StampWebMainContent() {
   const user = useUserStore((state) => state.user);
   const setUser = useUserStore((state) => state.setUser);
   const stampCount = user?.extra?.stamp ?? 0;
-  const isAdmin = user?.type === 'admin';
+
   const [animateIndex, setAnimateIndex] = useState<number | null>(null);
   const [openToast, setOpenToast] = useState(false);
 
@@ -48,31 +48,7 @@ export default function StampWebMainContent() {
 
   const safeCount = Math.min(stampCount, 8);
 
-  const handleIncreaseStamp = async () => {
-    if (!user || !isAdmin || stampCount >= 8) return;
-
-    try {
-      const res = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${user.token?.accessToken}`,
-          'Client-Id': 'febc13-final07-emjf',
-        },
-        body: JSON.stringify({ extra: { stamp: stampCount + 1 } }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        setUser({ ...user, extra: { ...user.extra, stamp: stampCount + 1 } });
-      } else {
-        console.error('도장 증가 실패:', data?.message);
-      }
-    } catch (err) {
-      console.error('도장 요청 오류', err);
-    }
-  };
-
+  const newStampCount = stampCount - 8;
   const handleGacha = async () => {
     if (!user) return;
     if (stampCount < 8) {
@@ -88,13 +64,13 @@ export default function StampWebMainContent() {
           Authorization: `Bearer ${user.token?.accessToken}`,
           'Client-Id': 'febc13-final07-emjf',
         },
-        body: JSON.stringify({ extra: { stamp: 0 } }),
+        body: JSON.stringify({ extra: { stamp: newStampCount } }),
       });
 
       const data = await res.json();
       if (res.ok) {
-        setUser({ ...user, extra: { ...user.extra, stamp: 0 } });
-        localStorage.setItem('prevStampCount', '0');
+        setUser({ ...user, extra: { ...user.extra, stamp: newStampCount } });
+
         setOpenToast(true);
       } else {
         console.error('가챠 실패:', data?.message);
@@ -123,12 +99,6 @@ export default function StampWebMainContent() {
           <div className={stampStyles.web_blackbean_Image_wrapper}>
             <Image src="/images/stampImages/stamp-blackbean-image.svg" fill alt="숯검댕이 이미지" />
           </div>
-
-          {isAdmin && stampCount < 8 && (
-            <button onClick={handleIncreaseStamp} className={stampStyles.admin_button}>
-              관리자의 능력
-            </button>
-          )}
         </div>
 
         {/* 스탬프 보드 */}

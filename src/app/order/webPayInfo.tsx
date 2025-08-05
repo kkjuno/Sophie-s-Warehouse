@@ -6,11 +6,13 @@ import Image from 'next/image';
 import { useCartStore } from '@/zustand/userCartStore';
 import useUserStore from '@/zustand/userStore';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function WebPayInfo() {
   const { user } = useUserStore();
   const items = useCartStore((state) => state.items);
-
+  const setUser = useUserStore.getState().setUser;
+  const router = useRouter();
   // 결제수단 상태
   const [paymentMethod, setPaymentMethod] = useState('');
 
@@ -103,6 +105,8 @@ export default function WebPayInfo() {
 
     if (!user?.token?.accessToken) {
       alert('로그인이 필요합니다.');
+
+      router.push('/login');
       return;
     }
 
@@ -113,11 +117,12 @@ export default function WebPayInfo() {
       const orderData = generateOrderData();
 
       // API로 주문 데이터 전송
-      const response = await fetch('/api/orders', {
+      const response = await fetch('https://fesp-api.koyeb.app/market/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${user.token.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
         },
         body: JSON.stringify(orderData),
       });
@@ -133,6 +138,38 @@ export default function WebPayInfo() {
         alert(
           `주문이 완료되었습니다!\n주문번호: ${result.item?.orderNumber || 'ORD-' + Date.now()}`,
         );
+        // 스탬프 개수 계산
+        const currentStamp = user?.extra?.stamp ?? 0;
+        const updatedStamp = currentStamp + totalQuantity;
+
+        try {
+          const res = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${user.token.accessToken}`,
+              'Client-id': 'febc13-final07-emjf',
+            },
+            body: JSON.stringify({ extra: { stamp: updatedStamp } }),
+          });
+
+          if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.message || '스탬프 업데이트 실패');
+          }
+
+          setUser({
+            ...user,
+            extra: {
+              ...user.extra,
+              stamp: updatedStamp,
+            },
+          });
+        } catch (err) {
+          console.error('스탬프 업데이트 중 에러:', err);
+        }
+        // 주문 조회 페이지로 이동
+        router.push('/myPage/orderDelivery');
       } else {
         throw new Error(result.message || '주문 처리에 실패했습니다.');
       }
