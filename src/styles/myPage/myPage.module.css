@@ -1,4 +1,8 @@
 /* 마이 페이지 */
+.web_order_delivery {
+  display: none;
+}
+
 .my_page {
   display: flex;
   flex-flow: column wrap;
@@ -222,4 +226,10 @@
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 1.6vw 3.5vw 0.6vw 3.5vw;
+}
+
+@media (min-width: 480px) {
+  .my_page {
+    display: none;
+  }
 }

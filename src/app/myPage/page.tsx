@@ -1,8 +1,36 @@
+'use client';
+
 import '@/styles/globals.css';
 import myPage_styles from '@/styles/myPage/myPage.module.css';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
+import useUserStore from '@/zustand/userStore';
+import WebAsideMenu from './orderDelivery/webAsideMenu';
+import WebMembershipSection from './orderDelivery/webMembershipSection';
+import WebOrderDeliveryView from './orderDelivery/webOrderDeliveryView';
+import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
 
-export default function myPage() {
+export default function MyPage() {
+  const router = useRouter();
+  const user = useUserStore((state) => state.user);
+  const hasAlerted = useRef(false);
+
+  useEffect(() => {
+    if (!user || !user.token?.accessToken) {
+      if (!hasAlerted.current) {
+        hasAlerted.current = true;
+        alert('로그인이 필요합니다.');
+        router.push('/login');
+      }
+    }
+  }, [user, router]);
+
+  // 로그인되지 않은 경우 아무것도 렌더링하지 않음
+  if (!user || !user.token?.accessToken) {
+    return null;
+  }
+
   return (
     <>
       {/* 마이 페이지 */}
@@ -25,7 +53,7 @@ export default function myPage() {
             </svg>
             <div className={myPage_styles.membership_container}>
               <span className={myPage_styles.membership_badge}>NEW</span>
-              <h2 className={myPage_styles.membership_title}>장유하님의 등급혜택 &gt;</h2>
+              <h2 className={myPage_styles.membership_title}>{user.name}님의 등급혜택 &gt;</h2>
             </div>
           </div>
 
@@ -34,7 +62,7 @@ export default function myPage() {
             <Link className={myPage_styles.benefit_container} href="/myPage/stamp">
               <div className={myPage_styles.benefit_wrapper}>
                 <dt className={myPage_styles.benefit_title}>스탬프</dt>
-                <dd className={myPage_styles.benefit_value}>0개</dd>
+                <dd className={myPage_styles.benefit_value}>{user.extra?.stamp || 0}개</dd>
               </div>
               <span className={myPage_styles.benefit_arrow}>&gt;</span>
             </Link>
@@ -165,6 +193,30 @@ export default function myPage() {
           </div>
           <hr className={myPage_styles.my_page_divider} />
         </section>
+      </div>
+
+      {/* 웹 주문/배송조회 페이지 */}
+      <div className={orderDelivery_styles.web_order_delivery}>
+        <div
+          className={orderDelivery_styles.web_order_delivery_navigation}
+          aria-label="현재 위치"
+          role="navigation"
+        >
+          <p className={orderDelivery_styles.web_order_delivery_current_page}>
+            HOME &nbsp; &gt; &nbsp; 마이페이지 &nbsp; &gt; &nbsp; 쇼핑 정보 &nbsp; &gt; &nbsp;
+            <span className={orderDelivery_styles.web_order_delivery_navigation_current}>
+              주문/배송 조회
+            </span>
+          </p>
+        </div>
+
+        <div className={orderDelivery_styles.web_order_wrapper}>
+          <WebAsideMenu />
+          <div className={orderDelivery_styles.web_order_delivery_sections}>
+            <WebMembershipSection />
+            <WebOrderDeliveryView />
+          </div>
+        </div>
       </div>
     </>
   );
