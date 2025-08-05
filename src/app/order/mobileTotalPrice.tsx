@@ -12,7 +12,7 @@ export default function MobileTotalPrice() {
   const router = useRouter();
   const { user } = useUserStore();
   const items = useCartStore((state) => state.items);
-
+  const setUser = useUserStore.getState().setUser;
   // 체크박스 상태
   const [termsChecked, setTermsChecked] = useState(false);
   const [orderChecked, setOrderChecked] = useState(false);
@@ -40,7 +40,10 @@ export default function MobileTotalPrice() {
   const formatPrice = (price: number) => {
     return price.toLocaleString('ko-KR');
   };
-
+  // 총 개수
+  const totalQuantity = useMemo(() => {
+    return items.reduce((total, item) => total + item.quantity, 0);
+  }, [items]);
   // 모든 체크박스가 체크되었는지 확인
   const allChecked = termsChecked && orderChecked && ageChecked;
 
@@ -90,6 +93,7 @@ export default function MobileTotalPrice() {
 
     if (!user?.token?.accessToken) {
       alert('로그인이 필요합니다.');
+      router.push('/login');
       return;
     }
 
@@ -100,11 +104,12 @@ export default function MobileTotalPrice() {
       const orderData = generateOrderData();
 
       // API로 주문 데이터 전송
-      const response = await fetch('/api/orders', {
+      const response = await fetch('https://fesp-api.koyeb.app/market/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${user.token.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
         },
         body: JSON.stringify(orderData),
       });
@@ -120,9 +125,38 @@ export default function MobileTotalPrice() {
         alert(
           `주문이 완료되었습니다!\n주문번호: ${result.item?.orderNumber || 'ORD-' + Date.now()}`,
         );
+        // 스탬프 개수 계산
+        const currentStamp = user?.extra?.stamp ?? 0;
+        const updatedStamp = currentStamp + totalQuantity;
 
+        try {
+          const res = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${user.token.accessToken}`,
+              'Client-id': 'febc13-final07-emjf',
+            },
+            body: JSON.stringify({ extra: { stamp: updatedStamp } }),
+          });
+
+          if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.message || '스탬프 업데이트 실패');
+          }
+
+          setUser({
+            ...user,
+            extra: {
+              ...user.extra,
+              stamp: updatedStamp,
+            },
+          });
+        } catch (err) {
+          console.error('스탬프 업데이트 중 에러:', err);
+        }
         // 주문 조회 페이지로 이동
-        router.push('/mypage/order-delivery');
+        router.push('/myPage/orderDelivery');
       } else {
         throw new Error(result.message || '주문 처리에 실패했습니다.');
       }
