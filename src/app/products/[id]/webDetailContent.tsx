@@ -5,12 +5,36 @@ import detail_styles from '@/styles/detailPage/detailPage.module.css';
 import ProductDetailContent from '@/app/products/[id]/prouctDetailCalc';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { useCartStore } from '@/zustand/userCartStore';
+import { useCallback, useState } from 'react';
 interface WebProductDetailContentProps {
   product: Product;
 }
 
 export default function WebProductDetailContent({ product }: WebProductDetailContentProps) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleIncrease = useCallback(() => {
+    setQuantity((prev) => Math.min(prev + 1, 99));
+  }, []);
+
+  const handleDecrease = useCallback(() => {
+    setQuantity((prev) => Math.max(prev - 1, 1));
+  }, []);
+
+  const addItemToCart = () => {
+    useCartStore.getState().addItem({
+      id: product._id.toString(), // 고유한 문자열 ID
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+      color: '베이지',
+      size: '대형',
+      imageSrc: `/${product.mainImages[0].path}`,
+    });
+
+    alert('장바구니에 담겼습니다!');
+  };
   return (
     <>
       {/* 웹 상세 페이지 */}
@@ -96,7 +120,11 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
             <div className={detail_styles.web_detail_quantity_wrapper}>
               <p className={detail_styles.web_detail_quantity_tit}>{product.name}</p>
               <div className={detail_styles.web_detail_quantity_button_wrapper}>
-                <ProductDetailContent product={product} />
+                <ProductDetailContent
+                  quantity={quantity}
+                  onIncrease={handleIncrease}
+                  onDecrease={handleDecrease}
+                />
                 <p className={detail_styles.web_detail_shipping_policy_price}>
                   {product.price?.toLocaleString()}원
                 </p>
@@ -105,11 +133,18 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
 
             <div className={detail_styles.web_detail_price_wrapper}>
               <p className={detail_styles.web_detail_price_text}>총 상품금액</p>
-              <p className={detail_styles.web_detail_price}>17,000 원</p>
+              <p className={detail_styles.web_detail_price}>
+                {(product.price * quantity).toLocaleString()}
+              </p>
             </div>
 
             <div className={detail_styles.web_detail_shopping_cart_button_wrapper}>
-              <button className={detail_styles.web_detail_shopping_cart_button}>장바구니</button>
+              <button
+                className={detail_styles.web_detail_shopping_cart_button}
+                onClick={addItemToCart}
+              >
+                장바구니
+              </button>
               <button className={detail_styles.web_detail_shopping_buy_button}>구매하기</button>
             </div>
           </div>

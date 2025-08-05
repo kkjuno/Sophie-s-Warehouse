@@ -27,6 +27,9 @@ function LoginFormInner() {
           accessToken: userState.item.token?.accessToken || '',
           refreshToken: userState.item.token?.refreshToken || '',
         },
+        extra:{
+          stamp: userState.item.extra?.stamp || 0,
+        }
       });
       alert('로그인이 완료되었습니다.');
       if (redirect) {

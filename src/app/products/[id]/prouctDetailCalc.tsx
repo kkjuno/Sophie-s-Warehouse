@@ -1,28 +1,22 @@
 'use client';
 
-import { useCallback, useState } from 'react';
 import detail_styles from '@/styles/detailPage/detailPage.module.css';
 import styles from '@/styles/components/button.module.css';
-import { Product } from '@/app/types/productType';
 
-interface ProductDetailContentProps {
-  product: Product;
+interface ProductDetailCalcProps {
+  quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
 }
 
-export default function ProductDetailCalc({}: ProductDetailContentProps) {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleIncrease = useCallback(() => {
-    setQuantity((prev) => Math.min(prev + 1, 99));
-  }, []);
-
-  const handleDecrease = useCallback(() => {
-    setQuantity((prev) => Math.max(prev - 1, 1));
-  }, []);
-
+export default function ProductDetailCalc({
+  quantity,
+  onIncrease,
+  onDecrease,
+}: ProductDetailCalcProps) {
   return (
     <div className={detail_styles.web_detail_quantity_button}>
-      <button className={styles.calc_minus_button} onClick={handleDecrease} aria-label="수량 감소">
+      <button className={styles.calc_minus_button} onClick={onDecrease} aria-label="수량 감소">
         <svg
           width="15"
           height="1"
@@ -36,7 +30,7 @@ export default function ProductDetailCalc({}: ProductDetailContentProps) {
 
       <button className={styles.calc_number_button}>{quantity}</button>
 
-      <button className={styles.calc_plus_button} onClick={handleIncrease} aria-label="수량 증가">
+      <button className={styles.calc_plus_button} onClick={onIncrease} aria-label="수량 증가">
         <svg
           width="15"
           height="15"
