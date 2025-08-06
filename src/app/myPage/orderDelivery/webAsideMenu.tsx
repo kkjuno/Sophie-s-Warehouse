@@ -43,7 +43,7 @@ export default function WebAsideMenu() {
           <Link href="/myPage/accountDelete">• 회원 탈퇴</Link>
         </li>
         <li>
-          <Link href="/addShippingAddress">• 배송지 관리</Link>
+          <Link href="/myPage/addShippingAddress">• 배송지 관리</Link>
         </li>
       </ul>
     </aside>
