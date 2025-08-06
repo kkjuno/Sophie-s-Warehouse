@@ -1,6 +1,7 @@
 import CategoryClient from '@/app/categoryPage/mobile/categoryClient';
 import { productFetch } from '@/app/fetch/product';
 import { Product } from '@/app/types/productType';
+import { Suspense } from 'react';
 
 export default async function CategoryPage() {
   let products: Product[] = [];
@@ -41,5 +42,9 @@ export default async function CategoryPage() {
     );
   }
 
-  return <CategoryClient initialProducts={products} categories={categories} movies={movies} />;
+  return (
+    <Suspense>
+      <CategoryClient initialProducts={products} categories={categories} movies={movies} />
+    </Suspense>
+  );
 }

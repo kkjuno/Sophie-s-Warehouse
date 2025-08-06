@@ -6,17 +6,10 @@ import { useState, useEffect } from 'react';
 import useUserStore from '@/zustand/userStore';
 import HeaderHamburgurMenu from './headerHamburgerMenu';
 import { useRecentModal } from '@/zustand/useRecentModal';
-import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
   const { open } = useRecentModal(); // ★ 모달 열기 함수 가져오기
-  const router = useRouter();
-
-  const handleNavClick = (category: string) => {
-    router.push(`/categoryPage/web?tab=${category}&_t=${Date.now()}`);
-    // _t는 매번 다른 값이라 강제 리렌더링 유도
-  };
 
   // 클라이언트 사이드에서만 실행
   useEffect(() => {
