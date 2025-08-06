@@ -9,9 +9,10 @@ import styles from '@/styles/components/button.module.css';
 import orderDelivery_styles from '@/styles/myPage/orderDelivery.module.css';
 
 export default function MobilePeriodSearch() {
-  const [selectedPeriod, setSelectedPeriod] = useState<string>('');
-  const [startDate, setStartDate] = useState<string>('2025-06-01');
-  const [endDate, setEndDate] = useState<string>('2025-07-31');
+  const today = new Date().toISOString().split('T')[0];
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('오늘');
+  const [startDate, setStartDate] = useState<string>(today);
+  const [endDate, setEndDate] = useState<string>(today);
   const [showPeriodDropdown, setShowPeriodDropdown] = useState<boolean>(false);
 
   // 주문 목록 관련 상태 - API 연동
@@ -21,6 +22,7 @@ export default function MobilePeriodSearch() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const { user } = useUserStore();
 
   // 날짜 필터링 함수
@@ -63,12 +65,32 @@ export default function MobilePeriodSearch() {
     }
   }, [startDate, endDate, allOrders, filterOrdersByDate]);
 
-  // 기간 버튼 클릭 핸들러 (웹과 동일)
+  // 오늘 주문 내역 자동 조회
+  useEffect(() => {
+    if (isInitialLoad && user?.token?.accessToken) {
+      setLoading(true);
+      setError(null);
+
+      const formData = new FormData();
+      formData.append('token', user.token.accessToken);
+      formData.append('startDate', today);
+      formData.append('endDate', today);
+      formData.append('page', '1');
+      formData.append('limit', '100');
+
+      startTransition(() => {
+        formAction(formData);
+      });
+      setIsInitialLoad(false);
+    }
+  }, [user?.token?.accessToken, today, formAction, isInitialLoad, startTransition]);
+
+  // 기간 버튼 클릭 핸들러
   const handlePeriodClick = (period: string) => {
     console.log('선택된 기간:', period);
     setSelectedPeriod(period);
-    const today = new Date();
-    const endDateStr = today.toISOString().split('T')[0];
+    const todayDate = new Date();
+    const endDateStr = todayDate.toISOString().split('T')[0];
 
     let startDateStr = '';
     switch (period) {
@@ -76,27 +98,27 @@ export default function MobilePeriodSearch() {
         startDateStr = endDateStr;
         break;
       case '7일':
-        startDateStr = new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000)
+        startDateStr = new Date(todayDate.getTime() - 6 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0];
         break;
       case '15일':
-        startDateStr = new Date(today.getTime() - 14 * 24 * 60 * 60 * 1000)
+        startDateStr = new Date(todayDate.getTime() - 14 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0];
         break;
       case '1개월':
-        startDateStr = new Date(today.getTime() - 29 * 24 * 60 * 60 * 1000)
+        startDateStr = new Date(todayDate.getTime() - 29 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0];
         break;
       case '3개월':
-        startDateStr = new Date(today.getTime() - 89 * 24 * 60 * 60 * 1000)
+        startDateStr = new Date(todayDate.getTime() - 89 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0];
         break;
       case '1년':
-        startDateStr = new Date(today.getTime() - 364 * 24 * 60 * 60 * 1000)
+        startDateStr = new Date(todayDate.getTime() - 364 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0];
         break;
@@ -380,7 +402,7 @@ function CalendarIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M1 7H17M9 4V1M4 4V1M14 4V1M2 17H16C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V4C17 3.73478 16.8946 3.48043 16.7071 3.29289C16.5196 3.10536 16.2652 3 16 3H2C1.73478 3 1.48043 3.10536 1.29289 3.29289C1.10536 3.48043 1 3.73478 1 4V16C1 16.2652 1.10536 16.5196 1.29289 16.7071C1.48043 16.8946 1.73478 17 2 17ZM5 10H5.01V10.01H5V10ZM9 10H9.01V10.01H9V10ZM13 10H13.01V10.01H13V10ZM5 14H5.01V14.01H5V14ZM9 14H9.01V14.01H9V14ZM13 14H13.01V14.01H13V14Z"
+        d="M1 7H17M9 4V1M4 4V1M14 4V1M2 17H16C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V4C17 3.73478 16.8946 3.48043 16.7071 3.29289C16.5196 3.10536 16.2652 3 16 3H2C1.73478 3 1.48043 3.10536 1.29289 3.29289C1.10536 3.48043 1 3.73478 1 4V16C1 16.2652 1.10536 16.5196 1.29289 16.7071C1.48043 16.8946 1.73478 17 2 17ZM5 10H5.01V10.01H5V10ZM9 10H9.01V10.01H9V10ZM13 10H13.01V10.01H9V10ZM5 14H5.01V14.01H5V14ZM9 14H9.01V14.01H9V14ZM13 14H13.01V14.01H13V14Z"
         stroke="#949494"
         strokeWidth="2"
         strokeLinecap="round"
