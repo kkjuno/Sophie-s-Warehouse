@@ -1,7 +1,10 @@
+'use client';
 import edit_user_info_styles from '@/styles/myPage/authCheck/editUserInfo/editUserInfo.module.css';
 import check_box_styles from '@/styles/components/check-box.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function EditUserInfo() {
+  const router = useRouter();
   return (
     <>
       <div className={edit_user_info_styles.mobile_edit_user_info_root_header}>
@@ -193,7 +196,11 @@ export default function EditUserInfo() {
         {/* 회원정보수정 button */}
         <div className={edit_user_info_styles.mobile_edit_user_button_section}>
           <div className={edit_user_info_styles.mobile_edit_user_button_wrapper}>
-            <button type="button" className={edit_user_info_styles.mobile_edit_cancel_button}>
+            <button
+              type="button"
+              className={edit_user_info_styles.mobile_edit_cancel_button}
+              onClick={() => router.back()}
+            >
               취소
             </button>
             <button type="button" className={edit_user_info_styles.mobile_edit_edit_info_button}>

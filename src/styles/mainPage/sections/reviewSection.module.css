@@ -39,17 +39,17 @@
 .review_row {
   display: flex;
   overflow-x: auto;
-  gap: clamp(10px, 3vw, 70px);
+  gap: clamp(10px, 4vw, 70px);
   padding-bottom: clamp(30px, 5vw, 70px);
   align-self: center;
   justify-self: center;
-  padding-left: clamp(10px, 2vw, 20px);
-  padding-right: clamp(10px, 2vw, 20px);
+  padding-left: clamp(10px, 3vw, 35px);
+  padding-right: clamp(10px, 3vw, 35px);
 }
 
 .review_card {
-  width: clamp(100px, 28vw, 280px);
-  height: clamp(170px, 35vw, 380px);
+  width: clamp(80px, 28vw, 280px);
+  height: clamp(150px, 35vw, 380px);
   color: inherit;
   display: flex;
   flex-shrink: 0;
@@ -89,11 +89,7 @@
   font-weight: 600;
   line-height: 1.2;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2; /* 표준 속성 */
-  -webkit-box-orient: vertical;
+  white-space: wrap;
 }
 
 .review_info_box {
@@ -133,7 +129,18 @@
 
 @media (max-width: 480px) {
   .review_card {
-    min-width: 90px;
+    min-width: 70px;
+  }
+
+  .review_row {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .review_card:first-child {
+    margin-right: 8px;
   }
 }
 

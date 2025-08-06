@@ -54,16 +54,25 @@ export default function Header() {
             </Link>
           </div>
           <div className={header_styles.mobile_nav_item}>
-            <Link className={header_styles.mobile_nav_item_movie} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_movie}
+              href="/categoryPage/mobile?tab=movie"
+            >
               MOVIE
             </Link>
-            <Link className={header_styles.mobile_nav_item_category} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_category}
+              href="/categoryPage/mobile?tab=category"
+            >
               CATEGORY
             </Link>
-            <Link className={header_styles.mobile_nav_item_new} href="/categoryPage/mobile">
+            <Link className={header_styles.mobile_nav_item_new} href="/categoryPage/mobile?tab=new">
               NEW
             </Link>
-            <Link className={header_styles.mobile_nav_item_gift} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_gift}
+              href="/categoryPage/mobile?tab=gift"
+            >
               GIFT
             </Link>
           </div>
@@ -160,18 +169,10 @@ export default function Header() {
                 <Link href="/">HOME</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>
-                <li>
-                  <Link href="/categoryPage/web">MOVIE</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">CATEGORY</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">NEW</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">GIFT</Link>
-                </li>
+                <Link href="/categoryPage/web?tab=movie">MOVIE</Link>
+                <Link href="/categoryPage/web?tab=category">CATEGORY</Link>
+                <Link href="/categoryPage/web?tab=new">NEW</Link>
+                <Link href="/categoryPage/web?tab=gift">GIFT</Link>
               </ul>
             </div>
             <div className={header_styles.web_header_login_wrapper}>

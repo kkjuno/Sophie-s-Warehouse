@@ -514,6 +514,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 100px;
+    text-decoration: none;
   }
   /* 헤더 링크 아이템들 */
   .web_header_nav_link_items {
@@ -521,6 +522,14 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 60px;
+    text-decoration: none;
+  }
+
+  .web_header_nav_link_items a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
   }
 
   /* 웹 상단부 부분 */

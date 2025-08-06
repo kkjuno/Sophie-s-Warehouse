@@ -1,7 +1,10 @@
+'use client';
 import account_delete_styles from '@/styles/myPage/accountDelete/accountDelete.module.css';
 import check_box_styles from '@/styles/components/check-box.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function AccountDelete() {
+  const router = useRouter();
   return (
     <>
       <div className={account_delete_styles.mobile_root_header}>
@@ -188,7 +191,11 @@ export default function AccountDelete() {
         </div>
         {/* 버튼 영역 */}
         <div className={account_delete_styles.mobile_button_wrapper}>
-          <button type="button" className={account_delete_styles.mobile_cancel_button}>
+          <button
+            type="button"
+            className={account_delete_styles.mobile_cancel_button}
+            onClick={() => router.back()}
+          >
             취소
           </button>
           <button type="button" className={account_delete_styles.mobile_account_delete_button}>

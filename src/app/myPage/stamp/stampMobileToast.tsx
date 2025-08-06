@@ -15,7 +15,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRolling, setIsRolling] = useState(true);
   const [winner, setWinner] = useState<Product | null>(null);
-// 스탬프 가챠 애니메이션
+  // 스탬프 가챠 애니메이션
   useEffect(() => {
     async function startGatcha() {
       const res = await productFetch();
@@ -56,9 +56,11 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
       </div>
 
       <div className={stamp_page_styles.mobile_toast_ui_item_wrapper}>
-        <div className={stamp_page_styles.mobile_toast_ui_confetti_wrapper}>
-          <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
-        </div>
+        {!isRolling && winner && (
+          <div className={stamp_page_styles.mobile_toast_ui_confetti_wrapper}>
+            <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+          </div>
+        )}
         <div className={stamp_page_styles.mobile_toast_ui_lotto_item}>
           {imagePath && <Image src={`/${imagePath}`} fill alt="상품 이미지" sizes="140px" />}
         </div>
