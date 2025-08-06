@@ -6,6 +6,7 @@ import ProductGrid from '@/app/categoryPage/mobile/productGrid';
 import FilterModal from '@/app/categoryPage/mobile/filterModal';
 import { Product } from '@/app/types/productType';
 import styles from '@/styles/categoryPage/mobile/categoryPage.module.css';
+import { useSearchParams } from 'next/navigation';
 
 interface CategoryClientProps {
   initialProducts: Product[];
@@ -20,7 +21,8 @@ export default function CategoryClient({
 }: CategoryClientProps) {
   const [products] = useState<Product[]>(initialProducts);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(initialProducts);
-
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab') || 'all'; // 탭 값 기본값 'all'
   // 필터 상태
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
   const [selectedMovie, setSelectedMovie] = useState<string>('전체');
@@ -37,6 +39,11 @@ export default function CategoryClient({
 
   // 필터 모달
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+
+  // 탭이 바뀔 때마다 필터 리셋
+  useEffect(() => {
+    handleFilterReset();
+  }, [tab]);
 
   // 필터링 로직
   useEffect(() => {
