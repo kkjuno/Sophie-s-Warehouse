@@ -200,13 +200,24 @@
     position: absolute;
     top: -42%;
     left: 50%;
-    transform: translateX(-51%);
+    transform: translateX(-50%);
     width: 200px;
     height: 200px;
     pointer-events: none;
     z-index: 10;
+    animation: pop 0.6s ease-out;
   }
-
+  /* 빵빠레 애니메이션 */
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
   .mobile_toast_ui_item_info {
     display: flex;
     flex-direction: column;
@@ -269,7 +280,7 @@
   }
 
   .stamp_animate {
-    animation: fadeIn 0.8s ease-out;
+    animation: fadeIn 2s ease-out forwards;
   }
 }
 
@@ -311,6 +322,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 20px;
+    max-width: 1300px;
   }
   .web_main_page,
   .web_main_view_section {
@@ -484,15 +496,25 @@
 
   .web_toast_ui_confetti_wrapper {
     position: absolute;
-    top: -34%;
+    top: -42%;
     left: 50%;
-    transform: translateX(-51%);
-    width: 500px;
-    height: 360px;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
     pointer-events: none;
     z-index: 10;
+    animation: pop 0.6s ease-out;
   }
-
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
   .web_toast_ui_item_info {
     display: flex;
     flex-direction: column;
@@ -750,15 +772,25 @@
 
   .web_side_toast_ui_confetti_wrapper {
     position: absolute;
-    top: -34%;
+    top: -48%;
     left: 50%;
     transform: translateX(-51%);
-    width: 500px;
-    height: 360px;
+    width: 800px;
+    height: 460px;
     pointer-events: none;
     z-index: 10;
+    animation: pop 0.6s ease-out;
   }
-
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
   .web_side_toast_ui_item_info {
     display: flex;
     flex-direction: column;
