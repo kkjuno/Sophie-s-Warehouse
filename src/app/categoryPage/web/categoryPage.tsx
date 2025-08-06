@@ -5,7 +5,7 @@ import styles from '@/styles/categoryPage/web/categoryPage.module.css';
 import { productFetch } from '@/app/fetch/product';
 import { Product } from '@/app/types/productType';
 import Link from 'next/link';
-
+import { useSearchParams } from 'next/navigation';
 import { addRecentProduct } from '@/utils/recentProduct';
 
 import Image from 'next/image';
@@ -33,6 +33,8 @@ export default function CategoryPage() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab') || 'all';
 
   // 필터 상태
   const [activeFilter, setActiveFilter] = useState('전체');
@@ -53,6 +55,11 @@ export default function CategoryPage() {
 
   // 신상품/베스트 탭
   const [highlightTab, setHighlightTab] = useState('신상품');
+
+  useEffect(() => {
+    // 탭이 바뀔 때마다 필터 초기화
+    handleReset();
+  }, [tab]);
 
   useEffect(() => {
     const fetchData = async () => {

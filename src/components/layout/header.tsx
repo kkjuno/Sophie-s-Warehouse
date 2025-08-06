@@ -6,10 +6,17 @@ import { useState, useEffect } from 'react';
 import useUserStore from '@/zustand/userStore';
 import HeaderHamburgurMenu from './headerHamburgerMenu';
 import { useRecentModal } from '@/zustand/useRecentModal';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isClient, setIsClient] = useState(false);
   const { open } = useRecentModal(); // ★ 모달 열기 함수 가져오기
+  const router = useRouter();
+
+  const handleNavClick = (category: string) => {
+    router.push(`/categoryPage/web?tab=${category}&_t=${Date.now()}`);
+    // _t는 매번 다른 값이라 강제 리렌더링 유도
+  };
 
   // 클라이언트 사이드에서만 실행
   useEffect(() => {
@@ -54,16 +61,25 @@ export default function Header() {
             </Link>
           </div>
           <div className={header_styles.mobile_nav_item}>
-            <Link className={header_styles.mobile_nav_item_movie} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_movie}
+              href="/categoryPage/mobile?tab=movie"
+            >
               MOVIE
             </Link>
-            <Link className={header_styles.mobile_nav_item_category} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_category}
+              href="/categoryPage/mobile?tab=category"
+            >
               CATEGORY
             </Link>
-            <Link className={header_styles.mobile_nav_item_new} href="/categoryPage/mobile">
+            <Link className={header_styles.mobile_nav_item_new} href="/categoryPage/mobile?tab=new">
               NEW
             </Link>
-            <Link className={header_styles.mobile_nav_item_gift} href="/categoryPage/mobile">
+            <Link
+              className={header_styles.mobile_nav_item_gift}
+              href="/categoryPage/mobile?tab=gift"
+            >
               GIFT
             </Link>
           </div>
@@ -160,18 +176,10 @@ export default function Header() {
                 <Link href="/">HOME</Link>
               </div>
               <ul className={header_styles.web_header_nav_link_items}>
-                <li>
-                  <Link href="/categoryPage/web">MOVIE</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">CATEGORY</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">NEW</Link>
-                </li>
-                <li>
-                  <Link href="/categoryPage/web">GIFT</Link>
-                </li>
+                <Link href="/categoryPage/web?tab=movie">MOVIE</Link>
+                <Link href="/categoryPage/web?tab=category">CATEGORY</Link>
+                <Link href="/categoryPage/web?tab=new">NEW</Link>
+                <Link href="/categoryPage/web?tab=gift">GIFT</Link>
               </ul>
             </div>
             <div className={header_styles.web_header_login_wrapper}>
