@@ -10,7 +10,7 @@ import { useActionState } from 'react';
 
 export default function OrderDeliveryView() {
   // 검색 관련 상태
-  const [selectedPeriod, setSelectedPeriod] = useState<string>('');
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('오늘');
   const [searchedPeriod, setSearchedPeriod] = useState<string>(''); // 조회 완료된 기간
   const today = new Date().toISOString().split('T')[0];
   const [startDate, setStartDate] = useState<string>(today);
@@ -23,6 +23,7 @@ export default function OrderDeliveryView() {
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const { user } = useUserStore();
 
   // 날짜 필터링 함수
@@ -71,6 +72,24 @@ export default function OrderDeliveryView() {
       filterOrdersByDate(allOrders, startDate, endDate);
     }
   }, [startDate, endDate, allOrders, filterOrdersByDate]);
+
+  // 오늘 주문 내역 자동 조회
+  useEffect(() => {
+    if (isInitialLoad && user?.token?.accessToken) {
+      setLoading(true);
+      const formData = new FormData();
+      formData.append('token', user.token.accessToken);
+      formData.append('startDate', today);
+      formData.append('endDate', today);
+      formData.append('page', '1');
+      formData.append('limit', '100');
+
+      startTransition(() => {
+        formAction(formData);
+      });
+      setIsInitialLoad(false);
+    }
+  }, [user?.token?.accessToken, today, formAction, isInitialLoad, startTransition]);
 
   // 기간 버튼 클릭 핸들러
   const handlePeriodClick = (period: string) => {
