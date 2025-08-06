@@ -31,16 +31,20 @@ export default function MobileCartView() {
         </div>
       </div>
       <div className={shopping_cart_styles.mobile_shopping_cart_new_items_section}>
-        {items.map((item) => (
-          <CartItem
-            key={item.id}
-            id={item.id}
-            imageSrc={item.imageSrc}
-            name={item.name}
-            color={item.color}
-            size={item.size}
-          />
-        ))}
+        {items.length === 0 ? (
+          <p className={shopping_cart_styles.empty_cart_text}>장바구니에 상품이 없습니다.</p>
+        ) : (
+          items.map((item) => (
+            <CartItem
+              key={item.id}
+              id={item.id}
+              imageSrc={item.imageSrc}
+              name={item.name}
+              color={item.color}
+              size={item.size}
+            />
+          ))
+        )}
       </div>
       <Summary viewType="mobile" />
     </div>

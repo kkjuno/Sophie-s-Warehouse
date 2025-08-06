@@ -1,5 +1,8 @@
+'use client';
 import auth_check_styles from '@/styles/myPage/authCheck/authCheck.module.css';
+import { useRouter } from 'next/navigation';
 export default function AuthCheck() {
+  const router = useRouter();
   return (
     <>
       <div className={auth_check_styles.mobile_root_header}>
@@ -28,7 +31,11 @@ export default function AuthCheck() {
         </div>
         {/* 닫기, 인증하기 버튼 */}
         <div className={auth_check_styles.mobile_auth_check_button_wrapper}>
-          <button type="button" className={auth_check_styles.mobile_auth_check_close_button}>
+          <button
+            type="button"
+            className={auth_check_styles.mobile_auth_check_close_button}
+            onClick={() => router.back()}
+          >
             닫기
           </button>
           <button type="button" className={auth_check_styles.mobile_auth_check_porve_button}>

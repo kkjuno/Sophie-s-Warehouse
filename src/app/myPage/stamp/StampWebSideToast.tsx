@@ -22,6 +22,59 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
 
   const stampCount = user?.extra?.stamp ?? 0;
 
+  const handleSaveWinner = async () => {
+    if (!winner || !user || !user.token?.accessToken) return;
+
+    const body = {
+      type: 'lottery',
+      title: winner.name,
+      content: winner.extra.movie,
+      views: winner.price,
+      user: {
+        _id: user._id,
+        name: user.name,
+        image: user.image,
+      },
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch('https://fesp-api.koyeb.app/market/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user.token.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (res.ok) {
+        console.log('당첨 내역 저장 성공');
+
+        const patchRes = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token.accessToken}`,
+            'Client-Id': 'febc13-final07-emjf',
+          },
+          body: JSON.stringify({ extra: { stamp: newStampCount } }),
+        });
+
+        if (patchRes.ok) {
+          setUser({ ...user, extra: { ...user.extra, stamp: newStampCount } });
+        }
+
+        window.location.href = '/myPage/rewards';
+      } else {
+        console.error('저장 실패', await res.text());
+      }
+    } catch (err) {
+      console.error('에러 발생:', err);
+    }
+  };
+
   useEffect(() => {
     if (stampCount < 8) return; //
 
@@ -49,7 +102,8 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
     startGatcha();
   }, [stampCount]);
 
-  // 닫기 버튼 누르면 유저 스탬프 0으로 초기화
+  const newStampCount = stampCount - 8;
+
   const handleClose = async () => {
     if (!user || !user.token?.accessToken) return;
 
@@ -61,18 +115,17 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
           Authorization: `Bearer ${user.token.accessToken}`,
           'Client-Id': 'febc13-final07-emjf',
         },
-        body: JSON.stringify({ extra: { stamp: 0 } }),
+        body: JSON.stringify({ extra: { stamp: newStampCount } }),
       });
 
       if (res.ok) {
-        // 클라이언트 상태도 초기화
-        setUser({ ...user, extra: { ...user.extra, stamp: 0 } });
+        setUser({ ...user, extra: { ...user.extra, stamp: newStampCount } });
       }
     } catch (err) {
       console.error('스탬프 초기화 실패:', err);
     }
 
-    onClose(); // UI 닫기
+    onClose();
   };
 
   const currentProduct = rollingProducts[currentIndex];
@@ -93,9 +146,11 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
       </div>
 
       <div className={stamp_page_styles.web_side_toast_ui_item_wrapper}>
-        <div className={stamp_page_styles.web_side_toast_ui_confetti_wrapper}>
-          <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
-        </div>
+        {!isRolling && winner && (
+          <div className={stamp_page_styles.web_side_toast_ui_confetti_wrapper}>
+            <Image src="/images/stampImages/toastUI/confetti.svg" fill alt="빵빠레 이미지" />
+          </div>
+        )}
         <div className={stamp_page_styles.web_side_toast_ui_lotto_item}>
           <Image
             src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}
@@ -125,7 +180,9 @@ export default function StampWebSideToast({ onClose }: StampMobileWebProps) {
             <button className={styles.close_button} onClick={handleClose}>
               닫기
             </button>
-            <button className={styles.quick_link_button}>바로가기</button>
+            <button className={styles.quick_link_button} onClick={handleSaveWinner}>
+              바로가기
+            </button>
           </div>
 
           <div className={stamp_page_styles.web_side_toast_ui_footer_text}>

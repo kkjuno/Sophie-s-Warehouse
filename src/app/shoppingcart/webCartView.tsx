@@ -14,16 +14,20 @@ export default function WebCartView() {
         <div className={shopping_cart_styles.web_side_bar_layout}>
           {/* 장바구니 상품 리스트 */}
           <div className={shopping_cart_styles.web_item_list_section}>
-            {items.map((item) => (
-              <CartItem
-                key={item.id}
-                id={item.id}
-                imageSrc={item.imageSrc}
-                name={item.name}
-                color={item.color}
-                size={item.size}
-              />
-            ))}
+            {items.length === 0 ? (
+              <p className={shopping_cart_styles.empty_cart_text}>장바구니에 상품이 없습니다.</p>
+            ) : (
+              items.map((item) => (
+                <CartItem
+                  key={item.id}
+                  id={item.id}
+                  imageSrc={item.imageSrc}
+                  name={item.name}
+                  color={item.color}
+                  size={item.size}
+                />
+              ))
+            )}
           </div>
 
           {/* 영수증 요약 */}
