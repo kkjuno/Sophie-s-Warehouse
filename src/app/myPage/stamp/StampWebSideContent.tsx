@@ -15,12 +15,12 @@ export default function StampWebSideContent({ onClick }: { onClick: () => void }
             <span>안녕하세요</span>
             <div className={stamp_page_styles.web_side_user_name_section}>
               <span className={stamp_page_styles.web_side_user_name}>{user?.name ?? '회원'}</span>
-              <span>회원님</span>
+              <span>님</span>
             </div>
           </div>
           <div className={stamp_page_styles.web_side_bottom_wrapper}>
             <span>현재 스탬프 개수 :</span>
-            <span>{user?.extra?.stamp ?? 0}개</span>
+            <span>{user?.extra?.stamp ?? 0}개 </span>
           </div>
 
           <div className={stamp_page_styles.web_side_blackbean_Image_wrapper}>
