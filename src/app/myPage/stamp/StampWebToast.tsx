@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { productFetch } from '@/app/fetch/product';
 import { useEffect, useState } from 'react';
 import { Product } from '@/app/types/productType';
-
+import useUserStore from '@/zustand/userStore';
 interface StampMobileWebProps {
   onClose: () => void;
 }
@@ -15,7 +15,8 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRolling, setIsRolling] = useState(true);
   const [winner, setWinner] = useState<Product | null>(null);
-
+  const currentProduct = rollingProducts[currentIndex];
+  const user = useUserStore((state) => state.user);
   useEffect(() => {
     async function startGatcha() {
       const res = await productFetch();
@@ -40,14 +41,51 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
 
     startGatcha();
   }, []);
+  const handleSaveWinner = async () => {
+    if (!winner || !user) return;
 
-  const currentProduct = rollingProducts[currentIndex];
+    const body = {
+      type: 'lottery',
+      title: winner.name,
+      content: winner.extra.movie,
+      views: winner.price,
+      user: {
+        _id: user._id,
+        name: user.name,
+        image: user.image,
+      },
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch('https://fesp-api.koyeb.app/market/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user.token?.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (res.ok) {
+        console.log('당첨 내역 저장 성공');
+
+        window.location.href = '/myPage/rewards';
+      } else {
+        console.error('저장 실패', await res.text());
+      }
+    } catch (err) {
+      console.error('에러 발생:', err);
+    }
+  };
 
   return (
     <div className={stamp_page_styles.web_toast_ui_root_header}>
       <div className={stamp_page_styles.web_toast_ui_header_text}>
         <h2>
-          <span className={stamp_page_styles.web_toast_ui_user_name}>김진섭</span>님 축하합니다!
+          <span className={stamp_page_styles.web_toast_ui_user_name}>{user?.name}</span>님
+          축하합니다!
         </h2>
         <span>
           당신은 아래 상품에 <span className={stamp_page_styles.web_toast_ui_lotto_text}>당첨</span>{' '}
@@ -89,7 +127,9 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
             <button className={styles.close_button} onClick={onClose}>
               닫기
             </button>
-            <button className={styles.quick_link_button}>바로가기</button>
+            <button className={styles.quick_link_button} onClick={handleSaveWinner}>
+              바로가기
+            </button>
           </div>
           <div className={stamp_page_styles.web_toast_ui_footer_text}>
             <span>상품은 마이페이지 &gt; 혜택관리 &gt; 당첨내역에서 확인하세요!</span>
