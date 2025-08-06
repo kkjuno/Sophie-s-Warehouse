@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import useUserStore from '@/zustand/userStore';
 import stampStyles from '@/styles/stamp/stamp.module.css';
 import StampMobileToast from './stampMobileToast';
-import Link from 'next/link';
 
 const STAMP_IMAGES = [
   'firstStamp.svg',
@@ -29,35 +29,43 @@ const STAMP_POSITIONS = [
   { top: '76%', left: '21%' },
 ];
 
+const MAX_STAMP_COUNT = STAMP_IMAGES.length;
+const STAMP_REQUIRED_FOR_GACHA = 8;
+
 export default function StampMobileBoard() {
   const user = useUserStore((state) => state.user);
   const setUser = useUserStore((state) => state.setUser);
-
   const stampCount = user?.extra?.stamp ?? 0;
   const [animateIndex, setAnimateIndex] = useState<number | null>(null);
   const [openToast, setOpenToast] = useState(false);
-  const safeCount = Math.min(stampCount, STAMP_IMAGES.length);
 
-  // 애니메이션 도장 설정
+  const safeCount = Math.min(stampCount, MAX_STAMP_COUNT);
+
+  // 새로운 도장에 애니메이션 부여
   useEffect(() => {
     const prev = Number(localStorage?.getItem('prevStampCount') ?? '0');
     if (stampCount > prev) {
-      setAnimateIndex(stampCount - 1);
+      const newIndex = stampCount - 1;
+      setTimeout(() => {
+        setAnimateIndex(newIndex);
+      }, 100); // 자연스럽게 표시되도록 지연
       localStorage?.setItem('prevStampCount', String(stampCount));
     }
   }, [stampCount]);
-  const newStampCount = stampCount - 8;
-  // 가챠 실행 제어
+
+  // 가챠 실행
   const handleGacha = async () => {
     if (!user) {
       alert('로그인이 필요합니다.');
       return;
     }
 
-    if (stampCount < 8) {
-      alert('스탬프 8개를 모두 모아야 가챠를 할 수 있습니다!');
+    if (stampCount < STAMP_REQUIRED_FOR_GACHA) {
+      alert(`스탬프 ${STAMP_REQUIRED_FOR_GACHA}개를 모두 모아야 뽑기 할 수 있습니다.`);
       return;
     }
+
+    const newStamp = stampCount - STAMP_REQUIRED_FOR_GACHA;
 
     try {
       const res = await fetch(`https://fesp-api.koyeb.app/market/users/${user._id}`, {
@@ -67,20 +75,64 @@ export default function StampMobileBoard() {
           Authorization: `Bearer ${user.token?.accessToken}`,
           'Client-Id': 'febc13-final07-emjf',
         },
-        body: JSON.stringify({ extra: { stamp: newStampCount } }),
+        body: JSON.stringify({ extra: { stamp: newStamp } }),
       });
 
       const data = await res.json();
       if (res.ok) {
-        setUser({ ...user, extra: { ...user.extra, stamp: 0 } });
-        localStorage.setItem('prevStampCount', '0');
+        setUser({ ...user, extra: { ...user.extra, stamp: newStamp } });
         setOpenToast(true);
       } else {
-        console.error('가챠 실패', data?.message);
+        console.error('가챠 실패:', data?.message);
       }
     } catch (err) {
-      console.error('가챠 요청 오류', err);
+      console.error('가챠 요청 오류:', err);
     }
+  };
+
+  // 도장 렌더링
+  const renderStamps = () => {
+    const indicesToRender = new Set<number>();
+
+    for (let i = 0; i < safeCount; i++) {
+      indicesToRender.add(i);
+    }
+
+    if (animateIndex !== null && animateIndex < MAX_STAMP_COUNT) {
+      indicesToRender.add(animateIndex);
+    }
+
+    return Array.from(indicesToRender).map((i) => {
+      const img = STAMP_IMAGES[i];
+      const pos = STAMP_POSITIONS[i];
+      if (!img || !pos) return null;
+
+      const isAnimated = i === animateIndex;
+
+      return (
+        <div
+          key={i}
+          className={stampStyles.stamp_wrapper}
+          style={{
+            top: pos.top,
+            left: pos.left,
+            position: 'absolute',
+            transform: 'translate(-50%, -50%)',
+            width: '80px',
+            height: '80px',
+          }}
+        >
+          <div className={`${stampStyles.stamp_image_wrapper} ${stampStyles.stamp_animate}`}>
+            <Image
+              src={`/images/stampImages/stamp/${img}`}
+              alt={`스탬프 ${i + 1}`}
+              fill
+              priority={isAnimated}
+            />
+          </div>
+        </div>
+      );
+    });
   };
 
   return (
@@ -88,28 +140,12 @@ export default function StampMobileBoard() {
       {/* 스탬프 보드 */}
       <div className={stampStyles.mobile_stamp_image_wrapper} style={{ position: 'relative' }}>
         <Image src="/images/stampImages/stamp-image.svg" alt="스탬프 보드 배경" fill />
-
-        {STAMP_IMAGES.slice(0, safeCount).map((img, i) => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute',
-              top: STAMP_POSITIONS[i].top,
-              left: STAMP_POSITIONS[i].left,
-              transform: 'translate(-50%, -50%)',
-              width: '80px',
-              height: '80px',
-            }}
-            className={i === animateIndex ? stampStyles.stamp_animate : ''}
-          >
-            <Image src={`/images/stampImages/stamp/${img}`} alt={`스탬프 ${i + 1}`} fill />
-          </div>
-        ))}
+        {renderStamps()}
       </div>
 
-      {/* 가챠 버튼 영역 */}
+      {/* 버튼 영역 */}
       <div className={stampStyles.mobile_stamp_link_image_wrapper}>
-        {/* 스탬프 모으기 영역 */}
+        {/* 스탬프 모으기 */}
         <Link href="/" className={stampStyles.mobile_stamp_more_image_wrapper}>
           <Image src="/images/stampImages/stamp-more-image.svg" alt="스탬프 더 모으기" fill />
           <div className={stampStyles.mobile_stamp_image_overlay}></div>

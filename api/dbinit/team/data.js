@@ -54,7 +54,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성] PT-333 (소피)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4970381518875_500_1.jpg`,
@@ -84,7 +84,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성]점착메모지(하울의움직이는성)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4549743942247_600_01.jpg`,
@@ -114,7 +114,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성]하울(움직이는하울의성)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593476626_600_02.jpg`,
@@ -144,7 +144,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성]양모냄비받침(캘시퍼)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593468362_600_01.jpg`,
@@ -174,7 +174,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성]보온보냉 런치백(캘시퍼 시리즈)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4973307631443_500_1.jpg`,
@@ -204,7 +204,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[하울의 움직이는 성] 투명숄더백(캘시퍼)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4970381700737_600.jpg`,
@@ -234,7 +234,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집 토토로] 쿠션(토토로 통나무)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4992272943610_600.jpg`,
@@ -264,7 +264,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집토토로] 디오라마 소품케이스(토토로 그루터기)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593500888_600_02.jpg`,
@@ -294,7 +294,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집 토토로]한송이꽃병(짧은 휴식)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593478095_600_02.jpg`,
@@ -324,7 +324,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집 토토로] 연하장 스탬프(새해 복 많이 받으세요)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4977524193753_600.jpg`,
@@ -354,7 +354,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집 토토로]토토로행진(캔버스 토트백)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4973307658631_600_01.jpg`,
@@ -384,7 +384,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[이웃집 토토로] 투명숄더백(대토토로)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4970381700690_600.jpg`,
@@ -414,7 +414,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 쿠션(지지 초콜릿케익)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4992272943627_600.jpg`,
@@ -444,7 +444,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 스냅타올(지지 상큼한 베리 80cm)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4992272920376_600.jpg`,
@@ -474,7 +474,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 배스타올(지지와 리리)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4992272886061_600.jpg`,
@@ -504,7 +504,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 스냅타올(지지 아이들 60cm)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4992272795745_600.jpg`,
@@ -534,7 +534,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 디오라마 소품케이스(지지 꽃스테인드글라스)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593500895_600_02.jpg`,
@@ -564,7 +564,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: '[마녀배달부 키키] 디오라마 모래시계(코키리의 실험실)',
         quantity: 200,
-        buyQuantity: 198,
+        buyQuantity: 0,
         mainImages: [
           {
             path: `files/${clientId}/4990593499212_600.jpg`,

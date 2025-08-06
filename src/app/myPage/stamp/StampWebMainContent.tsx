@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import useUserStore from '@/zustand/userStore';
@@ -33,18 +33,7 @@ export default function StampWebMainContent() {
   const user = useUserStore((state) => state.user);
   const setUser = useUserStore((state) => state.setUser);
   const stampCount = user?.extra?.stamp ?? 0;
-
-  const [animateIndex, setAnimateIndex] = useState<number | null>(null);
   const [openToast, setOpenToast] = useState(false);
-
-  // 애니메이션 도장 설정
-  useEffect(() => {
-    const prev = Number(localStorage?.getItem('prevStampCount') ?? '0');
-    if (stampCount > prev) {
-      setAnimateIndex(stampCount - 1);
-      localStorage?.setItem('prevStampCount', String(stampCount));
-    }
-  }, [stampCount]);
 
   const safeCount = Math.min(stampCount, 8);
 
@@ -107,7 +96,7 @@ export default function StampWebMainContent() {
           {STAMP_IMAGES.slice(0, safeCount).map((img, i) => (
             <div
               key={i}
-              className={`${stampStyles.stamp_base} ${i === animateIndex ? stampStyles.stamp_animate : ''}`}
+              className={`${stampStyles.stamp_base} ${stampStyles.stamp_animate}`}
               style={{
                 position: 'absolute',
                 top: STAMP_POSITIONS[i].top,
