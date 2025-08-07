@@ -444,7 +444,7 @@ export default function CategoryPage() {
                   <Link href={`/products/${product._id}`}>
                     {product.mainImages?.[0]?.path && (
                       <Image
-                        src={`/${product.mainImages[0].path}`}
+                        src={product.mainImages[0].path}
                         alt={product.name}
                         width={180}
                         height={180}
@@ -531,7 +531,7 @@ export default function CategoryPage() {
                   <div className={styles.product_image}>
                     {product.mainImages?.[0]?.path && (
                       <Image
-                        src={`/${product.mainImages[0].path}`}
+                        src={product.mainImages[0].path}
                         alt={product.name}
                         width={180}
                         height={180}
