@@ -6,13 +6,14 @@ import ProductDetailContent from '@/app/products/[id]/prouctDetailCalc';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCartStore } from '@/zustand/userCartStore';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef } from 'react';
 interface WebProductDetailContentProps {
   product: Product;
 }
 
 export default function WebProductDetailContent({ product }: WebProductDetailContentProps) {
   const [quantity, setQuantity] = useState(1);
+  const bestSellersRef = useRef<HTMLDivElement>(null); // 스크롤 컨테이너 ref 추가
 
   const handleIncrease = useCallback(() => {
     setQuantity((prev) => Math.min(prev + 1, 99));
@@ -35,6 +36,21 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
 
     alert('장바구니에 담겼습니다!');
   };
+
+  // 스크롤 핸들러 함수 추가
+  const handleScroll = useCallback((direction: 'left' | 'right') => {
+    if (bestSellersRef.current) {
+      const container = bestSellersRef.current;
+      const scrollAmount = 300; // 한 번에 스크롤할 양
+
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   return (
     <>
       {/* 웹 상세 페이지 */}
@@ -66,7 +82,7 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
 
           <div className={detail_styles.web_detail_top_img_sm_container}>
             {product.mainImages.slice(1).map((image, index) => (
-              <div key={index} className={detail_styles.web_detail_img_wrapper}>
+              <div key={index} className={detail_styles.web_detail_main_img_wrapper}>
                 <Image
                   className={detail_styles.web_detail_img}
                   src={image.path}
@@ -312,7 +328,10 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                 <div className={detail_styles.web_detail_best_sellers_tit_wrapper}>
                   <h2 className={detail_styles.web_detail_best_sellers_tit}>인기상품</h2>
                   <div className={detail_styles.web_detail_best_sellers_button_wrapper}>
-                    <button className={detail_styles.web_detail_best_sellers_button_left}>
+                    <button
+                      className={detail_styles.web_detail_best_sellers_button_left}
+                      onClick={() => handleScroll('left')} // 왼쪽 버튼 클릭 핸들러
+                    >
                       <svg
                         width="30"
                         height="30"
@@ -332,7 +351,10 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                         />
                       </svg>
                     </button>
-                    <button className={detail_styles.web_detail_best_sellers_button_right}>
+                    <button
+                      className={detail_styles.web_detail_best_sellers_button_right}
+                      onClick={() => handleScroll('right')} // 오른쪽 버튼 클릭 핸들러
+                    >
                       <svg
                         width="30"
                         height="30"
@@ -355,7 +377,11 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                   </div>
                 </div>
 
-                <div className={detail_styles.web_detail_best_sellers_container_wrapper}>
+                {/* ref 추가 및 스크롤 스타일 적용 */}
+                <div
+                  className={detail_styles.web_detail_best_sellers_container_wrapper}
+                  ref={bestSellersRef}
+                >
                   {/* 상품 1 */}
                   <div className={detail_styles.web_detail_best_sellers_container}>
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
@@ -430,6 +456,44 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     </p>
                     <p className={detail_styles.web_detail_best_sellers_price}>44,800원</p>
                     <p className={detail_styles.web_detail_best_sellers_score}>평점 4 / 리뷰 256</p>
+                  </div>
+
+                  {/* 상품 5 */}
+                  <div className={detail_styles.web_detail_best_sellers_container}>
+                    <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
+                      <Image
+                        className={detail_styles.web_detail_best_sellers_img}
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/_Sb1Lz9AW1.jpg"
+                        alt="[마녀배달부 키키] 스냅타올(지지 아이들 60cm)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <p className={detail_styles.web_detail_best_sellers_name}>
+                      [마녀배달부 키키] 스냅타올(지지 아이들 60cm)
+                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>23,800원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 4 / 리뷰 255</p>
+                  </div>
+
+                  {/* 상품 6 */}
+                  <div className={detail_styles.web_detail_best_sellers_container}>
+                    <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
+                      <Image
+                        className={detail_styles.web_detail_best_sellers_img}
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/_P_jol0VUk.jpg"
+                        alt="[마녀배달부 키키] 스냅타올(지지 상큼한 베리 80cm)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <p className={detail_styles.web_detail_best_sellers_name}>
+                      [마녀배달부 키키] 스냅타올(지지 상큼한 베리 80cm)
+                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>32,000원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 3 / 리뷰 64</p>
                   </div>
                 </div>
               </section>
