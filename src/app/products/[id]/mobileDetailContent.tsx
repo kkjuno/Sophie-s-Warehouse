@@ -32,7 +32,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
       quantity: quantity,
       color: '베이지',
       size: '대형',
-      imageSrc: `/${product.mainImages[0].path}`,
+      imageSrc: product.mainImages[0].path,
     });
 
     alert('장바구니에 담겼습니다!');
@@ -44,7 +44,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
         {product.mainImages?.[0]?.path && (
           <Image
             className={detail_styles.mobile_detail_top_img}
-            src={`/${product.mainImages[0].path}`}
+            src={product.mainImages[0].path}
             alt={product.name}
             fill
           />
@@ -254,7 +254,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
               <div className={detail_styles.mobile_detail_img_wrapper}>
                 <Image
                   className={detail_styles.mobile_detail_top_img}
-                  src={`/${product.mainImages[0].path}`}
+                  src={product.mainImages[0].path}
                   alt={product.name}
                   fill
                 />
@@ -267,7 +267,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
               <div className={detail_styles.mobile_detail_img_wrapper}>
                 <Image
                   className={detail_styles.mobile_detail_top_img}
-                  src={`/${product.mainImages[0].path}`}
+                  src={product.mainImages[0].path}
                   alt={product.name}
                   fill
                 />
@@ -275,7 +275,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
               <div className={detail_styles.mobile_detail_img_wrapper}>
                 <Image
                   className={detail_styles.mobile_detail_top_img}
-                  src={`/${product.mainImages[0].path}`}
+                  src={product.mainImages[0].path}
                   alt={product.name}
                   fill
                 />
@@ -311,7 +311,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={`/${product.mainImages[0].path}`}
+                      src={product.mainImages[0].path}
                       alt={product.name}
                       fill
                     />
@@ -328,7 +328,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={`/${product.mainImages[0].path}`}
+                      src={product.mainImages[0].path}
                       alt={product.name}
                       fill
                     />
@@ -345,7 +345,7 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={`/${product.mainImages[0].path}`}
+                      src={product.mainImages[0].path}
                       alt={product.name}
                       fill
                     />
