@@ -80,6 +80,8 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
     }
   };
 
+  const product = isRolling ? currentProduct : winner;
+  const imagePath = product?.mainImages?.[0]?.path;
   return (
     <div className={stamp_page_styles.web_toast_ui_root_header}>
       <div className={stamp_page_styles.web_toast_ui_header_text}>
@@ -100,12 +102,7 @@ export default function StampWebToast({ onClose }: StampMobileWebProps) {
           </div>
         )}
         <div className={stamp_page_styles.web_toast_ui_lotto_item}>
-          <Image
-            src={`/${(isRolling ? currentProduct : winner)?.mainImages[0].path}`}
-            fill
-            alt="상품 이미지"
-            sizes="140px"
-          />
+          {imagePath && <Image src={imagePath} fill alt="상품 이미지" sizes="140px" />}
         </div>
       </div>
 
