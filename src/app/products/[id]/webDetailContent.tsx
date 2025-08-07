@@ -65,22 +65,16 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
           </div>
 
           <div className={detail_styles.web_detail_top_img_sm_container}>
-            <div className={detail_styles.web_detail_top_img_sm_wrapper}>
-              <Image
-                className={detail_styles.web_detail_sm_img}
-                src={product.mainImages[0].path}
-                alt={product.name}
-                fill
-              />
-            </div>
-            <div className={detail_styles.web_detail_top_img_sm_wrapper}>
-              <Image
-                className={detail_styles.web_detail_sm_img}
-                src={product.mainImages[0].path}
-                alt={product.name}
-                fill
-              />
-            </div>
+            {product.mainImages.slice(1).map((image, index) => (
+              <div key={index} className={detail_styles.web_detail_img_wrapper}>
+                <Image
+                  className={detail_styles.web_detail_img}
+                  src={image.path}
+                  alt={product.name}
+                  fill
+                />
+              </div>
+            ))}
           </div>
 
           {/* 웹 최상단 우측 상품 정보 부분 */}
@@ -259,22 +253,16 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                   빗방울이 똑똑 떨어지도록 섬세하게 만들었어요. <br />
                   보는 이의 마음을 사로잡는 편안함을 느낄 수 있는 워터가든입니다!
                 </p>
-                <div className={detail_styles.web_detail_img_wrapper}>
-                  <Image
-                    className={detail_styles.web_detail_img}
-                    src={product.mainImages[0].path}
-                    alt={product.name}
-                    fill
-                  />
-                </div>
-                <div className={detail_styles.web_detail_img_wrapper}>
-                  <Image
-                    className={detail_styles.web_detail_img}
-                    src={product.mainImages[0].path}
-                    alt={product.name}
-                    fill
-                  />
-                </div>
+                {product.mainImages.slice(1).map((image, index) => (
+                  <div key={index} className={detail_styles.web_detail_img_wrapper}>
+                    <Image
+                      className={detail_styles.web_detail_img}
+                      src={image.path}
+                      alt={product.name}
+                      fill
+                    />
+                  </div>
+                ))}
 
                 {/* 웹 유의사항 */}
                 <div className={detail_styles.web_detail_notice_wrapper}>
