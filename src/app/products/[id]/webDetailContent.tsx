@@ -366,179 +366,94 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     </button>
                   </div>
                 </div>
+
                 <div className={detail_styles.web_detail_best_sellers_container_wrapper}>
+                  {/* 상품 1 */}
                   <div className={detail_styles.web_detail_best_sellers_container}>
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/2RTq5Xg35S.jpg"
+                        alt="[하울의 움직이는 성] PT-333 (소피)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
-                      하울의 움직이는 성 KM-M11
+                      [하울의 움직이는 성] PT-333 (소피)
                     </p>
-                    <p className={detail_styles.web_detail_best_sellers_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_best_sellers_score}>
-                      평점 4.9 / 리뷰 37
-                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>28,000원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 3 / 리뷰 165</p>
                   </div>
+
+                  {/* 상품 2 */}
                   <div className={detail_styles.web_detail_best_sellers_container}>
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528719/febc13-final07-emjf/MLrCXmBvD.jpg"
+                        alt="[하울의 움직이는 성]점착메모지(하울의움직이는성)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
-                      하울의 움직이는 성 KM-M11
+                      [하울의 움직이는 성]점착메모지(하울의움직이는성)
                     </p>
-                    <p className={detail_styles.web_detail_best_sellers_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_best_sellers_score}>
-                      평점 4.9 / 리뷰 37
-                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>8,500원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 4 / 리뷰 127</p>
                   </div>
+
+                  {/* 상품 3 */}
                   <div className={detail_styles.web_detail_best_sellers_container}>
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/fULHxWfzUl.jpg"
+                        alt="[하울의 움직이는 성]하울(움직이는하울의성)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
-                      하울의 움직이는 성 KM-M11
+                      [하울의 움직이는 성]하울(움직이는하울의성)
                     </p>
-                    <p className={detail_styles.web_detail_best_sellers_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_best_sellers_score}>
-                      평점 4.9 / 리뷰 37
-                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>280,000원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 5 / 리뷰 89</p>
                   </div>
+
+                  {/* 상품 4 */}
                   <div className={detail_styles.web_detail_best_sellers_container}>
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
+                        src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/qpyf2EYU7r.jpg"
+                        alt="[하울의 움직이는 성]양모냄비받침(캘시퍼)"
+                        width={200}
+                        height={200}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
-                      하울의 움직이는 성 KM-M11
+                      [하울의 움직이는 성]양모냄비받침(캘시퍼)
                     </p>
-                    <p className={detail_styles.web_detail_best_sellers_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_best_sellers_score}>
-                      평점 4.9 / 리뷰 37
-                    </p>
+                    <p className={detail_styles.web_detail_best_sellers_price}>44,800원</p>
+                    <p className={detail_styles.web_detail_best_sellers_score}>평점 4 / 리뷰 256</p>
                   </div>
                 </div>
               </section>
 
               {/* 웹 장바구니 상품 */}
-              <section className={detail_styles.web_detail_cart_wrapper}>
-                <div className={detail_styles.web_detail_cart_tit_wrapper}>
-                  <h2 className={detail_styles.web_detail_cart_tit}>장바구니 상품</h2>
-                  <div className={detail_styles.web_detail_cart_button_wrapper}>
-                    <button className={detail_styles.web_detail_cart_button_left}>
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 38 38"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0 19C0 8.50659 8.50659 0 19 0C29.4934 0 38 8.50659 38 19C38 29.4934 29.4934 38 19 38C8.50659 38 0 29.4934 0 19ZM1 19C1 28.9411 9.05887 37 19 37C28.9411 37 37 28.9411 37 19C37 9.05887 28.9411 1 19 1C9.05887 1 1 9.05887 1 19Z"
-                          fill="black"
-                        />
-                        <path
-                          d="M23.2218 10.5554L14.7773 18.9999L23.2218 27.4443"
-                          stroke="black"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                    <button className={detail_styles.web_detail_cart_button_right}>
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 38 38"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M38 19C38 29.4934 29.4934 38 19 38C8.50659 38 0 29.4934 0 19C0 8.50659 8.50659 0 19 0C29.4934 0 38 8.50659 38 19ZM37 19C37 9.05887 28.9411 1 19 1C9.05887 1 1 9.05887 1 19C1 28.9411 9.05887 37 19 37C28.9411 37 37 28.9411 37 19Z"
-                          fill="black"
-                        />
-                        <path
-                          d="M14.7782 27.4446L23.2227 19.0001L14.7782 10.5557"
-                          stroke="black"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div className={detail_styles.web_detail_cart_container_wrapper}>
-                  <div className={detail_styles.web_detail_cart_container}>
-                    <div className={detail_styles.web_detail_cart_img_wrapper}>
-                      <Image
-                        className={detail_styles.web_detail_cart_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
-                      />
-                    </div>
-                    <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
-                    <p className={detail_styles.web_detail_cart_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_cart_score}>평점 4.9 / 리뷰 37</p>
-                  </div>
-                  <div className={detail_styles.web_detail_cart_container}>
-                    <div className={detail_styles.web_detail_cart_img_wrapper}>
-                      <Image
-                        className={detail_styles.web_detail_cart_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
-                      />
-                    </div>
-                    <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
-                    <p className={detail_styles.web_detail_cart_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_cart_score}>평점 4.9 / 리뷰 37</p>
-                  </div>
-                  <div className={detail_styles.web_detail_cart_container}>
-                    <div className={detail_styles.web_detail_cart_img_wrapper}>
-                      <Image
-                        className={detail_styles.web_detail_cart_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
-                      />
-                    </div>
-                    <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
-                    <p className={detail_styles.web_detail_cart_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_cart_score}>평점 4.9 / 리뷰 37</p>
-                  </div>
-                  <div className={detail_styles.web_detail_cart_container}>
-                    <div className={detail_styles.web_detail_cart_img_wrapper}>
-                      <Image
-                        className={detail_styles.web_detail_cart_img}
-                        src={product.mainImages[0].path}
-                        alt={product.name}
-                        fill
-                      />
-                    </div>
-                    <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
-                    <p className={detail_styles.web_detail_cart_price}>1,8000원</p>
-                    <p className={detail_styles.web_detail_cart_score}>평점 4.9 / 리뷰 37</p>
-                  </div>
-                </div>
+              <section className={detail_styles.mobile_detail_cart_wrapper}>
+                <h2 className={detail_styles.mobile_detail_cart_tit}>장바구니 상품</h2>
+                <ul className={detail_styles.mobile_detail_cart_list_wrapper}>
+                  <li className={detail_styles.mobile_detail_cart_list}>
+                    장바구니에 담긴 상품이 없습니다.
+                  </li>
+                </ul>
               </section>
             </div>
           </details>

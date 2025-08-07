@@ -276,9 +276,9 @@
 
 /* 모바일 인기상품 */
 .mobile_detail_best_sellers_wrapper {
-  display: flex;
-  flex-flow: column wrap;
-  margin-top: 0.625rem;
+  width: 100%;
+  padding: 0 1rem; /* 좌우 여백 추가 */
+  box-sizing: border-box;
 }
 
 .mobile_detail_best_sellers_tit {
@@ -290,13 +290,15 @@
 
 .mobile_detail_best_sellers_container_wrapper {
   display: flex;
-  flex-flow: row nowrap;
-  gap: 0.5rem;
+  overflow-x: auto; /* 가로 스크롤 허용 (필요시) */
+  gap: 28px;
+  padding-bottom: 0.5rem; /* 스크롤바 공간 확보 */
+  -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
 }
 
 .mobile_detail_best_sellers_container {
-  display: flex;
-  flex-flow: column wrap;
+  flex: 0 0 auto; /* 크기 고정 */
+  width: 120px; /* 고정 너비 (모바일에 적합한 크기) */
 }
 
 .mobile_detail_best_sellers_img_wrapper {
@@ -309,10 +311,12 @@
 }
 
 .mobile_detail_best_sellers_name {
-  font-size: clamp(0.75rem, 3vw, 0.875rem);
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
 }
 
 .mobile_detail_best_sellers_price {
@@ -835,13 +839,14 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    gap: 1rem; /* 상품 간 간격 고정 */
   }
-
   .web_detail_best_sellers_container {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
+    flex-shrink: 0; /* 중요: 박스 크기 고정 */
+    width: clamp(150px, 20vw, 250px); /* 반응형 너비 제한 */
   }
-
   .web_detail_best_sellers_img_wrapper {
     position: relative;
     width: clamp(6rem, 18vw, 22rem);
@@ -856,6 +861,15 @@
     font-weight: 700;
     color: #000;
     margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* 부모 너비를 벗어나지 않게 함 */
+  }
+  .web_detail_best_sellers_name p {
+    white-space: nowrap; /* wrap → nowrap으로 변경 */
+    overflow: hidden; /* 넘치는 내용 숨김 */
+    text-overflow: ellipsis; /* 말줄임표 추가 */
   }
 
   .web_detail_best_sellers_price {
