@@ -138,7 +138,7 @@ export default function ProductSection(): JSX.Element {
 
   // 카테고리별 상품 필터링 (최대 6개)
   const getRowProducts = (movie: string) =>
-    products.filter((product) => product.extra?.movie === movie).slice(0, 6);
+    products.filter((product) => product.extra?.movie === movie).slice(0, 12);
 
   const handleCategoryClick = (category: string) => {
     console.log(`Category clicked: ${category}`);

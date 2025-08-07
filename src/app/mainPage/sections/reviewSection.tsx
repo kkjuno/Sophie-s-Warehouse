@@ -1,24 +1,94 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { productFetch } from '@/app/fetch/product';
+import { Product } from '@/app/types/productType';
 import styles from '../../../styles/mainPage/sections/reviewSection.module.css';
 
 export interface ReviewItem {
-  id: number;
+  id: string;
   name: string;
   content: string;
   image: string;
   rating: number;
 }
 
-interface ReviewSectionProps {
-  reviews: ReviewItem[];
-}
+// 상품을 ReviewItem으로 변환하는 함수
+const convertProductToReview = (product: Product): ReviewItem => {
+  // 리뷰 내용 샘플 (실제로는 별도 API에서 가져와야 함)
+  const sampleReviews = [
+    '상품이 너무 예뻐요! 다음에 또 구매할게요',
+    '배송이 빠르고 상품 상태 좋았습니다',
+    '기대했던 것보다 훨씬 좋아요',
+    '친구에게 선물했더니 너무 좋아했어요',
+    '가격 대비 만족스러운 품질입니다',
+    '포장도 깔끔하고 상품도 만족해요',
+    '생각보다 퀄리티가 좋네요!',
+    '선물용으로 구매했는데 반응이 좋았어요',
+  ];
 
-export default function ReviewSection({ reviews }: ReviewSectionProps) {
-  // 리뷰 섹션 스크롤 이벤트
+  return {
+    id: String(product._id), // number를 string으로 변환
+    name: product.name,
+    content: sampleReviews[Math.floor(Math.random() * sampleReviews.length)],
+    image: product.mainImages?.[0]?.path || '/images/default-product.jpg',
+    rating: product.extra?.rating || 5,
+  };
+};
+export default function ReviewSection() {
+  const [reviews, setReviews] = useState<ReviewItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const data = await productFetch();
+        console.log('API Response:', data);
+
+        if (data.ok === 0) {
+          throw new Error(data.message || '상품 조회 실패');
+        }
+
+        const products = data.item || [];
+
+        // 리뷰로 표시할 상품들 필터링 및 선택
+        const reviewProducts = products
+          .filter((product: Product) => {
+            // 여기서 원하는 조건으로 필터링
+            return (
+              product.extra?.reviewCount &&
+              product.extra.reviewCount > 0 && // 리뷰가 있는 상품
+              product.extra?.rating &&
+              product.extra.rating >= 4 && // 평점 4점 이상
+              product.mainImages &&
+              product.mainImages.length > 0 // 이미지가 있는 상품
+            );
+          })
+          .sort((a: Product, b: Product) => {
+            // 리뷰 수가 많은 순으로 정렬
+            const aReviews = a.extra?.reviewCount || 0;
+            const bReviews = b.extra?.reviewCount || 0;
+            return bReviews - aReviews;
+          })
+          .slice(0, 5) // 상위 5개만 선택
+          .map(convertProductToReview);
+
+        setReviews(reviewProducts);
+      } catch (err) {
+        console.error('Error fetching reviews:', err);
+        setError(err instanceof Error ? err.message : '알 수 없는 오류');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
+  // 스크롤 이벤트 처리
   useEffect(() => {
     const scroll_containers = document.querySelectorAll(
       `.${styles.review_row}`,
@@ -93,7 +163,25 @@ export default function ReviewSection({ reviews }: ReviewSectionProps) {
         container.removeEventListener('touchmove', handle_touch_move);
       });
     };
-  }, []);
+  }, [reviews]);
+
+  if (loading) {
+    return (
+      <section className={styles.review_section}>
+        <h2 className={styles.section_title}>REVIEW</h2>
+        <div className={styles.loading}>리뷰를 불러오는 중...</div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={styles.review_section}>
+        <h2 className={styles.section_title}>REVIEW</h2>
+        <div className={styles.error}>리뷰 로딩 중 오류가 발생했습니다: {error}</div>
+      </section>
+    );
+  }
 
   return (
     <section className={styles.review_section}>
@@ -102,7 +190,7 @@ export default function ReviewSection({ reviews }: ReviewSectionProps) {
         <div className={styles.review_row}>
           {reviews.map((review) => (
             <div key={review.id} className={styles.review_card}>
-              <Link href={`/reviews/${review.id}`} className={styles.review_link}>
+              <Link href={`/products/${review.id}`} className={styles.review_link}>
                 <div className={styles.review_main_image}>
                   <Image
                     src={review.image}
