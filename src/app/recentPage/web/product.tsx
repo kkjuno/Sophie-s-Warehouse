@@ -83,7 +83,7 @@ const WebRecentProducts = () => {
                 >
                   <div className={styles.product_image}>
                     <Image
-                      src={`/${product.mainImages?.[0]?.path || 'default-product-image.png'}`}
+                      src={product.mainImages?.[0]?.path || '/default-product-image.png'}
                       alt={product.name}
                       className={styles.product_image_img}
                       onError={(e) => (e.currentTarget.src = '/default-product-image.png')}
