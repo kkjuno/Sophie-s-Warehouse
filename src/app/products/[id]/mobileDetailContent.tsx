@@ -311,51 +311,66 @@ export default function MobileProductDetailContent({ product }: MobileProductDet
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={product.mainImages[0].path}
-                      alt={product.name}
+                      src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/2RTq5Xg35S.jpg"
+                      alt="[하울의 움직이는 성] PT-333 (소피)"
                       fill
                     />
                   </div>
                   <p className={detail_styles.mobile_detail_best_sellers_name}>
-                    하울의 움직이는 성 KM-M11
+                    [하울의 움직이는 성] PT-333 (소피)
                   </p>
-                  <p className={detail_styles.mobile_detail_best_sellers_price}>1,8000원</p>
+                  <p className={detail_styles.mobile_detail_best_sellers_price}>28,000원</p>
                   <p className={detail_styles.mobile_detail_best_sellers_score}>
-                    평점 4.9 / 리뷰 37
+                    평점 3 / 리뷰 165
                   </p>
                 </div>
                 <div className={detail_styles.mobile_detail_best_sellers_container}>
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={product.mainImages[0].path}
-                      alt={product.name}
+                      src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528719/febc13-final07-emjf/MLrCXmBvD.jpg"
+                      alt="[하울의 움직이는 성]점착메모지(하울의움직이는성)"
                       fill
                     />
                   </div>
                   <p className={detail_styles.mobile_detail_best_sellers_name}>
-                    하울의 움직이는 성 KM-M11
+                    [하울의 움직이는 성]점착메모지(하울의움직이는성)
                   </p>
-                  <p className={detail_styles.mobile_detail_best_sellers_price}>1,8000원</p>
+                  <p className={detail_styles.mobile_detail_best_sellers_price}>8,500원</p>
                   <p className={detail_styles.mobile_detail_best_sellers_score}>
-                    평점 4.9 / 리뷰 37
+                    평점 4 / 리뷰 127
                   </p>
                 </div>
                 <div className={detail_styles.mobile_detail_best_sellers_container}>
                   <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
                     <Image
                       className={detail_styles.mobile_detail_top_img}
-                      src={product.mainImages[0].path}
-                      alt={product.name}
+                      src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/fULHxWfzUl.jpg"
+                      alt="[하울의 움직이는 성]하울(움직이는하울의성)"
                       fill
                     />
                   </div>
                   <p className={detail_styles.mobile_detail_best_sellers_name}>
-                    하울의 움직이는 성 KM-M11
+                    [하울의 움직이는 성]하울(움직이는하울의성)
                   </p>
-                  <p className={detail_styles.mobile_detail_best_sellers_price}>1,8000원</p>
+                  <p className={detail_styles.mobile_detail_best_sellers_price}>280,000원</p>
+                  <p className={detail_styles.mobile_detail_best_sellers_score}>평점 5 / 리뷰 89</p>
+                </div>
+                <div className={detail_styles.mobile_detail_best_sellers_container}>
+                  <div className={detail_styles.mobile_detail_best_sellers_img_wrapper}>
+                    <Image
+                      className={detail_styles.mobile_detail_top_img}
+                      src="https://res.cloudinary.com/ddedslqvv/image/upload/v1754528718/febc13-final07-emjf/qpyf2EYU7r.jpg"
+                      alt="[하울의 움직이는 성]양모냄비받침(캘시퍼)"
+                      fill
+                    />
+                  </div>
+                  <p className={detail_styles.mobile_detail_best_sellers_name}>
+                    [하울의 움직이는 성]양모냄비받침(캘시퍼)
+                  </p>
+                  <p className={detail_styles.mobile_detail_best_sellers_price}>44,800원</p>
                   <p className={detail_styles.mobile_detail_best_sellers_score}>
-                    평점 4.9 / 리뷰 37
+                    평점 4 / 리뷰 256
                   </p>
                 </div>
               </div>

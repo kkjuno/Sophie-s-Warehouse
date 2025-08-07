@@ -107,7 +107,7 @@ export default function MobileRecentProducts() {
               <div key={product._id} className={styles.product_item}>
                 {/* 상품 이미지 */}
                 <Image
-                  src={`/${product.mainImages?.[0]?.path || 'default-product-image.png'}`}
+                  src={product.mainImages?.[0]?.path || '/default-product-image.png'}
                   alt={product.name}
                   className={styles.product_image}
                   onError={(e) => {
