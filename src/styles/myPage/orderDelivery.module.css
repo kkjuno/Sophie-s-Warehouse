@@ -29,7 +29,7 @@
 /* 모바일 기간 검색 부분 */
 .mobile_order_delivery_page {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   background-color: #ffffff;
   width: 100%;
   height: 100vh;
@@ -37,7 +37,7 @@
 
 .mobile_order_delivery {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   width: 100%;
   height: 13vh;
   padding: 1rem;
@@ -118,6 +118,7 @@
 
 .mobile_order_delivery_wrapper {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -155,7 +156,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 1.5rem 1.2rem 0 1.2rem;
+  padding: 1.5rem 1.2rem 5rem 1.2rem;
   flex: 1;
   overflow-y: auto; /* 세로 스크롤 활성화 */
   width: 100%;
