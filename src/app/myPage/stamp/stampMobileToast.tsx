@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { productFetch } from '@/app/fetch/product';
 import { useEffect, useState } from 'react';
 import { Product } from '@/app/types/productType';
+import useUserStore from '@/zustand/userStore';
 
 interface StampMobileToastProps {
   onClose: () => void;
@@ -15,6 +16,45 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRolling, setIsRolling] = useState(true);
   const [winner, setWinner] = useState<Product | null>(null);
+  const user = useUserStore((state) => state.user);
+  const handleSaveWinner = async () => {
+    if (!winner || !user) return;
+
+    const body = {
+      type: 'lottery',
+      title: winner.name,
+      content: winner.extra.movie,
+      views: winner.price,
+      user: {
+        _id: user._id,
+        name: user.name,
+        image: user.image,
+      },
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch('https://fesp-api.koyeb.app/market/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user.token?.accessToken}`,
+          'Client-id': 'febc13-final07-emjf',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (res.ok) {
+        console.log('당첨 내역 저장 성공');
+
+        window.location.href = '/myPage/rewards';
+      } else {
+        console.error('저장 실패', await res.text());
+      }
+    } catch (err) {
+      console.error('에러 발생:', err);
+    }
+  };
   // 스탬프 가챠 애니메이션
   useEffect(() => {
     async function startGatcha() {
@@ -42,7 +82,9 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
   }, []);
 
   const currentProduct = rollingProducts[currentIndex];
-  const imagePath = (isRolling ? currentProduct : winner)?.mainImages?.[0]?.path;
+  const product = isRolling ? currentProduct : winner;
+  const imagePath = product?.mainImages?.[0]?.path;
+  console.log('이미지 경로', imagePath);
   return (
     <div className={stamp_page_styles.mobile_toast_ui_root_header}>
       <div className={stamp_page_styles.mobile_toast_ui_header_text}>
@@ -62,7 +104,7 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
           </div>
         )}
         <div className={stamp_page_styles.mobile_toast_ui_lotto_item}>
-          {imagePath && <Image src={`/${imagePath}`} fill alt="상품 이미지" sizes="140px" />}
+          {imagePath && <Image src={imagePath} fill alt="상품 이미지" sizes="140px" />}
         </div>
       </div>
 
@@ -84,7 +126,9 @@ export default function StampMobileToast({ onClose }: StampMobileToastProps) {
             <button className={styles.close_button} onClick={onClose}>
               닫기
             </button>
-            <button className={styles.quick_link_button}>바로가기</button>
+            <button className={styles.quick_link_button} onClick={handleSaveWinner}>
+              바로가기
+            </button>
           </div>
           <div className={stamp_page_styles.mobile_toast_ui_footer_text}>
             <span>상품은 마이페이지 &gt; 혜택관리 &gt; 당첨내역에서 확인하세요!</span>
