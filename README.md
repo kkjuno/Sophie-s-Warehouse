@@ -37,8 +37,9 @@
 
 ## 📚 목차
 - [🌿 프로젝트 소개](#-1-프로젝트-소개)
-- [🛠 개발 환경](#-2-개발-환경)
-- [✨ 주요 기능](#-3-주요-기능)
+- [🌟 팀원 소개](#-2-팀원-소개)
+- [🛠 개발 환경](#-3-개발-환경)
+- [✨ 주요 기능](#-4-주요-기능)
 <br><br>
 
 ## 🌿 1. 프로젝트 소개
@@ -46,9 +47,44 @@
 > **소피의 창고**는 스튜디오 지브리 애니메이션 속 아름다운 순간들을 오래도록 간직할 수 있는 특별한 굿즈를 판매하는 공간입니다.  
 > 피규어, 문구, 생활소품까지 사랑스러운 지브리 아이템들을 한데 모았습니다.
 
+> 기존 사이트의 반응형 미지원 문제를 보완하고자,
+> 다양한 디바이스에서 쾌적한 쇼핑 경험을 제공하는 형태로 재구성한 프로젝트입니다.
+
 <br><br>
 
-## 🛠 2. 개발 환경 
+## 🌟 2. 팀원 소개
+
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://avatars.githubusercontent.com/u/101514753?v=4" width="200px" height="200px" style="object-fit: cover;" />
+      </td>
+      <td>
+        <img src="https://avatars.githubusercontent.com/u/194521004?v=4" width="200px" height="200px" style="object-fit: cover;" />
+      </td>
+      <td>
+        <img src="https://avatars.githubusercontent.com/u/198074247?v=4" width="200px" height="200px" style="object-fit: cover;" />
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <sub><b>김진섭 </b><a href="https://github.com/Jinseob92">(@Jinseob92)</a></sub>
+      </td>
+      <td>
+        <sub><b>김준오 </b><a href="https://github.com/kkjuno">(@kkjuno)</a></sub>
+      </td>
+      <td>
+        <sub><b>장유하 </b><a href="https://github.com/yuha2">(@yuha2)</a></sub>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+
+
+## 🛠 3. 개발 환경 
 
 <div>
 
@@ -68,7 +104,7 @@
 </div>
 <br><br>
       
-## ✨ 3. 주요 기능
+## ✨ 4. 주요 기능
 
 | 기능 | 설명 |
 |------|------|

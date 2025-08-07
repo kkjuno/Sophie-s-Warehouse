@@ -37,7 +37,7 @@ export default function ProductCard({ product, viewMode = 'grid' }: ProductCardP
         <div className={styles.product_image}>
           {product.mainImages?.[0]?.path ? (
             <Image
-              src={`/${product.mainImages[0].path}`}
+              src={product.mainImages[0].path}
               alt={product.name}
               onError={(e) => {
                 e.currentTarget.src = '/images/placeholder.png';
