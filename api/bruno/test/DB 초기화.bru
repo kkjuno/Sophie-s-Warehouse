@@ -1,0 +1,15 @@
+meta {
+  name: DB 초기화
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/db/init
+  body: multipartForm
+  auth: inherit
+}
+
+headers {
+  client-id: febc13-final07-emjf
+}
