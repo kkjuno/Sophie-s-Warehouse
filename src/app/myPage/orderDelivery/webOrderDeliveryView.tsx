@@ -177,7 +177,7 @@ export default function OrderDeliveryView() {
       case 'OS040':
         return '배송완료';
       default:
-        return '알 수 없음';
+        return '주문접수';
     }
   };
 
