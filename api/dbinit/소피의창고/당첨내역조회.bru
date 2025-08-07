@@ -1,0 +1,24 @@
+meta {
+  name: 당첨내역조회
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://fesp-api.koyeb.app/market/posts?type=lottery
+  body: none
+  auth: inherit
+}
+
+params:query {
+  type: lottery
+}
+
+headers {
+  Client-id: febc13-final07-emjf
+  : 
+}
+
+settings {
+  encodeUrl: true
+}
