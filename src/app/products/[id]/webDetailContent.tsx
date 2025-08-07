@@ -371,9 +371,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
@@ -388,9 +388,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
@@ -405,9 +405,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
@@ -422,9 +422,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_best_sellers_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_best_sellers_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_best_sellers_name}>
@@ -490,9 +490,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_cart_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_cart_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
@@ -503,9 +503,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_cart_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_cart_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
@@ -516,9 +516,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_cart_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_cart_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
@@ -529,9 +529,9 @@ export default function WebProductDetailContent({ product }: WebProductDetailCon
                     <div className={detail_styles.web_detail_cart_img_wrapper}>
                       <Image
                         className={detail_styles.web_detail_cart_img}
-                        src="/images/products/howl/howl-diorama.svg"
+                        src={product.mainImages[0].path}
+                        alt={product.name}
                         fill
-                        alt="상품 이미지"
                       />
                     </div>
                     <p className={detail_styles.web_detail_cart_name}>하울의 움직이는 성 KM-M11</p>
